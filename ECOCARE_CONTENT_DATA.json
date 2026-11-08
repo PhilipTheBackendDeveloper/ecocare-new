@@ -1,0 +1,2625 @@
+{
+  "schema_version": "1.0",
+  "project": "EcoCare website content migration to purchased ThemeForest template",
+  "research_date": "2026-11-08",
+  "purpose": "Source-aware content and implementation brief; not a client-approved PRD, legal opinion, template audit or live business verification.",
+  "status_semantics": {
+    "HISTORICAL_SITE_CLAIMS_REQUIRE_CLIENT_CONFIRMATION": "Published old website text, not verified fact",
+    "HOLD_UNTIL_VERIFIED": "Do not publish without verification, rights and owner sign-off",
+    "PROPOSED_COPY_FROM_HISTORICAL_OFFERINGS_NOT_APPROVED": "Editorial draft not approved",
+    "RESEARCH_GUIDANCE": "External current guidance, not a claim about EcoCare"
+  },
+  "sources": {
+    "uploaded_file_names": [
+      "Laundry-booking.php",
+      "Upholstery-details.html",
+      "categories.html",
+      "cleaning-details.html",
+      "contact-us.html",
+      "fumigation-details.html",
+      "index(1).html",
+      "index.html",
+      "privacy-policy.html",
+      "service-details.html",
+      "service-grid.html",
+      "service-list.html",
+      "service-list2.html",
+      "terms-condition.html"
+    ],
+    "legacy_code_repo": "https://github.com/PhilipTheBackendDeveloper/ecocare-website",
+    "legacy_site": "https://ecocare-website.vercel.app/",
+    "connected_git_repo_extra_pages": [
+      "about-us.html",
+      "capet-details.html",
+      "booking.html",
+      "booking-laundry.html",
+      "booking-fumigation.html",
+      "booking-upholstery.html",
+      "booking-capet.html",
+      "carpet-booking.php",
+      "appointment.php",
+      "contact.php"
+    ],
+    "research_urls": [
+      "https://dpc.gov.gh/compliance/",
+      "https://app.dpc.gov.gh/",
+      "https://www.brr.gov.gh/new/reg_details?id=MTg1Mg%3D%3D",
+      "https://www.epa.gov.gh/new/public-notice-on-certification-of-environmental-management-practioners-environmental-protection-authority-2026/",
+      "https://developers.google.com/search/docs/fundamentals/seo-starter-guide",
+      "https://developers.google.com/search/docs/appearance/structured-data/local-business",
+      "https://www.w3.org/WAI/standards-guidelines/wcag/"
+    ]
+  },
+  "company": {
+    "published_company_name": "EcoCare Cleaning Services Limited",
+    "also_seen": [
+      "EcoCare Cleaning Services Ltd",
+      "EcoCare",
+      "Ecoclean",
+      "EcoClean"
+    ],
+    "published_taglines": [
+      "Protect the Environment, Live Better, Prolong Life.",
+      "You got dirt? We got Clean."
+    ],
+    "published_headquarters": "Achimota Mile 7, Accra, Ghana",
+    "published_registration_date": "2014-09-19",
+    "published_operations_start_date": "2014-09-30",
+    "published_legal_basis_wording": "registered under the Ghanaian Companies Code 1963",
+    "published_association": "Contract Cleaners Association of Ghana (CCAG)",
+    "published_coverage_claim": "operations across Ghana",
+    "historical_shareholders": [
+      {
+        "name": "Eric Nana Acquah",
+        "source": "index.html/about-us.html"
+      },
+      {
+        "name": "Margaret Owusua Boakye",
+        "source": "index.html/about-us.html",
+        "conflict": "about page team uses Margaret Owusua Acquah"
+      }
+    ],
+    "historical_leadership": [
+      {
+        "name": "Eric Nana Acquah",
+        "role": "CEO",
+        "contact_display": "+233 24 380 7100"
+      },
+      {
+        "name": "Margaret Owusua Acquah",
+        "role": "Administrative Accountant",
+        "contact_display": "+233 24 901 4253",
+        "conflict": "surname differs from company history"
+      }
+    ],
+    "status": "HISTORICAL_SITE_CLAIMS_REQUIRE_CLIENT_CONFIRMATION"
+  },
+  "contact": {
+    "office_as_published": "Mile 7, Achimota, Accra, Ghana",
+    "phones_as_published": [
+      "+233 24 901 4253",
+      "+233 24 380 7100"
+    ],
+    "primary_email_as_published": "ecocaregh1on1@gmail.com",
+    "other_visible_email": "info@ecocaregh.com",
+    "other_mailto_mismatch": {
+      "display_text": "info@ecocaregh.com",
+      "href": "mailto:ecocare1on1@gmail.com",
+      "source": "contact-us.html"
+    },
+    "historical_custom_domain": "ecocaregh.com",
+    "social_links_as_published": {
+      "facebook": "https://www.facebook.com/profile.php?id=100006412849415&mibextid=ZbWKwL",
+      "tiktok": "https://www.tiktok.com/@ecocarecompanylimited",
+      "youtube": "https://www.youtube.com/channel/UCdJfEIsRCxYaOnnmhbs2kcA"
+    },
+    "google_maps_embed_as_published": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3970.5870075801395!2d-0.24410990324261828!3d5.627819178441937!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xfdf995df95740cb%3A0xbbcb29ede8158fa1!2sEcoCare%20Laundry!5e0!3m2!1sen!2sgh!4v1735185870106!5m2!1sen!2sgh",
+    "public_listing_requires_confirmation": {
+      "name": "EcoCare Laundry",
+      "area": "Mile 7 near Kingsby St, Achimota",
+      "phone": "+233 30 709 7557",
+      "schedule": "Monday–Saturday 07:00–19:30, Sunday closed according to search result",
+      "caution": "May be related but not proven to represent the same business or the current phone."
+    },
+    "status": "HISTORICAL_SITE_CLAIMS_REQUIRE_CLIENT_CONFIRMATION"
+  },
+  "about": {
+    "company_history_as_published": "EcoCare Cleaning Services Ltd (herein referred to as Ecoclean) Is a Startup Company formed and registered under the Ghanaian Companies Code 1963 on September 19th, 2014 to commence business on September 30th, 2014. The current shareholders of the Company are Eric Nana Acquah and Margaret Owusua Boakye (hereinafter referred to as “promoters”). The Company has renowned and experienced environmentalist, fumigation and cleaning consultants with operation across Ghana and Main office at Achimota Mile 7 Accra. The company is a member of Contract Cleaners Association of Ghana (CCAG).",
+    "mission_vision_pillars_as_published": [
+      {
+        "heading": "Neighborhood Revitalization",
+        "text": "Our mission is to create cleaner, safer neighborhood in which we live by working together with our neighbors to improve our local environmental quality."
+      },
+      {
+        "heading": "Sustainable Growth",
+        "text": "A growing Cleaning Economy that set the standard for eco-conscious cleaning solution, creates jobs, and protects the environment."
+      },
+      {
+        "heading": "Excellence",
+        "text": "We aim to continually innovate and improve, staying at the forefront of industry trends while maintaining high standards."
+      }
+    ],
+    "why_choose_items_as_published": [
+      "24/7 Supports",
+      "Expert Team",
+      "Comprehensive Services",
+      "Eco-Friendly Solutions",
+      "Affordable Pricing"
+    ],
+    "published_metrics": [
+      {
+        "label": "Satisfied Clients",
+        "value": "2583+"
+      },
+      {
+        "label": "Expert Team",
+        "value": "80+"
+      },
+      {
+        "label": "Project Completed",
+        "value": "2129+"
+      },
+      {
+        "label": "Years of experience",
+        "value": "10+"
+      }
+    ],
+    "about_testimonials_as_published": [
+      {
+        "name_as_published": "Sarah Amissiah",
+        "role_as_published": "Residential Client",
+        "quote_as_published": "EcoCare has truly transformed our home. Their team is professional, efficient, and pays great attention to detail. We appreciate their commitment to sustainability and eco-friendly practices, which makes a huge difference to our family and the environment!",
+        "publication_status": "HOLD_UNTIL_VERIFIED"
+      },
+      {
+        "name_as_published": "Jessica Poku",
+        "role_as_published": "Uber",
+        "quote_as_published": "As a business owner, I’m always looking for reliable services that won’t disrupt my operations. EcoCare provides top-tier cleaning services that meet our needs while being mindful of the environment. Their team is trustworthy, and the results speak for themselves.",
+        "publication_status": "HOLD_UNTIL_VERIFIED"
+      },
+      {
+        "name_as_published": "Jephthah Datsomor",
+        "role_as_published": "Moove Ghana",
+        "quote_as_published": "We’ve worked with several cleaning companies, but none compare to EcoCare. Their commitment to customer satisfaction and environmentally-friendly practices is outstanding. They consistently go above and beyond, and we wouldn’t trust anyone else for our facility’s cleaning needs.",
+        "publication_status": "HOLD_UNTIL_VERIFIED"
+      }
+    ],
+    "about_source": "https://github.com/PhilipTheBackendDeveloper/ecocare-website/blob/main/about-us.html",
+    "publication_status": "HISTORICAL_SITE_CLAIM_PENDING_CONFIRMATION"
+  },
+  "homepage_as_published": {
+    "taglines": [
+      "Protect the Environment, Live Better, Prolong Life.",
+      "You got dirt? We got Clean."
+    ],
+    "featured_categories": [
+      "Upholstery Services",
+      "Home Cleaning",
+      "Carpet Cleaning",
+      "Laundry Services",
+      "Commercial Cleaning",
+      "Fumigation and Pest Control"
+    ],
+    "process_as_published": [
+      {
+        "name": "Select Your Service",
+        "detail": "Choose from our range of expert services."
+      },
+      {
+        "name": "Book & Schedule",
+        "detail": "Booking is easy: Online or Phone"
+      },
+      {
+        "name": "We Take Care of the Rest",
+        "detail": "Pickup & Delivery or In-Home Service"
+      }
+    ],
+    "why_trust_as_published": [
+      "Quality You Can Count On",
+      "Professional & Experienced",
+      "Eco-Friendly Commitment",
+      "Convenience"
+    ],
+    "offer": "30% Off Discount (unverified)",
+    "brochure_qr": "Referenced as image; no PDF provided",
+    "published_homepage_testimonials": [
+      {
+        "name_as_published": "Nana Esi",
+        "role_as_published": "Doctor",
+        "category_as_published": "Laundry Services",
+        "quote_as_published": "I’ve never had my laundry handled so professionally! EcoCare’s team did an amazing job with everything, from washing to folding and ironing. My clothes feel fresh, and they even managed to remove some stubborn stains.",
+        "source_file": "index.html",
+        "publication_status": "HOLD_UNTIL_IDENTITY_CONSENT_AND_AUTHENTICITY_VERIFIED"
+      },
+      {
+        "name_as_published": "Raymond Okyere",
+        "role_as_published": "Tech Lead",
+        "category_as_published": "Cleaning Services",
+        "quote_as_published": "EcoCare made my home look brand new! Their cleaning team was thorough, fast, and incredibly detail-oriented. I was especially impressed with their use of eco-friendly products. It's reassuring to know my home is not only clean but also safe for my family and pets. Highly recommend them!",
+        "source_file": "index.html",
+        "publication_status": "HOLD_UNTIL_IDENTITY_CONSENT_AND_AUTHENTICITY_VERIFIED"
+      },
+      {
+        "name_as_published": "Peter Darko",
+        "role_as_published": "CEO",
+        "category_as_published": "Upholstery Services",
+        "quote_as_published": "I had some old, worn-out furniture that I didn’t think could be saved, but EcoCare worked wonders! They cleaned and restored my couches to near-new condition, and I couldn’t be happier. The quality of the service was top-notch, and the team was very professional. I’ll definitely be using them again!",
+        "source_file": "index.html",
+        "publication_status": "HOLD_UNTIL_IDENTITY_CONSENT_AND_AUTHENTICITY_VERIFIED"
+      },
+      {
+        "name_as_published": "Derek Agyapong",
+        "role_as_published": "Operations Manager",
+        "category_as_published": "Carpet Cleaning",
+        "quote_as_published": "I highly recommend EcoCare Company Limited to any organization seeking top-notch carpet cleaning services. Their team is a credit to their company, and we look forward to continuing our partnership with them.",
+        "source_file": "index.html",
+        "publication_status": "HOLD_UNTIL_IDENTITY_CONSENT_AND_AUTHENTICITY_VERIFIED"
+      }
+    ]
+  },
+  "service_groups": {
+    "cleaning": {
+      "old_page": "cleaning-details.html",
+      "brand": "EcoClean",
+      "name": "Cleaning Services",
+      "menu_subservices": [
+        "Residential / house cleaning",
+        "Office cleaning",
+        "Commercial cleaning",
+        "Industrial / warehouse cleaning",
+        "General cleaning",
+        "Deep cleaning",
+        "Marble, tile and grout cleaning",
+        "Window and glass cleaning",
+        "High window cleaning",
+        "Event clean-up",
+        "Post-construction cleaning",
+        "Move-in / move-out cleaning",
+        "Curtain and drapery cleaning",
+        "Sanitization and disinfection (claims require review)"
+      ],
+      "packages": [
+        "Carpet & Upholstery Care Package",
+        "Deep Clean Package",
+        "Move-In/Move-Out Cleaning Package",
+        "Post-Construction Clean Package"
+      ],
+      "hours": {
+        "mon_fri": "07:30–19:00",
+        "sat": "08:30–19:00",
+        "sun": "08:30–19:00"
+      },
+      "audiences": [
+        "Households",
+        "Offices",
+        "Commercial properties",
+        "Industrial facilities",
+        "Event organisers"
+      ],
+      "process_from_copy": [
+        "Determine site type and scope",
+        "Discuss regular vs deep cleaning",
+        "Select suitable cleaning approach",
+        "Arrange service and inspect results (proposed workflow; not verified operations)"
+      ],
+      "draft_headline": "Cleaning Services for Homes, Offices and Workspaces",
+      "draft_summary": "EcoCare’s previous website describes general, deep, commercial and specialist cleaning for residential and business spaces. Contact the team to discuss your property and request a quote.",
+      "source": "uploaded HTML / https://github.com/PhilipTheBackendDeveloper/ecocare-website/blob/main/cleaning-details.html",
+      "published_reviews": [
+        {
+          "name_as_published": "John Hussy",
+          "quote_as_published": "I've tried many cleaning services before, but EcoCare has truly set the bar high. They tackled every corner of my home with such attention to detail—my carpets have never looked better! The upholstery service was a game-changer too. Highly recommend!",
+          "source_file": "cleaning-details.html",
+          "image_path_as_referenced": "assets/img/profiles/avatar-19.jpg",
+          "publication_status": "HOLD_UNTIL_IDENTITY_CONSENT_AND_AUTHENTICITY_VERIFIED"
+        },
+        {
+          "name_as_published": "James Appiah",
+          "quote_as_published": "As a business owner, it's crucial that my office is spotless for both employees and clients. EcoCare has been fantastic in maintaining a pristine workspace, and their team is always professional and friendly. Their deep cleaning service was a lifesaver!",
+          "source_file": "cleaning-details.html",
+          "image_path_as_referenced": "assets/img/profiles/th (4).jpg",
+          "publication_status": "HOLD_UNTIL_IDENTITY_CONSENT_AND_AUTHENTICITY_VERIFIED"
+        },
+        {
+          "name_as_published": "Michael Owusu",
+          "quote_as_published": "I’ve used EcoCare’s services multiple times, from carpet cleaning to move-in cleaning, and I’m never disappointed. They’re fast, efficient, and the quality of their work is unmatched. Plus, their eco-friendly products make me feel good about supporting them.",
+          "source_file": "cleaning-details.html",
+          "image_path_as_referenced": "assets/img/profiles/60 fade black men haircut Ideal For 2024.jpg",
+          "publication_status": "HOLD_UNTIL_IDENTITY_CONSENT_AND_AUTHENTICITY_VERIFIED"
+        },
+        {
+          "name_as_published": "Jessica Awuah",
+          "quote_as_published": "EcoCare cleaned our office space after a big renovation, and the results were incredible. From the floors to the ceilings, everything was spotless. They take their time to get everything just right, and I love that they’re always available for questions.",
+          "source_file": "cleaning-details.html",
+          "image_path_as_referenced": "assets/img/profiles/Gorgeous Protective Styles to Inspire Your Next Look.jpg",
+          "publication_status": "HOLD_UNTIL_IDENTITY_CONSENT_AND_AUTHENTICITY_VERIFIED"
+        }
+      ],
+      "referenced_gallery_paths": [
+        "assets/img/services/cleaning-10.avif",
+        "assets/img/services/ecocare cleaning.jpg",
+        "assets/img/services/ecocare cleaning-6.jpg",
+        "assets/img/gallery/use this to replace rather.jpg",
+        "assets/img/gallery/replace with the blue.jpg",
+        "assets/img/gallery/cleaning services.webp",
+        "assets/img/gallery/cleaning-7.jpg"
+      ],
+      "referenced_youtube_urls": [
+        "https://www.youtube.com/embed/x_q3cnKuqE4?autoplay=1"
+      ],
+      "content_approval": "DRAFT_PENDING_CLIENT_VERIFICATION",
+      "historical_description_as_published": "At EcoCare, we bring a fresh perspective to cleanliness with services that cater to homes, offices, and industrial spaces. Our residential cleaning transforms your living environment into a pristine sanctuary, focusing on every detail to ensure freshness and comfort. For businesses, our office and commercial cleaning services deliver professional results that promote productivity and make a lasting impression. Whether it's routine maintenance or deep cleaning, we ensure every corner shines with unparalleled precision. Our expertise extends to specialized cleaning solutions like carpet and upholstery care. Using advanced techniques, we remove dirt, allergens, and tough stains, restoring carpets to their vibrant appearance and breathing new life into furniture. These services not only enhance aesthetics but also promote healthier indoor air quality. Additionally, our tile and grout cleaning restores the beauty of tiled surfaces, making them look as good as new, while our curtain and drapery cleaning ensures window treatments are free from dust and allergens. For industrial environments, we offer comprehensive industrial cleaning services tailored to demanding spaces like warehouses and manufacturing plants. We tackle heavy-duty grime and debris, creating cleaner, safer, and more efficient workspaces. Our post-construction cleaning ensures newly built or renovated spaces are ready for occupancy, while our move-in and move-out cleaning provides stress-free transitions with sparkling results. At EcoCare, cleanliness goes beyond appearances. Our sanitization and disinfection services deliver an added layer of safety, protecting you from harmful pathogens. Combining eco-friendly practices, innovative techniques, and a commitment to excellence, we take pride in creating spaces that enhance your quality of life. With EcoCare, trust that your home, office, or industrial space will be cleaner, safer, and more inviting than ever.",
+      "historical_description_publishing_rule": "RAW_OLD_TEXT_FOR_REFERENCE_ONLY_REWRITE_AND_VERIFY_BEFORE_PUBLICATION"
+    },
+    "laundry": {
+      "old_page": "service-details.html",
+      "brand": "Eco-Laundry",
+      "name": "Laundry Services",
+      "menu_subservices": [
+        "Washing",
+        "Ironing / pressing",
+        "Dry cleaning",
+        "Stain treatment (subject to garment suitability)",
+        "Pickup and delivery"
+      ],
+      "packages": [
+        "Ironing only",
+        "Washing only",
+        "Dry Cleaning",
+        "Pick-Up and Delivery"
+      ],
+      "hours": {
+        "mon_fri": "07:30–19:00",
+        "sat": "07:30–19:00",
+        "sun": "Closed"
+      },
+      "audiences": [
+        "Individuals",
+        "Households",
+        "Customers requiring fabric care"
+      ],
+      "process_from_copy": [
+        "Describe garments and care requirements",
+        "Agree washing, ironing or dry-cleaning scope",
+        "Arrange drop-off or pickup where available",
+        "Confirm turnaround and return (proposed; not verified)"
+      ],
+      "draft_headline": "Everyday Laundry and Garment Care",
+      "draft_summary": "From washing and ironing to dry-cleaning enquiries, EcoCare’s laundry service is presented as a convenient way to care for clothing. Ask the team about accepted items, pickup availability and turnaround times.",
+      "source": "uploaded HTML / https://github.com/PhilipTheBackendDeveloper/ecocare-website/blob/main/service-details.html",
+      "published_reviews": [
+        {
+          "name_as_published": "Doris Asante",
+          "quote_as_published": "EcoCare has been a lifesaver! Their washing and ironing services are flawless, and the convenience of doorstep delivery is unbeatable. My clothes have never felt fresher!",
+          "source_file": "service-details.html",
+          "image_path_as_referenced": "assets/img/profiles/Best Professional Headshots in Orange County - Irvine, CA — ZIBA PHOTO VIDEO.jpg",
+          "publication_status": "HOLD_UNTIL_IDENTITY_CONSENT_AND_AUTHENTICITY_VERIFIED"
+        },
+        {
+          "name_as_published": "Paul Asamoah",
+          "quote_as_published": "I trust EcoCare with all my delicate garments. Their dry cleaning is top-notch, and the care they put into handling my clothes is unmatched.",
+          "source_file": "service-details.html",
+          "image_path_as_referenced": "assets/img/profiles/1.webp",
+          "publication_status": "HOLD_UNTIL_IDENTITY_CONSENT_AND_AUTHENTICITY_VERIFIED"
+        },
+        {
+          "name_as_published": "Eric Baffour",
+          "quote_as_published": "The best laundry service I’ve ever used! Fast, efficient, and my clothes always come back looking brand new. Highly recommend their delivery service too—it saves me so much time!",
+          "source_file": "service-details.html",
+          "image_path_as_referenced": "assets/img/profiles/businessman-male-person-wear-suit-black-skin-african-person-portrait-candid-business-work-job-occupation-smart-intelligence-handsome-professional-ethnicity-company-office-entreprern.jpg",
+          "publication_status": "HOLD_UNTIL_IDENTITY_CONSENT_AND_AUTHENTICITY_VERIFIED"
+        },
+        {
+          "name_as_published": "Bradley Aggrey",
+          "quote_as_published": "EcoCare’s attention to detail is remarkable. From washing to ironing and dry cleaning, every service they provide is done to perfection. I couldn’t ask for better!",
+          "source_file": "service-details.html",
+          "image_path_as_referenced": "assets/img/profiles/$0 Beauty Photography Studio Setup.jpg",
+          "publication_status": "HOLD_UNTIL_IDENTITY_CONSENT_AND_AUTHENTICITY_VERIFIED"
+        }
+      ],
+      "referenced_gallery_paths": [
+        "assets/img/services/good-8.webp",
+        "assets/img/services/laundry-4.jpg",
+        "assets/img/services/laundry-5.jpg",
+        "assets/img/gallery/good-6.webp",
+        "assets/img/gallery/laundry.jfif",
+        "assets/img/gallery/laundry-2.jpg",
+        "assets/img/gallery/laundry-3.jpg"
+      ],
+      "referenced_youtube_urls": [
+        "https://www.youtube.com/watch?v=O4O7SWgZXwM"
+      ],
+      "content_approval": "DRAFT_PENDING_CLIENT_VERIFICATION",
+      "historical_description_as_published": "At EcoCare, we redefine laundry care with our exceptional range of services tailored to meet your needs. From meticulous washing that revitalizes your garments, to precision ironing that ensures every outfit is impeccably crisp, we handle your clothes with the utmost care and expertise. Our specialized dry cleaning service caters to delicate and high-value items, removing even the toughest stains while preserving their quality and elegance. To top it all off, we offer a seamless pick-up and delivery service, bringing convenience right to your doorstep. Trust EcoCare to deliver laundry solutions that blend professionalism, efficiency, and an unwavering commitment to excellence.",
+      "historical_description_publishing_rule": "RAW_OLD_TEXT_FOR_REFERENCE_ONLY_REWRITE_AND_VERIFY_BEFORE_PUBLICATION"
+    },
+    "pest": {
+      "old_page": "fumigation-details.html",
+      "brand": "EcoFumes",
+      "name": "Fumigation and Pest Control",
+      "menu_subservices": [
+        "Termite treatment enquiries",
+        "Mosquito control enquiries",
+        "Cockroach control enquiries",
+        "Rodent control enquiries",
+        "Property assessment and prevention planning",
+        "Residential, office and warehouse pest-management enquiries"
+      ],
+      "packages": [
+        "Basic Pest Control Package",
+        "Comprehensive Pest Management Package",
+        "Commercial & Industrial Pest Control Package",
+        "Emergency Pest Control Package",
+        "Eco-Friendly Pest Control Package"
+      ],
+      "hours": {
+        "mon_fri": "07:30–19:00",
+        "sat": "08:30–19:00",
+        "sun": "08:30–19:00"
+      },
+      "audiences": [
+        "Homes",
+        "Offices",
+        "Restaurants",
+        "Warehouses",
+        "Commercial facilities"
+      ],
+      "process_from_copy": [
+        "Identify pest and affected area",
+        "Arrange a property assessment",
+        "Discuss appropriate treatment and safety instructions",
+        "Agree follow-up or prevention where offered"
+      ],
+      "draft_headline": "Pest Control Solutions for Homes and Businesses",
+      "draft_summary": "EcoCare’s previous website describes pest-control services for common household and commercial pest concerns. Request an assessment to discuss the pest type, property and appropriate treatment options.",
+      "source": "uploaded HTML / https://github.com/PhilipTheBackendDeveloper/ecocare-website/blob/main/fumigation-details.html",
+      "published_reviews": [
+        {
+          "name_as_published": "Philip Agyei, Business Owner",
+          "quote_as_published": "When we moved into our new office space, we had a rodent problem that was causing a lot of stress. EcoCare handled the situation swiftly with their fumigation service, and we haven't had any issues since. They’re my go-to company for all pest control needs!",
+          "source_file": "fumigation-details.html",
+          "image_path_as_referenced": "assets/img/profiles/Download premium image of Cheerful African American businessman by Felix about people, men, adult, portrait, and black 1217840.jpg",
+          "publication_status": "HOLD_UNTIL_IDENTITY_CONSENT_AND_AUTHENTICITY_VERIFIED"
+        },
+        {
+          "name_as_published": "Reagan Tetteh, Homeowner",
+          "quote_as_published": "We’ve been using EcoCare’s pest control services for over a year now, and they never disappoint. From termite inspection to general pest control, their team is always on time, efficient, and respectful. They truly care about their customers and the environment.",
+          "source_file": "fumigation-details.html",
+          "image_path_as_referenced": "assets/img/profiles/Cool Hipster man wearing windsor rim glasses.jpg",
+          "publication_status": "HOLD_UNTIL_IDENTITY_CONSENT_AND_AUTHENTICITY_VERIFIED"
+        },
+        {
+          "name_as_published": "Samuella Yeboah, Apartment Tenant",
+          "quote_as_published": "After dealing with constant cockroach problems, I turned to EcoCare. Their team conducted a thorough fumigation process and ensured that all entry points were sealed. It's been months, and we’ve seen no signs of pests. I’m impressed with their professionalism and dedication.",
+          "source_file": "fumigation-details.html",
+          "image_path_as_referenced": "assets/img/profiles/OIP (1).jpg",
+          "publication_status": "HOLD_UNTIL_IDENTITY_CONSENT_AND_AUTHENTICITY_VERIFIED"
+        },
+        {
+          "name_as_published": "Nora Nyarko, Homeowner",
+          "quote_as_published": "We had a major termite issue at our house, and EcoCare came to the rescue! Their fumigation service was quick, efficient, and most importantly, safe. The team was friendly and professional, and we haven't seen any pests since. I highly recommend their pest control services!",
+          "source_file": "fumigation-details.html",
+          "image_path_as_referenced": "assets/img/profiles/Young_professional_black_woman_Situational_Coaching_600x540.png",
+          "publication_status": "HOLD_UNTIL_IDENTITY_CONSENT_AND_AUTHENTICITY_VERIFIED"
+        }
+      ],
+      "referenced_gallery_paths": [
+        "assets/img/services/fumigation-10 copy.jpg",
+        "assets/img/services/fumigation.jpg",
+        "assets/img/services/fumigation-81.jpg",
+        "assets/img/gallery/fumigation-5.webp",
+        "assets/img/gallery/fumigation-7.jpg",
+        "assets/img/gallery/fumigation-2.jpg",
+        "assets/img/gallery/Preparing-for-Fumigation.png"
+      ],
+      "referenced_youtube_urls": [
+        "https://www.youtube.com/watch?v=v_vKA4A4D2s"
+      ],
+      "content_approval": "DRAFT_PENDING_CLIENT_VERIFICATION",
+      "historical_description_as_published": "EcoCare’s Fumigation and Pest Control services are designed to provide a safe and healthy environment by effectively eliminating pests and preventing future infestations. Our expert team uses eco-friendly and safe methods to rid your space of unwanted insects, rodents, and other pests. Whether you're dealing with termites, mosquitoes, cockroaches, or rodents, we have specialized treatments that target specific pests to ensure long-lasting results. Our fumigation services are particularly beneficial for commercial spaces, residential homes, and warehouses where a thorough treatment is required to eradicate pests from hard-to-reach areas. We use advanced fumigation techniques and products that penetrate deep into the structures, ensuring the removal of all pests without the need for harsh chemicals. EcoCare is committed to providing pest control solutions that are both effective and safe for the environment, pets, and family members. In addition to fumigation, we offer preventative pest control services that can be scheduled regularly to keep your home or business free from future infestations. Our team will assess your property, identify potential risk areas, and implement preventive measures to keep pests at bay. This service is ideal for homeowners, office buildings, and restaurants looking to maintain a clean, safe, and pest-free environment. For specific pest issues, EcoCare offers customized treatment plans that include sealing entry points, eliminating nests, and applying treatments in targeted areas. Our experts will ensure that your home or office is thoroughly protected, and we provide guidance on how to maintain a pest-free space moving forward. Whether you're dealing with a major pest issue or simply want to safeguard your property, EcoCare’s Fumigation and Pest Control services offer the peace of mind that comes with a clean, pest-free environment.",
+      "historical_description_publishing_rule": "RAW_OLD_TEXT_FOR_REFERENCE_ONLY_REWRITE_AND_VERIFY_BEFORE_PUBLICATION"
+    },
+    "carpet": {
+      "old_page": "capet-details.html",
+      "brand": "EcoCare",
+      "name": "Carpet Cleaning",
+      "menu_subservices": [
+        "Deep carpet cleaning",
+        "Targeted stain treatment",
+        "Odour treatment",
+        "Commercial carpet care",
+        "Carpet assessment and fabric-appropriate method selection"
+      ],
+      "packages": [
+        "Standard Deep Cleaning Package",
+        "Premium Restoration Package",
+        "Pet-Friendly Package",
+        "Commercial Carpet Care Package"
+      ],
+      "hours": {
+        "mon_fri": "07:30–19:00",
+        "sat": "08:30–19:00",
+        "sun": "08:30–19:00"
+      },
+      "audiences": [
+        "Homes",
+        "Offices",
+        "Commercial premises"
+      ],
+      "process_from_copy": [
+        "Inspect carpet fibres and condition",
+        "Discuss stains, traffic and odours",
+        "Select suitable cleaning method",
+        "Agree drying guidance and final review"
+      ],
+      "draft_headline": "Carpet Cleaning for Fresher Spaces",
+      "draft_summary": "EcoCare’s carpet-cleaning content covers deep cleaning, stain attention and treatments selected according to carpet condition. Contact the team for a site-specific assessment and quote.",
+      "source": "https://github.com/PhilipTheBackendDeveloper/ecocare-website/blob/main/capet-details.html (retrieved from connected GitHub)",
+      "published_reviews": [
+        {
+          "name_as_published": "Daniel Agyemang",
+          "quote_as_published": "I couldn't believe the transformation in my carpets after EcoCare's cleaning service. The stains I thought were permanent are completely gone, and the entire room smells so fresh. Highly recommended!",
+          "source_file": "capet-details.html (connected GitHub)",
+          "publication_status": "HOLD_UNTIL_VERIFIED"
+        },
+        {
+          "name_as_published": "Frank Quaye",
+          "quote_as_published": "EcoCare's team did an outstanding job on our office carpets. With so much daily foot traffic, I didn’t think they could look this good again. Professional, fast, and worth every penny.",
+          "source_file": "capet-details.html (connected GitHub)",
+          "publication_status": "HOLD_UNTIL_VERIFIED"
+        },
+        {
+          "name_as_published": "Kevin Gyamfi",
+          "quote_as_published": "As a pet owner, I was worried about lingering odors and stains, but EcoCare's pet-friendly cleaning service made my carpets look and smell new. My dog even seems happier with the results!",
+          "source_file": "capet-details.html (connected GitHub)",
+          "publication_status": "HOLD_UNTIL_VERIFIED"
+        },
+        {
+          "name_as_published": "Rebecca Eshun",
+          "quote_as_published": "I was hesitant to hire a professional service, but EcoCare's affordable packages and attention to detail won me over. The results speak for themselves. Thank you!",
+          "source_file": "capet-details.html (connected GitHub)",
+          "publication_status": "HOLD_UNTIL_VERIFIED"
+        }
+      ],
+      "referenced_gallery_paths": [],
+      "referenced_youtube_urls": [
+        "https://www.youtube.com/embed/6uSGvYRiW8U?autoplay=1"
+      ],
+      "content_approval": "DRAFT_PENDING_CLIENT_VERIFICATION",
+      "historical_description_as_published": "At EcoCare, we believe your carpets are more than just a decorative element—they’re a vital part of your home or workspace. Over time, carpets collect dirt, allergens, stains, and odors that not only tarnish their appearance but also affect the cleanliness and health of your environment. That’s why our professional carpet cleaning service is designed to rejuvenate your carpets, leaving them fresh, spotless, and like new.\n\nWe use advanced cleaning techniques tailored to the specific needs of your carpets. Whether it’s hot water extraction (steam cleaning), dry cleaning, or encapsulation, our methods penetrate deep into the carpet fibers to remove embedded dirt and tough stains. Our eco-friendly, non-toxic cleaning solutions ensure that while your carpets get a thorough clean, your family, pets, and the environment remain safe.\n\nOur highly skilled technicians bring years of experience and expertise to every job. They carefully inspect your carpets to determine the best cleaning approach, ensuring delicate materials are preserved while heavily soiled areas receive extra care. Whether dealing with high-traffic zones, pet stains, or old spills, our team restores your carpets to their original brilliance.\n\nThe cleaning process begins with a detailed assessment, followed by pre-treatment of stubborn stains and heavily soiled areas. We then deep clean your carpets using cutting-edge equipment that extracts dirt, allergens, and bacteria, leaving them hygienically clean. Afterward, a deodorizing step eliminates odors, leaving your carpets smelling fresh and inviting.\n\nOur services don’t just improve the appearance of your carpets—they contribute to a healthier environment. By removing allergens and bacteria, we help improve air quality and create a safer living or working space. Regular professional cleaning also extends the life of your carpets, protecting your investment and maintaining the beauty of your interiors.",
+      "historical_description_publishing_rule": "RAW_OLD_TEXT_FOR_REFERENCE_ONLY_REWRITE_AND_VERIFY_BEFORE_PUBLICATION"
+    },
+    "upholstery": {
+      "old_page": "Upholstery-details.html",
+      "brand": "EcoCare",
+      "name": "Upholstery Cleaning",
+      "menu_subservices": [
+        "Sofa and chair cleaning",
+        "Fabric upholstery cleaning",
+        "Spot and stain treatment",
+        "Leather conditioning (if applicable)",
+        "Fabric protection (if available)",
+        "Upholstery deodorizing"
+      ],
+      "packages": [
+        "Stain Removal",
+        "Leather Upholstery Conditioning",
+        "Fabric Protection",
+        "Deep Upholstery Sanitization"
+      ],
+      "hours": {
+        "mon_fri": "07:30–19:00",
+        "sat": "08:30–19:00",
+        "sun": "08:30–19:00"
+      },
+      "audiences": [
+        "Homeowners",
+        "Office managers",
+        "Businesses with upholstered furniture"
+      ],
+      "process_from_copy": [
+        "Inspect fabric/leather and condition",
+        "Vacuum and prepare surface",
+        "Discuss suitable spot treatment and cleaning method",
+        "Check results and care guidance"
+      ],
+      "draft_headline": "Care for Sofas, Chairs and Upholstered Furniture",
+      "draft_summary": "EcoCare’s previous website describes upholstery cleaning for furniture in homes and workplaces. Cleaning methods should be selected for each fabric or material; request an assessment before booking.",
+      "source": "uploaded HTML / https://github.com/PhilipTheBackendDeveloper/ecocare-website/blob/main/Upholstery-details.html",
+      "published_reviews": [
+        {
+          "name_as_published": "Dennis Quansah",
+          "quote_as_published": "EcoCare brought my old couch back to life! The stains are gone, and it looks brand new. I couldn't be happier with their service!",
+          "source_file": "Upholstery-details.html",
+          "image_path_as_referenced": "assets/img/profiles/Why The Temple Fade Is The Most Underrated Barbering Technique You Should Know.jpg",
+          "publication_status": "HOLD_UNTIL_IDENTITY_CONSENT_AND_AUTHENTICITY_VERIFIED"
+        },
+        {
+          "name_as_published": "Jaime Seidu",
+          "quote_as_published": "I’ve tried other upholstery cleaning services before, but EcoCare truly stands out. My leather chairs are soft, shiny, and well-conditioned. Outstanding results!",
+          "source_file": "Upholstery-details.html",
+          "image_path_as_referenced": "assets/img/profiles/What would your Umbrella Academy life be like_.jpg",
+          "publication_status": "HOLD_UNTIL_IDENTITY_CONSENT_AND_AUTHENTICITY_VERIFIED"
+        },
+        {
+          "name_as_published": "Martinez Boadi",
+          "quote_as_published": "From cleaning to conditioning, EcoCare handled my leather furniture with the utmost care. The results exceeded my expectations. The best in the business!",
+          "source_file": "Upholstery-details.html",
+          "image_path_as_referenced": "assets/img/profiles/Premium Photo _ Happy Asian boss manager business man wears black suit in relax pose_.jpg",
+          "publication_status": "HOLD_UNTIL_IDENTITY_CONSENT_AND_AUTHENTICITY_VERIFIED"
+        },
+        {
+          "name_as_published": "Helen Konadu",
+          "quote_as_published": "I was blown away by EcoCare’s upholstery service. The deep cleaning they did on my sofa made a huge difference, and it smells amazing too. Can’t recommend them enough!",
+          "source_file": "Upholstery-details.html",
+          "image_path_as_referenced": "assets/img/profiles/Premium Photo _ If you can dream it you can do it Portrait of a happy young businesswoman sitting in an office.jpg",
+          "publication_status": "HOLD_UNTIL_IDENTITY_CONSENT_AND_AUTHENTICITY_VERIFIED"
+        }
+      ],
+      "referenced_gallery_paths": [
+        "assets/img/services/upholstery best.jpg",
+        "assets/img/services/service-ban-02.jpg",
+        "assets/img/services/service-ban-03.jpg",
+        "assets/img/gallery/upholstery-4.jpg",
+        "assets/img/gallery/ecocare cleaning-11.jpg",
+        "assets/img/gallery/ecocare-up copy.jpg",
+        "assets/img/gallery/before and after 3.jpg"
+      ],
+      "referenced_youtube_urls": [
+        "https://www.youtube.com/embed/Ei8UTolXp6Y?autoplay=1"
+      ],
+      "content_approval": "DRAFT_PENDING_CLIENT_VERIFICATION",
+      "historical_description_as_published": "EcoCare owns some of the world’s famous cleaning equipment. Our Carpet and upholstery machines work on the same principle as a washing machine effecting deep into the fibres of the carpet and upholstery. With our cleaning machines especially formulated detergent designed to loosen accumulated dirt from the carpet piles and chair fabrics. Detergents are mixed with warm water and sprayed into the carpets and chairs using the similar equipment, in the process the dirt is loose as a result of the reaction of this detergent and extracted from the chairs and carpet.\n\t\t\t\t\t\t\t\tUnlike other conventional cleaners, our equipment are designed to extract all the dirt including that which has found its way deep down in the carpet or upholstery due to lack of proper equipment. The extraction ensures that the carpet and upholstery is 90% dry preventing dampness, smell and staining.\n\nAt EcoCare, we understand that your upholstered furniture plays a vital role in your home or office, providing comfort, elegance, and functionality. Over time, however, daily use can lead to dirt, stains, and allergens embedding themselves into the fabric, making it look worn and reducing its lifespan. Our upholstery services are designed to breathe new life into your furniture, ensuring it remains clean, fresh, and inviting while extending its durability. The process begins with a detailed inspection of your furniture to identify the type of fabric and assess its condition. This ensures we use the right cleaning method for the best results. We then prepare the surface by vacuuming away dirt and dust, focusing on the fabric and crevices where debris tends to accumulate. For tougher stains, we employ eco-friendly, fabric-safe solutions to gently lift them without causing damage. Our deep cleaning methods include steam cleaning, which penetrates the fibers to remove dirt, bacteria, and allergens, or dry cleaning for more delicate fabrics. This not only restores the furniture’s original look but also contributes to a healthier indoor environment. For leather furniture, we go a step further, applying premium conditioners that restore softness, prevent cracking, and enhance the natural shine. To keep your furniture protected, we offer fabric treatments that create a barrier against future stains and wear, ensuring that your investment lasts longer. Once the cleaning process is complete, we finish with a refreshing deodorizer to leave your furniture smelling as good as it looks. Before we leave, our team conducts a final inspection to make sure everything meets the highest standards of quality. Choosing EcoCare means choosing excellence. We combine advanced cleaning techniques with environmentally friendly products to deliver unmatched results. Whether it’s your favorite sofa, office chairs, or even leather recliners, we provide comprehensive care that revitalizes your furniture and uplifts your space. At EcoCare, we take pride in helping you create a clean and welcoming environment with furniture that looks and feels brand new.",
+      "historical_description_publishing_rule": "RAW_OLD_TEXT_FOR_REFERENCE_ONLY_REWRITE_AND_VERIFY_BEFORE_PUBLICATION"
+    }
+  },
+  "published_service_directory": [
+    {
+      "name_as_published": "Office Cleaning",
+      "category_as_published": "Cleaning",
+      "image_path_as_referenced": "assets/img/services/WHY IS CLEANING IMPORTANT AFTER A COMPANY EVENT_.jpg",
+      "page_link": "service-details.html",
+      "booking_link": "booking.html",
+      "source": "service-grid.html",
+      "status": "HISTORICAL_SITE_INVENTORY"
+    },
+    {
+      "name_as_published": "Commercial Cleaning",
+      "category_as_published": "Cleaning",
+      "image_path_as_referenced": "assets/img/services/5 Best Cleaning Services.jpg",
+      "page_link": "service-details.html",
+      "booking_link": "booking.html",
+      "source": "service-grid.html",
+      "status": "HISTORICAL_SITE_INVENTORY"
+    },
+    {
+      "name_as_published": "Washing and Ironing",
+      "category_as_published": "Laundry",
+      "image_path_as_referenced": "assets/img/services/premium_photo-1683134123155-20499f471baa.avif",
+      "page_link": "service-details.html",
+      "booking_link": "booking-laundry.html",
+      "source": "service-grid.html",
+      "status": "HISTORICAL_SITE_INVENTORY"
+    },
+    {
+      "name_as_published": "Upholstery Cleaning",
+      "category_as_published": "Cleaning",
+      "image_path_as_referenced": "assets/img/services/up cleaning.jpg",
+      "page_link": "service-details.html",
+      "booking_link": "booking-upholstery.html",
+      "source": "service-grid.html",
+      "status": "HISTORICAL_SITE_INVENTORY"
+    },
+    {
+      "name_as_published": "House Cleaning Services",
+      "category_as_published": "Cleaning",
+      "image_path_as_referenced": "assets/img/services/33 Professional Cleaning Tips for Every Room in the House.jpg",
+      "page_link": "service-details.html",
+      "booking_link": "booking.html",
+      "source": "service-grid.html",
+      "status": "HISTORICAL_SITE_INVENTORY"
+    },
+    {
+      "name_as_published": "House and Office Fumigation",
+      "category_as_published": "Fumigation",
+      "image_path_as_referenced": "assets/img/services/R.jpg",
+      "page_link": "service-details.html",
+      "booking_link": "booking-fumigation.html",
+      "source": "service-grid.html",
+      "status": "HISTORICAL_SITE_INVENTORY"
+    },
+    {
+      "name_as_published": "Industrial Cleaning",
+      "category_as_published": "Cleaning",
+      "image_path_as_referenced": "assets/img/services/Industrial Cleaning Services.jpg",
+      "page_link": "service-details.html",
+      "booking_link": "booking.html",
+      "source": "service-grid.html",
+      "status": "HISTORICAL_SITE_INVENTORY"
+    },
+    {
+      "name_as_published": "Carpet Cleaning",
+      "category_as_published": "Cleaning",
+      "image_path_as_referenced": "assets/img/services/Carpet Cleaning Clifton Spring.jpg",
+      "page_link": "service-details.html",
+      "booking_link": "booking-capet.html",
+      "source": "service-grid.html",
+      "status": "HISTORICAL_SITE_INVENTORY"
+    },
+    {
+      "name_as_published": "Floor Cleaning ( Mable, Tiles & Grout )",
+      "category_as_published": "Cleaning",
+      "image_path_as_referenced": "assets/img/services/floor.jpg",
+      "page_link": "service-details.html",
+      "booking_link": "booking.html",
+      "source": "service-grid.html",
+      "status": "HISTORICAL_SITE_INVENTORY"
+    },
+    {
+      "name_as_published": "General Cleaning",
+      "category_as_published": "Cleaning",
+      "image_path_as_referenced": "assets/img/services/ecocare banner.jpg",
+      "page_link": "service-details.html",
+      "booking_link": "booking.html",
+      "source": "service-grid.html",
+      "status": "HISTORICAL_SITE_INVENTORY"
+    },
+    {
+      "name_as_published": "Window and Glass Cleaning",
+      "category_as_published": "Cleaning",
+      "image_path_as_referenced": "assets/img/services/window.JPG",
+      "page_link": "service-details.html",
+      "booking_link": "booking.html",
+      "source": "service-grid.html",
+      "status": "HISTORICAL_SITE_INVENTORY"
+    },
+    {
+      "name_as_published": "Event Clean-Up Services",
+      "category_as_published": "Cleaning",
+      "image_path_as_referenced": "assets/img/services/event up.jpg",
+      "page_link": "service-details.html",
+      "booking_link": "booking.html",
+      "source": "service-grid.html",
+      "status": "HISTORICAL_SITE_INVENTORY"
+    }
+  ],
+  "projects": {
+    "gallery_card_inventory": [
+      {
+        "title_as_published": "Carpet Services",
+        "image_path_as_referenced": "assets/img/services/ecocare carpet-4.jpg",
+        "link_as_published": "capet-details.html",
+        "source": "categories.html",
+        "requires_project_proof": true
+      },
+      {
+        "title_as_published": "Upholstery Services",
+        "image_path_as_referenced": "assets/img/services/ecocare projects.jpg",
+        "link_as_published": "Upholstery-details.html",
+        "source": "categories.html",
+        "requires_project_proof": true
+      },
+      {
+        "title_as_published": "Carpet Services",
+        "image_path_as_referenced": "assets/img/services/ecocare projects-2.jpg",
+        "link_as_published": "capet-details.html",
+        "source": "categories.html",
+        "requires_project_proof": true
+      },
+      {
+        "title_as_published": "Upholstery Services",
+        "image_path_as_referenced": "assets/img/services/upholstery-4 copy2 copy.jpg",
+        "link_as_published": "Upholstery-details.html",
+        "source": "categories.html",
+        "requires_project_proof": true
+      },
+      {
+        "title_as_published": "Carpet and Upholstery Cleaning",
+        "image_path_as_referenced": "assets/img/services/upholstery-4 copy2.jpg",
+        "link_as_published": "capet-details.html",
+        "source": "categories.html",
+        "requires_project_proof": true
+      },
+      {
+        "title_as_published": "Upholstery Services",
+        "image_path_as_referenced": "assets/img/services/projects eco copy.jpg",
+        "link_as_published": "Upholstery-details.html",
+        "source": "categories.html",
+        "requires_project_proof": true
+      },
+      {
+        "title_as_published": "Window Cleaning",
+        "image_path_as_referenced": "assets/img/services/We can help you keep your home spotless! 🌟 Our….jpg",
+        "link_as_published": "cleaning-details.html",
+        "source": "categories.html",
+        "requires_project_proof": true
+      },
+      {
+        "title_as_published": "High Window Cleaning",
+        "image_path_as_referenced": "assets/img/services/window 1.jpg",
+        "link_as_published": "cleaning-details.html",
+        "source": "categories.html",
+        "requires_project_proof": true
+      },
+      {
+        "title_as_published": "Upholstery Services",
+        "image_path_as_referenced": "assets/img/services/before.jpg",
+        "link_as_published": "Upholstery-details.html",
+        "source": "categories.html",
+        "requires_project_proof": true
+      }
+    ],
+    "youtube_urls_referenced": [
+      "https://www.youtube.com/embed/2i3DiQ88FnU?autoplay=1",
+      "https://www.youtube.com/embed/RwjoSvqmDLE?autoplay=1",
+      "https://www.youtube.com/embed/6ag-0XsP6EI?autoplay=1"
+    ],
+    "description": "Old Projects route is a gallery/services showcase, not verified named project case studies.",
+    "status": "UNVERIFIED_ACTUAL_CLIENT_PROJECTS"
+  },
+  "partner_logo_asset_paths_as_referenced": [
+    "assets/img/partner/Moove-AI.png",
+    "assets/img/partner/lexta-1.JPG",
+    "assets/img/partner/Uber_logo_2018.png",
+    "assets/img/partner/icgc_logo.jpg",
+    "assets/img/partner/TAG.JPG",
+    "assets/img/partner/20210513164757_stone_consulting_and_management.png"
+  ],
+  "published_testimonials_status": "HOLD_UNTIL_VERIFIED",
+  "legacy_policies": {
+    "privacy_as_published": "EcoCare Cleaning Services Limited\nPrivacy Policy\nPrivacy Policy for EcoCare Cleaning Services\nAt EcoCare, we are committed to protecting your privacy and ensuring that your personal information is handled securely and responsibly. This privacy policy explains how we collect, use, and safeguard your information when you use our services or visit our website.\nWe collect personal information such as your name, contact details, and service preferences to provide tailored services and respond to your inquiries. This information is collected when you fill out forms on our website, contact us via phone or email, or interact with us through any other communication channel.\nYour information is used solely to deliver high-quality services, respond to your requests, and improve your experience with EcoCare. We do not sell, rent, or share your personal information with third parties unless required to do so by law or with your explicit consent.\nEcoCare ensures the security of your personal information through robust measures to prevent unauthorized access or disclosure. While we take every precaution to protect your data, please note that no method of electronic storage or transmission is completely secure, and we cannot guarantee absolute security.\nOur website may contain links to third-party websites for your convenience. Please be aware that we are not responsible for the privacy practices or content of these external sites. We encourage you to review the privacy policies of these websites before providing any personal information.\nBy using our services or website, you consent to the terms outlined in this privacy policy. EcoCare reserves the right to update or modify this policy at any time. Any changes will be posted on this page, and your continued use of our services signifies your acceptance of these updates.\nIf you have any questions or concerns about our privacy practices, please contact us directly through the contact details provided on our website. We value your trust and are dedicated to maintaining the privacy and security of your personal information.",
+    "terms_as_published": "EcoCare Cleaning Services Limited\nTerms & Condition\nCHANGES OR CANCELLATION OF AN ORDER\n1. The Client shall pay additional costs and shall bear the risks of delay in the event that the Client requires that the Services be supplied at a different location than originally agreed or otherwise changes the instructions originally given to the Company.\n2. If for whatever reason the Client cancels the order, the Client shall pay to the Company a portion of the agreed fee corresponding to the Services actually carried out by the Company prior to the cancellation of the order. Should such termination occur after the Company has placed an order with a contractor or third party, then the Client shall fully indemnify the Company for the related expenses.\nSUSPENSION OR TERMINATION OF SERVICES\nThe Company shall be entitled to immediately and without liability either suspend or terminate provision of the services in the event of:\nFailure by the Client to comply with any of its obligations hereunder and such failure is not remedied within 10 days that notice of such failure has been notified to the Client; or\nAny suspension of payment, arrangement with creditors, bankruptcy, insolvency, receivership or cessation of business by the Client.\nNot right now...\nI agree with terms",
+    "status": "REFERENCE_ONLY_NEVER_AUTO_PUBLISH",
+    "review_issues": [
+      "Identity and contact of data controller",
+      "Types of data and exact purposes",
+      "Actual processors (hosting, messaging, forms, analytics)",
+      "Data transfer and retention",
+      "Rights and complaints procedure",
+      "Relevant lawful basis and any marketing consents",
+      "Version date and named owner",
+      "Service terms: cancellations, access, preparation, deposits, damages, service exclusions and complaints",
+      "Relevant Ghana legal review"
+    ]
+  },
+  "editorial_copy": {
+    "hero": {
+      "eyebrow": "EcoCare Cleaning Services",
+      "headline": "Cleaning, Laundry & Pest Control for Homes and Businesses",
+      "description": "Explore EcoCare’s cleaning, garment-care and pest-management services, and get in touch to discuss your property or requirements.",
+      "primary_cta": "Request a Quote",
+      "secondary_cta": "Explore Services",
+      "status": "PROPOSED_COPY_FROM_HISTORICAL_OFFERINGS_NOT_APPROVED"
+    },
+    "intro": {
+      "eyebrow": "About EcoCare",
+      "headline": "Care for the Spaces You Live and Work In",
+      "description": "EcoCare’s previous website presents a range of residential, commercial and specialist services, including cleaning, laundry, carpet and upholstery care, and pest control. The team is listed at Achimota Mile 7 in Accra.",
+      "status": "DRAFT_PENDING_CLIENT_VERIFICATION"
+    },
+    "service_intro": {
+      "headline": "Services for Different Cleaning and Care Needs",
+      "description": "From routine home care to commercial cleaning and specialist treatment enquiries, browse the services below and ask EcoCare for guidance on a suitable option.",
+      "status": "PROPOSED"
+    },
+    "process": [
+      {
+        "title": "Tell Us What You Need",
+        "text": "Choose a service and describe your location, size of the job, and any special concerns."
+      },
+      {
+        "title": "Discuss the Details",
+        "text": "Contact the team to confirm scope, available dates, any preparation needs, and a quote."
+      },
+      {
+        "title": "Arrange the Service",
+        "text": "Once details are agreed, the team can confirm how the service will be delivered."
+      }
+    ],
+    "trust_intro": {
+      "headline": "A Practical Approach to Cleaner Spaces",
+      "description": "The old EcoCare site emphasises service quality, professional care and environmental responsibility. Publish specific promises only where the business can substantiate them."
+    },
+    "cta": {
+      "headline": "Let’s Talk About Your Cleaning Needs",
+      "text": "Tell EcoCare about the service you’re looking for and request information about the next steps.",
+      "button": "Get in Touch"
+    },
+    "footer_blurb": "EcoCare Cleaning Services offers information about cleaning, laundry, carpet and upholstery care, and pest-control services. Contact the team for current availability and quotes.",
+    "coming_soon": {
+      "headline": "A Refreshed EcoCare Website Is Coming Soon",
+      "body": "We’re preparing a new online experience for EcoCare Cleaning Services. For service enquiries, please contact us using our confirmed official phone or email.",
+      "note": "Only publish confirmed channels; avoid announcing launch dates not agreed."
+    }
+  },
+  "routes_historical": {
+    "index.html": "Homepage",
+    "about-us.html": "About business, team, historical metrics and reviews",
+    "service-grid.html": "12-entry service directory",
+    "service-list.html": "First six entries as list presentation",
+    "service-list2.html": "Remaining six entries as list presentation",
+    "service-details.html": "Laundry detail",
+    "cleaning-details.html": "Cleaning detail",
+    "fumigation-details.html": "Pest control detail",
+    "capet-details.html": "Carpet detail (GitHub)",
+    "Upholstery-details.html": "Upholstery detail",
+    "categories.html": "Projects / Gallery",
+    "contact-us.html": "Contact form and Google Maps embed",
+    "privacy-policy.html": "Legacy privacy notice",
+    "terms-condition.html": "Legacy partial cancellation / suspension terms",
+    "booking.html": "General service enquiry/booking form (GitHub)",
+    "booking-laundry.html": "Laundry booking form (GitHub)",
+    "booking-fumigation.html": "Pest booking form (GitHub)",
+    "booking-upholstery.html": "Upholstery booking form (GitHub)",
+    "booking-capet.html": "Carpet booking form (GitHub)",
+    "booking-done.html": "Legacy confirmation page (GitHub)"
+  },
+  "source_manifest": [
+    {
+      "file_name": "Laundry-booking.php",
+      "sha256": "38ac5155ab85ee1576fd3bb4d18b1bc1d52fa3d6f1710cbb566036d8200f7298",
+      "bytes": 2688,
+      "kind": "PHP handler",
+      "page_title": null,
+      "headings": [],
+      "all_referenced_images": [],
+      "external_videos": [],
+      "forms": []
+    },
+    {
+      "file_name": "Upholstery-details.html",
+      "sha256": "cb68eb3b6c2863edac8df85615b3456caf601f8d0b46606e035c11508b1e1071",
+      "bytes": 29233,
+      "kind": "HTML source",
+      "page_title": "EcoCare Cleaning Services Limited",
+      "headings": [
+        [
+          "h2",
+          "Upholstery Services"
+        ],
+        [
+          "h2",
+          "Upholstery Services"
+        ],
+        [
+          "h5",
+          "Service Details"
+        ],
+        [
+          "h5",
+          "Gallery"
+        ],
+        [
+          "h5",
+          "Video"
+        ],
+        [
+          "h5",
+          "Reviews"
+        ],
+        [
+          "h6",
+          "Dennis Quansah"
+        ],
+        [
+          "h6",
+          "Jaime Seidu"
+        ],
+        [
+          "h6",
+          "Martinez Boadi"
+        ],
+        [
+          "h6",
+          "Helen Konadu"
+        ],
+        [
+          "h5",
+          "Related Services"
+        ],
+        [
+          "h3",
+          "Carpet Cleaning"
+        ],
+        [
+          "h3",
+          "Washing And Ironing"
+        ],
+        [
+          "h3",
+          "Fumigation"
+        ],
+        [
+          "h5",
+          "Available Service Packages"
+        ],
+        [
+          "h5",
+          "Additional Service"
+        ],
+        [
+          "h6",
+          "House Cleaning"
+        ],
+        [
+          "h6",
+          "Industrial Cleaning"
+        ],
+        [
+          "h6",
+          "Fumigation Services"
+        ],
+        [
+          "h6",
+          "Event Cleaning"
+        ],
+        [
+          "h5",
+          "Service Availability"
+        ],
+        [
+          "h2",
+          "Quick Links"
+        ],
+        [
+          "h2",
+          "Contact Us"
+        ],
+        [
+          "h2",
+          "Follow Us"
+        ]
+      ],
+      "all_referenced_images": [
+        "assets/img/logo.png",
+        "assets/img/logo-icon.png",
+        "assets/img/bg/work-bg-03.png",
+        "assets/img/bg/feature-bg-03.png",
+        "assets/img/services/upholstery best.jpg",
+        "assets/img/services/service-ban-02.jpg",
+        "assets/img/services/service-ban-03.jpg",
+        "assets/img/gallery/upholstery-4.jpg",
+        "assets/img/gallery/ecocare cleaning-11.jpg",
+        "assets/img/gallery/ecocare-up copy.jpg",
+        "assets/img/gallery/before and after 3.jpg",
+        "assets/img/profiles/Why The Temple Fade Is The Most Underrated Barbering Technique You Should Know.jpg",
+        "assets/img/profiles/What would your Umbrella Academy life be like_.jpg",
+        "assets/img/profiles/Premium Photo _ Happy Asian boss manager business man wears black suit in relax pose_.jpg",
+        "assets/img/profiles/Premium Photo _ If you can dream it you can do it Portrait of a happy young businesswoman sitting in an office.jpg",
+        "assets/img/services/carpet-2.png",
+        "assets/img/services/good-8.webp",
+        "assets/img/services/fumigation-10.jpg",
+        "assets/img/gallery/floor 1.jpg",
+        "assets/img/services/ecocare cleaning.jpg",
+        "assets/img/services/event up.jpg"
+      ],
+      "external_videos": [
+        "https://www.youtube.com/embed/Ei8UTolXp6Y?autoplay=1"
+      ],
+      "forms": []
+    },
+    {
+      "file_name": "categories.html",
+      "sha256": "4b60257578f6c4bb1362856225151d6f756b64c939335d528ba6e05d9c1afeca",
+      "bytes": 16437,
+      "kind": "HTML source",
+      "page_title": "EcoCare Cleaning Services Limited",
+      "headings": [
+        [
+          "h2",
+          "Our Works"
+        ],
+        [
+          "h5",
+          "Sparkling Clean Spaces with EcoCare"
+        ],
+        [
+          "h5",
+          "EcoCare’s Expert Floor Cleaning Services"
+        ],
+        [
+          "h6",
+          "Carpet Services"
+        ],
+        [
+          "h6",
+          "Upholstery Services"
+        ],
+        [
+          "h6",
+          "Carpet Services"
+        ],
+        [
+          "h6",
+          "Upholstery Services"
+        ],
+        [
+          "h6",
+          "Carpet and Upholstery Cleaning"
+        ],
+        [
+          "h6",
+          "Upholstery Services"
+        ],
+        [
+          "h6",
+          "Window Cleaning"
+        ],
+        [
+          "h6",
+          "High Window Cleaning"
+        ],
+        [
+          "h6",
+          "Upholstery Services"
+        ],
+        [
+          "h5",
+          "EcoCare’s Professional High Window Cleaning"
+        ],
+        [
+          "h2",
+          "Quick Links"
+        ],
+        [
+          "h2",
+          "Contact Us"
+        ],
+        [
+          "h2",
+          "Follow Us"
+        ]
+      ],
+      "all_referenced_images": [
+        "assets/img/logo.png",
+        "assets/img/logo-icon.png",
+        "assets/img/bg/work-bg-03.png",
+        "assets/img/services/ecocare carpet-4.jpg",
+        "assets/img/icons/category-01.svg",
+        "assets/img/services/ecocare projects.jpg",
+        "assets/img/icons/category-02.svg",
+        "assets/img/services/ecocare projects-2.jpg",
+        "assets/img/icons/category-03.svg",
+        "assets/img/services/upholstery-4 copy2 copy.jpg",
+        "assets/img/icons/category-04.svg",
+        "assets/img/services/upholstery-4 copy2.jpg",
+        "assets/img/icons/category-05.svg",
+        "assets/img/services/projects eco copy.jpg",
+        "assets/img/icons/category-06.svg",
+        "assets/img/services/We can help you keep your home spotless! 🌟 Our….jpg",
+        "assets/img/icons/category-07.svg",
+        "assets/img/services/window 1.jpg",
+        "assets/img/icons/category-09.svg",
+        "assets/img/services/before.jpg",
+        "assets/img/icons/category-08.svg"
+      ],
+      "external_videos": [
+        "https://www.youtube.com/embed/2i3DiQ88FnU?autoplay=1",
+        "https://www.youtube.com/embed/RwjoSvqmDLE?autoplay=1",
+        "https://www.youtube.com/embed/6ag-0XsP6EI?autoplay=1"
+      ],
+      "forms": []
+    },
+    {
+      "file_name": "cleaning-details.html",
+      "sha256": "80e7fcc43b2c8a793c2169b746ef7b71e4a9f7328c4c87a521d3c726cb03a137",
+      "bytes": 28622,
+      "kind": "HTML source",
+      "page_title": "EcoCare Cleaning Services Limited",
+      "headings": [
+        [
+          "h2",
+          "Cleaning Services"
+        ],
+        [
+          "h2",
+          "Cleaning Services"
+        ],
+        [
+          "h5",
+          "Service Details"
+        ],
+        [
+          "h5",
+          "Gallery"
+        ],
+        [
+          "h5",
+          "Video"
+        ],
+        [
+          "h5",
+          "Reviews"
+        ],
+        [
+          "h6",
+          "John Hussy"
+        ],
+        [
+          "h6",
+          "James Appiah"
+        ],
+        [
+          "h6",
+          "Michael Owusu"
+        ],
+        [
+          "h6",
+          "Jessica Awuah"
+        ],
+        [
+          "h5",
+          "Related Services"
+        ],
+        [
+          "h3",
+          "Upholstery Services"
+        ],
+        [
+          "h3",
+          "Washing And Ironing"
+        ],
+        [
+          "h3",
+          "Fumigation and Pest Control"
+        ],
+        [
+          "h5",
+          "Available Service Packages"
+        ],
+        [
+          "h5",
+          "Additional Service"
+        ],
+        [
+          "h6",
+          "House Cleaning"
+        ],
+        [
+          "h6",
+          "Industrial Cleaning"
+        ],
+        [
+          "h6",
+          "Fumigation Services"
+        ],
+        [
+          "h6",
+          "Event Cleaning"
+        ],
+        [
+          "h5",
+          "Service Availability"
+        ],
+        [
+          "h2",
+          "Quick Links"
+        ],
+        [
+          "h2",
+          "Contact Us"
+        ],
+        [
+          "h2",
+          "Follow Us"
+        ],
+        [
+          "h2",
+          "Newsletter Signup"
+        ]
+      ],
+      "all_referenced_images": [
+        "assets/img/logo.png",
+        "assets/img/logo-icon.png",
+        "assets/img/bg/work-bg-03.png",
+        "assets/img/bg/feature-bg-03.png",
+        "assets/img/services/cleaning-10.avif",
+        "assets/img/services/ecocare cleaning.jpg",
+        "assets/img/services/ecocare cleaning-6.jpg",
+        "assets/img/gallery/use this to replace rather.jpg",
+        "assets/img/gallery/replace with the blue.jpg",
+        "assets/img/gallery/cleaning services.webp",
+        "assets/img/gallery/cleaning-7.jpg",
+        "assets/img/profiles/avatar-19.jpg",
+        "assets/img/profiles/th (4).jpg",
+        "assets/img/profiles/60 fade black men haircut Ideal For 2024.jpg",
+        "assets/img/profiles/Gorgeous Protective Styles to Inspire Your Next Look.jpg",
+        "assets/img/services/upholstery best.jpg",
+        "assets/img/services/good-8.webp",
+        "assets/img/services/fumigation-10.jpg",
+        "assets/img/gallery/floor 1.jpg",
+        "assets/img/services/event up.jpg"
+      ],
+      "external_videos": [
+        "https://www.youtube.com/embed/x_q3cnKuqE4?autoplay=1"
+      ],
+      "forms": []
+    },
+    {
+      "file_name": "contact-us.html",
+      "sha256": "af18c210ac8acb7b609412321e41496c5731f1450d609f0eb30f66810a8df5c4",
+      "bytes": 13272,
+      "kind": "HTML source",
+      "page_title": "EcoCare Cleaning Services Limited",
+      "headings": [
+        [
+          "h2",
+          "Contact Us"
+        ],
+        [
+          "h4",
+          "Phone Number"
+        ],
+        [
+          "h4",
+          "Email Address"
+        ],
+        [
+          "h4",
+          "Address"
+        ],
+        [
+          "h2",
+          "Get In Touch"
+        ],
+        [
+          "h2",
+          "Quick Links"
+        ],
+        [
+          "h2",
+          "Contact Us"
+        ],
+        [
+          "h2",
+          "Follow Us"
+        ]
+      ],
+      "all_referenced_images": [
+        "assets/img/logo.png",
+        "assets/img/logo-icon.png",
+        "assets/img/bg/work-bg-03.png",
+        "assets/img/bg/feature-bg-03.png",
+        "assets/img/ecocare contact.jpg"
+      ],
+      "external_videos": [],
+      "forms": [
+        {
+          "action": "contact.php",
+          "method": "POST",
+          "fields": [
+            {
+              "name": "name",
+              "type": "text",
+              "required": true
+            },
+            {
+              "name": "email",
+              "type": "email",
+              "required": true
+            },
+            {
+              "name": "phone",
+              "type": "tel",
+              "required": true
+            },
+            {
+              "name": "message",
+              "type": "textarea",
+              "required": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "file_name": "fumigation-details.html",
+      "sha256": "389e324d3affc6b82ae6eeea9caefdd32262160a0fa1d251140ed1e5456fc04e",
+      "bytes": 28794,
+      "kind": "HTML source",
+      "page_title": "EcoCare Cleaning Services Limited",
+      "headings": [
+        [
+          "h2",
+          "Fumigation and Pest Control"
+        ],
+        [
+          "h2",
+          "Fumigation and Pest Control"
+        ],
+        [
+          "h5",
+          "Service Details"
+        ],
+        [
+          "h5",
+          "Gallery"
+        ],
+        [
+          "h5",
+          "Video"
+        ],
+        [
+          "h5",
+          "Reviews"
+        ],
+        [
+          "h6",
+          "Philip Agyei, Business Owner"
+        ],
+        [
+          "h6",
+          "Reagan Tetteh, Homeowner"
+        ],
+        [
+          "h6",
+          "Samuella Yeboah, Apartment Tenant"
+        ],
+        [
+          "h6",
+          "Nora Nyarko, Homeowner"
+        ],
+        [
+          "h5",
+          "Related Services"
+        ],
+        [
+          "h3",
+          "Cleaning Services"
+        ],
+        [
+          "h3",
+          "Washing And Ironing"
+        ],
+        [
+          "h3",
+          "Carpet Cleaning"
+        ],
+        [
+          "h5",
+          "Available Service Packages"
+        ],
+        [
+          "h5",
+          "Additional Service"
+        ],
+        [
+          "h6",
+          "House Cleaning"
+        ],
+        [
+          "h6",
+          "Industrial Cleaning"
+        ],
+        [
+          "h6",
+          "Fumigation Services"
+        ],
+        [
+          "h6",
+          "Event Cleaning"
+        ],
+        [
+          "h5",
+          "Service Availability"
+        ],
+        [
+          "h2",
+          "Quick Links"
+        ],
+        [
+          "h2",
+          "Contact Us"
+        ],
+        [
+          "h2",
+          "Follow Us"
+        ]
+      ],
+      "all_referenced_images": [
+        "assets/img/logo.png",
+        "assets/img/logo-icon.png",
+        "assets/img/bg/work-bg-03.png",
+        "assets/img/bg/feature-bg-03.png",
+        "assets/img/services/fumigation-10 copy.jpg",
+        "assets/img/services/fumigation.jpg",
+        "assets/img/services/fumigation-81.jpg",
+        "assets/img/gallery/fumigation-5.webp",
+        "assets/img/gallery/fumigation-7.jpg",
+        "assets/img/gallery/fumigation-2.jpg",
+        "assets/img/gallery/Preparing-for-Fumigation.png",
+        "assets/img/profiles/Download premium image of Cheerful African American businessman by Felix about people, men, adult, portrait, and black 1217840.jpg",
+        "assets/img/profiles/Cool Hipster man wearing windsor rim glasses.jpg",
+        "assets/img/profiles/OIP (1).jpg",
+        "assets/img/profiles/Young_professional_black_woman_Situational_Coaching_600x540.png",
+        "assets/img/services/cleaning-10.avif",
+        "assets/img/services/good-8.webp",
+        "assets/img/services/carpet-2.png",
+        "assets/img/services/good-3.avif",
+        "assets/img/services/ecocare cleaning.jpg",
+        "assets/img/services/fumigation-10.jpg",
+        "assets/img/services/event.jpg"
+      ],
+      "external_videos": [
+        "https://www.youtube.com/watch?v=v_vKA4A4D2s"
+      ],
+      "forms": []
+    },
+    {
+      "file_name": "index(1).html",
+      "sha256": "e3e15b8a8abdfd59e11c3a8ff97fe4494329a06d809e7d59771406e2a4425396",
+      "bytes": 33616,
+      "kind": "HTML source",
+      "page_title": "EcoCare Cleaning Services Limited",
+      "headings": [
+        [
+          "h1",
+          "Protect the Environment, Live Better Prolong Life"
+        ],
+        [
+          "h2",
+          "Featured Categories"
+        ],
+        [
+          "h5",
+          "Upholstery Services"
+        ],
+        [
+          "h5",
+          "Home Cleaning"
+        ],
+        [
+          "h5",
+          "Carpet Cleaning"
+        ],
+        [
+          "h5",
+          "Laundry Services"
+        ],
+        [
+          "h5",
+          "Commercial Cleaning"
+        ],
+        [
+          "h5",
+          "Fumigation and Pest Control"
+        ],
+        [
+          "h2",
+          "About Our Company"
+        ],
+        [
+          "h3",
+          "+233 24 901 4253"
+        ],
+        [
+          "h3",
+          "+233 24 380 7100"
+        ],
+        [
+          "h2",
+          "How It Works"
+        ],
+        [
+          "h5",
+          "Select Your Service"
+        ],
+        [
+          "h5",
+          "Book & Schedule"
+        ],
+        [
+          "h5",
+          "We Take Care of the Rest"
+        ],
+        [
+          "h2",
+          "Why Trust Us"
+        ],
+        [
+          "h6",
+          "Quality You Can Count On"
+        ],
+        [
+          "h6",
+          "Professional & Experienced"
+        ],
+        [
+          "h6",
+          "Eco-Friendly Commitment"
+        ],
+        [
+          "h6",
+          "Convenience"
+        ],
+        [
+          "h2",
+          "Explore EcoCare’s World of Excellence"
+        ],
+        [
+          "h6",
+          "Download Now & Experience Excellence"
+        ],
+        [
+          "h2",
+          "Testimonials"
+        ],
+        [
+          "h6",
+          "“Laundry Services”"
+        ],
+        [
+          "h5",
+          "Nana Esi"
+        ],
+        [
+          "h6",
+          "Doctor"
+        ],
+        [
+          "h6",
+          "“Cleaning Services”"
+        ],
+        [
+          "h5",
+          "Raymond Okyere"
+        ],
+        [
+          "h6",
+          "Tech Lead"
+        ],
+        [
+          "h6",
+          "“Upholstery Services”"
+        ],
+        [
+          "h5",
+          "Peter Darko"
+        ],
+        [
+          "h6",
+          "CEO"
+        ],
+        [
+          "h6",
+          "“Carpet Cleaning”"
+        ],
+        [
+          "h5",
+          "Derek Agyapong"
+        ],
+        [
+          "h6",
+          "Operations Manager"
+        ],
+        [
+          "h2",
+          "Our Clientele"
+        ],
+        [
+          "h3",
+          "Let Us Handle the Hard Work!"
+        ],
+        [
+          "h2",
+          "Quick Links"
+        ],
+        [
+          "h2",
+          "Contact Us"
+        ],
+        [
+          "h2",
+          "Follow Us"
+        ]
+      ],
+      "all_referenced_images": [
+        "assets/img/logo.png",
+        "assets/img/logo-icon.png",
+        "assets/img/placed.jpg",
+        "assets/img/banner-04.jpg",
+        "assets/img/services/furniture-768x512.jpg",
+        "assets/img/icons/feature-icon-12.svg",
+        "assets/img/services/service-07.jpg",
+        "assets/img/services/Carpet Cleaning Clifton Spring.jpg",
+        "assets/img/services/dan-gold-aJN-jjFLyCU-unsplash.jpg",
+        "assets/img/services/Premium Photo _ Woman worker cleaning the floor with polishing machine.jpg",
+        "assets/img/icons/feature-icon-14.svg",
+        "assets/img/services/Preparing-for-Fumigation.png",
+        "assets/img/icons/window-cleaner-detergent.svg",
+        "assets/img/aboutme.png",
+        "assets/img/icons/work-icon-01.svg",
+        "assets/img/icons/work-icon-02.svg",
+        "assets/img/icons/work-icon-03.svg",
+        "assets/img/mobile copy.png",
+        "assets/img/URL QR Code.png",
+        "assets/img/profiles/Premium Photo _ If you can dream it you can do it Portrait of a happy young businesswoman sitting in an office.jpg",
+        "assets/img/profiles/avatar-13.jpg",
+        "assets/img/profiles/avatar-03.jpg",
+        "assets/img/profiles/Download premium image of Cheerful African American businessman by Felix about people, men, adult, portrait, and black 1217840.jpg",
+        "assets/img/partner/Moove-AI.png",
+        "assets/img/partner/lexta-1.JPG",
+        "assets/img/partner/Uber_logo_2018.png",
+        "assets/img/partner/icgc_logo.jpg",
+        "assets/img/partner/TAG.JPG",
+        "assets/img/partner/20210513164757_stone_consulting_and_management.png",
+        "assets/img/footer.png"
+      ],
+      "external_videos": [],
+      "forms": []
+    },
+    {
+      "file_name": "index.html",
+      "sha256": "e3e15b8a8abdfd59e11c3a8ff97fe4494329a06d809e7d59771406e2a4425396",
+      "bytes": 33616,
+      "kind": "HTML source",
+      "page_title": "EcoCare Cleaning Services Limited",
+      "headings": [
+        [
+          "h1",
+          "Protect the Environment, Live Better Prolong Life"
+        ],
+        [
+          "h2",
+          "Featured Categories"
+        ],
+        [
+          "h5",
+          "Upholstery Services"
+        ],
+        [
+          "h5",
+          "Home Cleaning"
+        ],
+        [
+          "h5",
+          "Carpet Cleaning"
+        ],
+        [
+          "h5",
+          "Laundry Services"
+        ],
+        [
+          "h5",
+          "Commercial Cleaning"
+        ],
+        [
+          "h5",
+          "Fumigation and Pest Control"
+        ],
+        [
+          "h2",
+          "About Our Company"
+        ],
+        [
+          "h3",
+          "+233 24 901 4253"
+        ],
+        [
+          "h3",
+          "+233 24 380 7100"
+        ],
+        [
+          "h2",
+          "How It Works"
+        ],
+        [
+          "h5",
+          "Select Your Service"
+        ],
+        [
+          "h5",
+          "Book & Schedule"
+        ],
+        [
+          "h5",
+          "We Take Care of the Rest"
+        ],
+        [
+          "h2",
+          "Why Trust Us"
+        ],
+        [
+          "h6",
+          "Quality You Can Count On"
+        ],
+        [
+          "h6",
+          "Professional & Experienced"
+        ],
+        [
+          "h6",
+          "Eco-Friendly Commitment"
+        ],
+        [
+          "h6",
+          "Convenience"
+        ],
+        [
+          "h2",
+          "Explore EcoCare’s World of Excellence"
+        ],
+        [
+          "h6",
+          "Download Now & Experience Excellence"
+        ],
+        [
+          "h2",
+          "Testimonials"
+        ],
+        [
+          "h6",
+          "“Laundry Services”"
+        ],
+        [
+          "h5",
+          "Nana Esi"
+        ],
+        [
+          "h6",
+          "Doctor"
+        ],
+        [
+          "h6",
+          "“Cleaning Services”"
+        ],
+        [
+          "h5",
+          "Raymond Okyere"
+        ],
+        [
+          "h6",
+          "Tech Lead"
+        ],
+        [
+          "h6",
+          "“Upholstery Services”"
+        ],
+        [
+          "h5",
+          "Peter Darko"
+        ],
+        [
+          "h6",
+          "CEO"
+        ],
+        [
+          "h6",
+          "“Carpet Cleaning”"
+        ],
+        [
+          "h5",
+          "Derek Agyapong"
+        ],
+        [
+          "h6",
+          "Operations Manager"
+        ],
+        [
+          "h2",
+          "Our Clientele"
+        ],
+        [
+          "h3",
+          "Let Us Handle the Hard Work!"
+        ],
+        [
+          "h2",
+          "Quick Links"
+        ],
+        [
+          "h2",
+          "Contact Us"
+        ],
+        [
+          "h2",
+          "Follow Us"
+        ]
+      ],
+      "all_referenced_images": [
+        "assets/img/logo.png",
+        "assets/img/logo-icon.png",
+        "assets/img/placed.jpg",
+        "assets/img/banner-04.jpg",
+        "assets/img/services/furniture-768x512.jpg",
+        "assets/img/icons/feature-icon-12.svg",
+        "assets/img/services/service-07.jpg",
+        "assets/img/services/Carpet Cleaning Clifton Spring.jpg",
+        "assets/img/services/dan-gold-aJN-jjFLyCU-unsplash.jpg",
+        "assets/img/services/Premium Photo _ Woman worker cleaning the floor with polishing machine.jpg",
+        "assets/img/icons/feature-icon-14.svg",
+        "assets/img/services/Preparing-for-Fumigation.png",
+        "assets/img/icons/window-cleaner-detergent.svg",
+        "assets/img/aboutme.png",
+        "assets/img/icons/work-icon-01.svg",
+        "assets/img/icons/work-icon-02.svg",
+        "assets/img/icons/work-icon-03.svg",
+        "assets/img/mobile copy.png",
+        "assets/img/URL QR Code.png",
+        "assets/img/profiles/Premium Photo _ If you can dream it you can do it Portrait of a happy young businesswoman sitting in an office.jpg",
+        "assets/img/profiles/avatar-13.jpg",
+        "assets/img/profiles/avatar-03.jpg",
+        "assets/img/profiles/Download premium image of Cheerful African American businessman by Felix about people, men, adult, portrait, and black 1217840.jpg",
+        "assets/img/partner/Moove-AI.png",
+        "assets/img/partner/lexta-1.JPG",
+        "assets/img/partner/Uber_logo_2018.png",
+        "assets/img/partner/icgc_logo.jpg",
+        "assets/img/partner/TAG.JPG",
+        "assets/img/partner/20210513164757_stone_consulting_and_management.png",
+        "assets/img/footer.png"
+      ],
+      "external_videos": [],
+      "forms": []
+    },
+    {
+      "file_name": "privacy-policy.html",
+      "sha256": "17d63d6329f91a0cacbfd9b7ec1e2d8dbce8b53f6c574e466122af8787d704f9",
+      "bytes": 12380,
+      "kind": "HTML source",
+      "page_title": "EcoCare Cleaning Services Limited",
+      "headings": [
+        [
+          "h2",
+          "Privacy Policy"
+        ],
+        [
+          "h2",
+          "Privacy Policy for EcoCare Cleaning Services"
+        ],
+        [
+          "h2",
+          "Quick Links"
+        ],
+        [
+          "h2",
+          "Contact Us"
+        ],
+        [
+          "h2",
+          "Follow Us"
+        ]
+      ],
+      "all_referenced_images": [
+        "assets/img/logo.png",
+        "assets/img/logo-icon.png",
+        "assets/img/bg/work-bg-03.png"
+      ],
+      "external_videos": [],
+      "forms": []
+    },
+    {
+      "file_name": "service-details.html",
+      "sha256": "0c2f176fd456b0dd5dad801e4b9bc04dd6d154370a23aa927adf6f8c7ecef365",
+      "bytes": 28850,
+      "kind": "HTML source",
+      "page_title": "EcoCare Cleaning Services Limited",
+      "headings": [
+        [
+          "h2",
+          "Eco-Laundry"
+        ],
+        [
+          "h2",
+          "Washing and Ironing"
+        ],
+        [
+          "h5",
+          "Service Details"
+        ],
+        [
+          "h5",
+          "Gallery"
+        ],
+        [
+          "h5",
+          "Video"
+        ],
+        [
+          "h5",
+          "Reviews"
+        ],
+        [
+          "h6",
+          "Doris Asante"
+        ],
+        [
+          "h6",
+          "Paul Asamoah"
+        ],
+        [
+          "h6",
+          "Eric Baffour"
+        ],
+        [
+          "h6",
+          "Bradley Aggrey"
+        ],
+        [
+          "h5",
+          "Related Services"
+        ],
+        [
+          "h3",
+          "Carpet Cleaning"
+        ],
+        [
+          "h3",
+          "Fumigation"
+        ],
+        [
+          "h3",
+          "Upholstery"
+        ],
+        [
+          "h5",
+          "Available Service Packages"
+        ],
+        [
+          "h5",
+          "Additional Service"
+        ],
+        [
+          "h6",
+          "House Cleaning"
+        ],
+        [
+          "h6",
+          "Industrial Cleaning"
+        ],
+        [
+          "h6",
+          "Curtain and Upholstery Cleaning"
+        ],
+        [
+          "h6",
+          "Event Cleaning"
+        ],
+        [
+          "h5",
+          "Service Availability"
+        ],
+        [
+          "h2",
+          "Quick Links"
+        ],
+        [
+          "h2",
+          "Contact Us"
+        ],
+        [
+          "h2",
+          "Follow Us"
+        ]
+      ],
+      "all_referenced_images": [
+        "assets/img/logo.png",
+        "assets/img/logo-icon.png",
+        "assets/img/bg/work-bg-03.png",
+        "assets/img/bg/feature-bg-03.png",
+        "assets/img/services/good-8.webp",
+        "assets/img/services/laundry-4.jpg",
+        "assets/img/services/laundry-5.jpg",
+        "assets/img/gallery/good-6.webp",
+        "assets/img/gallery/laundry.jfif",
+        "assets/img/gallery/laundry-2.jpg",
+        "assets/img/gallery/laundry-3.jpg",
+        "assets/img/profiles/Best Professional Headshots in Orange County - Irvine, CA — ZIBA PHOTO VIDEO.jpg",
+        "assets/img/profiles/1.webp",
+        "assets/img/profiles/businessman-male-person-wear-suit-black-skin-african-person-portrait-candid-business-work-job-occupation-smart-intelligence-handsome-professional-ethnicity-company-office-entreprern.jpg",
+        "assets/img/profiles/$0 Beauty Photography Studio Setup.jpg",
+        "assets/img/services/carpet-2.png",
+        "assets/img/services/fumigation-10.jpg",
+        "assets/img/services/upholstery best.jpg",
+        "assets/img/services/good-3.avif",
+        "assets/img/services/cleaning-8.webp",
+        "assets/img/services/upholstery-3.webp",
+        "assets/img/services/event up.jpg"
+      ],
+      "external_videos": [
+        "https://www.youtube.com/watch?v=O4O7SWgZXwM"
+      ],
+      "forms": []
+    },
+    {
+      "file_name": "service-grid.html",
+      "sha256": "4c3e226ebca0821c448f53e81096b6ad738b9edd06eed79dbd2029dfed8beea5",
+      "bytes": 27746,
+      "kind": "HTML source",
+      "page_title": "EcoCare Cleaning Services Limited",
+      "headings": [
+        [
+          "h2",
+          "Services"
+        ],
+        [
+          "h5",
+          "Filter by"
+        ],
+        [
+          "h2",
+          "Keyword"
+        ],
+        [
+          "h2",
+          "Categories"
+        ],
+        [
+          "h3",
+          "Office Cleaning"
+        ],
+        [
+          "h3",
+          "Commercial Cleaning"
+        ],
+        [
+          "h3",
+          "Washing and Ironing"
+        ],
+        [
+          "h3",
+          "Upholstery Cleaning"
+        ],
+        [
+          "h3",
+          "House Cleaning Services"
+        ],
+        [
+          "h3",
+          "House and Office Fumigation"
+        ],
+        [
+          "h3",
+          "Industrial Cleaning"
+        ],
+        [
+          "h3",
+          "Carpet Cleaning"
+        ],
+        [
+          "h3",
+          "Floor Cleaning ( Mable, Tiles & Grout )"
+        ],
+        [
+          "h3",
+          "General Cleaning"
+        ],
+        [
+          "h3",
+          "Window and Glass Cleaning"
+        ],
+        [
+          "h3",
+          "Event Clean-Up Services"
+        ],
+        [
+          "h2",
+          "Quick Links"
+        ],
+        [
+          "h2",
+          "Contact Us"
+        ],
+        [
+          "h2",
+          "Follow Us"
+        ]
+      ],
+      "all_referenced_images": [
+        "assets/img/logo.png",
+        "assets/img/logo-icon.png",
+        "assets/img/bg/work-bg-03.png",
+        "assets/img/bg/feature-bg-03.png",
+        "assets/img/services/WHY IS CLEANING IMPORTANT AFTER A COMPANY EVENT_.jpg",
+        "assets/img/services/5 Best Cleaning Services.jpg",
+        "assets/img/services/premium_photo-1683134123155-20499f471baa.avif",
+        "assets/img/services/up cleaning.jpg",
+        "assets/img/services/33 Professional Cleaning Tips for Every Room in the House.jpg",
+        "assets/img/services/R.jpg",
+        "assets/img/services/Industrial Cleaning Services.jpg",
+        "assets/img/services/Carpet Cleaning Clifton Spring.jpg",
+        "assets/img/services/floor.jpg",
+        "assets/img/services/ecocare banner.jpg",
+        "assets/img/services/window.JPG",
+        "assets/img/services/event up.jpg"
+      ],
+      "external_videos": [],
+      "forms": []
+    },
+    {
+      "file_name": "service-list.html",
+      "sha256": "2b8b7c088eaf7fbf4cf966434397b4e2eb2ce4aee888ad1f58b717a1e6a02822",
+      "bytes": 21050,
+      "kind": "HTML source",
+      "page_title": "EcoCare Cleaning Services Limited",
+      "headings": [
+        [
+          "h2",
+          "Services"
+        ],
+        [
+          "h5",
+          "Filter by"
+        ],
+        [
+          "h2",
+          "Keyword"
+        ],
+        [
+          "h2",
+          "Categories"
+        ],
+        [
+          "h3",
+          "Office Cleaning"
+        ],
+        [
+          "h3",
+          "Commercial Cleaning"
+        ],
+        [
+          "h3",
+          "Washing and Ironing"
+        ],
+        [
+          "h3",
+          "Upholstery Cleaning"
+        ],
+        [
+          "h3",
+          "House Cleaning Services"
+        ],
+        [
+          "h3",
+          "House and Office Fumigation"
+        ],
+        [
+          "h2",
+          "Quick Links"
+        ],
+        [
+          "h2",
+          "Contact Us"
+        ],
+        [
+          "h2",
+          "Follow Us"
+        ]
+      ],
+      "all_referenced_images": [
+        "assets/img/logo.png",
+        "assets/img/logo-icon.png",
+        "assets/img/bg/work-bg-03.png",
+        "assets/img/bg/feature-bg-03.png",
+        "assets/img/services/WHY IS CLEANING IMPORTANT AFTER A COMPANY EVENT_.jpg",
+        "assets/img/services/5 Best Cleaning Services.jpg",
+        "assets/img/services/premium_photo-1683134123155-20499f471baa.avif",
+        "assets/img/services/up cleaning.jpg",
+        "assets/img/services/33 Professional Cleaning Tips for Every Room in the House.jpg",
+        "assets/img/services/R.jpg"
+      ],
+      "external_videos": [],
+      "forms": []
+    },
+    {
+      "file_name": "service-list2.html",
+      "sha256": "48c1f767c842d9bf0b56cbbdeb4679c2345879437656144e125fc4ed545063fd",
+      "bytes": 21035,
+      "kind": "HTML source",
+      "page_title": "EcoCare Cleaning Services Limited",
+      "headings": [
+        [
+          "h2",
+          "Services"
+        ],
+        [
+          "h5",
+          "Filter by"
+        ],
+        [
+          "h2",
+          "Keyword"
+        ],
+        [
+          "h2",
+          "Categories"
+        ],
+        [
+          "h3",
+          "Industrial Cleaning"
+        ],
+        [
+          "h3",
+          "Carpet Cleaning"
+        ],
+        [
+          "h3",
+          "Floor Cleaning (Marble, Grout, and Tiles)"
+        ],
+        [
+          "h3",
+          "General Cleaning"
+        ],
+        [
+          "h3",
+          "Window and Glass Cleaning"
+        ],
+        [
+          "h3",
+          "Event Clean-Up Services"
+        ],
+        [
+          "h2",
+          "Quick Links"
+        ],
+        [
+          "h2",
+          "Contact Us"
+        ],
+        [
+          "h2",
+          "Follow Us"
+        ]
+      ],
+      "all_referenced_images": [
+        "assets/img/logo.png",
+        "assets/img/logo-icon.png",
+        "assets/img/bg/work-bg-03.png",
+        "assets/img/bg/feature-bg-03.png",
+        "assets/img/services/Industrial Cleaning Services.jpg",
+        "assets/img/services/Carpet Cleaning Clifton Spring.jpg",
+        "assets/img/services/floor.jpg",
+        "assets/img/services/ecocare banner.jpg",
+        "assets/img/services/window.JPG",
+        "assets/img/services/event up.jpg"
+      ],
+      "external_videos": [],
+      "forms": []
+    },
+    {
+      "file_name": "terms-condition.html",
+      "sha256": "cb92854886d1dee378ac586e03bfa836d6e480e1f98768d773550d04ff723601",
+      "bytes": 11666,
+      "kind": "HTML source",
+      "page_title": "EcoCare Cleaning Services Limited",
+      "headings": [
+        [
+          "h2",
+          "Terms & Condition"
+        ],
+        [
+          "h2",
+          "CHANGES OR CANCELLATION OF AN ORDER"
+        ],
+        [
+          "h2",
+          "SUSPENSION OR TERMINATION OF SERVICES"
+        ],
+        [
+          "h2",
+          "Quick Links"
+        ],
+        [
+          "h2",
+          "Contact Us"
+        ],
+        [
+          "h2",
+          "Follow Us"
+        ]
+      ],
+      "all_referenced_images": [
+        "assets/img/logo.png",
+        "assets/img/logo-icon.png",
+        "assets/img/bg/work-bg-03.png"
+      ],
+      "external_videos": [],
+      "forms": []
+    }
+  ],
+  "risk_register": [
+    {
+      "id": "C01",
+      "severity": "blocker",
+      "subject": "Old branded email may not work after domain lapse",
+      "action": "Confirm domain registration and working inbox; never publish as active until tested"
+    },
+    {
+      "id": "C02",
+      "severity": "blocker",
+      "subject": "Names Margaret Owusua Boakye vs Acquah conflict",
+      "action": "Confirm exact name, role and publishing permission"
+    },
+    {
+      "id": "C03",
+      "severity": "blocker",
+      "subject": "PHP booking forms mismatch / email delivery unverified",
+      "action": "Do not copy; select backend and test delivery"
+    },
+    {
+      "id": "C04",
+      "severity": "blocker",
+      "subject": "Privacy and terms are incomplete legacy draft",
+      "action": "Owner/legal review based on real data processing"
+    },
+    {
+      "id": "C05",
+      "severity": "blocker",
+      "subject": "Pest-control safety, credentials and regulatory assertions",
+      "action": "Verify EPA status, product registration and instructions; avoid safety absolutes"
+    },
+    {
+      "id": "C06",
+      "severity": "high",
+      "subject": "Unverified 2583+ clients, 80+ team, 2129+ jobs",
+      "action": "Confirm evidence or omit counters"
+    },
+    {
+      "id": "C07",
+      "severity": "high",
+      "subject": "Unverified testimonials and 5-star designs",
+      "action": "Get permission and proof; do not fabricate or reuse profile photos without rights"
+    },
+    {
+      "id": "C08",
+      "severity": "high",
+      "subject": "Unverified partner logos (Uber, Moove, Lexta, ICGC, TAG, Stone)",
+      "action": "Get client relationship and logo permission"
+    },
+    {
+      "id": "C09",
+      "severity": "high",
+      "subject": "30% discount advertised without conditions",
+      "action": "Remove until confirmed campaign terms"
+    },
+    {
+      "id": "C10",
+      "severity": "high",
+      "subject": "Conflicting 24/7 support vs listed hours",
+      "action": "Separate enquiry availability from staffed service hours"
+    },
+    {
+      "id": "C11",
+      "severity": "high",
+      "subject": "Gmail vs branded email and broken mailto",
+      "action": "Pick primary, fix mailto, verify deliverability"
+    },
+    {
+      "id": "C12",
+      "severity": "high",
+      "subject": "Public EcoCare Laundry listing has different phone and hours",
+      "action": "Confirm listing ownership and current official hours"
+    },
+    {
+      "id": "C13",
+      "severity": "high",
+      "subject": "Proprietary/stock imagery and client project claims",
+      "action": "Check rights and origin for each photo and video"
+    },
+    {
+      "id": "C14",
+      "severity": "medium",
+      "subject": "Original brochure QR not accompanied by PDF in repository",
+      "action": "Obtain brochure PDF or remove CTA"
+    },
+    {
+      "id": "C15",
+      "severity": "medium",
+      "subject": "Service cards cross-link to unrelated detail pages",
+      "action": "Link each category to accurate service details"
+    },
+    {
+      "id": "C16",
+      "severity": "medium",
+      "subject": "Template HTTrack references, placeholder UI and template-linked routes",
+      "action": "Remove original template remnants"
+    },
+    {
+      "id": "C17",
+      "severity": "medium",
+      "subject": "SEO titles/meta copy/alt text generic and page copy repetitive",
+      "action": "Improve titles, structure, alt text, canonical URLs"
+    },
+    {
+      "id": "C18",
+      "severity": "medium",
+      "subject": "Sunday hours differ between laundry and other service pages",
+      "action": "Confirm service-specific schedule and holidays"
+    },
+    {
+      "id": "C19",
+      "severity": "medium",
+      "subject": "Old footer copyright 2025",
+      "action": "Use dynamic current year in new site"
+    },
+    {
+      "id": "C20",
+      "severity": "medium",
+      "subject": "No approved project case studies",
+      "action": "Verify photos, dates, clients, locations and outcomes before case-study language"
+    },
+    {
+      "id": "C21",
+      "severity": "medium",
+      "subject": "Old domain/renewal and developer payment outstanding",
+      "action": "Track privately; not public website content"
+    },
+    {
+      "id": "C22",
+      "severity": "high",
+      "subject": "Purchased ThemeForest template not included in supplied assets",
+      "action": "Scan template folder/assets/license/docs locally before making structural edits"
+    }
+  ],
+  "client_confirmation_questions": {
+    "identity": [
+      "What is the exact company registration name and number?",
+      "Is the Ghana Companies Code 1963 reference still appropriate for public use?",
+      "What are the current legal names and roles of Eric and Margaret?",
+      "Is CCAG membership current and demonstrable?",
+      "Is EcoFumes a registered trade name or only a service label?"
+    ],
+    "contact": [
+      "Which phone number should be primary on the website and for WhatsApp?",
+      "Is ecocaregh.com still registered and recoverable?",
+      "Can info@ecocaregh.com receive and send mail?",
+      "Are the public EcoCare Laundry listing and old website the same business?",
+      "What is the correct Google Maps pin and GhanaPost GPS?"
+    ],
+    "services": [
+      "Which services listed are currently performed?",
+      "What exact packages are sellable, and what is included/excluded?",
+      "What areas does EcoCare serve today and are travel fees charged?",
+      "What are the current operating hours for each service?",
+      "Are laundry pickup and delivery available? Under what conditions?",
+      "What is the quote and deposit policy?",
+      "What pest-control credentials and registered products can be publicised?"
+    ],
+    "proof": [
+      "Which real before/after photos and videos are approved for use?",
+      "Can EcoCare use each partner logo, and what relationship can be stated?",
+      "Can named testimonials, roles and portraits be displayed with permission?",
+      "Which business metrics can be supported by records?"
+    ],
+    "operations": [
+      "Should online forms request a quote or constitute a confirmed appointment?",
+      "Where should form submissions be saved and sent?",
+      "Who responds and within what actual time?",
+      "Should customers upload photos, and what retention policy applies?"
+    ],
+    "ownership": [
+      "What purchased ThemeForest package, theme version and license terms apply?",
+      "What domain, registrar and DNS account will Daddy own?",
+      "Who pays renewals, hosting, email, form provider and future maintenance?",
+      "What are the new project milestones, acceptance criteria, handover and invoice terms?"
+    ]
+  },
+  "builder_rules": [
+    "Do not claim old business data is verified.",
+    "Do not invent pricing, service inclusions, staff headcount, years, client logos, achievements, discounts, warranties or certifications.",
+    "Never auto-publish historic reviews or private reviewer pictures.",
+    "Do not auto-publish legacy privacy or terms; send for review.",
+    "Do not re-use legacy PHP handlers without a compatible tested backend.",
+    "Scan the purchased ThemeForest package and license before implementation.",
+    "Keep template styling stable and replace placeholders thoughtfully.",
+    "Ask client to approve every marked item before production."
+  ],
+  "legacy_page_text_archive": {
+    "status": "RAW_OLD_SITE_COPY_REFERENCE_ONLY_NOT_CLIENT_APPROVED",
+    "texts_by_filename": {
+      "Upholstery-details.html": "EcoCare Cleaning Services Limited\nUpholstery Services\nUpholstery Services\nCleaning\nMile 7, Accra\nShow all photos\nService Details\nEcoCare owns some of the world’s famous cleaning equipment. Our Carpet and upholstery machines work on the same principle as a washing machine effecting deep into the fibres of the carpet and upholstery. With our cleaning machines especially formulated detergent designed to loosen accumulated dirt from the carpet piles and chair fabrics. Detergents are mixed with warm water and sprayed into the carpets and chairs using the similar equipment, in the process the dirt is loose as a result of the reaction of this detergent and extracted from the chairs and carpet.\nUnlike other conventional cleaners, our equipment are designed to extract all the dirt including that which has found its way deep down in the carpet or upholstery due to lack of proper equipment. The extraction ensures that the carpet and upholstery is 90% dry preventing dampness, smell and staining.\nAt EcoCare, we understand that your upholstered furniture plays a vital role in your home or office, providing comfort, elegance, and functionality. Over time, however, daily use can lead to dirt, stains, and allergens embedding themselves into the fabric, making it look worn and reducing its lifespan. Our upholstery services are designed to breathe new life into your furniture, ensuring it remains clean, fresh, and inviting while extending its durability.\nThe process begins with a detailed inspection of your furniture to identify the type of fabric and assess its condition. This ensures we use the right cleaning method for the best results. We then prepare the surface by vacuuming away dirt and dust, focusing on the fabric and crevices where debris tends to accumulate. For tougher stains, we employ eco-friendly, fabric-safe solutions to gently lift them without causing damage.\nOur deep cleaning methods include steam cleaning, which penetrates the fibers to remove dirt, bacteria, and allergens, or dry cleaning for more delicate fabrics. This not only restores the furniture’s original look but also contributes to a healthier indoor environment. For leather furniture, we go a step further, applying premium conditioners that restore softness, prevent cracking, and enhance the natural shine.\nTo keep your furniture protected, we offer fabric treatments that create a barrier against future stains and wear, ensuring that your investment lasts longer. Once the cleaning process is complete, we finish with a refreshing deodorizer to leave your furniture smelling as good as it looks. Before we leave, our team conducts a final inspection to make sure everything meets the highest standards of quality.\nChoosing EcoCare means choosing excellence. We combine advanced cleaning techniques with environmentally friendly products to deliver unmatched results. Whether it’s your favorite sofa, office chairs, or even leather recliners, we provide comprehensive care that revitalizes your furniture and uplifts your space. At EcoCare, we take pride in helping you create a clean and welcoming environment with furniture that looks and feels brand new.\nGallery\nVideo\nReviews\nDennis Quansah\nEcoCare brought my old couch back to life! The stains are gone, and it looks brand new. I couldn't be happier with their service!\nJaime Seidu\nI’ve tried other upholstery cleaning services before, but EcoCare truly stands out. My leather chairs are soft, shiny, and well-conditioned. Outstanding results!\nMartinez Boadi\nFrom cleaning to conditioning, EcoCare handled my leather furniture with the utmost care. The results exceeded my expectations. The best in the business!\nHelen Konadu\nI was blown away by EcoCare’s upholstery service. The deep cleaning they did on my sofa made a huge difference, and it smells amazing too. Can’t recommend them enough!\nRelated Services\nCleaning\nCarpet Cleaning\nBook Now\nLaundry\nWashing And Ironing\nBook Now\nCleaning\nFumigation\nBook Now\nAvailable Service Packages\nStain Removal\nLeather Upholstery Conditioning\nFabric Protection\nDeep Upholstery Sanitization\nAdditional Service\nHouse Cleaning\nIndustrial Cleaning\nFumigation Services\nEvent Cleaning\nService Availability\nMonday\n7:30 AM - 7:00 PM\nTuesday\n7:30 AM - 7:00 PM\nWednesday\n7:30 AM - 7:00 PM\nThursday\n7:30 AM - 7:00 PM\nFriday\n7:30 AM - 7:00 PM\nSaturday\n8:30 AM - 7:00 PM\nSunday\n8:30 AM - 7:00 PM\nBook Service",
+      "categories.html": "EcoCare Cleaning Services Limited\nOur Works\nSparkling Clean Spaces with EcoCare\nEcoCare’s Expert Floor Cleaning Services\nCarpet Services\nUpholstery Services\nCarpet Services\nUpholstery Services\nCarpet and Upholstery Cleaning\nUpholstery Services\nWindow Cleaning\nHigh Window Cleaning\nUpholstery Services\nEcoCare’s Professional High Window Cleaning",
+      "cleaning-details.html": "EcoCare Cleaning Services Limited\nCleaning Services\nCleaning Services\nEco-Clean\nMile 7, Accra\nShow all photos\nService Details\nAt EcoCare, we bring a fresh perspective to cleanliness with services that cater to homes, offices, and industrial spaces. Our residential cleaning transforms your living environment into a pristine sanctuary, focusing on every detail to ensure freshness and comfort. For businesses, our office and commercial cleaning services deliver professional results that promote productivity and make a lasting impression. Whether it's routine maintenance or deep cleaning, we ensure every corner shines with unparalleled precision.\nOur expertise extends to specialized cleaning solutions like carpet and upholstery care. Using advanced techniques, we remove dirt, allergens, and tough stains, restoring carpets to their vibrant appearance and breathing new life into furniture. These services not only enhance aesthetics but also promote healthier indoor air quality. Additionally, our tile and grout cleaning restores the beauty of tiled surfaces, making them look as good as new, while our curtain and drapery cleaning ensures window treatments are free from dust and allergens.\nFor industrial environments, we offer comprehensive industrial cleaning services tailored to demanding spaces like warehouses and manufacturing plants. We tackle heavy-duty grime and debris, creating cleaner, safer, and more efficient workspaces. Our post-construction cleaning ensures newly built or renovated spaces are ready for occupancy, while our move-in and move-out cleaning provides stress-free transitions with sparkling results.\nAt EcoCare, cleanliness goes beyond appearances. Our sanitization and disinfection services deliver an added layer of safety, protecting you from harmful pathogens. Combining eco-friendly practices, innovative techniques, and a commitment to excellence, we take pride in creating spaces that enhance your quality of life. With EcoCare, trust that your home, office, or industrial space will be cleaner, safer, and more inviting than ever.\nGallery\nVideo\nReviews\nJohn Hussy\nI've tried many cleaning services before, but EcoCare has truly set the bar high. They tackled every corner of my home with such attention to detail—my carpets have never looked better! The upholstery service was a game-changer too. Highly recommend!\nJames Appiah\nAs a business owner, it's crucial that my office is spotless for both employees and clients. EcoCare has been fantastic in maintaining a pristine workspace, and their team is always professional and friendly. Their deep cleaning service was a lifesaver!\nMichael Owusu\nI’ve used EcoCare’s services multiple times, from carpet cleaning to move-in cleaning, and I’m never disappointed. They’re fast, efficient, and the quality of their work is unmatched. Plus, their eco-friendly products make me feel good about supporting them.\nJessica Awuah\nEcoCare cleaned our office space after a big renovation, and the results were incredible. From the floors to the ceilings, everything was spotless. They take their time to get everything just right, and I love that they’re always available for questions.\nRelated Services\nCleaning\nUpholstery Services\nBook Now\nEco-Laundry\nWashing And Ironing\nBook Now\nEcoFumes\nFumigation and Pest Control\nBook Now\nAvailable Service Packages\nCarpet & Upholstery Care Package\nDeep Clean Package\nMove-In/Move-Out Cleaning Package\nPost-Construction Clean Package\nAdditional Service\nHouse Cleaning\nIndustrial Cleaning\nFumigation Services\nEvent Cleaning\nService Availability\nMonday\n7:30 AM - 7:00 PM\nTuesday\n7:30 AM - 7:00 PM\nWednesday\n7:30 AM - 7:00 PM\nThursday\n7:30 AM - 7:00 PM\nFriday\n7:30 AM - 7:00 PM\nSaturday\n8:30 AM - 7:00 PM\nSunday\n8:30 AM - 7:00 PM\nBook Service",
+      "contact-us.html": "EcoCare Cleaning Services Limited\nContact Us\nPhone Number\n+233 24 380 7100\n+233 24 901 4253\nEmail Address\necocaregh1on1@gmail.com\ninfo@ecocaregh.com\nAddress\nMile 7, Accra\nGet In Touch\nName\nEmail\nPhone Number\nMessage\nSend Message",
+      "fumigation-details.html": "EcoCare Cleaning Services Limited\nFumigation and Pest Control\nFumigation and Pest Control\nFumigation\nMile 7, Accra\nShow all photos\nService Details\nEcoCare’s Fumigation and Pest Control services are designed to provide a safe and healthy environment by effectively eliminating pests and preventing future infestations. Our expert team uses eco-friendly and safe methods to rid your space of unwanted insects, rodents, and other pests. Whether you're dealing with termites, mosquitoes, cockroaches, or rodents, we have specialized treatments that target specific pests to ensure long-lasting results.\nOur fumigation services are particularly beneficial for commercial spaces, residential homes, and warehouses where a thorough treatment is required to eradicate pests from hard-to-reach areas. We use advanced fumigation techniques and products that penetrate deep into the structures, ensuring the removal of all pests without the need for harsh chemicals. EcoCare is committed to providing pest control solutions that are both effective and safe for the environment, pets, and family members.\nIn addition to fumigation, we offer preventative pest control services that can be scheduled regularly to keep your home or business free from future infestations. Our team will assess your property, identify potential risk areas, and implement preventive measures to keep pests at bay. This service is ideal for homeowners, office buildings, and restaurants looking to maintain a clean, safe, and pest-free environment.\nFor specific pest issues, EcoCare offers customized treatment plans that include sealing entry points, eliminating nests, and applying treatments in targeted areas. Our experts will ensure that your home or office is thoroughly protected, and we provide guidance on how to maintain a pest-free space moving forward. Whether you're dealing with a major pest issue or simply want to safeguard your property, EcoCare’s Fumigation and Pest Control services offer the peace of mind that comes with a clean, pest-free environment.\nGallery\nVideo\nReviews\nPhilip Agyei, Business Owner\nWhen we moved into our new office space, we had a rodent problem that was causing a lot of stress. EcoCare handled the situation swiftly with their fumigation service, and we haven't had any issues since. They’re my go-to company for all pest control needs!\nReagan Tetteh, Homeowner\nWe’ve been using EcoCare’s pest control services for over a year now, and they never disappoint. From termite inspection to general pest control, their team is always on time, efficient, and respectful. They truly care about their customers and the environment.\nSamuella Yeboah, Apartment Tenant\nAfter dealing with constant cockroach problems, I turned to EcoCare. Their team conducted a thorough fumigation process and ensured that all entry points were sealed. It's been months, and we’ve seen no signs of pests. I’m impressed with their professionalism and dedication.\nNora Nyarko, Homeowner\nWe had a major termite issue at our house, and EcoCare came to the rescue! Their fumigation service was quick, efficient, and most importantly, safe. The team was friendly and professional, and we haven't seen any pests since. I highly recommend their pest control services!\nRelated Services\nCleaning\nCleaning Services\nBook Now\nLaundry\nWashing And Ironing\nBook Now\nCleaning\nCarpet Cleaning\nBook Now\nAvailable Service Packages\nBasic Pest Control Package\nComprehensive Pest Management Package\nCommercial & Industrial Pest Control Package\nEmergency Pest Control Package\nEco-Friendly Pest Control Package\nAdditional Service\nHouse Cleaning\nIndustrial Cleaning\nFumigation Services\nEvent Cleaning\nService Availability\nMonday\n7:30 AM - 7:00 PM\nTuesday\n7:30 AM - 7:00 PM\nWednesday\n7:30 AM - 7:00 PM\nThursday\n7:30 AM - 7:00 PM\nFriday\n7:30 AM - 7:00 PM\nSaturday\n8:30 AM - 7:00 PM\nSunday\n8:30 AM - 7:00 PM\nBook Service",
+      "index(1).html": "EcoCare Cleaning Services Limited\nProtect the Environment, Live Better\nProlong Life\nYou got dirt? We got Clean?\nFeatured Categories\nExplore the greatness our services. You won’t be disappointed\nView All\nUpholstery Services\nHome Cleaning\nCarpet Cleaning\nLaundry Services\nCommercial Cleaning\nFumigation and Pest Control\nBEST CLEANING SERVICE\nAbout\nOur Company\nEcoCare Cleaning Services Ltd (herein referred to as Ecoclean) Is a Startup Company formed and registered under the Ghanaian Companies Code 1963 on September 19th, 2014 to commence business on September 30th, 2014. The current shareholders of the Company are Eric Nana Acquah and Margaret Owusua Boakye (hereinafter referred to as “promoters”).\nThe Company has renowned and experienced environmentalist, fumigation and cleaning consultants with operation across Ghana and Main office at Achimota Mile 7 Accra. The company is a member of Contract Cleaners Association of Ghana (CCAG).\nCall us Today!\n+233 24 901 4253\n+233 24 380 7100\nHow It Works\nAt EcoCare Services, we’ve made our process as straightforward as possible to deliver fast, high-quality results.\nSelect Your Service\nChoose from our range of expert services.\nBook & Schedule\nBooking is easy: Online or Phone\nWe Take Care of the Rest\nPickup & Delivery or In-Home Service\nWhy Trust Us\nAt EcoCare, we believe in delivering exceptional service with a focus on integrity, quality, and sustainability\nQuality You Can Count On\nWe stand behind the quality of our work. Whether it’s your clothes, your furniture, or your space, we take great pride in delivering spotless results that exceed your expectations.\nProfessional & Experienced\nOur team is composed of skilled professionals who are fully trained in the latest techniques and best practices for laundry, industrial cleaning, Carpet Cleaning and upholstery care.\nEco-Friendly Commitment\nWe prioritize sustainability in everything we do. From eco-friendly cleaning products to energy-efficient methods, we take every step possible to minimize our environmental footprint.\nConvenience\nWith easy online booking, flexible scheduling, and fast, reliable service, EcoCare is designed to fit into your busy lifestyle.When you choose EcoCare, you’re selecting a service that combines expertise.\nStep Into a Cleaner, Brighter Future with EcoCare\nExplore EcoCare’s World of Excellence\nDiscover the full spectrum of our services in one convenient place. Our detailed brochure offers an in-depth look at how EcoCare delivers exceptional Laundry, Cleaning, Upholstery, Fumigation, and Carpet Cleaning services tailored to meet your needs. Whether you’re at home, managing a business, or overseeing a large facility, EcoCare is your trusted partner in cleanliness and sustainability.\nDownload Now & Experience Excellence\nTestimonials\nHear From Those Who Trust EcoCare\n“Laundry Services”\nI’ve never had my laundry handled so professionally! EcoCare’s team did an amazing job with everything, from washing to folding and ironing. My clothes feel fresh, and they even managed to remove some stubborn stains.\nNana Esi\nDoctor\n“Cleaning Services”\nEcoCare made my home look brand new! Their cleaning team was thorough, fast, and incredibly detail-oriented. I was especially impressed with their use of eco-friendly products. It's reassuring to know my home is not only clean but also safe for my family and pets. Highly recommend them!\nRaymond Okyere\nTech Lead\n“Upholstery Services”\nI had some old, worn-out furniture that I didn’t think could be saved, but EcoCare worked wonders! They cleaned and restored my couches to near-new condition, and I couldn’t be happier. The quality of the service was top-notch, and the team was very professional. I’ll definitely be using them again!\nPeter Darko\nCEO\n“Carpet Cleaning”\nI highly recommend EcoCare Company Limited to any organization seeking top-notch carpet cleaning services. Their team is a credit to their company, and we look forward to continuing our partnership with them.\nDerek Agyapong\nOperations Manager\nOur Clientele\nTrusted by clients across industries, EcoCare Cleaning Services delivers exceptional cleaning solutions.\n30% Off Discount\nLet Us Handle the Hard Work!\nContact us today for a free consultation or quote and see how EcoCare Services can make your life easier. Your satisfaction is our priority!\nLet’s Get Started Today!",
+      "index.html": "EcoCare Cleaning Services Limited\nProtect the Environment, Live Better\nProlong Life\nYou got dirt? We got Clean?\nFeatured Categories\nExplore the greatness our services. You won’t be disappointed\nView All\nUpholstery Services\nHome Cleaning\nCarpet Cleaning\nLaundry Services\nCommercial Cleaning\nFumigation and Pest Control\nBEST CLEANING SERVICE\nAbout\nOur Company\nEcoCare Cleaning Services Ltd (herein referred to as Ecoclean) Is a Startup Company formed and registered under the Ghanaian Companies Code 1963 on September 19th, 2014 to commence business on September 30th, 2014. The current shareholders of the Company are Eric Nana Acquah and Margaret Owusua Boakye (hereinafter referred to as “promoters”).\nThe Company has renowned and experienced environmentalist, fumigation and cleaning consultants with operation across Ghana and Main office at Achimota Mile 7 Accra. The company is a member of Contract Cleaners Association of Ghana (CCAG).\nCall us Today!\n+233 24 901 4253\n+233 24 380 7100\nHow It Works\nAt EcoCare Services, we’ve made our process as straightforward as possible to deliver fast, high-quality results.\nSelect Your Service\nChoose from our range of expert services.\nBook & Schedule\nBooking is easy: Online or Phone\nWe Take Care of the Rest\nPickup & Delivery or In-Home Service\nWhy Trust Us\nAt EcoCare, we believe in delivering exceptional service with a focus on integrity, quality, and sustainability\nQuality You Can Count On\nWe stand behind the quality of our work. Whether it’s your clothes, your furniture, or your space, we take great pride in delivering spotless results that exceed your expectations.\nProfessional & Experienced\nOur team is composed of skilled professionals who are fully trained in the latest techniques and best practices for laundry, industrial cleaning, Carpet Cleaning and upholstery care.\nEco-Friendly Commitment\nWe prioritize sustainability in everything we do. From eco-friendly cleaning products to energy-efficient methods, we take every step possible to minimize our environmental footprint.\nConvenience\nWith easy online booking, flexible scheduling, and fast, reliable service, EcoCare is designed to fit into your busy lifestyle.When you choose EcoCare, you’re selecting a service that combines expertise.\nStep Into a Cleaner, Brighter Future with EcoCare\nExplore EcoCare’s World of Excellence\nDiscover the full spectrum of our services in one convenient place. Our detailed brochure offers an in-depth look at how EcoCare delivers exceptional Laundry, Cleaning, Upholstery, Fumigation, and Carpet Cleaning services tailored to meet your needs. Whether you’re at home, managing a business, or overseeing a large facility, EcoCare is your trusted partner in cleanliness and sustainability.\nDownload Now & Experience Excellence\nTestimonials\nHear From Those Who Trust EcoCare\n“Laundry Services”\nI’ve never had my laundry handled so professionally! EcoCare’s team did an amazing job with everything, from washing to folding and ironing. My clothes feel fresh, and they even managed to remove some stubborn stains.\nNana Esi\nDoctor\n“Cleaning Services”\nEcoCare made my home look brand new! Their cleaning team was thorough, fast, and incredibly detail-oriented. I was especially impressed with their use of eco-friendly products. It's reassuring to know my home is not only clean but also safe for my family and pets. Highly recommend them!\nRaymond Okyere\nTech Lead\n“Upholstery Services”\nI had some old, worn-out furniture that I didn’t think could be saved, but EcoCare worked wonders! They cleaned and restored my couches to near-new condition, and I couldn’t be happier. The quality of the service was top-notch, and the team was very professional. I’ll definitely be using them again!\nPeter Darko\nCEO\n“Carpet Cleaning”\nI highly recommend EcoCare Company Limited to any organization seeking top-notch carpet cleaning services. Their team is a credit to their company, and we look forward to continuing our partnership with them.\nDerek Agyapong\nOperations Manager\nOur Clientele\nTrusted by clients across industries, EcoCare Cleaning Services delivers exceptional cleaning solutions.\n30% Off Discount\nLet Us Handle the Hard Work!\nContact us today for a free consultation or quote and see how EcoCare Services can make your life easier. Your satisfaction is our priority!\nLet’s Get Started Today!",
+      "privacy-policy.html": "EcoCare Cleaning Services Limited\nPrivacy Policy\nPrivacy Policy for EcoCare Cleaning Services\nAt EcoCare, we are committed to protecting your privacy and ensuring that your personal information is handled securely and responsibly. This privacy policy explains how we collect, use, and safeguard your information when you use our services or visit our website.\nWe collect personal information such as your name, contact details, and service preferences to provide tailored services and respond to your inquiries. This information is collected when you fill out forms on our website, contact us via phone or email, or interact with us through any other communication channel.\nYour information is used solely to deliver high-quality services, respond to your requests, and improve your experience with EcoCare. We do not sell, rent, or share your personal information with third parties unless required to do so by law or with your explicit consent.\nEcoCare ensures the security of your personal information through robust measures to prevent unauthorized access or disclosure. While we take every precaution to protect your data, please note that no method of electronic storage or transmission is completely secure, and we cannot guarantee absolute security.\nOur website may contain links to third-party websites for your convenience. Please be aware that we are not responsible for the privacy practices or content of these external sites. We encourage you to review the privacy policies of these websites before providing any personal information.\nBy using our services or website, you consent to the terms outlined in this privacy policy. EcoCare reserves the right to update or modify this policy at any time. Any changes will be posted on this page, and your continued use of our services signifies your acceptance of these updates.\nIf you have any questions or concerns about our privacy practices, please contact us directly through the contact details provided on our website. We value your trust and are dedicated to maintaining the privacy and security of your personal information.",
+      "service-details.html": "EcoCare Cleaning Services Limited\nEco-Laundry\nWashing and Ironing\nEco-Laundry\nMile 7, Accra\nShow all photos\nService Details\nAt EcoCare, we redefine laundry care with our exceptional range of services tailored to meet your needs. From meticulous washing that revitalizes your garments, to precision ironing that ensures every outfit is impeccably crisp, we handle your clothes with the utmost care and expertise. Our specialized dry cleaning service caters to delicate and high-value items, removing even the toughest stains while preserving their quality and elegance. To top it all off, we offer a seamless pick-up and delivery service, bringing convenience right to your doorstep. Trust EcoCare to deliver laundry solutions that blend professionalism, efficiency, and an unwavering commitment to excellence.\nGallery\nVideo\nReviews\nDoris Asante\nEcoCare has been a lifesaver! Their washing and ironing services are flawless, and the convenience of doorstep delivery is unbeatable. My clothes have never felt fresher!\nPaul Asamoah\nI trust EcoCare with all my delicate garments. Their dry cleaning is top-notch, and the care they put into handling my clothes is unmatched.\nEric Baffour\nThe best laundry service I’ve ever used! Fast, efficient, and my clothes always come back looking brand new. Highly recommend their delivery service too—it saves me so much time!\nBradley Aggrey\nEcoCare’s attention to detail is remarkable. From washing to ironing and dry cleaning, every service they provide is done to perfection. I couldn’t ask for better!\nRelated Services\nCleaning\nCarpet Cleaning\nBook Now\nCleaning\nFumigation\nBook Now\nCleaning\nUpholstery\nBook Now\nAvailable Service Packages\nIroning only\nWashing only\nDry Cleaning\nPick-Up and Delivery\nAdditional Service\nHouse Cleaning\nIndustrial Cleaning\nCurtain and Upholstery Cleaning\nEvent Cleaning\nService Availability\nMonday\n7:30 AM - 7:00 PM\nTuesday\n7:30 AM - 7:00 PM\nWednesday\n7:30 AM - 7:00 PM\nThursday\n7:30 AM - 7:00 PM\nFriday\n7:30 AM - 7:00 PM\nSaturday\n7:30 AM - 7:00 PM\nSunday\nClosed\nBook Service",
+      "service-grid.html": "EcoCare Cleaning Services Limited\nServices\nFilter by\nReset Filters\nKeyword\nCategories\nAll Categories\nCleaning Services\nLaundry Services\nCarpet Cleaning Services\nUpholstery Cleaning Services\nFumigation Services\nCleaning\nOffice Cleaning\nMile 7, Accra\nBook Now\nCleaning\nCommercial Cleaning\nMile 7, Accra\nBook Now\nLaundry\nWashing and Ironing\nMile 7, Accra\nBook Now\nCleaning\nUpholstery Cleaning\nMile 7, Accra\nBook Now\nCleaning\nHouse Cleaning Services\nMile 7, Accra\nBook Now\nFumigation\nHouse and Office Fumigation\nMile 7, Accra\nBook Now\nCleaning\nIndustrial Cleaning\nMile 7, Accra\nBook Now\nCleaning\nCarpet Cleaning\nMile 7, Accra\nBook Now\nCleaning\nFloor Cleaning ( Mable, Tiles & Grout )\nMile 7, Accra\nBook Now\nCleaning\nGeneral Cleaning\nMile 7, Accra\nBook Now\nCleaning\nWindow and Glass Cleaning\nMile 7, Accra\nBook Now\nCleaning\nEvent Clean-Up Services\nMile 7, Accra\nBook Now",
+      "service-list.html": "EcoCare Cleaning Services Limited\nServices\nFilter by\nReset Filters\nKeyword\nCategories\nAll Categories\nCleaning Services\nLaundry Services\nCarpet Cleaning Services\nUpholstery Cleaning Services\nFumigation Services\nCleaning\nOffice Cleaning\nMile 7, Accra\nBook Now\nCleaning\nCommercial Cleaning\nMile 7, Accra\nBook Now\nLaundry\nWashing and Ironing\nMile 7, Accra\nBook Now\nCleaning\nUpholstery Cleaning\nMile 7, Accra\nBook Now\nCleaning\nHouse Cleaning Services\nMile 7, Accra\nBook Now\nFumigation\nHouse and Office Fumigation\nMile 7, Accra\nBook Now",
+      "service-list2.html": "EcoCare Cleaning Services Limited\nServices\nFilter by\nReset Filters\nKeyword\nCategories\nAll Categories\nCleaning Services\nLaundry Services\nCarpet Cleaning Services\nUpholstery Cleaning Services\nFumigation Services\nCleaning\nIndustrial Cleaning\nMile 7, Accra\nBook Now\nCleaning\nCarpet Cleaning\nMile 7, Accra\nBook Now\nEcoClean\nFloor Cleaning (Marble, Grout, and Tiles)\nMile 7, Accra\nBook Now\nCleaning\nGeneral Cleaning\nMile 7, Accra\nBook Now\nCleaning\nWindow and Glass Cleaning\nMile 7, Accra\nBook Now\nCleaning\nEvent Clean-Up Services\nMile 7, Accra\nBook Now",
+      "terms-condition.html": "EcoCare Cleaning Services Limited\nTerms & Condition\nCHANGES OR CANCELLATION OF AN ORDER\n1. The Client shall pay additional costs and shall bear the risks of delay in the event that the Client requires that the Services be supplied at a different location than originally agreed or otherwise changes the instructions originally given to the Company.\n2. If for whatever reason the Client cancels the order, the Client shall pay to the Company a portion of the agreed fee corresponding to the Services actually carried out by the Company prior to the cancellation of the order. Should such termination occur after the Company has placed an order with a contractor or third party, then the Client shall fully indemnify the Company for the related expenses.\nSUSPENSION OR TERMINATION OF SERVICES\nThe Company shall be entitled to immediately and without liability either suspend or terminate provision of the services in the event of:\nFailure by the Client to comply with any of its obligations hereunder and such failure is not remedied within 10 days that notice of such failure has been notified to the Client; or\nAny suspension of payment, arrangement with creditors, bankruptcy, insolvency, receivership or cessation of business by the Client.\nNot right now...\nI agree with terms"
+    },
+    "note": "Contains visible body text with shared navigation/footer removed; source files include additional markup. index(1).html duplicates index.html."
+  }
+}

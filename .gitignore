@@ -1,0 +1,7 @@
+# Environment and Cache
+__pycache__/
+*.py[cod]
+*$py.class
+.DS_Store
+.env
+.vercel

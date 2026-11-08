@@ -1,0 +1,22 @@
+{
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "rewrites": [
+    { "source": "/", "destination": "/index.html" },
+    { "source": "/about", "destination": "/about1.html" },
+    { "source": "/services", "destination": "/service1.html" },
+    { "source": "/cleaning", "destination": "/single-service1.html" },
+    { "source": "/laundry", "destination": "/single-service2.html" },
+    { "source": "/pest-control", "destination": "/pest-control.html" },
+    { "source": "/carpet-cleaning", "destination": "/carpet-cleaning.html" },
+    { "source": "/upholstery-cleaning", "destination": "/upholstery-cleaning.html" },
+    { "source": "/packages", "destination": "/pricing-table.html" },
+    { "source": "/projects", "destination": "/project1.html" },
+    { "source": "/faq", "destination": "/faq.html" },
+    { "source": "/contact", "destination": "/contact.html" },
+    { "source": "/request-quote", "destination": "/calculate-form.html" },
+    { "source": "/privacy-policy", "destination": "/privacy-policy.html" },
+    { "source": "/terms", "destination": "/terms-condition.html" }
+  ]
+}
+

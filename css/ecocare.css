@@ -1,0 +1,36 @@
+/*------------------------------------------------------------------
+  EcoCare Cleaning Services Limited — Brand Asset Display Constraints
+  Preserves 100% of original Clenix styles while sizing logo properly.
+------------------------------------------------------------------*/
+
+.logo-area img,
+.header-menu .logo-area a img {
+  max-height: 52px;
+  width: auto;
+  object-fit: contain;
+  display: block;
+}
+
+.footer-box-layout1 .footer-logo img {
+  max-height: 60px;
+  width: auto;
+  object-fit: contain;
+}
+
+.mobile-menu-nav-back .logo-mobile img {
+  max-height: 42px;
+  width: auto;
+  object-fit: contain;
+}
+
+/* Legal Draft Disclaimer Notice */
+.ecocare-draft-notice {
+  background-color: #fff3cd;
+  border-left: 4px solid #ffc107;
+  padding: 16px 20px;
+  margin-bottom: 30px;
+  border-radius: 4px;
+  color: #856404;
+  font-size: 14px;
+  line-height: 22px;
+}
