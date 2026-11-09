@@ -229,9 +229,10 @@ module.exports = async function handler(req, res) {
     );
     const whatsappUrl = `https://wa.me/233249014253?text=${waText}`;
 
-    const maskedPhone = phone.replace(/(\d{3})\d+(\d{2})/, "$1****$2");
+    const maskedPhone = phone ? phone.replace(/\D/g, "").slice(0, 3) + "****" + phone.replace(/\D/g, "").slice(-2) : "N/A";
+    const maskedEmail = email ? email.slice(0, 2) + "***" + email.slice(email.indexOf("@")) : "N/A";
     console.log(
-      `[ECOCARE-QUOTE-SUCCESS] Name: ${name} | Service: ${service} | Phone: ${maskedPhone} | Location: ${location} | IP: ${clientIp} | Email Sent: ${emailResult.sent}`
+      `[ECOCARE-QUOTE-SUCCESS] Name: ${name} | Service: ${service} | Phone: ${maskedPhone} | Email: ${maskedEmail} | Location: ${location} | IP: ${clientIp} | Email Sent: ${emailResult.sent}`
     );
 
     return res.status(200).json({
