@@ -82,3 +82,4 @@ Recommended citations for Ghanaian local authority:
 2. **Ghana Yellow Pages / Business Ghana:** Register company profile with canonical NAP.
 3. **Apple Maps (Apple Business Connect):** Add business location pin for iOS Maps search.
 4. **Facebook Business Page:** Ensure phone, address, and hours match canonical NAP exactly.
+

@@ -145,3 +145,4 @@ https://www.ecocaregh.com/* https://ecocaregh.com/:splat  301!
 
 ### Vercel Implementation (`vercel.json`)
 The existing `vercel.json` already contains `cleanUrls: true` and the corresponding 15 clean URL rewrite definitions, ensuring 100% route parity between preview and production.
+

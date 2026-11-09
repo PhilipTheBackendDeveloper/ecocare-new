@@ -87,3 +87,4 @@
 - Comprehensive quarterly technical SEO audit (crawl, canonicals, schema validity).
 - Assess whether to publish the first client-approved commercial case study or expansion guide.
 - Formulate the next quarter's growth initiatives based on demonstrated customer demand.
+

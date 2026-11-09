@@ -52,3 +52,4 @@ https://www.ecocaregh.com/*   https://ecocaregh.com/:splat    301!
 
 # 5. Custom 404 Catch-All
 /*                          /404.html                    404
+

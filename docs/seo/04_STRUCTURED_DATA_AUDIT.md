@@ -246,3 +246,4 @@ To protect domain reputation and avoid Google manual actions:
 2. **Zero Fake `VideoObject` on Ambient Background Video:** The background hero video is purely decorative atmospheric media. It is NOT marked up with misleading `VideoObject` schemas or fabricated upload dates.
 3. **Zero Fabricated SearchAction:** The site does not provide an on-site search engine with a `?q=` parameter; therefore, Google `potentialAction: SearchAction` is deliberately excluded.
 4. **Zero Invented Currency Pricing:** Services link to transparent quotation booking rather than hardcoded fake price points in schema.
+

@@ -97,3 +97,4 @@ To monitor real-world user engagement without violating Ghana's Data Protection 
 | **Monthly** | Review top organic queries, click-through rates (CTR), and impressions | Google Search Console |
 | **Monthly** | Audit Google Business Profile messages, reviews, and operational hours | Google Business Profile |
 | **Quarterly** | Test site-wide links, mobile responsiveness, and core web vitals | Lighthouse / Dev Audit |
+

@@ -121,3 +121,4 @@ If any unexpected blocker occurs on the live domain after launch, revert immedia
    git push origin main
    ```
 Within 45 seconds, `https://ecocaregh.com/` will safely revert to the pristine Coming Soon countdown page while technical investigations proceed in private.
+

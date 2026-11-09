@@ -97,3 +97,4 @@ The automated builder (`scripts/build_coming_soon.py`) enforces:
 2. **Exclusion Gate:** Confirms that zero Python backend scripts, zero `.env` files, zero serverless API files (`api/`), zero legal draft warnings, and zero full website HTML files are copied into `dist/coming-soon/`.
 3. **URL Integrity:** The brand logo points strictly to `/` (the Coming Soon root), preventing 404 navigation errors.
 4. **Timezone Invariance:** The launch deadline is hardcoded in UTC ISO 8601 (`2026-11-16T14:00:00Z`), ensuring identical countdown behavior across all global visitors.
+

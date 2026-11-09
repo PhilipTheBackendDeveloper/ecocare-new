@@ -89,3 +89,4 @@ All canonical templates and the Coming Soon build are certified across standard 
 | **Tablet Portrait** | 768px | iPad Mini / 9th Gen | Grid layout 2-column flow, table responsiveness, padding | ✅ PASS |
 | **Tablet Landscape / Laptop**| 1024px | iPad Pro / Small Laptop | Navigation transition, sticky header, multi-column footer | ✅ PASS |
 | **Desktop High-Res** | 1440px – 1920px| Desktop Monitor / iMac | Container centering (1140px max), video aspect scaling, sharpness | ✅ PASS |
+
