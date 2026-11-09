@@ -93,8 +93,8 @@ def write_isolated_seo_and_routing():
     robots_content = """User-agent: *
 Allow: /
 
-# State A Coming Soon Sitemap
-Sitemap: https://ecocaregh.com/sitemap.xml
+# State A: 7-Day Coming Soon Launchpad
+# Full sitemap submission is scheduled for State B (Full Site Launch) to prevent Search Console 'Submitted URL marked noindex' warnings.
 """
     sitemap_content = """<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
@@ -115,8 +115,11 @@ Sitemap: https://ecocaregh.com/sitemap.xml
 /robots.txt     /robots.txt          200
 /sitemap.xml    /sitemap.xml         200
 
-# Sub-route catch-all redirects gracefully to Coming Soon root /
-/*              /                    302!
+# Canonical root mapping: legacy index.html permanently redirects to root
+/index.html     /                    301
+
+# Sub-route catch-all: non-existent paths redirect to root without looping (unforced, allows index.html to serve /)
+/*              /                    302
 """
     headers_content = """/*
   X-Frame-Options: DENY

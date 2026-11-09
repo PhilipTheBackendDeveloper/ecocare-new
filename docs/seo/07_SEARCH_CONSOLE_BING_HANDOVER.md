@@ -40,14 +40,16 @@ Google will provide a unique DNS TXT verification token (e.g. `google-site-verif
 5. Click the green checkmark to save.
 6. Return to Google Search Console and click **Verify**. (If verification does not succeed immediately, allow 5–15 minutes for DNS propagation and click Verify again).
 
-### Step 3: Submit the Production Sitemap
-Once verified:
-1. In the left sidebar, click **Sitemaps** (under Indexing).
-2. Under "Add a new sitemap", enter: `sitemap.xml`.
-3. Click **Submit**.
-4. Status will change to **Success** and indicate the number of discovered URLs.
-   - For State A (Coming Soon): 1 URL (`https://ecocaregh.com/`).
-   - For State B (Full Launch): 16 canonical URLs.
+### Step 3: Sitemap Submission Timing & Reconciliation
+- **During State A (7-Day Coming Soon Countdown):**
+  - **Do NOT submit `sitemap.xml` in Google Search Console yet.**
+  - Because `coming-soon.html` utilizes `<meta name="robots" content="noindex, follow">` to protect search snippet quality, submitting an XML sitemap containing that URL causes Google Search Console to flag a coverage warning: *"Submitted URL marked 'noindex'"*.
+  - Verification of domain ownership in Search Console via DNS TXT can proceed immediately; only the sitemap submission itself is deferred.
+- **On State B Launch Day (Full Website Launch):**
+  - In the left sidebar, click **Sitemaps** (under Indexing).
+  - Under "Add a new sitemap", enter: `sitemap.xml`.
+  - Click **Submit**.
+  - Status will change to **Success** and indicate 16 discovered canonical URLs.
 
 ---
 

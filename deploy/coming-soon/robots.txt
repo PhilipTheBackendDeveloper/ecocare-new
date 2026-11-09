@@ -1,5 +1,5 @@
 User-agent: *
 Allow: /
 
-# State A Coming Soon Sitemap
-Sitemap: https://ecocaregh.com/sitemap.xml
+# State A: 7-Day Coming Soon Launchpad
+# Full sitemap submission is scheduled for State B (Full Site Launch) to prevent Search Console 'Submitted URL marked noindex' warnings.

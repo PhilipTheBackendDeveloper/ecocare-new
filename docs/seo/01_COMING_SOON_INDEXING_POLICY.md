@@ -29,49 +29,71 @@ This policy defines the technical search engine indexing rules, crawl directives
    - **Rationale:** Establishes initial domain indexing immediately with company name, address, phone number, and Accra geography.
    - **Downside:** Google often retains "Coming Soon" title tags in search cache for several weeks after full launch.
 
-### Policy Verdict
+### Policy Verdict & Search Console Reconciliation
 State A implements **Option 1** by default with strict crawl compliance:
 ```html
 <meta name="robots" content="noindex, follow">
 <link rel="canonical" href="https://ecocaregh.com/">
 ```
-If the business owner requests immediate domain indexing before launch, setting `"allow_index": true` in `data/seo-pages.json` switches the meta tag to `index, follow` and rebuilds the sitemap automatically.
+
+#### Search Console Reconciliation Rule:
+- **Do NOT submit `sitemap.xml` in Google Search Console while State A (`noindex`) is active.**
+- Submitting an XML sitemap containing a URL with `<meta name="robots" content="noindex">` triggers a Google Search Console coverage error: **"Submitted URL marked 'noindex'"**.
+- Crawlers will discover and respect `noindex, follow` automatically via ordinary HTTP crawling.
+- **Sitemap submission in Google Search Console is scheduled for State B (Full Site Launch Day)** when all 16 canonical pages switch to `index, follow`.
 
 ---
 
-## 3. Dedicated Robots & Sitemap Architecture for State A
+## 3. Dedicated Robots & Routing Architecture for State A
 
-Under State A, Netlify serves exclusively from `dist/coming-soon/`. Therefore, the root `robots.txt` and `sitemap.xml` of the full website are **never exposed** in the Coming Soon directory.
+Under State A, Netlify serves exclusively from `dist/coming-soon/` (and its synchronized mirror `deploy/coming-soon/`). Therefore, the root `robots.txt` and `sitemap.xml` of the full website are **never exposed** in the Coming Soon directory.
 
 ### A. Dedicated `dist/coming-soon/robots.txt`
 ```text
 User-agent: *
 Allow: /
 
-# Dedicated State A Sitemap for EcoCare Launch Countdown
-Sitemap: https://ecocaregh.com/sitemap.xml
+# State A: 7-Day Coming Soon Launchpad
+# Full sitemap submission is scheduled for State B (Full Site Launch) to prevent Search Console 'Submitted URL marked noindex' warnings.
 ```
 *Crucial Rule:* Never use `Disallow: /` in `robots.txt`. A disallow rule prevents search engines from fetching the page entirely, which blinds them to the `noindex` tag and may lead to URL-only listing artifacts in search results.
 
-### B. Dedicated `dist/coming-soon/sitemap.xml`
-```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://ecocaregh.com/</loc>
-    <lastmod>2026-11-09</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>1.0</priority>
-  </url>
-</urlset>
+### B. Loop-Free Netlify Catch-All Redirects (`_redirects`)
+To prevent infinite redirect loops on root `/`:
+```text
+# State A Static Asset Passthrough
+/css/*          /css/:splat          200
+/js/*           /js/:splat           200
+/img/*          /img/:splat          200
+/font/*         /font/:splat         200
+/webfonts/*     /webfonts/:splat     200
+/robots.txt     /robots.txt          200
+/sitemap.xml    /sitemap.xml         200
+
+# Canonical root mapping: legacy index.html permanently redirects to root
+/index.html     /                    301
+
+# Sub-route catch-all: non-existent paths redirect to root without looping (unforced, allows index.html to serve /)
+/*              /                    302
 ```
-*Zero Leakage:* Exactly 1 URL is listed. Zero unfinished service, pricing, or policy URLs are exposed to crawlers.
+*Loop Prevention:* Omitting the exclamation mark `!` from `/* / 302` ensures Netlify uses shadowing: since `index.html` exists at `/`, Netlify serves it with HTTP 200 directly. Only non-existent paths (e.g. `/services`, `/about`) are redirected to `/`.
 
 ---
 
-## 4. Staging & Deploy Preview Protection
+## 4. Staging & Deploy Preview Protection (Noindex vs. Access Restriction)
 
-To prevent Vercel preview environments (`ecocare-new.vercel.app`) or Netlify deploy-previews (`*.netlify.app`) from competing with or canonicalizing over `https://ecocaregh.com/`, non-production hosts are guarded at the HTTP response level:
+To protect the full website on Vercel preview environments (`ecocare-new.vercel.app`) or Netlify deploy-previews (`*.netlify.app`), two distinct levels of protection must be understood:
+
+### Level 1: Search Engine De-indexing Protection (Active in `vercel.json` and `_headers`)
+- `vercel.json` injects `X-Robots-Tag: noindex, nofollow` on all HTTP responses.
+- **Effect:** Compliant search engine crawlers (Googlebot, Bingbot, DuckDuckGo) are instructed NOT to index the preview deployment in public search results.
+- **Limitation:** This does **NOT** block human visitors who possess the link.
+
+### Level 2: Actual Access Restriction (Authentication / Password Protection)
+- If the business requires strict confidentiality where human visitors without credentials cannot view the staging preview:
+  - Enable **Vercel Password Protection** in Project Settings -> Deployment Protection (requires Vercel Pro).
+  - Or configure HTTP Basic Authentication at the reverse proxy/edge layer.
+  - The public production domain on Netlify (`https://ecocaregh.com/`) serves strictly `dist/coming-soon/` (which contains zero full-site files), ensuring complete physical isolation for public visitors.
 
 ### HTTP Header Configuration (`_headers`)
 ```text

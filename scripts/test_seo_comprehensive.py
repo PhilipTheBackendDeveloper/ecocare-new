@@ -222,10 +222,15 @@ def test_coming_soon_isolation():
     # Check isolated _redirects and _headers
     if not (DIST_COMING_SOON / "_redirects").exists():
         fail("Missing dist/coming-soon/_redirects")
+    cs_redirects = (DIST_COMING_SOON / "_redirects").read_text(encoding="utf-8")
+    if "302!" in cs_redirects:
+        fail("Dangerous forced redirect '302!' detected in dist/coming-soon/_redirects (causes infinite root redirect loop)")
+    if "/*              /                    302" not in cs_redirects and "/* / 302" not in cs_redirects:
+        fail("Missing safe unforced catch-all redirect in dist/coming-soon/_redirects")
     if not (DIST_COMING_SOON / "_headers").exists():
         fail("Missing dist/coming-soon/_headers")
 
-    pass_check("State A Coming Soon build in dist/coming-soon/ verified with isolated robots, sitemap, redirects, and headers.")
+    pass_check("State A Coming Soon build in dist/coming-soon/ verified with isolated robots, sitemap, loop-free redirects, and headers.")
 
 def test_net_redirects_and_headers():
     print("\n--- 7. NETLIFY REDIRECTS & HEADERS INTEGRITY ---")
