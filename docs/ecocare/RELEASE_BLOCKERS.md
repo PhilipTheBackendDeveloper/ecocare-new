@@ -68,12 +68,13 @@
 
 - **Problem:** Clenix template slider was static with stock images, and service cards use theme illustrations/photos.
 - **Resolution Implemented:**
-  1. **Background Video Integration:** Integrated an ambient background video using `video-background.mp4` and `video-background1.mp4` that auto-cycles smoothly behind the content.
-  2. **100% Native Clenix UI Preserved:** Retained the exact Clenix slider typography (`.slider-sub-text`, `h1.slider-big-text`, `.slider-paragraph`), yellow CTA buttons (`.item-btn-fill`), and container grid layout.
-  3. **High Contrast Translucent Overlay:** Styled a light gradient overlay (`.hero-video-bg-overlay`) so the dark navy Clenix heading and yellow buttons remain crisp and legible over video motion.
-  4. **Mobile Responsiveness:** Fixed legacy Clenix mobile rules that hid buttons and subtext; buttons and text now scale cleanly on mobile viewports.
-  5. **Brand Assets Active:** EcoCare's authentic logo (`img/logo-dark.png`), icon (`img/mobile-logo.png`), favicon (`img/favicon.png`), and CEO portrait (`img/figure/aboutme.png`) are deployed site-wide.
-  6. Replacement of internal service card images with custom field photography remains open for the client upon camera capture.
+  1. **Background Video Integration:** Integrated an ambient background video using `video-background.mp4` and `video-background1.mp4` that auto-cycles smoothly and silently in the background with strict mobile autoplay policy compliance.
+  2. **Streamlined Minimalist Hero UI:** Retained the authentic headline (*"Protect the Environment, Live Better, Prolong Life"* with emerald accent), punchy single-sentence value proposition, and dual CTA buttons. Removed wordy clutter, floating controls, and extra badge/chip strips for an ultra-sleek, distraction-free aesthetic.
+  3. **High Contrast Directional Overlay:** Styled an elegant directional gradient overlay (`.hero-video-bg-overlay`) ensuring 100% text legibility while keeping the ambient background video vivid and clearly visible.
+  4. **Original Clenix Bottom Transition:** Retained the native Clenix `.section-bubble` curved transition into the About Us section.
+  5. **Mobile Responsiveness:** Clean fluid typography down to `<360px`, balanced vertical spacing, and modern touch-friendly buttons.
+  6. **Brand Assets Active:** EcoCare's authentic logo (`img/logo-dark.png`), icon (`img/mobile-logo.png`), favicon (`img/favicon.png`), and CEO portrait (`img/figure/aboutme.png`) are deployed site-wide.
+  7. Replacement of internal service card images with custom field photography remains open for the client upon camera capture.
 
 ---
 
