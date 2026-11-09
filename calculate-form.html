@@ -235,7 +235,11 @@
                     <div class="col-xl-5 col-lg-6 col-12">
                         <div class="about-box-layout2">
                             <h3 class="item-title">Request An Estimate</h3>
-                            <form class="contact-form-box" id="contact-form">
+                            <form class="contact-form-box" id="quote-calculator-form" name="quote-calculator" method="POST" action="/calculate-form.html" data-netlify="true" data-netlify-honeypot="bot-field">
+                                <input type="hidden" name="form-name" value="quote-calculator">
+                                <p class="d-none" style="display:none !important;" aria-hidden="true">
+                                    <label>Don’t fill this out if you're human: <input name="bot-field" tabindex="-1" autocomplete="off"></label>
+                                </p>
                                 <div style="display:none !important;" aria-hidden="true">
                                     <input type="text" name="website_url" tabindex="-1" autocomplete="off" value="">
                                 </div>
@@ -308,7 +312,7 @@
                                         <input type="text" class="form-control rt-time" placeholder="Preferred Time" name="time" id="form-time" required/>
                                     </div>
                                     <div class="col-md-6 col-12 form-group">
-                                        <input type="text" placeholder="Your Name" class="form-control" name="name" id="form-name" required aria-label="Full Name">
+                                        <input type="text" placeholder="Your Name" class="form-control" name="name" id="calc-customer-name" required aria-label="Full Name">
                                         <div class="help-block with-errors"></div>
                                     </div>
                                     <div class="col-md-6 col-12 form-group">
@@ -327,7 +331,7 @@
                                         <button type="submit" class="fw-btn-fill bg-accent text-primarytext">Request Free Estimate<i class="fas fa-angle-right"></i></button>
                                     </div>
                                 </div>
-                                <div class="form-response mt-3"></div>
+                                <div class="form-response mt-3" role="status" aria-live="polite"></div>
                             </form>
                             <div class="text-center mt-3">
                                 <small class="text-muted"><i class="fab fa-whatsapp text-success mr-1"></i> Prefer instant chat? WhatsApp us at <a href="https://wa.me/233249014253" class="text-primary font-weight-bold" target="_blank">+233 24 901 4253</a></small>

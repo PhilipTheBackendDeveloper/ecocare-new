@@ -264,7 +264,11 @@
                             <div class="heading-layout4">
                                 <h4>Send Us a Message</h4>
                             </div>
-                            <form class="contact-form-box" id="contact-form">
+                            <form class="contact-form-box" id="contact-form" name="contact" method="POST" action="/contact.html" data-netlify="true" data-netlify-honeypot="bot-field">
+                                <input type="hidden" name="form-name" value="contact">
+                                <p class="d-none" style="display:none !important;" aria-hidden="true">
+                                    <label>Don’t fill this out if you're human: <input name="bot-field" tabindex="-1" autocomplete="off"></label>
+                                </p>
                                 <div style="display:none !important;" aria-hidden="true">
                                     <input type="text" name="website_url" tabindex="-1" autocomplete="off" value="">
                                 </div>
@@ -299,7 +303,7 @@
                                         <button type="submit" class="fw-btn-fill bg-accent text-primarytext">Send Message</button>
                                     </div>
                                 </div>
-                                <div class="form-response mt-3"></div>
+                                <div class="form-response mt-3" role="status" aria-live="polite"></div>
                             </form>
                         </div>
                     </div>

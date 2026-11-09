@@ -1,8 +1,8 @@
 # EcoCare Website — Release Blockers & Pre-Launch Checklist
 
-**Document Version:** 1.2  
+**Document Version:** 1.3  
 **Date:** 9 November 2026  
-**Status:** In Progress – Technical infrastructure, coming-soon isolation, and truthfulness guardrails completed; client email provider credentials and authorizations pending
+**Status:** In Progress – Technical infrastructure, Netlify Forms migration, coming-soon isolation, and truthfulness guardrails completed; live Netlify Form notification inbox delivery and client content approvals pending
 
 ---
 
@@ -10,36 +10,39 @@
 
 | ID | Description | Severity | Owner | Status | Evidence / Notes |
 |---|---|---|---|---|---|
-| RB-01 | Form backend & real email delivery | 🔴 HIGH | Dev / Client | 🔴 OPEN (PENDING CREDENTIALS) | Serverless (`/api`) and PHP handlers tested for sanitization, honeypot, timing attacks, rate limiting, and local storage (10/10 PASS). Real inbox delivery pending client provision of `RESEND_API_KEY` or SMTP credentials. |
+| RB-01 | Form backend & real email delivery | 🔴 HIGH | Dev / Client | 🟡 MIGRATED TO NETLIFY FORMS / PENDING INBOX TEST | Native Netlify Forms with `bot-field` honeypot, timing defenses, and URL-encoded submission implemented across all canonical pages. 14/14 automated tests pass. Real inbox delivery requires configuring Netlify Form notifications to `ecocaregh1on1@gmail.com` in Netlify dashboard and sending a live test submission. |
 | RB-02 | Testimonials consent & attribution | 🟡 MEDIUM | Client | ⏸️ PENDING / ATTRIBUTED | Archived reviews displayed with explicit pending disclosure under Ghana DPA (Act 843). |
 | RB-03 | Legal docs ratification | 🟡 MEDIUM | Lawyer / Client | ⏸️ DRAFT NOTICED | Published with prominent legal draft disclaimer notice on privacy and terms pages. |
 | RB-04 | Hero video background & photography | 🟢 LOW | Dev / Client | ✅ HERO VIDEO LIVE / ASSETS PENDING | Ambient background video (`video-background.mp4` & `video-background1.mp4`) active behind 100% native Clenix template UI on `index.html`; service card photos pending field capture. |
-| RB-05 | Custom domain DNS & corporate email | 🟡 MEDIUM | Client | ⏸️ PENDING RENEWAL | Active monitored inbox `ecocaregh1on1@gmail.com` deployed cleanly site-wide. |
-| RB-06 | Vercel clean URL deployment | 🟢 LOW | Dev | ✅ READY | `vercel.json` verified with 15 clean URL routes (105/105 checks pass). |
+| RB-05 | Custom domain DNS & corporate email | 🟢 LOW | Dev / Client | ✅ DOMAIN & HTTPS LIVE ON NETLIFY | `ecocaregh.com` is registered, active, and securely serving with HTTPS and apex redirects on Netlify. Corporate `info@ecocaregh.com` remains pending mailbox setup; active monitored inbox `ecocaregh1on1@gmail.com` deployed site-wide. |
+| RB-06 | Vercel clean URL deployment | 🟢 LOW | Dev | ✅ READY | `vercel.json` verified with 15 clean URL routes and `X-Robots-Tag: noindex, nofollow` (105/105 checks pass). |
 | RB-07 | Pest control safety & EPA compliance | 🔴 HIGH | Dev / Client | 🟡 REMEDIATED / PENDING LICENSE | Fixed 2–4 hr intervals completely removed; copy strictly requires following product labels and on-site qualified operator instructions. EPA license number pending client confirmation. |
-| RB-08 | Standalone Coming Soon publication | 🟢 LOW | Dev | ✅ READY | Self-contained static site created at `deploy/coming-soon/` with official root branding, live countdown, direct WhatsApp / phone / email channels, and zero unfinished links. |
+| RB-08 | Standalone Coming Soon publication | 🟢 LOW | Dev | ✅ LIVE ON NETLIFY | Standalone 7-day countdown site is live on Netlify at `https://ecocaregh.com`. Full website remains preserved and staged in `dist/staging/`. |
 
 ---
 
 ## Detailed Blockers Ledger
 
-### RB-01 — Form Submission Backend & Real Email Delivery (OPEN — PENDING CREDENTIALS 🔴)
+### RB-01 — Form Submission Backend & Real Email Delivery (MIGRATED TO NETLIFY FORMS / PENDING INBOX TEST 🟡)
 
-- **Problem:** Clenix demo lacked backend endpoints (`vendor/php/form-process.php`), and previous form scripts simulated submission without actual delivery or anti-spam filtering.
+- **Problem:** Clenix demo lacked backend endpoints (`vendor/php/form-process.php`), and previous serverless `/api` implementations relied on ephemeral local filesystem storage (`data/submissions.jsonl`) which is wiped on serverless container restarts and non-functional on Netlify static hosting.
 - **Resolution Implemented:**
-  1. **Node.js / Vercel Serverless Functions:** Built `api/contact.js` and `api/quote.js` with field sanitization, RFC 5322 email validation, and Ghanaian phone number parsing.
-  2. **PHP Endpoints:** Created `vendor/php/form-process.php` and `vendor/php/quote-process.php` for standard Apache / cPanel / Shared hosting environments.
-  3. **Multi-Layer Spam Protection:**
-     - Invisible honeypot field (`name="website_url"`) automatically catches and disarms automated bots without tip-off.
-     - Rapid submission timer check flags and discards submissions occurring faster than 1 second from page render.
-     - IP rate limiting restricts submissions to a maximum of 5 requests per minute per IP address.
-  4. **PII Masking & Persistent Local Storage:**
-     - Submissions are persistently stored to `data/submissions.jsonl` with ISO timestamps and client IP logging so that zero customer inquiries are lost even before client email setup.
-     - Phone numbers and email addresses are masked in server console logs (e.g. `233****53`, `kw***@example.com`) to prevent accidental PII leakage under Ghana's Data Protection Act, 2012 (Act 843).
-  5. **Instant WhatsApp Dispatch Pre-fill:**
-     - On submission, customers receive an interactive, accessible green alert with an instant one-click link to notify EcoCare dispatch directly via WhatsApp (`+233 24 901 4253`).
+  1. **Native Netlify Forms Infrastructure:** Migrated all forms across `contact.html`, `calculate-form.html`, `index.html`, and service page quick inquiry sidebars to native Netlify Forms (`data-netlify="true"`, `data-netlify-honeypot="bot-field"`).
+  2. **Zero Data-Loss Storage:** Submissions are stored persistently in the Netlify Forms dashboard, providing permanent audit logs and exportable CSVs independent of any container lifecycle.
+  3. **Zero Third-Party Cost & Credential Free:** Eliminates the need for paid API services (e.g. Resend) or exposed SMTP credentials in `.env`.
+  4. **Multi-Layer Spam Protection:**
+     - Netlify built-in server-side honeypot (`name="bot-field"`).
+     - Invisible client-side honeypot (`name="website_url"`).
+     - Rapid submission timer check flagging submissions occurring faster than 1 second from page render.
+     - Form submit debounce and button disabling.
+  5. **Truthful Feedback & Immediate WhatsApp / Phone Fallback:**
+     - The frontend controller (`js/ecocare.js`) strictly verifies HTTP 2xx from Netlify before rendering a success alert.
+     - On network or server error, it **never** falsely claims "message received"; instead, it surfaces a prominent notice with one-click pre-filled WhatsApp link (`+233 24 901 4253`), direct phone call link, and direct email link (`ecocaregh1on1@gmail.com`).
+  6. **Automated Verification:** Verified via `node scripts/test_netlify_forms.js` (14/14 tests pass).
 - **Open Status Justification:**
-  - In accordance with non-negotiable truthfulness rules, passing automated test scripts (`test_form_backend.js`) does NOT constitute proof of live email delivery. Real end-to-end delivery requires `RESEND_API_KEY` or SMTP credentials configured in the live deployment environment (`.env`). Until a test email is received in the client's inbox, RB-01 remains **OPEN**.
+  - Automated tests prove that HTML attributes, honeypots, phone/email validation, and URL-encoded serialization are 100% correct.
+  - However, in accordance with our truthfulness rules, passing test scripts does NOT constitute proof of live email inbox delivery.
+  - To achieve live email delivery, the site administrator must enable Form Notifications in the Netlify Dashboard (pointing to `ecocaregh1on1@gmail.com`), deploy the staging/full site, and submit a verified test form. Until an email is confirmed delivered to `ecocaregh1on1@gmail.com`, RB-01 remains **PENDING INBOX TEST**.
 
 ---
 

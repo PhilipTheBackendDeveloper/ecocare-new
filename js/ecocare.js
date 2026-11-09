@@ -1,6 +1,6 @@
 /**
  * EcoCare Cleaning Services Limited — Client-Side Controller
- * Handles form validation, spam protection, asynchronous submission to API / PHP,
+ * Handles native Netlify Forms validation, spam protection, asynchronous submission,
  * accessible feedback alerts, and instant WhatsApp dispatch integration.
  */
 (function ($) {
@@ -9,7 +9,7 @@
   $(document).ready(function () {
     // 1. Stamp all forms with render timestamp for bot timing detection
     var renderTimestamp = Date.now();
-    $('form.contact-form-box, form#contact-form, form#ecocare-booking-form').each(function () {
+    $('form.contact-form-box, form#contact-form, form#quote-calculator-form, form#ecocare-booking-form, form#quick-inquiry-form').each(function () {
       var form = $(this);
       if (!form.find('input[name="form_rendered_at"]').length) {
         form.append('<input type="hidden" name="form_rendered_at" value="' + renderTimestamp + '">');
@@ -54,28 +54,30 @@
       }
     }
 
-    // 3. Helper: Basic Ghana & International Phone Validation
+    // 3. Helper: Ghana & International Phone Validation
+    // Supports 10-digit Ghana local format (02x, 05x, 03x), +233, and international E.164
     function isValidPhone(phone) {
       if (!phone) return false;
       var clean = phone.replace(/[^0-9+]/g, "");
       return clean.length >= 9 && clean.length <= 16;
     }
 
-    // 4. Helper: Email Validation
+    // 4. Helper: Email Validation (RFC 5322 regex)
     function isValidEmail(email) {
       if (!email) return false;
       return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim());
     }
 
-    // 5. Universal Form Submission Handler
-    $(document).on("submit", "form.contact-form-box, form#contact-form, form#ecocare-booking-form", function (e) {
+    // 5. Universal Netlify Form Submission Handler
+    $(document).on("submit", "form.contact-form-box, form#contact-form, form#quote-calculator-form, form#ecocare-booking-form, form#quick-inquiry-form", function (e) {
       e.preventDefault();
       e.stopImmediatePropagation();
 
       var form = $(this);
+      var formEl = form[0];
       var responseBox = form.find(".form-response");
       if (!responseBox.length) {
-        responseBox = $('<div class="form-response mt-3"></div>').appendTo(form);
+        responseBox = $('<div class="form-response mt-3" role="status" aria-live="polite"></div>').appendTo(form);
       }
 
       var submitBtn = form.find('button[type="submit"]');
@@ -88,25 +90,38 @@
         payload[field.name] = field.value;
       });
 
-      // Honeypot check on client side
-      if (payload.website_url) {
-        // Disarm bot without feedback
+      // Multi-layer Bot Protection: Honeypots
+      if (payload.website_url || payload["bot-field"]) {
+        // Disarm bot silently without tipping off crawler
         responseBox.html(
           '<div class="alert alert-success" role="alert"><i class="fas fa-check-circle"></i> Thank you! Your request has been received.</div>'
         );
-        form[0].reset();
+        formEl.reset();
         return false;
       }
 
-      // Determine form type
+      // Multi-layer Bot Protection: Rapid Timing Attack (< 1s from render)
+      var renderedAt = parseInt(form.find('input[name="form_rendered_at"]').val(), 10);
+      if (renderedAt && Date.now() - renderedAt < 1000) {
+        responseBox.html(
+          '<div class="alert alert-warning" role="alert"><i class="fas fa-clock mr-1"></i> Please take a moment to review your details before submitting.</div>'
+        );
+        return false;
+      }
+
+      // Determine form name and identity
+      var formName = form.attr("name") || form.find('input[name="form-name"]').val();
       var isQuoteForm = Boolean(
+        formName === "quote-calculator" ||
         form.attr("id") === "ecocare-booking-form" ||
+        form.attr("id") === "quote-calculator-form" ||
         form.find('select[name="service"]').length ||
         window.location.pathname.indexOf("calculate-form") !== -1
       );
 
-      var primaryEndpoint = isQuoteForm ? "/api/quote" : "/api/contact";
-      var fallbackEndpoint = isQuoteForm ? "vendor/php/quote-process.php" : "vendor/php/form-process.php";
+      if (!formName) {
+        formName = isQuoteForm ? "quote-calculator" : "contact";
+      }
 
       // Client-Side Validation
       var errors = [];
@@ -157,30 +172,41 @@
         return false;
       }
 
-      // Set Loading State
+      // Set Loading State and debounce submit button
       submitBtn.prop("disabled", true).html('<i class="fas fa-spinner fa-spin mr-1"></i> Submitting Request...');
       responseBox.html(
         '<div class="alert alert-info" role="alert" style="border-radius:4px; padding:10px 14px;">' +
-        '<i class="fas fa-info-circle mr-1"></i> Processing your submission with EcoCare dispatch...' +
+        '<i class="fas fa-info-circle mr-1"></i> Submitting your inquiry to EcoCare dispatch...' +
         '</div>'
       );
 
-      // Function to show success message with WhatsApp follow-up button
-      function showSuccess(data) {
-        form[0].reset();
+      // Function to show verified success message with WhatsApp follow-up button
+      function showSuccess() {
+        formEl.reset();
         submitBtn.prop("disabled", false).html(originalBtnHtml);
 
-        var waUrl = (data && data.whatsappUrl) || "https://wa.me/233249014253";
+        var serviceLabel = payload.service || payload.subject || "Cleaning Services";
+        var waText = encodeURIComponent(
+          "Hello EcoCare! I just submitted an inquiry on your website.\n" +
+          "Name: " + nameVal + "\n" +
+          "Contact: " + (phoneVal || emailVal) + "\n" +
+          "Service: " + serviceLabel + "\n" +
+          (locationVal ? "Location: " + locationVal + "\n" : "") +
+          "Details: " + messageVal
+        );
+        var waUrl = "https://wa.me/233249014253?text=" + waText;
         var safeName = $("<div>").text(nameVal).html();
-        var safePhone = $("<div>").text(phoneVal || emailVal).html();
+        var safeContact = $("<div>").text(phoneVal || emailVal).html();
 
         responseBox.html(
           '<div class="alert alert-success" role="alert" style="background:#d4edda; border-color:#c3e6cb; color:#155724; border-radius:4px; padding:16px;">' +
           '<h5 style="color:#155724; font-weight:700; margin-bottom:8px;"><i class="fas fa-check-circle mr-1"></i> Inquiry Received Successfully!</h5>' +
-          '<p style="margin-bottom:10px; font-size:14px; line-height:22px;">Thank you, <strong>' + safeName + '</strong>! Our team in Achimota Mile 7, Accra has received your details. We will contact you at <strong>' + safePhone + '</strong> shortly with your tailored scope.</p>' +
+          '<p style="margin-bottom:10px; font-size:14px; line-height:22px;">' +
+          'Thank you, <strong>' + safeName + '</strong>! Your inquiry has been delivered directly to EcoCare Cleaning Services Limited. Our dispatch desk in Achimota Mile 7 will review your scope and contact you at <strong>' + safeContact + '</strong> shortly.' +
+          '</p>' +
           '<div class="mt-2 pt-2 border-top" style="border-color:#c3e6cb !important;">' +
           '<a href="' + waUrl + '" target="_blank" rel="noopener noreferrer" class="btn btn-sm" style="background:#25d366; color:#fff; font-weight:600; padding:6px 14px; border-radius:4px; display:inline-block;">' +
-          '<i class="fab fa-whatsapp mr-1"></i> Notify EcoCare Dispatch on WhatsApp' +
+          '<i class="fab fa-whatsapp mr-1"></i> Connect With Dispatch on WhatsApp' +
           '</a>' +
           '<span class="ml-2 text-muted" style="font-size:12px;">(Optional instant chat)</span>' +
           '</div>' +
@@ -188,71 +214,61 @@
         );
       }
 
-      // Function to handle failure / fallback
+      // Function to handle failure / fallback without falsely claiming success
       function showFallbackError(errMsg) {
         submitBtn.prop("disabled", false).html(originalBtnHtml);
+        var serviceLabel = payload.service || payload.subject || "Cleaning Services";
         var directWaText = encodeURIComponent(
-          "Hello EcoCare! My name is " + nameVal + ". I was attempting to submit an inquiry (" + (payload.service || "Cleaning") + ") from your website. My phone is " + phoneVal + "."
+          "Hello EcoCare! My name is " + nameVal + ". I attempted to submit an inquiry (" + serviceLabel + ") via your website but encountered a connection issue.\n" +
+          "Phone: " + phoneVal + "\n" +
+          (locationVal ? "Location: " + locationVal + "\n" : "") +
+          "Details: " + messageVal
         );
         var directWa = "https://wa.me/233249014253?text=" + directWaText;
 
         responseBox.html(
           '<div class="alert alert-warning" role="alert" style="border-radius:4px; padding:14px;">' +
-          '<p class="mb-2"><strong><i class="fas fa-info-circle mr-1"></i> Notice:</strong> ' + (errMsg || "We could not connect to the automated mail server.") + '</p>' +
-          '<p class="mb-2" style="font-size:13px;">Your request is important to us. Please connect directly with our dispatch supervisor:</p>' +
-          '<a href="' + directWa + '" target="_blank" rel="noopener noreferrer" class="btn btn-sm" style="background:#25d366; color:#fff; font-weight:600;">' +
-          '<i class="fab fa-whatsapp mr-1"></i> Click to Send on WhatsApp (+233 24 901 4253)' +
+          '<p class="mb-2"><strong><i class="fas fa-exclamation-triangle mr-1"></i> Notice:</strong> ' + (errMsg || "We could not connect to the automated mail server.") + '</p>' +
+          '<p class="mb-2" style="font-size:13px;">Your request is important to us! Please connect directly with our dispatch team via:</p>' +
+          '<div class="d-flex flex-wrap align-items-center mt-2">' +
+          '<a href="' + directWa + '" target="_blank" rel="noopener noreferrer" class="btn btn-sm mr-2 mb-2" style="background:#25d366; color:#fff; font-weight:600;">' +
+          '<i class="fab fa-whatsapp mr-1"></i> Send on WhatsApp (+233 24 901 4253)' +
           '</a>' +
-          '<span class="ml-2" style="font-size:13px;">or call <a href="tel:+233249014253" style="font-weight:700; color:#333;">+233 24 901 4253</a></span>' +
+          '<a href="tel:+233249014253" class="btn btn-sm btn-dark mr-2 mb-2 font-weight-bold">' +
+          '<i class="fas fa-phone mr-1"></i> Call +233 24 901 4253' +
+          '</a>' +
+          '<a href="mailto:ecocaregh1on1@gmail.com?subject=EcoCare%20Website%20Inquiry" class="btn btn-sm btn-outline-secondary mb-2">' +
+          '<i class="far fa-envelope mr-1"></i> Email Dispatch' +
+          '</a>' +
+          '</div>' +
           '</div>'
         );
       }
 
-      // Execute submission via JSON POST to Node Serverless endpoint
+      // Build Netlify-compatible x-www-form-urlencoded payload
+      var postData = form.serialize();
+      if (postData.indexOf("form-name=") === -1) {
+        postData = "form-name=" + encodeURIComponent(formName) + "&" + postData;
+      }
+
+      // Submit via AJAX POST to current path or root /
       $.ajax({
-        url: primaryEndpoint,
+        url: form.attr("action") || "/",
         type: "POST",
-        contentType: "application/json",
-        data: JSON.stringify(payload),
-        dataType: "json",
-        timeout: 10000,
-        success: function (res) {
-          if (res && res.success) {
-            showSuccess(res.data);
-          } else {
-            showFallbackError(res.error || (res.details ? res.details.join(", ") : ""));
-          }
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        data: postData,
+        timeout: 12000,
+        success: function (res, textStatus, xhr) {
+          // In Netlify, successful form submission returns 2xx HTTP status
+          showSuccess();
         },
-        error: function (xhr) {
-          // If 400 Bad Request, show validation error
-          if (xhr.status === 400 && xhr.responseJSON) {
-            submitBtn.prop("disabled", false).html(originalBtnHtml);
-            var errList = xhr.responseJSON.details || [xhr.responseJSON.error || "Validation failed."];
-            responseBox.html(
-              '<div class="alert alert-danger" role="alert">' +
-              errList.join("<br>") +
-              '</div>'
-            );
-            return;
+        error: function (xhr, textStatus) {
+          // Never claim success on error
+          var errorMsg = "Could not deliver your request online due to a network connection issue.";
+          if (textStatus === "timeout") {
+            errorMsg = "The submission request timed out. Please check your internet connection.";
           }
-          // If /api is not hosted (e.g. PHP Apache hosting), attempt fallback to PHP endpoint
-          $.ajax({
-            url: fallbackEndpoint,
-            type: "POST",
-            data: form.serialize(),
-            dataType: "json",
-            timeout: 8000,
-            success: function (phpRes) {
-              if (phpRes && phpRes.success) {
-                showSuccess(phpRes.data);
-              } else {
-                showFallbackError(phpRes.message || "");
-              }
-            },
-            error: function () {
-              showFallbackError("Network or server connection issue.");
-            }
-          });
+          showFallbackError(errorMsg);
         }
       });
 

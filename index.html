@@ -633,7 +633,11 @@
                     <div class="col-xl-5 col-lg-6 col-12">
                         <div class="about-box-layout2">
                             <h3 class="item-title">Request An Estimate</h3>
-                            <form class="contact-form-box" id="ecocare-booking-form">
+                            <form class="contact-form-box" id="ecocare-booking-form" name="quote-calculator" method="POST" action="/index.html" data-netlify="true" data-netlify-honeypot="bot-field">
+                                <input type="hidden" name="form-name" value="quote-calculator">
+                                <p class="d-none" style="display:none !important;" aria-hidden="true">
+                                    <label>Don’t fill this out if you're human: <input name="bot-field" tabindex="-1" autocomplete="off"></label>
+                                </p>
                                 <div style="display:none !important;" aria-hidden="true"><input type="text"
                                         name="website_url" tabindex="-1" autocomplete="off" value=""></div>
                                 <div class="row gutters-10">
@@ -707,7 +711,7 @@
                                             Quote<i class="fas fa-angle-right"></i></button>
                                     </div>
                                 </div>
-                                <div class="form-response"></div>
+                                <div class="form-response" role="status" aria-live="polite"></div>
                             </form>
                         </div>
                     </div>
