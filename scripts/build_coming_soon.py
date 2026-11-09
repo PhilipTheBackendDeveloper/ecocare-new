@@ -1,8 +1,10 @@
 #!/usr/bin/env python3
 """
 EcoCare Cleaning Services Limited — Coming Soon Deployment Builder
-Generates an isolated, production-ready standalone Coming Soon site in dist/coming-soon/.
-State A Deployment Engine for Netlify (publish = "dist/coming-soon").
+Generates isolated, production-ready standalone Coming Soon sites in:
+  1. dist/coming-soon/ (Primary Netlify build artifact target)
+  2. deploy/coming-soon/ (Local preview & deployment synchronization target)
+Guarantees 100% byte-for-byte identity between coming-soon.html, dist/coming-soon/, and deploy/coming-soon/.
 """
 
 import os
@@ -12,7 +14,10 @@ import re
 from pathlib import Path
 
 ROOT_DIR = Path(__file__).resolve().parent.parent
-DIST_DIR = ROOT_DIR / "dist" / "coming-soon"
+PUBLISH_DIRS = [
+    ROOT_DIR / "dist" / "coming-soon",
+    ROOT_DIR / "deploy" / "coming-soon",
+]
 
 REQUIRED_ASSETS = [
     # HTML source
@@ -37,62 +42,60 @@ REQUIRED_ASSETS = [
     ("js/coming-soon-countdown.js", "js/coming-soon-countdown.js"),
 ]
 
-def clean_dist():
-    """Removes previous build output in dist/coming-soon."""
-    if DIST_DIR.exists():
-        shutil.rmtree(DIST_DIR)
-    DIST_DIR.mkdir(parents=True, exist_ok=True)
-    print(f"✓ Cleaned and prepared {DIST_DIR}")
+def clean_targets():
+    """Removes previous build output in target directories."""
+    for target in PUBLISH_DIRS:
+        if target.exists():
+            shutil.rmtree(target)
+        target.mkdir(parents=True, exist_ok=True)
+        print(f"✓ Cleaned and prepared {target}")
 
 def copy_individual_assets():
-    """Validates and copies individual files."""
-    for src_rel, dst_rel in REQUIRED_ASSETS:
-        src = ROOT_DIR / src_rel
-        dst = DIST_DIR / dst_rel
-        if not src.exists():
-            print(f"❌ ERROR: Missing required source file: {src}", file=sys.stderr)
-            sys.exit(1)
-        dst.parent.mkdir(parents=True, exist_ok=True)
-        shutil.copy2(src, dst)
-    print(f"✓ Copied {len(REQUIRED_ASSETS)} core static assets.")
+    """Validates and copies individual files to all target directories."""
+    for target in PUBLISH_DIRS:
+        for src_rel, dst_rel in REQUIRED_ASSETS:
+            src = ROOT_DIR / src_rel
+            dst = target / dst_rel
+            if not src.exists():
+                print(f"❌ ERROR: Missing required source file: {src}", file=sys.stderr)
+                sys.exit(1)
+            dst.parent.mkdir(parents=True, exist_ok=True)
+            shutil.copy2(src, dst)
+        print(f"✓ Copied {len(REQUIRED_ASSETS)} core static assets to {target.name}/.")
 
 def copy_directory_trees():
-    """Copies font trees (FontAwesome webfonts and Flaticon)."""
-    # 1. webfonts/
-    src_webfonts = ROOT_DIR / "webfonts"
-    dst_webfonts = DIST_DIR / "webfonts"
-    if src_webfonts.exists():
-        dst_webfonts.mkdir(parents=True, exist_ok=True)
-        for item in src_webfonts.glob("*"):
-            if item.is_file():
-                shutil.copy2(item, dst_webfonts / item.name)
-        print("✓ Copied FontAwesome webfonts.")
-    else:
-        print("⚠️ Warning: webfonts directory not found in root.", file=sys.stderr)
+    """Copies font trees (FontAwesome webfonts and Flaticon) to all targets."""
+    for target in PUBLISH_DIRS:
+        # 1. webfonts/
+        src_webfonts = ROOT_DIR / "webfonts"
+        dst_webfonts = target / "webfonts"
+        if src_webfonts.exists():
+            dst_webfonts.mkdir(parents=True, exist_ok=True)
+            for item in src_webfonts.glob("*"):
+                if item.is_file():
+                    shutil.copy2(item, dst_webfonts / item.name)
+            print(f"✓ Copied FontAwesome webfonts to {target.name}/.")
+        else:
+            print("⚠️ Warning: webfonts directory not found in root.", file=sys.stderr)
 
-    # 2. font/
-    src_font = ROOT_DIR / "font"
-    dst_font = DIST_DIR / "font"
-    if src_font.exists():
-        dst_font.mkdir(parents=True, exist_ok=True)
-        for item in src_font.glob("*"):
-            if item.is_file():
-                shutil.copy2(item, dst_font / item.name)
-        print("✓ Copied Flaticon font assets.")
+        # 2. font/
+        src_font = ROOT_DIR / "font"
+        dst_font = target / "font"
+        if src_font.exists():
+            dst_font.mkdir(parents=True, exist_ok=True)
+            for item in src_font.glob("*"):
+                if item.is_file():
+                    shutil.copy2(item, dst_font / item.name)
+            print(f"✓ Copied Flaticon font assets to {target.name}/.")
 
 def write_isolated_seo_and_routing():
     """Generates isolated State A robots.txt, sitemap.xml, _redirects, and security _headers."""
-    # 1. robots.txt for State A
     robots_content = """User-agent: *
 Allow: /
 
 # State A Coming Soon Sitemap
 Sitemap: https://ecocaregh.com/sitemap.xml
 """
-    (DIST_DIR / "robots.txt").write_text(robots_content, encoding="utf-8")
-    print("✓ Created isolated dist/coming-soon/robots.txt (Allow: / for crawlability).")
-
-    # 2. sitemap.xml for State A (Only the public root)
     sitemap_content = """<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
@@ -103,10 +106,6 @@ Sitemap: https://ecocaregh.com/sitemap.xml
   </url>
 </urlset>
 """
-    (DIST_DIR / "sitemap.xml").write_text(sitemap_content, encoding="utf-8")
-    print("✓ Created isolated dist/coming-soon/sitemap.xml with exactly 1 URL.")
-
-    # 3. _redirects for State A
     redirects_content = """# State A Static Asset Passthrough
 /css/*          /css/:splat          200
 /js/*           /js/:splat           200
@@ -119,19 +118,12 @@ Sitemap: https://ecocaregh.com/sitemap.xml
 # Sub-route catch-all redirects gracefully to Coming Soon root /
 /*              /                    302!
 """
-    (DIST_DIR / "_redirects").write_text(redirects_content, encoding="utf-8")
-    print("✓ Created isolated dist/coming-soon/_redirects.")
-
-    # 4. _headers for State A
     headers_content = """/*
   X-Frame-Options: DENY
   X-XSS-Protection: 1; mode=block
   X-Content-Type-Options: nosniff
   Referrer-Policy: strict-origin-when-cross-origin
 """
-    (DIST_DIR / "_headers").write_text(headers_content, encoding="utf-8")
-
-    # 5. netlify.toml for isolated publish context
     netlify_toml_content = """[build]
   publish = "."
 
@@ -143,60 +135,65 @@ Sitemap: https://ecocaregh.com/sitemap.xml
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "strict-origin-when-cross-origin"
 """
-    (DIST_DIR / "netlify.toml").write_text(netlify_toml_content, encoding="utf-8")
-    print("✓ Created isolated dist/coming-soon/_headers and netlify.toml.")
 
-def verify_build():
-    """Verifies that all assets referenced in dist/coming-soon/index.html exist and no sensitive files leaked."""
-    html_file = DIST_DIR / "index.html"
-    content = html_file.read_text(encoding="utf-8")
+    for target in PUBLISH_DIRS:
+        (target / "robots.txt").write_text(robots_content, encoding="utf-8")
+        (target / "sitemap.xml").write_text(sitemap_content, encoding="utf-8")
+        (target / "_redirects").write_text(redirects_content, encoding="utf-8")
+        (target / "_headers").write_text(headers_content, encoding="utf-8")
+        (target / "netlify.toml").write_text(netlify_toml_content, encoding="utf-8")
+        print(f"✓ Created isolated SEO, headers, redirects, and netlify.toml in {target.name}/.")
 
-    # Match src="..." and href="..."
-    refs = re.findall(r'(?:src|href)=["\']([^"\'#?]+)["\']', content)
-    missing = []
-    checked = 0
+def verify_builds():
+    """Verifies that all assets referenced in index.html exist and no sensitive files leaked."""
+    for target in PUBLISH_DIRS:
+        html_file = target / "index.html"
+        content = html_file.read_text(encoding="utf-8")
 
-    for ref in refs:
-        # Ignore external links, mailto, tel, absolute domain URLs, or root /
-        if ref.startswith(("http://", "https://", "mailto:", "tel:", "//")) or ref == "/":
-            continue
-        asset_path = DIST_DIR / ref
-        checked += 1
-        if not asset_path.exists():
-            missing.append(ref)
+        # Match src="..." and href="..."
+        refs = re.findall(r'(?:src|href)=["\']([^"\'#?]+)["\']', content)
+        missing = []
+        checked = 0
 
-    if missing:
-        print(f"❌ ERROR: Missing referenced assets in build output:", file=sys.stderr)
-        for m in missing:
-            print(f"   - {m}", file=sys.stderr)
-        sys.exit(1)
+        for ref in refs:
+            if ref.startswith(("http://", "https://", "mailto:", "tel:", "//")) or ref == "/":
+                continue
+            asset_path = target / ref
+            checked += 1
+            if not asset_path.exists():
+                missing.append(ref)
 
-    # Security check: Ensure zero .env, zero .py, zero unfinished html files exist in dist
-    forbidden_extensions = [".py", ".env", ".sh", ".jsonl"]
-    for f in DIST_DIR.rglob("*"):
-        if f.is_file():
-            if f.suffix in forbidden_extensions or "about1" in f.name or "service1" in f.name:
-                print(f"❌ SECURITY ERROR: Unintended file in build output: {f}", file=sys.stderr)
-                sys.exit(1)
+        if missing:
+            print(f"❌ ERROR: Missing referenced assets in {target}:", file=sys.stderr)
+            for m in missing:
+                print(f"   - {m}", file=sys.stderr)
+            sys.exit(1)
 
-    # Compute total size
-    total_size = sum(f.stat().st_size for f in DIST_DIR.rglob("*") if f.is_file())
-    file_count = len(list(f for f in DIST_DIR.rglob("*") if f.is_file()))
+        # Security check: Ensure zero .env, zero .py, zero unfinished html files exist
+        forbidden_extensions = [".py", ".env", ".sh", ".jsonl"]
+        for f in target.rglob("*"):
+            if f.is_file():
+                if f.suffix in forbidden_extensions or "about1" in f.name or "service1" in f.name:
+                    print(f"❌ SECURITY ERROR: Unintended file in {target}: {f}", file=sys.stderr)
+                    sys.exit(1)
 
-    print("========================================================================")
-    print("EcoCare Standalone Coming Soon Build Verified!")
-    print(f"Destination:  {DIST_DIR}")
-    print(f"Total Files:  {file_count} files ({total_size / 1024:.1f} KB)")
-    print(f"Asset Checks: {checked} relative references verified (0 missing)")
-    print("========================================================================")
+        total_size = sum(f.stat().st_size for f in target.rglob("*") if f.is_file())
+        file_count = len(list(f for f in target.rglob("*") if f.is_file()))
+
+        print("========================================================================")
+        print(f"EcoCare Standalone Coming Soon Target Verified: {target.name}/")
+        print(f"Destination:  {target}")
+        print(f"Total Files:  {file_count} files ({total_size / 1024:.1f} KB)")
+        print(f"Asset Checks: {checked} relative references verified (0 missing)")
+        print("========================================================================")
 
 def main():
-    print("Building EcoCare 7-Day Coming Soon Isolated Site...")
-    clean_dist()
+    print("Building EcoCare 7-Day Coming Soon Isolated Targets...")
+    clean_targets()
     copy_individual_assets()
     copy_directory_trees()
     write_isolated_seo_and_routing()
-    verify_build()
+    verify_builds()
 
 if __name__ == "__main__":
     main()

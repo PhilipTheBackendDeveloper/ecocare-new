@@ -1,0 +1,11 @@
+# State A Static Asset Passthrough
+/css/*          /css/:splat          200
+/js/*           /js/:splat           200
+/img/*          /img/:splat          200
+/font/*         /font/:splat         200
+/webfonts/*     /webfonts/:splat     200
+/robots.txt     /robots.txt          200
+/sitemap.xml    /sitemap.xml         200
+
+# Sub-route catch-all redirects gracefully to Coming Soon root /
+/*              /                    302!

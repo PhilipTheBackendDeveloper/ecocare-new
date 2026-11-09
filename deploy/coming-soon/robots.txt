@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# State A Coming Soon Sitemap
+Sitemap: https://ecocaregh.com/sitemap.xml
