@@ -4,8 +4,10 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>Coming Soon | EcoCare Cleaning Services Limited</title>
-    <meta name="description" content="EcoCare Cleaning Services Limited is expanding exciting new service divisions in Accra, Ghana.">
+    <meta name="description" content="A better EcoCare online experience is coming soon. Professional cleaning, housekeeping, pest control, and laundry services across Greater Accra, Ghana.">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Temporary noindex to prevent indexing placeholder during launch preparations -->
+    <meta name="robots" content="noindex, follow">
     <!-- Favicon -->
     <link rel="shortcut icon" type="image/x-icon" href="img/favicon.png">
     <!-- Normalize CSS -->
@@ -20,98 +22,464 @@
     <link rel="stylesheet" href="css/animate.min.css">
     <!-- FlatIcon CSS -->
     <link rel="stylesheet" href="font/flaticon.css">
-    <!-- Custom CSS -->
+    <!-- Core Template CSS -->
     <link rel="stylesheet" href="style.css">
-    <!-- EcoCare Brand Constraints -->
-    <link rel="stylesheet" href="css/ecocare.css">
-    <!-- Modernize js -->
-    <script src="js/modernizr-3.7.1.min.js"></script>
-    <!-- Canonical & Social Metadata (OpenGraph & Twitter Card) -->
-    <link rel="canonical" href="https://ecocaregh.com/coming-soon">
+    <!-- Canonical & OpenGraph Social Metadata -->
+    <link rel="canonical" href="https://ecocaregh.com/">
     <meta property="og:type" content="website">
     <meta property="og:title" content="Coming Soon | EcoCare Cleaning Services Limited">
-    <meta property="og:description" content="EcoCare Cleaning Services Limited upcoming service developments in Accra, Ghana.">
-    <meta property="og:url" content="https://ecocaregh.com/coming-soon">
+    <meta property="og:description" content="A better EcoCare website is coming soon. Professional cleaning, janitorial, and environmental care in Accra, Ghana.">
+    <meta property="og:url" content="https://ecocaregh.com/">
     <meta property="og:site_name" content="EcoCare Cleaning Services Limited">
     <meta property="og:image" content="https://ecocaregh.com/img/large-logo.png">
     <meta property="og:locale" content="en_GH">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Coming Soon | EcoCare Cleaning Services Limited">
-    <meta name="twitter:description" content="EcoCare Cleaning Services Limited upcoming service developments in Accra, Ghana.">
+    <meta name="twitter:description" content="A better EcoCare website is coming soon. Professional cleaning, janitorial, and environmental care in Accra, Ghana.">
     <meta name="twitter:image" content="https://ecocaregh.com/img/large-logo.png">
+
+    <!-- Scoped Coming Soon Styles & Responsive Proportions -->
+    <style>
+        .comingsoon-page {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 15px;
+            overflow-x: hidden;
+            background-color: #f7fafc;
+        }
+        .comingsoon-page .comingsoon-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            pointer-events: none;
+        }
+        .comingsoon-page .comingsoon-back-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+        .comingsoon-page .comingsoon-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                180deg,
+                rgba(247, 250, 252, 0.88) 0%,
+                rgba(255, 255, 255, 0.92) 50%,
+                rgba(247, 250, 252, 0.96) 100%
+            );
+        }
+        .comingsoon-page .comingsoon-content-wrap {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .comingsoon-page .comingsoon-content {
+            padding: 0;
+            width: 100%;
+            text-align: center;
+        }
+        .comingsoon-logo {
+            margin-bottom: 18px !important;
+        }
+        .comingsoon-logo img {
+            max-width: 250px;
+            height: auto;
+            filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.12));
+            transition: transform 0.3s ease;
+        }
+        .comingsoon-logo img:hover {
+            transform: scale(1.02);
+        }
+        .comingsoon-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(0, 136, 23, 0.12);
+            border: 1px solid rgba(0, 136, 23, 0.40);
+            color: #0b6623;
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            padding: 5px 16px;
+            border-radius: 20px;
+            margin-bottom: 16px;
+        }
+        .comingsoon-content h1 {
+            font-size: clamp(26px, 5vw, 42px) !important;
+            line-height: 1.25 !important;
+            font-weight: 700 !important;
+            color: #14287b !important;
+            margin-bottom: 14px !important;
+            letter-spacing: -0.3px;
+        }
+        .comingsoon-intro {
+            color: #334155;
+            font-size: 16px;
+            max-width: 640px;
+            margin: 0 auto 22px auto;
+            line-height: 1.6;
+            font-family: 'Roboto', sans-serif;
+        }
+        .comingsoon-services {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 8px 12px;
+            margin: 0 auto 28px auto;
+            max-width: 700px;
+        }
+        .service-chip {
+            display: inline-flex;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.95);
+            border: 1px solid rgba(20, 40, 123, 0.18);
+            color: #14287b;
+            font-size: 13px;
+            font-weight: 600;
+            padding: 5px 13px;
+            border-radius: 16px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+        }
+        .service-chip i {
+            color: #008817;
+            margin-right: 6px;
+            font-size: 12px;
+        }
+        /* Native Yellow Countdown Blocks with Responsive Proportions */
+        .countdown-layout1 {
+            margin-bottom: 30px !important;
+        }
+        .countdown-layout1 .countdown {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .countdown-layout1 .countdown-section {
+            width: 125px;
+            height: 125px;
+            background: #fed700;
+            border-radius: 8px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            margin: 0 8px 16px 8px;
+            box-shadow: 0 6px 18px rgba(254, 215, 0, 0.35);
+        }
+        .countdown-layout1 .countdown-section:after,
+        .countdown-layout1 .countdown-section:before {
+            display: none !important;
+        }
+        .countdown-layout1 .countdown-section .countdown-number {
+            font-size: 46px !important;
+            font-weight: 800 !important;
+            line-height: 1 !important;
+            color: #111111 !important;
+            padding: 0 !important;
+            margin-top: -16px;
+            font-family: 'Poppins', sans-serif;
+        }
+        .countdown-layout1 .countdown-section .countdown-unit {
+            position: absolute;
+            bottom: 14px;
+            left: 0;
+            right: 0;
+            color: #3b3200;
+            font-size: 13px !important;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .comingsoon-launch-status {
+            background: #ecfdf5;
+            border: 1.5px solid #10b981;
+            color: #065f46;
+            padding: 14px 20px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 15px;
+            max-width: 600px;
+            margin: 15px auto 0 auto;
+            box-shadow: 0 4px 14px rgba(16, 185, 129, 0.15);
+        }
+        .countdown-noscript {
+            background: #fef3c7;
+            border: 1px solid #f59e0b;
+            color: #92400e;
+            padding: 12px 18px;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 14px;
+            display: inline-block;
+            margin-top: 10px;
+        }
+        /* Action CTAs */
+        .comingsoon-actions {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 14px;
+            margin: 20px 0 35px 0;
+            flex-wrap: wrap;
+        }
+        .comingsoon-btn-wa {
+            background-color: #25d366;
+            color: #ffffff !important;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 700;
+            font-size: 15px;
+            padding: 12px 24px;
+            border-radius: 6px;
+            display: inline-flex;
+            align-items: center;
+            text-decoration: none !important;
+            transition: all 0.25s ease;
+            box-shadow: 0 4px 14px rgba(37, 211, 102, 0.35);
+        }
+        .comingsoon-btn-wa:hover {
+            background-color: #20ba59;
+            color: #ffffff !important;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.5);
+        }
+        .comingsoon-btn-call {
+            background-color: #14287b;
+            color: #ffffff !important;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            font-size: 15px;
+            padding: 12px 24px;
+            border-radius: 6px;
+            display: inline-flex;
+            align-items: center;
+            text-decoration: none !important;
+            transition: all 0.25s ease;
+            box-shadow: 0 4px 14px rgba(20, 40, 123, 0.25);
+        }
+        .comingsoon-btn-call:hover {
+            background-color: #0d1c59;
+            color: #ffffff !important;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(20, 40, 123, 0.35);
+        }
+        /* Bottom Social & Contacts */
+        .comingsoon-bottom {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(20, 40, 123, 0.12);
+        }
+        .comingsoon-social ul {
+            padding: 0;
+            margin: 0 0 16px 0;
+            list-style: none;
+        }
+        .comingsoon-social ul li {
+            display: inline-block;
+            margin: 0 4px;
+        }
+        .comingsoon-social ul li a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: #14287b;
+            color: #ffffff;
+            font-size: 15px;
+            transition: all 0.25s ease;
+            text-decoration: none !important;
+        }
+        .comingsoon-social ul li a:hover {
+            background-color: #fed700;
+            color: #111111;
+            transform: translateY(-2px);
+        }
+        .comingsoon-copy-right p {
+            color: #64748b;
+            font-size: 14px;
+            margin-bottom: 8px;
+        }
+        .comingsoon-contact-bar {
+            color: #334155;
+            font-size: 14px;
+            font-weight: 500;
+        }
+        .comingsoon-contact-bar a {
+            color: #14287b;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        .comingsoon-contact-bar a:hover {
+            text-decoration: underline;
+        }
+        /* Responsive adjustments for Tablets & Phones */
+        @media only screen and (max-width: 767px) {
+            .comingsoon-page {
+                padding: 30px 12px;
+            }
+            .comingsoon-logo img {
+                max-width: 200px;
+            }
+            .countdown-layout1 .countdown-section {
+                width: 76px;
+                height: 82px;
+                margin: 0 4px 10px 4px;
+                border-radius: 6px;
+            }
+            .countdown-layout1 .countdown-section .countdown-number {
+                font-size: 28px !important;
+                margin-top: -12px;
+            }
+            .countdown-layout1 .countdown-section .countdown-unit {
+                font-size: 10px !important;
+                bottom: 8px;
+            }
+            .comingsoon-actions {
+                flex-direction: column;
+                gap: 10px;
+                width: 100%;
+            }
+            .comingsoon-btn-wa,
+            .comingsoon-btn-call {
+                width: 100%;
+                justify-content: center;
+                font-size: 14px;
+                padding: 11px 18px;
+            }
+            .service-chip {
+                font-size: 12px;
+                padding: 4px 10px;
+            }
+        }
+        @media only screen and (max-width: 360px) {
+            .countdown-layout1 .countdown-section {
+                width: 66px;
+                height: 74px;
+                margin: 0 2px 8px 2px;
+            }
+            .countdown-layout1 .countdown-section .countdown-number {
+                font-size: 24px !important;
+            }
+            .countdown-layout1 .countdown-section .countdown-unit {
+                font-size: 9px !important;
+                bottom: 6px;
+            }
+        }
+    </style>
 </head>
 
 <body class="sticky-header">
-    <!--[if lte IE 9]>
-    <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
-      <![endif]-->
-    <!-- ScrollUp Start Here -->
-    <a href="#wrapper" data-type="section-switch" class="scrollup">
-        <i class="fas fa-angle-double-up"></i>
-    </a>
-    <!-- ScrollUp End Here -->
-    <!-- Preloader Start Here -->
-    <div id="preloader"></div>
-    <!-- Preloader End Here -->
     <div id="wrapper" class="wrapper">
-        <!-- Add your site or application content here -->
         <!-- Coming Soon Page Area Start Here -->
-        <section class="comingsoon-page">
-            <div class="comingsoon-bg">
+        <main class="comingsoon-page" role="main">
+            <div class="comingsoon-bg" aria-hidden="true">
                 <div class="comingsoon-back-img">
-                    <img src="img/figure/coming-soon.jpg" alt="Coming Soon">
+                    <img src="img/figure/coming-soon.jpg" alt="EcoCare Cleaning Services">
                 </div>
+                <div class="comingsoon-overlay"></div>
             </div>
             <div class="comingsoon-content-wrap">
                 <div class="comingsoon-content">
+                    <!-- Brand Logo pointing safely to Coming Soon root / -->
                     <div class="comingsoon-logo">
-                        <a href="index.html"><img src="img/large-logo.png" alt="logo"></a>
+                        <a href="/" aria-label="EcoCare Cleaning Services Limited">
+                            <img src="img/large-logo.png" alt="EcoCare Cleaning Services Limited" width="250" height="113">
+                        </a>
                     </div>
-                    <h1>We Are Coming Soon . . .</h1>
+                    <!-- Sub-badge -->
+                    <div class="comingsoon-badge-wrap">
+                        <span class="comingsoon-badge">
+                            <i class="fas fa-leaf" aria-hidden="true"></i> Environmental &amp; Facility Hygiene
+                        </span>
+                    </div>
+                    <!-- Main Title -->
+                    <h1>A Better EcoCare Website Is Coming Soon</h1>
+                    <!-- Explanatory Copy -->
+                    <p class="comingsoon-intro">
+                        EcoCare Cleaning Services Limited is preparing the launch of our enhanced online booking platform. Our certified field crews in Achimota, Accra remain actively available for bookings across Greater Accra.
+                    </p>
+                    <!-- 5 Service Family Chips -->
+                    <div class="comingsoon-services" aria-label="EcoCare Cleaning Services Catalog">
+                        <span class="service-chip"><i class="fas fa-check-circle" aria-hidden="true"></i> EcoClean (Residential &amp; Janitorial)</span>
+                        <span class="service-chip"><i class="fas fa-check-circle" aria-hidden="true"></i> Eco-Laundry (Garment &amp; Linen)</span>
+                        <span class="service-chip"><i class="fas fa-check-circle" aria-hidden="true"></i> EcoFumes (Fumigation &amp; Pest Control)</span>
+                        <span class="service-chip"><i class="fas fa-check-circle" aria-hidden="true"></i> Carpet Deep Cleaning</span>
+                        <span class="service-chip"><i class="fas fa-check-circle" aria-hidden="true"></i> Upholstery Restoration</span>
+                    </div>
+                    <!-- Fixed 7-Day Launch Countdown -->
                     <div class="countdown-layout1">
-                        <div class="countdown"></div>
+                        <div class="countdown" id="launch-countdown" data-managed="true" data-deadline="2026-11-16T14:00:00Z" role="timer" aria-label="Website Launch Countdown">
+                            <noscript>
+                                <div class="countdown-noscript">
+                                    Official Website Launch: Monday, November 16, 2026 at 14:00 GMT (Africa/Accra)
+                                </div>
+                            </noscript>
+                        </div>
+                        <div id="countdown-status" class="comingsoon-launch-status" style="display: none;" role="status"></div>
                     </div>
-                    <div class="comingsoon-bottom">
+                    <!-- Direct Dispatch Action CTAs -->
+                    <div class="comingsoon-actions">
+                        <a href="https://wa.me/233249014253?text=Hello%20EcoCare!%20I%20would%20like%20to%20inquire%20about%20your%20services." target="_blank" rel="noopener noreferrer" class="comingsoon-btn-wa">
+                            <i class="fab fa-whatsapp" aria-hidden="true"></i> Chat With Dispatch on WhatsApp
+                        </a>
+                        <a href="tel:+233249014253" class="comingsoon-btn-call">
+                            <i class="fas fa-phone" aria-hidden="true"></i> +233 24 901 4253
+                        </a>
+                    </div>
+                    <!-- Footer & Contact Meta -->
+                    <footer class="comingsoon-bottom">
                         <div class="container">
                             <div class="row">
                                 <div class="col-12">
-                                                                        <div class="comingsoon-social">
+                                    <div class="comingsoon-social">
                                         <ul>
-                                            <li><a href="https://www.facebook.com/profile.php?id=100006412849415" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a></li>
-                                            <li><a href="https://www.tiktok.com/@ecocarecompanylimited" target="_blank" rel="noopener noreferrer" aria-label="TikTok"><i class="fab fa-tiktok"></i></a></li>
-                                            <li><a href="https://www.youtube.com/channel/UCdJfEIsRCxYaOnnmhbs2kcA" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="fab fa-youtube"></i></a></li>
+                                            <li><a href="https://www.facebook.com/profile.php?id=100006412849415" target="_blank" rel="noopener noreferrer" aria-label="EcoCare on Facebook"><i class="fab fa-facebook-f" aria-hidden="true"></i></a></li>
+                                            <li><a href="https://www.tiktok.com/@ecocarecompanylimited" target="_blank" rel="noopener noreferrer" aria-label="EcoCare on TikTok"><i class="fab fa-tiktok" aria-hidden="true"></i></a></li>
+                                            <li><a href="https://www.youtube.com/channel/UCdJfEIsRCxYaOnnmhbs2kcA" target="_blank" rel="noopener noreferrer" aria-label="EcoCare on YouTube"><i class="fab fa-youtube" aria-hidden="true"></i></a></li>
                                         </ul>
                                     </div>
                                 </div>
                                 <div class="col-12">
-                                                                        <div class="comingsoon-copy-right">
+                                    <div class="comingsoon-copy-right">
                                         <p>&copy; 2026 EcoCare Cleaning Services Limited. All Rights Reserved.</p>
-                                        <p style="margin-top: 8px; color: #fff; font-size: 14px;"><i class="fas fa-map-marker-alt" style="color: #6bb92d;"></i> Achimota Mile 7, Accra, Ghana &nbsp;|&nbsp; <i class="fas fa-phone" style="color: #6bb92d;"></i> <a href="tel:+233249014253" style="color: #fff;">+233 24 901 4253</a> &nbsp;|&nbsp; <i class="fas fa-envelope" style="color: #6bb92d;"></i> <a href="mailto:ecocaregh1on1@gmail.com" style="color: #fff;">ecocaregh1on1@gmail.com</a></p>
+                                        <div class="comingsoon-contact-bar">
+                                            <span><i class="fas fa-map-marker-alt text-success mr-1" aria-hidden="true"></i> Achimota Mile 7, Accra, Ghana</span>
+                                            <span class="mx-2 d-none d-md-inline" aria-hidden="true">|</span>
+                                            <span class="d-block d-md-inline mt-1 mt-md-0"><i class="fas fa-envelope text-success mr-1" aria-hidden="true"></i> <a href="mailto:ecocaregh1on1@gmail.com">ecocaregh1on1@gmail.com</a></span>
+                                            <span class="mx-2 d-none d-md-inline" aria-hidden="true">|</span>
+                                            <span class="d-block d-md-inline mt-1 mt-md-0"><i class="fas fa-phone text-success mr-1" aria-hidden="true"></i> <a href="tel:+233249014253">+233 24 901 4253</a></span>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </footer>
                 </div>
             </div>
-        </section>
+        </main>
         <!-- Coming Soon Page Area End Here -->
     </div>
-    <!-- jquery-->
+
+    <!-- Required Scripts -->
     <script src="js/jquery-3.3.1.min.js"></script>
-    <!-- Plugins js -->
-    <script src="js/plugins.js"></script>
-    <!-- Popper js -->
     <script src="js/popper.min.js"></script>
-    <!-- Bootstrap js -->
     <script src="js/bootstrap.min.js"></script>
-    <!-- Countdown js -->
-    <script src="js/jquery.countdown.min.js"></script>
-    <!-- Main js -->
-    <script src="js/main.js"></script>
-    <!-- EcoCare Interactivity Helper -->
-    <script src="js/ecocare.js"></script>
-
-
+    <!-- Robust 7-Day Fixed UTC Countdown Controller -->
+    <script src="js/coming-soon-countdown.js"></script>
 </body>
 </html>

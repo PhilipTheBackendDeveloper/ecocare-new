@@ -9,3 +9,6 @@ __pycache__/
 
 # Local dynamic runtime logs and data submissions
 data/submissions.jsonl
+
+# Build outputs
+dist/

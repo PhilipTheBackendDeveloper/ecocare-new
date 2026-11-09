@@ -108,13 +108,11 @@
 
 ### RB-08 — Standalone Coming Soon Publication (READY ✅)
 
-- **Status:** Complete and verified.
-- Created `deploy/coming-soon/` as an isolated, static-only deployment package containing:
-  - `index.html` with official EcoCare logo and favicon from root.
-  - Live animated countdown timer.
-  - Direct verified communication channels (WhatsApp quick connect, phone `+233 24 901 4253`, email `ecocaregh1on1@gmail.com`, and Achimota Mile 7 office address).
-  - No broken links or links pointing to unfinished pages.
-  - Dedicated `netlify.toml` for 1-command deployment (`cd deploy/coming-soon && netlify deploy`).
+- **Status:** Complete, tested, and verified.
+- **Dedicated Build System:** Created `scripts/build_coming_soon.py` which compiles `coming-soon.html` into `dist/coming-soon/` with 0 missing assets.
+- **Fixed 7-Day Countdown:** `js/coming-soon-countdown.js` targets fixed UTC timestamp `2026-11-16T14:00:00Z` (November 16, 2026, 14:00 GMT / Accra time). Invariant across refreshes and timezones; stops cleanly at zero with neutral announcement; strictly never exposes in-progress pages.
+- **Branding & Visuals:** Original Clenix coming soon art (`coming-soon.jpg`) with authentic EcoCare logo (`img/large-logo.png`), favicon (`img/favicon.png`), 5 service family chips, direct WhatsApp dispatch CTA (`+233 24 901 4253`), and phone/email.
+- **Netlify & Vercel Dual Strategy:** Root `netlify.toml` automatically builds and publishes `dist/coming-soon` to `https://ecocaregh.com`, keeping the Vercel full-site preview intact. Complete deployment documentation written at `docs/ecocare/COMING_SOON_DEPLOYMENT.md`.
 
 ---
 
@@ -124,4 +122,6 @@
 |---|---|---|---|
 | Automated QA & Anti-Regression | `python3 scripts/qa_check.py` | 116 | **116 PASS / 0 FAIL** |
 | Form Backend & Spam Protection | `node scripts/test_form_backend.js` | 10 | **10 PASS / 0 FAIL** |
+| Multi-Screen Responsive & Routes | `python3 scripts/verify_responsive_and_routes.py` | 105 | **105 PASS / 0 FAIL** |
+| Standalone Coming Soon & Countdown | `python3 scripts/test_coming_soon.py` | 12 | **12 PASS / 0 FAIL** |
 | Responsive & Vercel Route Audit | `python3 scripts/verify_responsive_and_routes.py` | 105 | **105 PASS / 0 FAIL** |

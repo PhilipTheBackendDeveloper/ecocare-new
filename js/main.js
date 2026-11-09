@@ -412,11 +412,12 @@
     });
 
     /*-------------------------------------
-    Countdown activation code
+    Countdown activation code (Legacy fallback)
     -------------------------------------*/
-    var eventCounter = $(".countdown");
-    if (eventCounter.length) {
-        eventCounter.countdown("2019/10/21", function (e) {
+    var eventCounter = $(".countdown:not([data-managed='true']):not(#launch-countdown)");
+    if (eventCounter.length && $.fn.countdown) {
+        var targetCountdown = eventCounter.attr("data-deadline") || "2026/11/16 14:00:00";
+        eventCounter.countdown(targetCountdown, function (e) {
             $(this).html(
                 e.strftime(
                     "<div class='countdown-section'><div><div class='countdown-number'>%D</div> <div class='countdown-unit'>Day%!D</div> </div></div><div class='countdown-section'><div><div class='countdown-number'>%H</div> <div class='countdown-unit'>Hour%!H</div> </div></div><div class='countdown-section'><div><div class='countdown-number'>%M</div> <div class='countdown-unit'>Minutes</div> </div></div><div class='countdown-section'><div><div class='countdown-number'>%S</div> <div class='countdown-unit'>Second</div> </div></div>"

@@ -1,0 +1,20 @@
+# EcoCare Cleaning Services Limited — Netlify Deployment Configuration
+# 
+# Current Target: Isolated 7-Day Coming Soon Landing Page
+# Publishes ONLY dist/coming-soon/ to the public domain https://ecocaregh.com
+# The full in-progress EcoCare website remains unexposed and preserved.
+# 
+# To switch to the full website upon client approval:
+#   Change 'publish = "dist/coming-soon"' to 'publish = "."' (or configure full build command).
+
+[build]
+  command = "python3 scripts/build_coming_soon.py"
+  publish = "dist/coming-soon"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-XSS-Protection = "1; mode=block"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
