@@ -291,6 +291,44 @@
         heroVideo.load();
         heroVideo.play().catch(function () {});
       });
+
+      // Interactive Video Controls (Pause / Play and Sound Toggle)
+      var $videoToggle = $("#hero-video-toggle");
+      var $soundToggle = $("#hero-sound-toggle");
+
+      if ($videoToggle.length) {
+        $videoToggle.on("click", function (e) {
+          e.preventDefault();
+          if (heroVideo.paused) {
+            heroVideo.play().then(function () {
+              $videoToggle.html('<i class="fas fa-pause"></i>').attr("title", "Pause Video");
+            }).catch(function () {});
+          } else {
+            heroVideo.pause();
+            $videoToggle.html('<i class="fas fa-play"></i>').attr("title", "Play Video");
+          }
+        });
+
+        heroVideo.addEventListener("play", function () {
+          $videoToggle.html('<i class="fas fa-pause"></i>').attr("title", "Pause Video");
+        });
+        heroVideo.addEventListener("pause", function () {
+          $videoToggle.html('<i class="fas fa-play"></i>').attr("title", "Play Video");
+        });
+      }
+
+      if ($soundToggle.length) {
+        $soundToggle.on("click", function (e) {
+          e.preventDefault();
+          if (heroVideo.muted) {
+            heroVideo.muted = false;
+            $soundToggle.html('<i class="fas fa-volume-up"></i>').attr("title", "Mute Sound");
+          } else {
+            heroVideo.muted = true;
+            $soundToggle.html('<i class="fas fa-volume-mute"></i>').attr("title", "Unmute Sound");
+          }
+        });
+      }
     }
   });
 })(jQuery);

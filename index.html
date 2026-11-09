@@ -241,10 +241,10 @@
             </div>
         </header>
         <!-- Header Area End Here -->
-        <!-- Slider Area Start Here -->
+        <!-- Hero Section Start Here: Video Background Layout -->
         <div class="slider-area slider-layout1 hero-video-bg-layout">
             <div class="hero-video-bg-container">
-                <video id="hero-bg-video" autoplay muted loop playsinline preload="auto" poster="img/slider/slide1-1.jpg">
+                <video id="hero-bg-video" autoplay muted loop playsinline preload="auto" poster="img/slider/hero-video-poster.jpg">
                     <source src="video-background.mp4" type="video/mp4">
                     <source src="video/video-background.mp4" type="video/mp4">
                 </video>
@@ -253,18 +253,74 @@
             <div class="slider-content s-tb slide-1">
                 <div class="text-left title-container s-tb-c">
                     <div class="container">
-                        <div class="slider-sub-text">EcoCare Cleaning Services Limited</div>
-                        <h1 class="slider-big-text">Protect the Environment, Live Better, Prolong Life</h1>
-                        <div class="slider-paragraph">Accra's premier cleaning and hygiene company. Professional domestic housekeeping, corporate janitorial, EcoFumes fumigation, and Eco-Laundry across Greater Accra.</div>
-                        <div class="slider-btn-area">
-                            <a href="service1.html" class="item-btn-fill">Our Services <i class="fas fa-angle-right"></i></a>
-                            <a href="calculate-form.html" class="item-btn-fill" style="margin-left: 10px;">Request a Quote <i class="fas fa-calculator"></i></a>
+                        <div class="hero-content-wrap">
+                            <div class="hero-leaf-badge">
+                                <span class="leaf-icon"><i class="fas fa-leaf"></i></span>
+                                <span class="badge-text">EcoCare Cleaning Services Limited</span>
+                            </div>
+                            <h1 class="hero-headline">Protect the Environment,<br>Live Better, <span class="hero-highlight-green">Prolong Life</span></h1>
+                            <p class="hero-paragraph">Accra’s premier cleaning and hygiene company. Professional domestic housekeeping, corporate janitorial, EcoFumes fumigation, and Eco-Laundry across Greater Accra.</p>
+                            <div class="hero-btn-group">
+                                <a href="service1.html" class="hero-btn-primary">Our Services <i class="fas fa-angle-right ml-2"></i></a>
+                                <a href="calculate-form.html" class="hero-btn-outline">Request a Quote <i class="fas fa-calculator ml-2"></i></a>
+                            </div>
+                            <div class="hero-trust-strip">
+                                <div class="hero-trust-item">
+                                    <div class="hero-trust-icon">
+                                        <i class="fas fa-shield-alt"></i>
+                                    </div>
+                                    <div class="hero-trust-text">
+                                        <div class="hero-trust-title">Trusted in Accra</div>
+                                        <div class="hero-trust-sub">Reliable &amp; Professional</div>
+                                    </div>
+                                </div>
+                                <div class="hero-trust-divider"></div>
+                                <div class="hero-trust-item">
+                                    <div class="hero-trust-icon">
+                                        <i class="fas fa-user-friends"></i>
+                                    </div>
+                                    <div class="hero-trust-text">
+                                        <div class="hero-trust-title">1,000+ Clients</div>
+                                        <div class="hero-trust-sub">Homes &amp; Businesses</div>
+                                    </div>
+                                </div>
+                                <div class="hero-trust-divider"></div>
+                                <div class="hero-trust-item">
+                                    <div class="hero-trust-icon">
+                                        <i class="fas fa-leaf"></i>
+                                    </div>
+                                    <div class="hero-trust-text">
+                                        <div class="hero-trust-title">Eco-Friendly</div>
+                                        <div class="hero-trust-sub">Safe &amp; Sustainable</div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
+            <!-- Floating Background Video Controls -->
+            <div class="hero-video-controls" aria-label="Background Video Controls">
+                <button type="button" id="hero-video-toggle" class="hero-video-ctrl-btn" title="Pause / Play Video" aria-label="Pause or play video">
+                    <i class="fas fa-pause"></i>
+                </button>
+                <button type="button" id="hero-sound-toggle" class="hero-video-ctrl-btn" title="Mute / Unmute Video" aria-label="Mute or unmute video">
+                    <i class="fas fa-volume-mute"></i>
+                </button>
+            </div>
+            <!-- Scalloped Curve Divider (Framing Video into White Section Below) -->
+            <div class="hero-scallop-divider" aria-hidden="true">
+                <svg class="hero-scallop-svg" width="100%" height="24" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <pattern id="scallopPattern" width="40" height="24" patternUnits="userSpaceOnUse">
+                            <path d="M 0 24 L 0 12 A 10 10 0 0 1 20 12 A 10 10 0 0 1 40 12 L 40 24 Z" fill="#ffffff" />
+                        </pattern>
+                    </defs>
+                    <rect width="100%" height="24" fill="url(#scallopPattern)" />
+                </svg>
+            </div>
         </div>
-        <!-- Slider Area End Here -->
+        <!-- Hero Section End Here -->
         <!-- About Us Area Start Here -->
         <section class="section-bubble section-padding-md-2">
             <div class="container">

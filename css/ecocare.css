@@ -36,16 +36,37 @@
 }
 
 /*------------------------------------------------------------------
-  EcoCare Hero Video Background (Preserving 100% Original Clenix UI)
-------------------------------------------------------------------*/
+  EcoCare Hero Video Background (Pixel-Matched to Design Reference)
+  Dark directional gradient on left for crisp text contrast;
+  100% visible, natural video of uniformed cleaner on right;
+  Scalloped wave bottom edge framing the hero into the section below;
+  Floating video pause & sound toggle controls;
+  Ultra-clean, modern mobile responsiveness.
+-------------------------------------------------------------------*/
+
+/* Active Navigation Underline (Matching Reference Header) */
+.header-menu.menu-layout1 .template-main-menu > ul > li.active > a {
+  color: #14287b !important;
+  position: relative;
+}
+.header-menu.menu-layout1 .template-main-menu > ul > li.active > a::after {
+  content: "";
+  position: absolute;
+  left: 15px;
+  right: 15px;
+  bottom: 12px;
+  height: 3px;
+  background-color: #22c55e !important;
+  border-radius: 2px;
+}
 
 .hero-video-bg-layout {
   position: relative;
-  min-height: 700px;
+  min-height: 680px;
   display: flex;
   align-items: center;
   overflow: hidden;
-  background-color: #f7f9fb;
+  background-color: #0b1528;
 }
 
 .hero-video-bg-container {
@@ -68,10 +89,12 @@
   height: auto;
   transform: translate(-50%, -50%);
   object-fit: cover;
+  object-position: center 25%;
   z-index: 1;
   pointer-events: none;
 }
 
+/* Subtle dark directional gradient on left: ensures 100% text contrast while keeping video on right crystal clear */
 .hero-video-bg-overlay {
   position: absolute;
   top: 0;
@@ -81,10 +104,11 @@
   z-index: 2;
   background: linear-gradient(
     90deg,
-    rgba(255, 255, 255, 0.94) 0%,
-    rgba(255, 255, 255, 0.88) 40%,
-    rgba(255, 255, 255, 0.55) 75%,
-    rgba(255, 255, 255, 0.35) 100%
+    rgba(8, 18, 42, 0.86) 0%,
+    rgba(8, 18, 42, 0.74) 38%,
+    rgba(8, 18, 42, 0.40) 62%,
+    rgba(8, 18, 42, 0.12) 80%,
+    rgba(8, 18, 42, 0.02) 100%
   );
   pointer-events: none;
 }
@@ -93,122 +117,350 @@
   position: relative;
   z-index: 3;
   width: 100%;
-  padding: 120px 0;
+  padding: 0;
 }
 
-/* Ensure Clenix slider elements animate and display cleanly */
-.hero-video-bg-layout .slider-sub-text {
-  font-size: 24px;
-  color: #287ff9;
-  margin-bottom: 20px;
+.hero-content-wrap {
+  position: relative;
+  max-width: 650px;
+  padding: 95px 0 90px 0;
+}
+
+/* Leaf Badge */
+.hero-leaf-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: #ffffff;
+  font-size: 16px;
   font-weight: 500;
-  animation: fadeInUp 1200ms ease-in-out;
+  margin-bottom: 16px;
+  letter-spacing: 0.2px;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
 }
 
-.hero-video-bg-layout .slider-big-text {
-  font-size: 48px;
-  font-weight: 700;
-  color: #14287b;
-  margin-bottom: 18px;
-  line-height: 1.2;
+.hero-leaf-badge .leaf-icon {
+  color: #22c55e;
+  font-size: 18px;
+  display: inline-flex;
+  align-items: center;
+}
+
+/* Hero Headline */
+.hero-headline {
   font-family: 'Poppins', sans-serif;
-  animation: fadeInLeft 1500ms ease-in-out;
+  font-size: 52px;
+  font-weight: 800;
+  line-height: 1.15;
+  color: #ffffff;
+  margin-bottom: 18px;
+  letter-spacing: -0.5px;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
 }
 
-.hero-video-bg-layout .slider-paragraph {
-  color: #444444;
-  margin-bottom: 25px;
-  width: 50%;
+.hero-highlight-green {
+  color: #22c55e !important;
+  font-weight: 800;
+}
+
+/* Subtitle Paragraph */
+.hero-paragraph {
+  font-family: 'Roboto', sans-serif;
   font-size: 16px;
   line-height: 26px;
-  animation: fadeInUp 1500ms ease-in-out;
+  color: rgba(255, 255, 255, 0.90);
+  max-width: 530px;
+  margin-bottom: 28px;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
 }
 
-.hero-video-bg-layout .slider-btn-area {
-  animation: fadeInUp 1800ms ease-in-out;
+/* Call To Action Buttons */
+.hero-btn-group {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 35px;
+  flex-wrap: wrap;
 }
 
-/* Mobile Responsiveness for Video Background & Preserved Clenix UI */
+.hero-btn-primary {
+  background-color: #fed700;
+  color: #111111 !important;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  font-size: 15px;
+  padding: 13px 26px;
+  border-radius: 6px;
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none !important;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 14px rgba(254, 215, 0, 0.35);
+}
+
+.hero-btn-primary:hover {
+  background-color: #fcc000;
+  color: #111111 !important;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(254, 215, 0, 0.5);
+}
+
+.hero-btn-outline {
+  background-color: rgba(10, 22, 48, 0.65);
+  border: 1.8px solid #22c55e;
+  color: #ffffff !important;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 15px;
+  padding: 13px 26px;
+  border-radius: 6px;
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none !important;
+  transition: all 0.25s ease;
+  backdrop-filter: blur(4px);
+}
+
+.hero-btn-outline:hover {
+  background-color: #22c55e;
+  color: #ffffff !important;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 18px rgba(34, 197, 94, 0.4);
+}
+
+/* Trust Metrics Strip */
+.hero-trust-strip {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding-top: 18px;
+  border-top: 1px solid rgba(255, 255, 255, 0.16);
+  max-width: 580px;
+}
+
+.hero-trust-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.hero-trust-icon {
+  color: #22c55e;
+  font-size: 22px;
+  width: 26px;
+  text-align: center;
+}
+
+.hero-trust-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.hero-trust-title {
+  color: #ffffff;
+  font-size: 14.5px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.hero-trust-sub {
+  color: rgba(255, 255, 255, 0.70);
+  font-size: 12px;
+  line-height: 1.2;
+  margin-top: 2px;
+}
+
+.hero-trust-divider {
+  width: 1px;
+  height: 32px;
+  background-color: rgba(255, 255, 255, 0.20);
+}
+
+/* Floating Background Video Controls */
+.hero-video-controls {
+  position: absolute;
+  bottom: 35px;
+  right: 35px;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.68);
+  border: 1px solid rgba(255, 255, 255, 0.20);
+  border-radius: 30px;
+  padding: 3px 6px;
+  backdrop-filter: blur(6px);
+}
+
+.hero-video-ctrl-btn {
+  background: none;
+  border: none;
+  color: #ffffff;
+  font-size: 13px;
+  padding: 6px 10px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border-radius: 20px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+}
+
+.hero-video-ctrl-btn:hover {
+  color: #22c55e;
+  background: rgba(255, 255, 255, 0.15);
+}
+
+/* Scalloped Wave Divider (Seamless Framing into White Content Below) */
+.hero-scallop-divider {
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  height: 24px;
+  z-index: 5;
+  pointer-events: none;
+  overflow: hidden;
+  line-height: 0;
+}
+
+.hero-scallop-divider svg {
+  display: block;
+  width: 100%;
+  height: 24px;
+}
+
+.hero-video-bg-layout + .section-bubble:after {
+  display: none !important;
+}
+
+/* Responsive Rules for Desktop & Tablets */
 @media only screen and (max-width: 1199px) {
   .hero-video-bg-layout {
     min-height: 600px;
   }
-  .hero-video-bg-layout .slider-content {
-    padding: 90px 0;
+  .hero-content-wrap {
+    max-width: 580px;
+    padding: 80px 0 75px 0;
   }
-  .hero-video-bg-layout .slider-big-text {
-    font-size: 40px;
-  }
-  .hero-video-bg-layout .slider-paragraph {
-    width: 65%;
+  .hero-headline {
+    font-size: 44px;
   }
 }
 
 @media only screen and (max-width: 991px) {
   .hero-video-bg-layout {
-    min-height: 520px;
+    min-height: 540px;
   }
-  .hero-video-bg-layout .slider-content {
-    padding: 70px 0;
+  .hero-content-wrap {
+    max-width: 520px;
+    padding: 70px 0 65px 0;
   }
-  .hero-video-bg-layout .slider-sub-text {
-    font-size: 20px;
-    margin-bottom: 10px;
+  .hero-headline {
+    font-size: 36px;
   }
-  .hero-video-bg-layout .slider-big-text {
-    font-size: 32px;
+  .hero-paragraph {
+    font-size: 15px;
+    line-height: 24px;
   }
-  .hero-video-bg-layout .slider-paragraph {
-    width: 80%;
+  .hero-trust-strip {
+    gap: 14px;
   }
 }
 
+/* Modern, Clean Mobile Responsiveness */
 @media only screen and (max-width: 767px) {
   .hero-video-bg-layout {
-    min-height: 480px;
+    min-height: 560px;
   }
   .hero-video-bg-overlay {
-    background: rgba(255, 255, 255, 0.90);
+    background: linear-gradient(
+      180deg,
+      rgba(8, 18, 42, 0.82) 0%,
+      rgba(8, 18, 42, 0.68) 45%,
+      rgba(8, 18, 42, 0.85) 100%
+    );
   }
-  .hero-video-bg-layout .slider-content {
-    padding: 50px 0;
+  .hero-content-wrap {
+    padding: 50px 0 65px 0;
+    max-width: 100%;
   }
-  .hero-video-bg-layout .title-container {
-    text-align: left;
+  .hero-leaf-badge {
+    font-size: 13.5px;
+    margin-bottom: 12px;
   }
-  .hero-video-bg-layout .slider-sub-text {
-    display: block !important;
-    font-size: 16px;
-    margin-bottom: 8px;
-  }
-  .hero-video-bg-layout .slider-big-text {
-    font-size: 26px;
-    line-height: 1.25;
+  .hero-headline {
+    font-size: clamp(26px, 7vw, 34px);
+    line-height: 1.2;
     margin-bottom: 14px;
   }
-  .hero-video-bg-layout .slider-paragraph {
-    display: block !important;
-    width: 100%;
+  .hero-paragraph {
     font-size: 14px;
     line-height: 22px;
-    margin-bottom: 20px;
+    margin-bottom: 22px;
+    max-width: 100%;
   }
-  .hero-video-bg-layout .slider-btn-area {
-    display: flex !important;
+  .hero-btn-group {
+    display: flex;
+    flex-direction: row;
     flex-wrap: wrap;
     gap: 10px;
+    margin-bottom: 24px;
   }
-  .hero-video-bg-layout .slider-btn-area a.item-btn-fill {
-    display: inline-flex !important;
-    padding: 12px 18px;
-    font-size: 14px;
-    margin-left: 0 !important;
+  .hero-btn-primary,
+  .hero-btn-outline {
+    font-size: 13.5px;
+    padding: 11px 18px;
+    flex: 1 1 auto;
+    justify-content: center;
+    text-align: center;
+  }
+  .hero-trust-strip {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    border-top: 1px solid rgba(255, 255, 255, 0.18);
+    padding-top: 14px;
+  }
+  .hero-trust-divider {
+    display: none;
+  }
+  .hero-trust-item {
+    flex: 1 1 45%;
+    min-width: 130px;
+  }
+  .hero-trust-title {
+    font-size: 13px;
+  }
+  .hero-trust-sub {
+    font-size: 11px;
+  }
+  .hero-video-controls {
+    bottom: 26px;
+    right: 20px;
+    padding: 2px 5px;
+  }
+  .hero-video-ctrl-btn {
+    font-size: 11px;
+    padding: 4px 7px;
+  }
+  .hero-scallop-divider {
+    height: 18px;
   }
 }
 
 @media only screen and (max-width: 480px) {
-  .hero-video-bg-layout .slider-big-text {
-    font-size: 23px;
+  .hero-btn-group {
+    flex-direction: column;
+    width: 100%;
+  }
+  .hero-btn-primary,
+  .hero-btn-outline {
+    width: 100%;
+    justify-content: center;
+  }
+  .hero-trust-item {
+    flex: 1 1 100%;
   }
 }
 
