@@ -384,3 +384,4 @@ if __name__ == "__main__":
     fix_index_testimonials_and_forms()
     inject_honeypot_in_sidebar_forms()
     print("All audit remediations applied cleanly!")
+
