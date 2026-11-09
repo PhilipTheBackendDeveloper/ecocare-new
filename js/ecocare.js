@@ -258,5 +258,63 @@
 
       return false;
     });
+
+    // 6. EcoCare Hero Video Background Controller & Mobile Autoplay Assurance
+    var heroVideo = document.getElementById("hero-bg-video");
+    if (heroVideo) {
+      // Ensure strict mobile autoplay policy compliance
+      heroVideo.muted = true;
+      heroVideo.defaultMuted = true;
+      heroVideo.playsInline = true;
+      heroVideo.setAttribute("playsinline", "");
+      heroVideo.setAttribute("webkit-playsinline", "");
+
+      // Safe autoplay trigger
+      var playPromise = heroVideo.play();
+      if (playPromise !== undefined) {
+        playPromise.catch(function () {
+          // If browser policy deferred playback, kick off on very first tap or touch
+          $(document).one("touchstart click scroll", function () {
+            if (heroVideo.paused) {
+              heroVideo.play().catch(function () {});
+            }
+          });
+        });
+      }
+
+      // Video scene switcher buttons
+      $(".switcher-buttons .btn").on("click", function (e) {
+        e.preventDefault();
+        var $btn = $(this);
+        if ($btn.hasClass("active")) return;
+
+        var nextSource = $btn.attr("data-video-src");
+        if (!nextSource) return;
+
+        $(".switcher-buttons .btn").removeClass("active");
+        $btn.addClass("active");
+
+        // Cinematic crossfade transition
+        var $video = $(heroVideo);
+        $video.css("opacity", "0.15");
+
+        setTimeout(function () {
+          heroVideo.src = nextSource;
+          heroVideo.load();
+          heroVideo.play().catch(function () {});
+          $video.css("opacity", "0.88");
+        }, 300);
+      });
+
+      // Smooth auto-cycling to next clip when current video finishes
+      heroVideo.addEventListener("ended", function () {
+        var $activeBtn = $(".switcher-buttons .btn.active");
+        var $nextBtn = $activeBtn.next(".btn");
+        if (!$nextBtn.length) {
+          $nextBtn = $(".switcher-buttons .btn").first();
+        }
+        $nextBtn.trigger("click");
+      });
+    }
   });
 })(jQuery);
