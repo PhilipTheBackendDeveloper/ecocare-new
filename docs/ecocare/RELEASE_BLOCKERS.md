@@ -13,7 +13,7 @@
 | RB-01 | Form backend & spam protection | 🔴 HIGH | Dev | ✅ RESOLVED | Dual Node serverless (`/api`) + PHP fallback (`vendor/php/`); 10/10 automated tests pass |
 | RB-02 | Testimonials consent & attribution | 🟡 MEDIUM | Client | ⏸️ PENDING / ATTRIBUTED | Archived reviews displayed with explicit pending disclosure under Ghana DPA (Act 843) |
 | RB-03 | Legal docs ratification | 🟡 MEDIUM | Lawyer / Client | ⏸️ DRAFT NOTICED | Published with prominent legal draft disclaimer notice |
-| RB-04 | Hero video background & photography | 🟢 LOW | Dev / Client | ✅ HERO VIDEO LIVE / ASSETS PENDING | Modern video background (`video-background.mp4` & `video-background1.mp4`) with sleek mobile glassmorphism UI live on `index.html`; service card photos pending field capture |
+| RB-04 | Hero video background & photography | 🟢 LOW | Dev / Client | ✅ HERO VIDEO LIVE / ASSETS PENDING | Background video (`video-background.mp4` & `video-background1.mp4`) active behind 100% native Clenix template UI on `index.html`; service card photos pending field capture |
 | RB-05 | Custom domain DNS & corporate email | 🟡 MEDIUM | Client | PENDING RENEWAL | Active inbox `ecocaregh1on1@gmail.com` deployed cleanly site-wide |
 | RB-06 | Vercel clean URL deployment | 🟢 LOW | Dev | ✅ READY | `vercel.json` verified with 15 clean URL routes |
 | RB-07 | Pest control safety & EPA compliance | 🔴 HIGH | Dev / Client | ✅ REMEDIATED / PENDING LICENSE | Mandatory 2–4 hr vacate advisory inserted; EPA license number pending client confirmation |
@@ -67,11 +67,12 @@
 
 - **Problem:** Clenix template slider was static with stock images, and service cards use theme illustrations/photos.
 - **Resolution Implemented:**
-  1. **Modern Hero Video Engine:** Upgraded `index.html` hero to an ambient background video using `video-background.mp4` and `video-background1.mp4`.
-  2. **Interactive Scene Switcher:** Added Clip 1 / Clip 2 selector with cinematic crossfade and auto-cycling.
-  3. **Mobile Glassmorphism UI:** Features frosted glass card (`backdrop-filter: blur(18px)`), live pulsing status radar, tactile full-width CTA buttons, and high contrast over video motion.
-  4. **Brand Assets Active:** EcoCare's authentic logo (`img/logo-dark.png`), icon (`img/mobile-logo.png`), favicon (`img/favicon.png`), and CEO portrait (`img/figure/aboutme.png`) are deployed site-wide.
-  5. Replacement of internal service card images with custom field photography remains open for the client upon camera capture.
+  1. **Background Video Integration:** Integrated an ambient background video using `video-background.mp4` and `video-background1.mp4` that auto-cycles smoothly behind the content.
+  2. **100% Native Clenix UI Preserved:** Retained the exact Clenix slider typography (`.slider-sub-text`, `h1.slider-big-text`, `.slider-paragraph`), yellow CTA buttons (`.item-btn-fill`), and container grid layout.
+  3. **High Contrast Translucent Overlay:** Styled a light gradient overlay (`.hero-video-bg-overlay`) so the dark navy Clenix heading and yellow buttons remain crisp and legible over video motion.
+  4. **Mobile Responsiveness:** Fixed legacy Clenix mobile rules that hid buttons and subtext; buttons and text now scale cleanly on mobile viewports.
+  5. **Brand Assets Active:** EcoCare's authentic logo (`img/logo-dark.png`), icon (`img/mobile-logo.png`), favicon (`img/favicon.png`), and CEO portrait (`img/figure/aboutme.png`) are deployed site-wide.
+  6. Replacement of internal service card images with custom field photography remains open for the client upon camera capture.
 
 ---
 
