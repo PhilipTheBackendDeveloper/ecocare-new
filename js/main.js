@@ -55,11 +55,67 @@
     });
 
     /*-------------------------------------
-    Page Preloader
+    Page Preloader (Apple-Level Motion & Non-Blocking Dismissal)
     -------------------------------------*/
-    $("#preloader").fadeOut("slow", function () {
-        $(this).remove();
-    });
+    var $preloader = $("#preloader");
+    if ($preloader.length) {
+        // Auto-inject brand elements if page preloader container is empty
+        if (!$preloader.children().length) {
+            $preloader.html(
+                '<div class="preloader-inner">' +
+                '  <div class="preloader-logo-wrap">' +
+                '    <img src="img/logo-preloader.png" alt="EcoCare Cleaning Services Limited" class="preloader-logo" width="180" height="82">' +
+                '    <div class="preloader-shimmer"></div>' +
+                '  </div>' +
+                '  <div class="preloader-bar">' +
+                '    <div class="preloader-progress"></div>' +
+                '  </div>' +
+                '  <div class="preloader-tagline">Environmental &amp; Facility Care</div>' +
+                '</div>'
+            );
+        }
+
+        var preloaderStart = Date.now();
+        var targetRevealMs = 950; // ~1s Apple-level luxury reveal
+        var hardMaxTimeout = 1400; // failsafe ceiling: never block visitors
+
+        // Skip preloader immediately if returning visitor in same session and DOM is ready
+        var hasVisited = false;
+        try {
+            hasVisited = Boolean(sessionStorage.getItem("ecocare_visited"));
+        } catch (e) {}
+
+        function dismissPreloader(isInstant) {
+            if ($preloader.hasClass("preloader-loaded")) return;
+            if (isInstant) {
+                $preloader.addClass("preloader-loaded");
+                setTimeout(function () { $preloader.remove(); }, 100);
+                return;
+            }
+            var elapsed = Date.now() - preloaderStart;
+            var delay = Math.max(0, targetRevealMs - elapsed);
+            setTimeout(function () {
+                $preloader.addClass("preloader-loaded");
+                try { sessionStorage.setItem("ecocare_visited", "1"); } catch (e) {}
+                setTimeout(function () {
+                    $preloader.remove();
+                }, 550);
+            }, delay);
+        }
+
+        if (hasVisited && document.readyState === "complete") {
+            dismissPreloader(true);
+        } else if (document.readyState === "complete") {
+            dismissPreloader(false);
+        } else {
+            $(window).on("load", function () {
+                dismissPreloader(false);
+            });
+            setTimeout(function () {
+                dismissPreloader(false);
+            }, hardMaxTimeout);
+        }
+    }
 
     /*---------------------------------------
     On Click Section Switch
