@@ -1,8 +1,12 @@
 /**
- * EcoCare Cleaning Services Limited — Vercel Serverless Function: Quote Requests
+ * EcoCare Cleaning Services Limited — Vercel Serverless Function: Quote & Booking Calculator
  * Route: POST /api/quote
- * Validates incoming quote/booking calculator data and dispatches notification safely.
+ * Validates incoming quote/booking request, logs submission, dispatches notification, and provides WhatsApp follow-up.
  */
+
+const fs = require("fs");
+const path = require("path");
+const https = require("https");
 
 const RATE_LIMIT_WINDOW_MS = 60 * 1000;
 const MAX_REQUESTS_PER_WINDOW = 5;
@@ -41,18 +45,78 @@ function isValidEmail(email) {
   return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.trim());
 }
 
-const ALLOWED_SERVICES = [
-  "residential",
-  "commercial",
-  "post-construction",
-  "laundry",
-  "pest-control",
-  "carpet",
-  "upholstery",
-  "floor",
-  "window",
-  "event",
-];
+function saveSubmission(submission) {
+  try {
+    const dataDir = path.join(process.cwd(), "data");
+    if (!fs.existsSync(dataDir)) {
+      fs.mkdirSync(dataDir, { recursive: true });
+    }
+    const filePath = path.join(dataDir, "submissions.jsonl");
+    const line = JSON.stringify(submission) + "\n";
+    fs.appendFileSync(filePath, line, "utf8");
+  } catch (err) {
+    console.error("[ECOCARE-STORAGE-ERROR]", err.message);
+  }
+}
+
+async function dispatchEmail(payload) {
+  const apiKey = process.env.RESEND_API_KEY;
+  if (!apiKey) {
+    return { sent: false, reason: "No RESEND_API_KEY configured in environment" };
+  }
+
+  const notificationEmail = process.env.NOTIFICATION_EMAIL || "ecocaregh1on1@gmail.com";
+  const postData = JSON.stringify({
+    from: "EcoCare Estimate Calculator <onboarding@resend.dev>",
+    to: [notificationEmail],
+    subject: `New EcoCare Quote Request: ${payload.service} (${payload.name})`,
+    html: `
+      <h2>New Quote & Estimate Request Received</h2>
+      <p><strong>Customer Name:</strong> ${payload.name}</p>
+      <p><strong>Phone:</strong> ${payload.phone}</p>
+      <p><strong>Email:</strong> ${payload.email || "Not provided"}</p>
+      <p><strong>Service Requested:</strong> ${payload.service}</p>
+      <p><strong>Property Type:</strong> ${payload.propertyType}</p>
+      <p><strong>Approx Size / Scope:</strong> ${payload.size}</p>
+      <p><strong>Bedrooms / Rooms:</strong> ${payload.rooms || "N/A"}</p>
+      <p><strong>Bathrooms / Washrooms:</strong> ${payload.bathrooms || "N/A"}</p>
+      <p><strong>Frequency:</strong> ${payload.frequency || "One-Time"}</p>
+      <p><strong>Location / Landmark:</strong> ${payload.location}</p>
+      <p><strong>Preferred Appointment:</strong> ${payload.preferredDate || "Flexible"} at ${payload.preferredTime || "Flexible"}</p>
+      <p><strong>Requirements / Notes:</strong></p>
+      <blockquote style="background:#f4f4f4; padding:12px; border-left:4px solid #6bb92d;">${payload.notes}</blockquote>
+      <p><em>Received at: ${payload.receivedAt} | IP: ${payload.clientIp}</em></p>
+    `,
+  });
+
+  return new Promise((resolve) => {
+    const req = https.request(
+      "https://api.resend.com/emails",
+      {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${apiKey}`,
+          "Content-Type": "application/json",
+          "Content-Length": Buffer.byteLength(postData),
+        },
+      },
+      (res) => {
+        let body = "";
+        res.on("data", (chunk) => (body += chunk));
+        res.on("end", () => {
+          if (res.statusCode >= 200 && res.statusCode < 300) {
+            resolve({ sent: true, status: res.statusCode });
+          } else {
+            resolve({ sent: false, error: body, status: res.statusCode });
+          }
+        });
+      }
+    );
+    req.on("error", (err) => resolve({ sent: false, error: err.message }));
+    req.write(postData);
+    req.end();
+  });
+}
 
 module.exports = async function handler(req, res) {
   if (req.method !== "POST") {
@@ -71,7 +135,7 @@ module.exports = async function handler(req, res) {
   if (isRateLimited(clientIp)) {
     return res.status(429).json({
       success: false,
-      error: "Too many requests. Please wait a minute before submitting again.",
+      error: "Too many submissions. Please wait a minute before trying again.",
     });
   }
 
@@ -81,17 +145,36 @@ module.exports = async function handler(req, res) {
     const phone = sanitizeString(body.phone, 30);
     const email = sanitizeString(body.email, 100);
     const location = sanitizeString(body.location, 150);
-    const service = sanitizeString(body.service, 50).toLowerCase();
-    const propertyType = sanitizeString(body.property_type, 50) || "unspecified";
-    const size = sanitizeString(body.size, 50) || "unspecified";
-    const preferredDate = sanitizeString(body.preferred_date, 30);
-    const notes = sanitizeString(body.notes, 2000);
+    const service = sanitizeString(body.service, 80) || "General Cleaning";
+    const propertyType = sanitizeString(body.property_type, 60) || "Residential";
+    const size = sanitizeString(body.size_sqm || body.size, 60) || "Standard";
+    const rooms = sanitizeString(body.rooms, 40) || "N/A";
+    const bathrooms = sanitizeString(body.bathrooms, 40) || "N/A";
+    const frequency = sanitizeString(body.frequency, 40) || "One-Time";
+    const preferredDate = sanitizeString(body.date || body.preferred_date, 40);
+    const preferredTime = sanitizeString(body.time || body.preferred_time, 40);
+    const notes = sanitizeString(body.message || body.notes, 2000);
+    const renderedAt = parseInt(body.form_rendered_at, 10) || 0;
 
     // Honeypot spam check
-    if (body.website_url || body._gotcha) {
-      return res.status(200).json({ success: true, message: "Thank you for requesting a quote!" });
+    if (body.website_url || body._gotcha || body.hp_field) {
+      console.warn(`[ECOCARE-SPAM-BLOCKED] Quote Honeypot triggered from IP: ${clientIp}`);
+      return res.status(200).json({
+        success: true,
+        message: "Thank you for requesting an estimate from EcoCare!",
+      });
     }
 
+    // Timing check (<1s is automated bot)
+    if (renderedAt > 0 && Date.now() - renderedAt < 1000) {
+      console.warn(`[ECOCARE-SPAM-BLOCKED] Rapid quote submission (<1s) from IP: ${clientIp}`);
+      return res.status(200).json({
+        success: true,
+        message: "Thank you for requesting an estimate from EcoCare!",
+      });
+    }
+
+    // Validation
     const errors = [];
     if (!name || name.length < 2) {
       errors.push("Full name is required (minimum 2 characters).");
@@ -103,10 +186,10 @@ module.exports = async function handler(req, res) {
       errors.push("Please enter a valid email address.");
     }
     if (!location || location.length < 2) {
-      errors.push("Your location in Greater Accra is required.");
+      errors.push("Please provide your area or landmark in Greater Accra.");
     }
-    if (!service || (!ALLOWED_SERVICES.includes(service) && service.length < 3)) {
-      errors.push("Please select a valid service from the options provided.");
+    if (!notes || notes.length < 5) {
+      errors.push("Please provide brief service or property address notes (minimum 5 characters).");
     }
 
     if (errors.length > 0) {
@@ -117,20 +200,50 @@ module.exports = async function handler(req, res) {
       });
     }
 
+    const receivedAt = new Date().toISOString();
+    const submissionRecord = {
+      type: "quote",
+      name,
+      phone,
+      email,
+      service,
+      propertyType,
+      size,
+      rooms,
+      bathrooms,
+      frequency,
+      location,
+      preferredDate,
+      preferredTime,
+      notes,
+      clientIp,
+      receivedAt,
+    };
+    saveSubmission(submissionRecord);
+
+    const emailResult = await dispatchEmail(submissionRecord);
+
+    // Pre-filled WhatsApp link for instant estimate discussion
+    const waText = encodeURIComponent(
+      `Hello EcoCare! My name is ${name}. I just requested an estimate on your website for ${service} at ${location}. Property details: ${propertyType}, ${size}. Preferred date: ${preferredDate || "Flexible"}. Notes: ${notes.slice(0, 120)}... Contact: ${phone}.`
+    );
+    const whatsappUrl = `https://wa.me/233249014253?text=${waText}`;
+
     const maskedPhone = phone.replace(/(\d{3})\d+(\d{2})/, "$1****$2");
     console.log(
-      `[ECOCARE-QUOTE] Name: ${name} | Phone: ${maskedPhone} | Service: ${service} | Location: ${location} | IP: ${clientIp}`
+      `[ECOCARE-QUOTE-SUCCESS] Name: ${name} | Service: ${service} | Phone: ${maskedPhone} | Location: ${location} | IP: ${clientIp} | Email Sent: ${emailResult.sent}`
     );
 
     return res.status(200).json({
       success: true,
-      message: "Your service quote request has been received by EcoCare.",
+      message: "Thank you, " + name + "! Your quotation request has been received by our Achimota office.",
       data: {
         name,
         service,
         location,
-        phoneReceived: true,
-        receivedAt: new Date().toISOString(),
+        receivedAt,
+        emailDispatched: emailResult.sent,
+        whatsappUrl,
       },
     });
   } catch (err) {
@@ -141,4 +254,3 @@ module.exports = async function handler(req, res) {
     });
   }
 };
-

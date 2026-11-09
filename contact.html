@@ -157,14 +157,14 @@
             </div>
         </section>
         <!-- Inne Page Banner Area End Here -->
-        <!-- Blog Area Start Here -->
+                <!-- Blog Area Start Here -->
         <section class="section-padding-12-10">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-8">
                         <div class="contact-box-layout1">
                             <div class="google-map-area">
-                                <div id="googleMap" class="google-map" style="width:100%; height:420px; border-radius: 4px;"></div>
+                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3970.5870075801395!2d-0.24410990324261828!3d5.627819178441937!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xfdf995df95740cb%3A0xbbcb29ede8158fa1!2sEcoCare%20Laundry!5e0!3m2!1sen!2sgh!4v1735185870106!5m2!1sen!2sgh" width="100%" height="420" style="border:0; border-radius: 4px;" allowfullscreen="" loading="lazy"></iframe>
                             </div>
                             <div class="contact-info">
                                 <div class="media media-none-lg media-none--sm">
@@ -174,8 +174,8 @@
                                     <div class="media-body space-md">
                                         <h4>Phone:</h4>
                                         <ul>
-                                            <li>+8123 456 788 99,</li>
-                                            <li>+8123 (456) 788 99</li>
+                                            <li><a href="tel:+233249014253">+233 24 901 4253</a>,</li>
+                                            <li><a href="tel:+233243807100">+233 24 380 7100</a></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -186,8 +186,8 @@
                                     <div class="media-body space-md">
                                         <h4>E-mail:</h4>
                                         <ul>
-                                            <li>info@roofing.com</li>
-                                            <li>info@roofing.com</li>
+                                            <li><a href="mailto:ecocaregh1on1@gmail.com">ecocaregh1on1@gmail.com</a></li>
+                                            <li><span>Mon - Sat: 07:00am - 06:00pm</span></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -198,8 +198,8 @@
                                     <div class="media-body space-md">
                                         <h4>Location:</h4>
                                         <ul>
-                                            <li>51 Street, Newyork City, NYPD</li>
-                                            <li>18 Street, Newyork City, NYPD</li>
+                                            <li>Achimota Mile 7, Accra, Ghana</li>
+                                            <li>Greater Accra Region, Ghana</li>
                                         </ul>
                                     </div>
                                 </div>
@@ -209,33 +209,36 @@
                     <div class="col-lg-4 sidebar-break-md sidebar-widget-area">
                         <div class="widget widget-contact-form">
                             <div class="heading-layout4">
-                                <h4>Have you Any Question?</h4>
+                                <h4>Send Us a Message</h4>
                             </div>
                             <form class="contact-form-box" id="contact-form">
+                                <div style="display:none !important;" aria-hidden="true">
+                                    <input type="text" name="website_url" tabindex="-1" autocomplete="off" value="">
+                                </div>
                                 <div class="row">
                                     <div class="col-12 form-group">
                                         <div class="form-icon"><i class="fas fa-user"></i></div>
-                                        <input type="text" placeholder="Name" class="form-control" name="name" data-error="Name field is required" required>
+                                        <input type="text" placeholder="Your Name" class="form-control" name="name" data-error="Name field is required" required>
                                         <div class="help-block with-errors"></div>
                                     </div>
                                     <div class="col-12 form-group">
                                         <div class="form-icon"><i class="far fa-envelope"></i></div>
-                                        <input type="email" placeholder="E-mail Address" class="form-control" name="email" data-error="email field is required" required>
+                                        <input type="email" placeholder="E-mail Address (optional)" class="form-control" name="email">
                                         <div class="help-block with-errors"></div>
                                     </div>
                                     <div class="col-12 form-group">
                                         <div class="form-icon"><i class="fas fa-phone-volume"></i></div>
-                                        <input type="text" placeholder="Phone" class="form-control" name="phone" data-error="Phone field is required" required>
+                                        <input type="tel" placeholder="Phone Number" class="form-control" name="phone" data-error="Phone field is required" required>
                                         <div class="help-block with-errors"></div>
                                     </div>
                                     <div class="col-12 form-group">
                                         <div class="form-icon"><i class="fas fa-question"></i></div>
-                                        <input type="text" placeholder="Subject" class="form-control" name="phone" data-error="Phone field is required" required>
+                                        <input type="text" placeholder="Subject" class="form-control" name="subject" data-error="Subject field is required" required>
                                         <div class="help-block with-errors"></div>
                                     </div>
                                     <div class="col-12 form-group">
                                         <div class="form-icon"><i class="far fa-comments"></i></div>
-                                        <textarea placeholder="Address" class="textarea form-control" name="message" id="form-message" rows="4" cols="20" 
+                                        <textarea placeholder="Message / Service Details" class="textarea form-control" name="message" id="form-message" rows="4" cols="20" 
                                         data-error="Message field is required" required></textarea>
                                         <div class="help-block with-errors"></div>
                                     </div>
@@ -243,7 +246,7 @@
                                         <button type="submit" class="fw-btn-fill bg-accent text-primarytext">Send Message</button>
                                     </div>
                                 </div>
-                                <div class="form-response"></div>
+                                <div class="form-response mt-3"></div>
                             </form>
                         </div>
                     </div>

@@ -161,35 +161,28 @@
             </div>
         </section>
         <!-- Inne Page Banner Area End Here -->
-        <!-- Booking Form Area Start Here -->
+                <!-- Booking Form Area Start Here -->
         <section class="section-padding-12-9">
             <div class="container">
                 <div class="row">
                     <div class="col-xl-7 col-lg-6 col-12">
                         <div class="about-box-layout1">
-                            <h2 class="item-title">Quick Calculate &amp; Book Your Desire Service</h2>
-                            <div class="item-subtitle">There are many variations of passages of Lorem Ipsum available, 
-                                but the majority have suffered alteration in some form.</div>
-                            <p>There are many variations of passages of Lorem Ipsum available, but the majority 
-                                have suffered alteration in some form, by injected humour, or randomised 
-                                words which don't look even slightly believable. some form, by injected humour, 
-                                some form, by injected humour.</p>
+                            <h2 class="item-title">Transparent Pricing &amp; Tailored Cleaning Solutions</h2>
+                            <div class="item-subtitle">Reliable, eco-friendly cleaning, fumigation, laundry, and upholstery care tailored to your specific premises.</div>
+                            <p>Every residential home and corporate facility across Greater Accra has distinct floor layouts, surface materials, and sanitization priorities. EcoCare evaluates your exact property parameters so you pay only for the exact scope of work required.</p>
                             <div class="list-item">
                                 <ul>
                                     <li>
-                                        <h3>Customer Focused Reviews</h3>
-                                        <p>Aorem ipsum dolor sit amet consectetur adipisicing elit sed do
-                                            eiusmod tempor incididunt ut labore et dolore.</p>
+                                        <h3>Client-Centric Quality Walkthrough</h3>
+                                        <p>Our dedicated supervisors conduct a post-service walkthrough with you to verify complete satisfaction before wrapping up.</p>
                                     </li>
                                     <li>
-                                        <h3>We Are Committed</h3>
-                                        <p>Aorem ipsum dolor sit amet consectetur adipisicing elit sed do
-                                            eiusmod tempor incididunt ut labore et dolore.</p>
+                                        <h3>Biodegradable &amp; Regulated Formulations</h3>
+                                        <p>We use eco-conscious, plant-derived detergents and regulated pest-control formulations safe for families, pets, and workplace teams.</p>
                                     </li>
                                     <li>
-                                        <h3>Regular &amp; Monthly Cleaning</h3>
-                                        <p>Aorem ipsum dolor sit amet consectetur adipisicing elit sed do
-                                            eiusmod tempor incididunt ut labore et dolore.</p>
+                                        <h3>Flexible Scheduling</h3>
+                                        <p>Book one-time deep cleaning, regular weekly maintenance, or scheduled weekend commercial sanitation without disrupting your routine.</p>
                                     </li>
                                 </ul>
                             </div>
@@ -199,96 +192,102 @@
                         <div class="about-box-layout2">
                             <h3 class="item-title">Request An Estimate</h3>
                             <form class="contact-form-box" id="contact-form">
+                                <div style="display:none !important;" aria-hidden="true">
+                                    <input type="text" name="website_url" tabindex="-1" autocomplete="off" value="">
+                                </div>
                                 <div class="row gutters-10">
                                     <div class="col-12 form-group">
-                                        <select class="select2">
-                                            <option value="0">Residential</option>
-                                            <option value="1">Residential</option>
-                                            <option value="2">Commercial</option>
-                                            <option value="3">Plot</option>
-                                            <option value="4">Apartment</option>
+                                        <select class="select2" name="service" id="form-service">
+                                            <option value="residential">Residential Cleaning (EcoClean)</option>
+                                            <option value="commercial">Commercial Janitorial (EcoClean)</option>
+                                            <option value="laundry">Eco-Laundry &amp; Dry Cleaning</option>
+                                            <option value="fumigation">EcoFumes Pest Control &amp; Fumigation</option>
+                                            <option value="carpet">Carpet Deep Cleaning</option>
+                                            <option value="upholstery">Upholstery &amp; Furniture Cleaning</option>
+                                            <option value="post-construction">Post-Construction Cleaning</option>
                                         </select>
                                     </div>
                                     <div class="col-md-6 form-group">
-                                        <select class="select2">
-                                            <option value="0">Property Type</option>
-                                            <option value="1">Residential</option>
-                                            <option value="2">Commercial</option>
-                                            <option value="3">Plot</option>
-                                            <option value="4">Apartment</option>
+                                        <select class="select2" name="property_type" id="form-property">
+                                            <option value="residential-house">Residential House / Compound</option>
+                                            <option value="apartment">Apartment / Flat</option>
+                                            <option value="office">Corporate Office</option>
+                                            <option value="retail">Retail / Showroom</option>
+                                            <option value="warehouse">Industrial / Warehouse</option>
+                                            <option value="other">Other Facility</option>
                                         </select>
                                     </div>
                                     <div class="col-md-6 form-group">
-                                        <select class="select2">
-                                            <option value="0">-- Approx SF --</option>
-                                            <option value="1">400</option>
-                                            <option value="2">200</option>
-                                            <option value="3">600</option>
-                                            <option value="4">300</option>
+                                        <select class="select2" name="size_sqm" id="form-size">
+                                            <option value="small">Small (&lt; 100 sqm)</option>
+                                            <option value="medium">Medium (100 - 300 sqm)</option>
+                                            <option value="large">Large (300 - 600 sqm)</option>
+                                            <option value="corporate">Commercial (600+ sqm)</option>
+                                            <option value="per-item">Per Piece (Carpet / Upholstery)</option>
                                         </select>
                                     </div>
                                     <div class="col-md-6 form-group">
-                                        <select class="select2">
-                                            <option value="0">-- Bedrooms --</option>
-                                            <option value="1">Residential</option>
-                                            <option value="2">Commercial</option>
-                                            <option value="3">Plot</option>
-                                            <option value="4">Apartment</option>
+                                        <select class="select2" name="rooms" id="form-rooms">
+                                            <option value="1-2">1 &ndash; 2 Bedrooms / Rooms</option>
+                                            <option value="3-4">3 &ndash; 4 Bedrooms / Rooms</option>
+                                            <option value="5-plus">5+ Bedrooms / Rooms</option>
+                                            <option value="open-office">Open-Plan Office</option>
+                                            <option value="na">Not Applicable</option>
                                         </select>
                                     </div>
                                     <div class="col-md-6 form-group">
-                                        <select class="select2">
-                                            <option value="0">-- Bathrooms --</option>
-                                            <option value="1">Residential</option>
-                                            <option value="2">Commercial</option>
-                                            <option value="3">Plot</option>
-                                            <option value="4">Apartment</option>
+                                        <select class="select2" name="bathrooms" id="form-bathrooms">
+                                            <option value="1-2">1 &ndash; 2 Bathrooms</option>
+                                            <option value="3-4">3 &ndash; 4 Bathrooms</option>
+                                            <option value="5-plus">5+ Restrooms</option>
+                                            <option value="na">Not Applicable</option>
                                         </select>
                                     </div>
                                     <div class="col-md-6 form-group">
-                                        <select class="select2">
-                                            <option value="0">-- Frequency --</option>
-                                            <option value="1">Residential</option>
-                                            <option value="2">Commercial</option>
-                                            <option value="3">Plot</option>
-                                            <option value="4">Apartment</option>
+                                        <select class="select2" name="frequency" id="form-frequency">
+                                            <option value="one-time">One-Time Deep Clean</option>
+                                            <option value="weekly">Weekly Routine</option>
+                                            <option value="biweekly">Bi-Weekly Maintenance</option>
+                                            <option value="monthly">Monthly Contract</option>
                                         </select>
                                     </div>
                                     <div class="col-md-6 col-12 form-group">
-                                        <input type="text" placeholder="ZIP Code" class="form-control" name="name" data-error="zip code field is required" required>
+                                        <input type="text" placeholder="Area / Landmark in Accra" class="form-control" name="location" id="form-location" required>
                                         <div class="help-block with-errors"></div>
                                     </div>
                                     <div class="col-md-6 form-group datetime-picker">
                                         <i class="far fa-calendar-alt"></i>
-                                        <input type="text" class="form-control rt-date" placeholder="dd/mm/yy" name="date" id="form-date" data-error="Subject field is required" required/>
+                                        <input type="text" class="form-control rt-date" placeholder="Preferred Date" name="date" id="form-date" required/>
                                     </div>
                                     <div class="col-md-6 form-group datetime-picker">
                                         <i class="far fa-clock"></i>
-                                        <input type="text" class="form-control rt-time" placeholder="Time" name="time" id="form-time" data-error="Subject field is required" required/>
+                                        <input type="text" class="form-control rt-time" placeholder="Preferred Time" name="time" id="form-time" required/>
                                     </div>
                                     <div class="col-md-6 col-12 form-group">
-                                        <input type="text" placeholder="Name" class="form-control" name="name" data-error="Name field is required" required>
+                                        <input type="text" placeholder="Your Name" class="form-control" name="name" id="form-name" required>
                                         <div class="help-block with-errors"></div>
                                     </div>
                                     <div class="col-md-6 col-12 form-group">
-                                        <input type="text" placeholder="Phone" class="form-control" name="phone" data-error="Phone field is required" required>
+                                        <input type="tel" placeholder="Phone Number (e.g. 024 901 4253)" class="form-control" name="phone" id="form-phone" required>
                                         <div class="help-block with-errors"></div>
                                     </div>
                                     <div class="col-12 form-group">
-                                        <input type="email" placeholder="E-mail Address" class="form-control" name="email" data-error="email field is required" required>
+                                        <input type="email" placeholder="E-mail Address (optional)" class="form-control" name="email" id="form-email">
                                         <div class="help-block with-errors"></div>
                                     </div>
                                     <div class="col-12 form-group mg-b-20">
-                                        <textarea placeholder="Address" class="textarea form-control" name="message" id="form-message" rows="2" cols="20" 
-                                        data-error="Message field is required" required></textarea>
+                                        <textarea placeholder="Specific Requirements / Address Details" class="textarea form-control" name="message" id="form-message" rows="3" required></textarea>
                                         <div class="help-block with-errors"></div>
                                     </div>
                                     <div class="col-12 form-group">
-                                        <button type="submit" class="fw-btn-fill bg-accent text-primarytext">Book Now<i class="fas fa-angle-right"></i></button>
+                                        <button type="submit" class="fw-btn-fill bg-accent text-primarytext">Request Free Estimate<i class="fas fa-angle-right"></i></button>
                                     </div>
                                 </div>
-                                <div class="form-response"></div>
+                                <div class="form-response mt-3"></div>
                             </form>
+                            <div class="text-center mt-3">
+                                <small class="text-muted"><i class="fab fa-whatsapp text-success mr-1"></i> Prefer instant chat? WhatsApp us at <a href="https://wa.me/233249014253" class="text-primary font-weight-bold" target="_blank">+233 24 901 4253</a></small>
+                            </div>
                         </div>
                     </div>
                 </div>

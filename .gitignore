@@ -4,4 +4,8 @@ __pycache__/
 *$py.class
 .DS_Store
 .env
+.env.local
 .vercel
+
+# Local dynamic runtime logs and data submissions
+data/submissions.jsonl
