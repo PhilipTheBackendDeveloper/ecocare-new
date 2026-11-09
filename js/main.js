@@ -55,100 +55,81 @@
     });
 
     /*-------------------------------------
-    Page Preloader (Bespoke Liquid-Reveal & Hero Video Synchronization)
+    Page Preloader ("The EcoCare Signature Reveal" — Exact 2.0s Timeline)
+    0.00–0.35s: Emerald green signature stroke begins sweep
+    0.35–1.10s: Logo directional reveal in tandem with sweep & light sheen
+    1.10–1.55s: Calm balance & pristine rest state
+    1.55–2.00s: Seamless dissolve into homepage hero
     -------------------------------------*/
     var $preloader = $("#preloader");
     if ($preloader.length) {
-        // Auto-inject bespoke liquid elements if container is empty
+        // Auto-inject signature reveal elements if container is empty
         if (!$preloader.children().length) {
-            $preloader.attr("role", "status").attr("aria-label", "Loading EcoCare Cleaning Services");
+            $preloader.attr("role", "status").attr("aria-label", "EcoCare Cleaning Services Limited");
             $preloader.html(
-                '<div class="liquid-droplet-wrap" aria-hidden="true">' +
-                '  <span class="liquid-droplet"></span>' +
-                '  <span class="liquid-ripple ripple-1"></span>' +
-                '  <span class="liquid-ripple ripple-2"></span>' +
-                '</div>' +
-                '<div class="preloader-inner">' +
-                '  <div class="preloader-logo-wrap">' +
-                '    <img src="img/logo-preloader.png" alt="EcoCare Cleaning Services Limited" class="preloader-logo" width="205" height="94">' +
-                '    <div class="preloader-shimmer" aria-hidden="true"></div>' +
+                '<div class="signature-stage">' +
+                '  <div class="signature-logo-frame">' +
+                '    <img src="img/logo-preloader.png" alt="EcoCare Cleaning Services Limited" class="signature-logo" width="230" height="105">' +
+                '    <div class="signature-light-sweep" aria-hidden="true"></div>' +
                 '  </div>' +
-                '  <div class="preloader-bar" aria-hidden="true">' +
-                '    <div class="preloader-progress"></div>' +
-                '  </div>' +
+                '  <svg class="signature-stroke-svg" viewBox="0 0 330 90" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">' +
+                '    <path class="signature-stroke-path" pathLength="100" d="M 8 60 C 75 62, 120 20, 182 25 C 240 30, 272 68, 322 50" />' +
+                '  </svg>' +
                 '</div>'
             );
         }
 
         var preloaderStart = Date.now();
-        var minAnimationMs = 880;  // Allow emerald droplet, ripple & masked reveal to complete
-        var maxFailsafeMs = 1350;  // Reliable fallback: never block navigation under any circumstance
-        var isDismissed = false;
+        var dissolveStartMs = 1550; // Dissolve starts precisely at 1.55s
+        var completeMs = 2000;     // Full 2.0-second timeline
+        var isDissolving = false;
 
-        // Skip preloader immediately if returning visitor in same session and page is ready
-        var hasVisited = false;
+        // Skip animation on subsequent internal navigation in same session
+        var hasSeenSignature = false;
         try {
-            hasVisited = Boolean(sessionStorage.getItem("ecocare_preloaded"));
+            hasSeenSignature = Boolean(sessionStorage.getItem("ecocare_signature_seen"));
         } catch (e) {}
 
-        function dismissPreloader(isInstant) {
-            if (isDismissed) return;
-            isDismissed = true;
+        function triggerDissolve(isInstant) {
+            if (isDissolving) return;
+            isDissolving = true;
 
             if (isInstant) {
-                $preloader.addClass("preloader-dismissing");
-                setTimeout(function () { $preloader.remove(); }, 80);
+                $preloader.addClass("preloader-dissolving");
+                setTimeout(function () { $preloader.remove(); }, 60);
                 return;
             }
 
             var elapsed = Date.now() - preloaderStart;
-            var delay = Math.max(0, minAnimationMs - elapsed);
+            var wait = Math.max(0, dissolveStartMs - elapsed);
 
             setTimeout(function () {
-                // Liquid dissolve: logo scales down gently, background dissolves
-                $preloader.addClass("preloader-dismissing");
-                try { sessionStorage.setItem("ecocare_preloaded", "1"); } catch (e) {}
+                $preloader.addClass("preloader-dissolving");
+                try { sessionStorage.setItem("ecocare_signature_seen", "1"); } catch (e) {}
                 setTimeout(function () {
                     $preloader.remove();
-                }, 600);
-            }, delay);
+                }, 450); // 1550ms + 450ms = 2000ms total
+            }, wait);
         }
 
-        if (hasVisited && document.readyState === "complete") {
-            dismissPreloader(true);
+        if (hasSeenSignature && document.readyState === "complete") {
+            triggerDissolve(true);
         } else {
-            // Hero video synchronization (if on homepage)
+            // Kick off background hero video buffer asynchronously (never delays the 2.0s timeline)
             var heroVid = document.getElementById("hero-bg-video");
-            if (heroVid) {
-                if (heroVid.readyState >= 3) {
-                    dismissPreloader(false);
-                } else {
-                    var onVideoReady = function () {
-                        heroVid.removeEventListener("canplay", onVideoReady);
-                        heroVid.removeEventListener("playing", onVideoReady);
-                        dismissPreloader(false);
-                    };
-                    heroVid.addEventListener("canplay", onVideoReady, { once: true });
-                    heroVid.addEventListener("playing", onVideoReady, { once: true });
-                    heroVid.addEventListener("error", function () {
-                        dismissPreloader(false);
-                    }, { once: true });
-                }
+            if (heroVid && heroVid.paused) {
+                heroVid.play().catch(function () {});
             }
 
-            // Window load listener
-            if (document.readyState === "complete") {
-                dismissPreloader(false);
-            } else {
-                $(window).on("load", function () {
-                    dismissPreloader(false);
-                });
-            }
-
-            // Reliable failsafe: never block visitors if video or external asset lags
+            // Dissolve starts at 1.55s, concluding exactly at 2.00s
             setTimeout(function () {
-                dismissPreloader(false);
-            }, maxFailsafeMs);
+                triggerDissolve(false);
+            }, dissolveStartMs);
+
+            // Hard ceiling failsafe at 2.05s: guarantees visitor can never be locked
+            setTimeout(function () {
+                if (!isDissolving) triggerDissolve(false);
+            }, completeMs + 50);
         }
     }
 

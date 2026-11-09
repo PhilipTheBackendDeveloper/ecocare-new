@@ -213,14 +213,19 @@
 }
 
 /*------------------------------------------------------------------
-  EcoCare Bespoke Liquid-Reveal Preloader (Apple-Level Motion)
-  Warm off-white background, emerald liquid droplet & ripple reveal,
-  delicate light sweep, refined emerald progress & fluid dissolve.
+  THE ECOCARE SIGNATURE REVEAL (Exact 2-Second Motion Identity)
+  Warm-white canvas, emerald green signature sweep, directional mask,
+  delicate soft-light reflection, pristine rest, and seamless dissolve.
+  Timeline:
+    0.00–0.35s: Emerald green signature stroke begins sweep
+    0.35–1.10s: Logo directional reveal in tandem with sweep & light sheen
+    1.10–1.55s: Calm balance & pristine rest state
+    1.55–2.00s: Seamless dissolve into homepage hero
 ------------------------------------------------------------------*/
 
 #preloader {
-  background: #faf8f5 !important;
-  background: radial-gradient(circle at 50% 50%, #ffffff 0%, #faf8f5 55%, #f4efe6 100%) !important;
+  background-color: #faf9f6 !important;
+  background: radial-gradient(circle at 50% 50%, #ffffff 0%, #faf9f6 55%, #f4f1ea 100%) !important;
   height: 100%;
   left: 0;
   position: fixed;
@@ -231,274 +236,193 @@
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1),
-              visibility 0.65s cubic-bezier(0.16, 1, 0.3, 1),
-              backdrop-filter 0.65s ease;
+  transition: opacity 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+              visibility 0.45s cubic-bezier(0.16, 1, 0.3, 1);
   will-change: opacity, visibility;
   pointer-events: all;
 }
 
-/* Liquid Dissolve Exit State */
-#preloader.preloader-dismissing {
+/* 1.55–2.00s: Dissolve seamlessly into homepage hero */
+#preloader.preloader-dissolving {
   opacity: 0 !important;
   visibility: hidden !important;
   pointer-events: none !important;
 }
 
-#preloader.preloader-dismissing .preloader-logo-wrap {
-  transform: scale(0.92) !important;
+#preloader.preloader-dissolving .signature-logo-frame {
+  transform: scale(0.95) !important;
   opacity: 0 !important;
-  filter: blur(4px) !important;
-  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1),
-              opacity 0.45s ease,
-              filter 0.45s ease !important;
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+              opacity 0.40s ease !important;
 }
 
-#preloader.preloader-dismissing .preloader-bar,
-#preloader.preloader-dismissing .liquid-droplet-wrap {
+#preloader.preloader-dissolving .signature-stroke-svg {
   opacity: 0 !important;
-  transition: opacity 0.35s ease !important;
+  transition: opacity 0.25s ease !important;
 }
 
-/* Liquid Droplet & Ripple Elements */
-.liquid-droplet-wrap {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 440px;
-  height: 440px;
-  pointer-events: none;
-  z-index: 2;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-/* Central Emerald Liquid Droplet */
-.liquid-droplet {
-  position: absolute;
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background: radial-gradient(circle at 35% 30%, #34d399 0%, #008817 65%, #005a0f 100%);
-  box-shadow: 0 4px 10px rgba(0, 136, 23, 0.4),
-              inset 0 1px 2px rgba(255, 255, 255, 0.65);
-  opacity: 0;
-  transform: scale(0.4) translateY(-22px);
-  animation: dropletImpact 0.42s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-}
-
-@keyframes dropletImpact {
-  0% {
-    opacity: 0;
-    transform: scale(0.4) translateY(-22px);
-  }
-  60% {
-    opacity: 1;
-    transform: scale(1.15, 0.85) translateY(0);
-  }
-  85% {
-    opacity: 1;
-    transform: scale(0.95, 1.05) translateY(-2px);
-  }
-  100% {
-    opacity: 0;
-    transform: scale(1.8) translateY(0);
-  }
-}
-
-/* Smooth Thin Circular Liquid Ripples */
-.liquid-ripple {
-  position: absolute;
-  border-radius: 50%;
-  pointer-events: none;
-  opacity: 0;
-  box-sizing: border-box;
-}
-
-.liquid-ripple.ripple-1 {
-  width: 28px;
-  height: 28px;
-  border: 1.5px solid rgba(0, 136, 23, 0.65);
-  box-shadow: 0 0 14px rgba(0, 136, 23, 0.22),
-              inset 0 0 8px rgba(0, 136, 23, 0.12);
-  animation: liquidRippleSpread 0.78s cubic-bezier(0.16, 1, 0.3, 1) forwards 0.28s;
-}
-
-.liquid-ripple.ripple-2 {
-  width: 28px;
-  height: 28px;
-  border: 1px solid rgba(0, 136, 23, 0.32);
-  animation: liquidRippleSpread 0.88s cubic-bezier(0.16, 1, 0.3, 1) forwards 0.38s;
-}
-
-@keyframes liquidRippleSpread {
-  0% {
-    opacity: 0.85;
-    transform: scale(0.5);
-  }
-  45% {
-    opacity: 0.45;
-  }
-  100% {
-    opacity: 0;
-    transform: scale(15);
-  }
-}
-
-/* Preloader Inner Container */
-.preloader-inner {
+/* Signature Stage */
+.signature-stage {
   position: relative;
-  z-index: 3;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 22px;
+  width: 100%;
   max-width: 340px;
+  min-height: 140px;
   padding: 20px;
   user-select: none;
 }
 
-/* Masked Logo Reveal Expanding with the Ripple */
-.preloader-logo-wrap {
+/* 0.35–1.10s: Logo Directional Reveal */
+.signature-logo-frame {
   position: relative;
   display: inline-block;
+  z-index: 2;
   overflow: hidden;
-  padding: 6px 12px;
-  clip-path: circle(0% at 50% 50%);
-  animation: logoMaskedRippleReveal 0.88s cubic-bezier(0.16, 1, 0.3, 1) forwards 0.3s;
+  padding: 6px 14px;
+  clip-path: inset(0 100% 0 0);
+  animation: signatureLogoReveal 0.75s cubic-bezier(0.22, 1, 0.36, 1) forwards 0.35s;
   will-change: clip-path, transform, opacity;
 }
 
-.preloader-logo {
+.signature-logo {
   display: block;
-  width: 205px;
+  width: 230px;
   height: auto;
-  max-height: 94px;
+  max-height: 104px;
   object-fit: contain;
-  /* Original colors, typography & proportions strictly preserved */
-  filter: drop-shadow(0 6px 20px rgba(0, 136, 23, 0.14));
+  /* Exact uploaded logo preserved: native colors, proportions & typography */
+  filter: drop-shadow(0 4px 18px rgba(0, 136, 23, 0.12));
 }
 
-@keyframes logoMaskedRippleReveal {
+@keyframes signatureLogoReveal {
   0% {
-    clip-path: circle(0% at 50% 50%);
+    clip-path: inset(0 100% 0 0);
     opacity: 0;
-    transform: scale(0.95);
+    transform: scale(0.985);
   }
-  30% {
+  15% {
     opacity: 1;
   }
   100% {
-    clip-path: circle(135% at 50% 50%);
+    clip-path: inset(0 0% 0 0);
     opacity: 1;
     transform: scale(1);
   }
 }
 
-/* Delicate Light Sweep Across the Logo */
-.preloader-shimmer {
+/* Subtle Soft-Light Reflection Sweep */
+.signature-light-sweep {
   position: absolute;
   top: 0;
-  left: -150%;
-  width: 75%;
+  left: -130%;
+  width: 65%;
   height: 100%;
   background: linear-gradient(
     110deg,
-    rgba(255, 255, 255, 0) 0%,
-    rgba(255, 255, 255, 0.85) 45%,
-    rgba(255, 255, 255, 0.96) 50%,
-    rgba(255, 255, 255, 0.85) 55%,
-    rgba(255, 255, 255, 0) 100%
+    transparent 0%,
+    rgba(255, 255, 255, 0) 30%,
+    rgba(255, 255, 255, 0.65) 50%,
+    rgba(255, 255, 255, 0) 70%,
+    transparent 100%
   );
-  transform: skewX(-22deg);
+  transform: skewX(-20deg);
   opacity: 0;
-  animation: delicateLightSweep 0.82s cubic-bezier(0.4, 0, 0.2, 1) forwards 0.72s;
+  animation: delicateSweepGlide 0.65s cubic-bezier(0.4, 0, 0.2, 1) forwards 0.70s;
   pointer-events: none;
 }
 
-@keyframes delicateLightSweep {
+@keyframes delicateSweepGlide {
   0% {
-    left: -150%;
+    left: -130%;
     opacity: 0;
   }
-  20% {
+  25% {
     opacity: 1;
   }
-  80% {
+  75% {
     opacity: 1;
   }
   100% {
-    left: 230%;
+    left: 210%;
     opacity: 0;
   }
 }
 
-/* Refined Emerald Progress Indicator */
-.preloader-bar {
-  width: 140px;
-  height: 2px;
-  background: rgba(0, 136, 23, 0.10);
-  border-radius: 3px;
-  overflow: hidden;
-  position: relative;
-  opacity: 0;
-  animation: barFadeIn 0.4s ease forwards 0.48s;
-}
-
-.preloader-progress {
+/* 0.00–0.35s & 0.35–1.10s: Emerald Green Curved Signature Stroke */
+.signature-stroke-svg {
   position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 0%;
-  border-radius: 3px;
-  background: linear-gradient(90deg, #008817 0%, #16a34a 65%, #34d399 100%);
-  box-shadow: 0 0 8px rgba(0, 136, 23, 0.45);
-  animation: greenProgressFill 0.92s cubic-bezier(0.16, 1, 0.3, 1) forwards 0.48s;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 330px;
+  height: 90px;
+  z-index: 3;
+  pointer-events: none;
+  overflow: visible;
 }
 
-@keyframes barFadeIn {
-  from { opacity: 0; transform: translateY(4px); }
-  to { opacity: 1; transform: translateY(0); }
+.signature-stroke-path {
+  stroke: #008817;
+  stroke-width: 2.2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  fill: none;
+  filter: drop-shadow(0 2px 6px rgba(0, 136, 23, 0.32));
+  stroke-dasharray: 100;
+  stroke-dashoffset: 100;
+  animation: signatureStrokeDraw 1.10s cubic-bezier(0.22, 1, 0.36, 1) forwards,
+             signatureStrokeFade 0.30s ease forwards 1.05s;
 }
 
-@keyframes greenProgressFill {
-  0% { width: 0%; }
-  40% { width: 62%; }
-  78% { width: 90%; }
-  100% { width: 100%; }
+@keyframes signatureStrokeDraw {
+  0% {
+    stroke-dashoffset: 100;
+    opacity: 1;
+  }
+  100% {
+    stroke-dashoffset: 0;
+    opacity: 1;
+  }
 }
 
-/* Mobile Responsiveness */
+@keyframes signatureStrokeFade {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+/* Fully Responsive for Tablets & Mobile */
 @media (max-width: 575px) {
-  .preloader-logo {
-    width: 170px;
-    max-height: 78px;
+  .signature-stage {
+    max-width: 270px;
+    min-height: 120px;
   }
-  .preloader-bar {
-    width: 120px;
+  .signature-logo {
+    width: 185px;
+    max-height: 84px;
+  }
+  .signature-stroke-svg {
+    width: 270px;
+    height: 72px;
   }
 }
 
-/* Reduced Motion Accessibility */
+/* Reduced Motion Support */
 @media (prefers-reduced-motion: reduce) {
-  .liquid-droplet-wrap {
+  .signature-stroke-svg,
+  .signature-light-sweep {
     display: none !important;
   }
-  .preloader-logo-wrap {
+  .signature-logo-frame {
     clip-path: none !important;
     animation: none !important;
     opacity: 1 !important;
     transform: none !important;
-  }
-  .preloader-shimmer {
-    display: none !important;
-  }
-  .preloader-progress {
-    animation-duration: 0.25s !important;
   }
   #preloader {
     transition: opacity 0.25s ease !important;
