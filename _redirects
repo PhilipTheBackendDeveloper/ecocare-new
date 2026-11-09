@@ -1,0 +1,54 @@
+# EcoCare Cleaning Services Limited — Netlify Canonical Redirects & Clean URL Routing
+# Primary Canonical Domain: https://ecocaregh.com/
+
+# 1. Apex Domain & HTTPS Unification
+http://ecocaregh.com/*       https://ecocaregh.com/:splat    301!
+http://www.ecocaregh.com/*    https://ecocaregh.com/:splat    301!
+https://www.ecocaregh.com/*   https://ecocaregh.com/:splat    301!
+
+# 2. Clean URL Rewrites (Internal 200 Mapping to HTML Sources)
+/about                      /about1.html                 200
+/services                   /service1.html               200
+/cleaning                   /single-service1.html        200
+/laundry                    /single-service2.html        200
+/pest-control               /pest-control.html           200
+/carpet-cleaning            /carpet-cleaning.html        200
+/upholstery-cleaning        /upholstery-cleaning.html    200
+/packages                   /pricing-table.html          200
+/request-quote              /calculate-form.html         200
+/faq                        /faq.html                    200
+/contact                    /contact.html                200
+/projects                   /project1.html               200
+/projects/commercial-case-study /single-project1.html    200
+/privacy-policy             /privacy-policy.html         200
+/terms                      /terms-condition.html        200
+
+# 3. Legacy .html to Clean URLs (301 Permanent Redirects)
+/index.html                 /                            301
+/about1.html                /about                       301
+/service1.html              /services                    301
+/single-service1.html       /cleaning                    301
+/single-service2.html       /laundry                     301
+/pricing-table.html         /packages                    301
+/calculate-form.html        /request-quote               301
+/project1.html              /projects                    301
+/single-project1.html       /projects/commercial-case-study 301
+/terms-condition.html       /terms                       301
+
+# 4. Deprecated Demo Template Redirects (Preserving Link Equity)
+/index2.html                /                            301
+/index3.html                /                            301
+/index4.html                /                            301
+/about2.html                /about                       301
+/service2.html              /services                    301
+/blog1.html                 /                            301
+/blog2.html                 /                            301
+/single-blog1.html          /                            301
+/shop.html                  /services                    301
+/single-product.html        /services                    301
+/team1.html                 /about                       301
+/team2.html                 /about                       301
+/single-team.html           /about                       301
+
+# 5. Custom 404 Catch-All
+/*                          /404.html                    404

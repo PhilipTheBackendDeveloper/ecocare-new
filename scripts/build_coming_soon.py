@@ -2,6 +2,7 @@
 """
 EcoCare Cleaning Services Limited — Coming Soon Deployment Builder
 Generates an isolated, production-ready standalone Coming Soon site in dist/coming-soon/.
+State A Deployment Engine for Netlify (publish = "dist/coming-soon").
 """
 
 import os
@@ -79,17 +80,58 @@ def copy_directory_trees():
                 shutil.copy2(item, dst_font / item.name)
         print("✓ Copied Flaticon font assets.")
 
-def write_netlify_headers():
-    """Generates standard security headers for Netlify deployment."""
+def write_isolated_seo_and_routing():
+    """Generates isolated State A robots.txt, sitemap.xml, _redirects, and security _headers."""
+    # 1. robots.txt for State A
+    robots_content = """User-agent: *
+Allow: /
+
+# State A Coming Soon Sitemap
+Sitemap: https://ecocaregh.com/sitemap.xml
+"""
+    (DIST_DIR / "robots.txt").write_text(robots_content, encoding="utf-8")
+    print("✓ Created isolated dist/coming-soon/robots.txt (Allow: / for crawlability).")
+
+    # 2. sitemap.xml for State A (Only the public root)
+    sitemap_content = """<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://ecocaregh.com/</loc>
+    <lastmod>2026-11-09</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>
+</urlset>
+"""
+    (DIST_DIR / "sitemap.xml").write_text(sitemap_content, encoding="utf-8")
+    print("✓ Created isolated dist/coming-soon/sitemap.xml with exactly 1 URL.")
+
+    # 3. _redirects for State A
+    redirects_content = """# State A Static Asset Passthrough
+/css/*          /css/:splat          200
+/js/*           /js/:splat           200
+/img/*          /img/:splat          200
+/font/*         /font/:splat         200
+/webfonts/*     /webfonts/:splat     200
+/robots.txt     /robots.txt          200
+/sitemap.xml    /sitemap.xml         200
+
+# Sub-route catch-all redirects gracefully to Coming Soon root /
+/*              /                    302!
+"""
+    (DIST_DIR / "_redirects").write_text(redirects_content, encoding="utf-8")
+    print("✓ Created isolated dist/coming-soon/_redirects.")
+
+    # 4. _headers for State A
     headers_content = """/*
   X-Frame-Options: DENY
   X-XSS-Protection: 1; mode=block
   X-Content-Type-Options: nosniff
   Referrer-Policy: strict-origin-when-cross-origin
 """
-    headers_file = DIST_DIR / "_headers"
-    headers_file.write_text(headers_content, encoding="utf-8")
+    (DIST_DIR / "_headers").write_text(headers_content, encoding="utf-8")
 
+    # 5. netlify.toml for isolated publish context
     netlify_toml_content = """[build]
   publish = "."
 
@@ -102,10 +144,10 @@ def write_netlify_headers():
     Referrer-Policy = "strict-origin-when-cross-origin"
 """
     (DIST_DIR / "netlify.toml").write_text(netlify_toml_content, encoding="utf-8")
-    print("✓ Created Netlify security headers and isolated netlify.toml.")
+    print("✓ Created isolated dist/coming-soon/_headers and netlify.toml.")
 
 def verify_build():
-    """Verifies that all assets referenced in dist/coming-soon/index.html exist."""
+    """Verifies that all assets referenced in dist/coming-soon/index.html exist and no sensitive files leaked."""
     html_file = DIST_DIR / "index.html"
     content = html_file.read_text(encoding="utf-8")
 
@@ -129,6 +171,14 @@ def verify_build():
             print(f"   - {m}", file=sys.stderr)
         sys.exit(1)
 
+    # Security check: Ensure zero .env, zero .py, zero unfinished html files exist in dist
+    forbidden_extensions = [".py", ".env", ".sh", ".jsonl"]
+    for f in DIST_DIR.rglob("*"):
+        if f.is_file():
+            if f.suffix in forbidden_extensions or "about1" in f.name or "service1" in f.name:
+                print(f"❌ SECURITY ERROR: Unintended file in build output: {f}", file=sys.stderr)
+                sys.exit(1)
+
     # Compute total size
     total_size = sum(f.stat().st_size for f in DIST_DIR.rglob("*") if f.is_file())
     file_count = len(list(f for f in DIST_DIR.rglob("*") if f.is_file()))
@@ -145,9 +195,8 @@ def main():
     clean_dist()
     copy_individual_assets()
     copy_directory_trees()
-    write_netlify_headers()
+    write_isolated_seo_and_routing()
     verify_build()
 
 if __name__ == "__main__":
     main()
-

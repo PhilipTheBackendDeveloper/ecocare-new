@@ -1,0 +1,316 @@
+{
+  "base_url": "https://ecocaregh.com",
+  "site_name": "EcoCare Cleaning Services Limited",
+  "legal_name": "EcoCare Cleaning Services Limited",
+  "default_lang": "en-GH",
+  "default_og_image": "https://ecocaregh.com/img/large-logo.png",
+  "company_contact": {
+    "phone_primary": "+233 24 901 4253",
+    "phone_secondary": "+233 24 380 7100",
+    "email": "ecocaregh1on1@gmail.com",
+    "address_street": "Achimota Mile 7",
+    "address_locality": "Accra",
+    "address_region": "Greater Accra",
+    "address_country": "GH",
+    "geo_lat": 5.627819,
+    "geo_lng": -0.244110,
+    "opening_hours": "Mo-Sa 07:00-18:00"
+  },
+  "social_links": [
+    "https://www.facebook.com/profile.php?id=100006412849415",
+    "https://www.tiktok.com/@ecocarecompanylimited",
+    "https://www.youtube.com/channel/UCdJfEIsRCxYaOnnmhbs2kcA"
+  ],
+  "pages": {
+    "index.html": {
+      "path": "",
+      "canonical_url": "https://ecocaregh.com/",
+      "title": "EcoCare Cleaning Services Limited | Professional Cleaning & Fumigation in Accra, Ghana",
+      "description": "Professional residential housekeeping, corporate janitorial cleaning, doorstep laundry, EcoFumes fumigation, carpet extraction, and upholstery care in Accra, Ghana.",
+      "h1": "Protect the Environment, Live Better, Prolong Life",
+      "robots": "index, follow",
+      "schema_type": "LocalBusiness",
+      "in_sitemap": true,
+      "changefreq": "daily",
+      "priority": "1.0",
+      "breadcrumb": []
+    },
+    "about1.html": {
+      "path": "about",
+      "canonical_url": "https://ecocaregh.com/about",
+      "title": "About Us | EcoCare Cleaning Services Limited Ghana",
+      "description": "Learn about EcoCare's journey since 2014, our environmental care mission, and executive leadership by CEO Eric Nana Acquah in Achimota Mile 7, Accra.",
+      "h1": "About EcoCare Cleaning Services Limited",
+      "robots": "index, follow",
+      "schema_type": "AboutPage",
+      "in_sitemap": true,
+      "changefreq": "monthly",
+      "priority": "0.8",
+      "breadcrumb": [
+        {"name": "Home", "url": "https://ecocaregh.com/"},
+        {"name": "About Us", "url": "https://ecocaregh.com/about"}
+      ]
+    },
+    "service1.html": {
+      "path": "services",
+      "canonical_url": "https://ecocaregh.com/services",
+      "title": "Our Cleaning & Fumigation Services Directory | EcoCare Ghana",
+      "description": "Explore all 12 specialized cleaning, laundry, carpet extraction, furniture care, and fumigation services across Greater Accra by EcoCare.",
+      "h1": "Our Professional Cleaning & Hygiene Services",
+      "robots": "index, follow",
+      "schema_type": "CollectionPage",
+      "in_sitemap": true,
+      "changefreq": "weekly",
+      "priority": "0.9",
+      "breadcrumb": [
+        {"name": "Home", "url": "https://ecocaregh.com/"},
+        {"name": "Services", "url": "https://ecocaregh.com/services"}
+      ]
+    },
+    "single-service1.html": {
+      "path": "cleaning",
+      "canonical_url": "https://ecocaregh.com/cleaning",
+      "title": "EcoClean Janitorial & Deep Cleaning Services | EcoCare Ghana",
+      "description": "Comprehensive residential housekeeping, commercial corporate janitorial, and post-construction scrubbing across Greater Accra by EcoCare.",
+      "h1": "EcoClean: Residential & Corporate Janitorial Services",
+      "robots": "index, follow",
+      "schema_type": "Service",
+      "service_type": "Residential Housekeeping & Corporate Janitorial",
+      "in_sitemap": true,
+      "changefreq": "weekly",
+      "priority": "0.85",
+      "breadcrumb": [
+        {"name": "Home", "url": "https://ecocaregh.com/"},
+        {"name": "Services", "url": "https://ecocaregh.com/services"},
+        {"name": "EcoClean", "url": "https://ecocaregh.com/cleaning"}
+      ]
+    },
+    "single-service2.html": {
+      "path": "laundry",
+      "canonical_url": "https://ecocaregh.com/laundry",
+      "title": "Eco-Laundry & Dry Cleaning with Doorstep Delivery | EcoCare Ghana",
+      "description": "Scheduled laundry collection, gentle washing, professional ironing, and delicate dry cleaning delivered to your door in Greater Accra.",
+      "h1": "Eco-Laundry: Doorstep Garment Care & Dry Cleaning",
+      "robots": "index, follow",
+      "schema_type": "Service",
+      "service_type": "Doorstep Laundry & Dry Cleaning",
+      "in_sitemap": true,
+      "changefreq": "weekly",
+      "priority": "0.85",
+      "breadcrumb": [
+        {"name": "Home", "url": "https://ecocaregh.com/"},
+        {"name": "Services", "url": "https://ecocaregh.com/services"},
+        {"name": "Eco-Laundry", "url": "https://ecocaregh.com/laundry"}
+      ]
+    },
+    "pest-control.html": {
+      "path": "pest-control",
+      "canonical_url": "https://ecocaregh.com/pest-control",
+      "title": "EcoFumes Pest Control & Fumigation Services | EcoCare Ghana",
+      "description": "Professional fumigation and pest control for termites, bedbugs, cockroaches, and rodents in Accra. Regulated application and technician-guided safety.",
+      "h1": "EcoFumes: Professional Fumigation & Pest Control",
+      "robots": "index, follow",
+      "schema_type": "Service",
+      "service_type": "Regulated Fumigation & Pest Control",
+      "in_sitemap": true,
+      "changefreq": "weekly",
+      "priority": "0.85",
+      "breadcrumb": [
+        {"name": "Home", "url": "https://ecocaregh.com/"},
+        {"name": "Services", "url": "https://ecocaregh.com/services"},
+        {"name": "EcoFumes Pest Control", "url": "https://ecocaregh.com/pest-control"}
+      ]
+    },
+    "carpet-cleaning.html": {
+      "path": "carpet-cleaning",
+      "canonical_url": "https://ecocaregh.com/carpet-cleaning",
+      "title": "Carpet Deep Cleaning & Steam Extraction Services | EcoCare Ghana",
+      "description": "Five-stage hot water carpet extraction, heavy stain lifting, and commercial low-moisture carpet cleaning across Greater Accra.",
+      "h1": "Carpet Deep Cleaning & Steam Extraction",
+      "robots": "index, follow",
+      "schema_type": "Service",
+      "service_type": "Carpet Deep Steam Extraction & Stain Removal",
+      "in_sitemap": true,
+      "changefreq": "weekly",
+      "priority": "0.85",
+      "breadcrumb": [
+        {"name": "Home", "url": "https://ecocaregh.com/"},
+        {"name": "Services", "url": "https://ecocaregh.com/services"},
+        {"name": "Carpet Cleaning", "url": "https://ecocaregh.com/carpet-cleaning"}
+      ]
+    },
+    "upholstery-cleaning.html": {
+      "path": "upholstery-cleaning",
+      "canonical_url": "https://ecocaregh.com/upholstery-cleaning",
+      "title": "Upholstery & Furniture Cleaning Services | EcoCare Ghana",
+      "description": "Fabric couch deep extraction, delicate leather conditioning, and mattress allergen removal across Greater Accra by EcoCare.",
+      "h1": "Upholstery & Fine Furniture Restoration",
+      "robots": "index, follow",
+      "schema_type": "Service",
+      "service_type": "Upholstery, Sofa & Leather Restoration",
+      "in_sitemap": true,
+      "changefreq": "weekly",
+      "priority": "0.85",
+      "breadcrumb": [
+        {"name": "Home", "url": "https://ecocaregh.com/"},
+        {"name": "Services", "url": "https://ecocaregh.com/services"},
+        {"name": "Upholstery Cleaning", "url": "https://ecocaregh.com/upholstery-cleaning"}
+      ]
+    },
+    "pricing-table.html": {
+      "path": "packages",
+      "canonical_url": "https://ecocaregh.com/packages",
+      "title": "Affordable Cleaning Plans & Pricing Scoping | EcoCare Ghana",
+      "description": "Transparent pricing scoping in Ghanaian Cedis (GHS) for residential housekeeping, deep move-in scrubbing, and corporate facility contracts.",
+      "h1": "Service Plans & Transparent Scoping",
+      "robots": "index, follow",
+      "schema_type": "WebPage",
+      "in_sitemap": true,
+      "changefreq": "monthly",
+      "priority": "0.8",
+      "breadcrumb": [
+        {"name": "Home", "url": "https://ecocaregh.com/"},
+        {"name": "Packages", "url": "https://ecocaregh.com/packages"}
+      ]
+    },
+    "calculate-form.html": {
+      "path": "request-quote",
+      "canonical_url": "https://ecocaregh.com/request-quote",
+      "title": "Request a Free Estimate & Booking | EcoCare Ghana",
+      "description": "Interactive estimate calculator and booking request for residential, corporate, laundry, and fumigation services in Greater Accra.",
+      "h1": "Calculate Your Estimate & Book Service",
+      "robots": "index, follow",
+      "schema_type": "WebPage",
+      "in_sitemap": true,
+      "changefreq": "monthly",
+      "priority": "0.85",
+      "breadcrumb": [
+        {"name": "Home", "url": "https://ecocaregh.com/"},
+        {"name": "Request a Quote", "url": "https://ecocaregh.com/request-quote"}
+      ]
+    },
+    "faq.html": {
+      "path": "faq",
+      "canonical_url": "https://ecocaregh.com/faq",
+      "title": "Frequently Asked Questions | EcoCare Cleaning Ghana",
+      "description": "Operational answers regarding coverage areas in Greater Accra, pricing scoping in GHS, drying times, and fumigation safety protocols.",
+      "h1": "Frequently Asked Questions",
+      "robots": "index, follow",
+      "schema_type": "FAQPage",
+      "in_sitemap": true,
+      "changefreq": "monthly",
+      "priority": "0.7",
+      "breadcrumb": [
+        {"name": "Home", "url": "https://ecocaregh.com/"},
+        {"name": "FAQ", "url": "https://ecocaregh.com/faq"}
+      ]
+    },
+    "contact.html": {
+      "path": "contact",
+      "canonical_url": "https://ecocaregh.com/contact",
+      "title": "Contact Us | EcoCare Cleaning Services Limited",
+      "description": "Connect with our Achimota Mile 7 dispatch office. Phone: +233 24 901 4253 / +233 24 380 7100. Email: ecocaregh1on1@gmail.com.",
+      "h1": "Get in Touch with Our Dispatch Team",
+      "robots": "index, follow",
+      "schema_type": "ContactPage",
+      "in_sitemap": true,
+      "changefreq": "monthly",
+      "priority": "0.8",
+      "breadcrumb": [
+        {"name": "Home", "url": "https://ecocaregh.com/"},
+        {"name": "Contact Us", "url": "https://ecocaregh.com/contact"}
+      ]
+    },
+    "project1.html": {
+      "path": "projects",
+      "canonical_url": "https://ecocaregh.com/projects",
+      "title": "Our Work & Service Showcase | EcoCare Ghana",
+      "description": "Explore field execution highlights across corporate janitorial, carpet restoration, and residential move-in projects in Greater Accra.",
+      "h1": "Our Recent Projects & Service Gallery",
+      "robots": "index, follow",
+      "schema_type": "CollectionPage",
+      "in_sitemap": true,
+      "changefreq": "monthly",
+      "priority": "0.7",
+      "breadcrumb": [
+        {"name": "Home", "url": "https://ecocaregh.com/"},
+        {"name": "Projects", "url": "https://ecocaregh.com/projects"}
+      ]
+    },
+    "single-project1.html": {
+      "path": "projects/commercial-case-study",
+      "canonical_url": "https://ecocaregh.com/projects/commercial-case-study",
+      "title": "Commercial Facility Deep Cleaning Case Study | EcoCare Ghana",
+      "description": "Case study: Multi-story corporate workspace deep cleaning, carpet steam extraction, and restroom sanitization delivered in Accra.",
+      "h1": "Case Study: Commercial Office Deep Cleaning",
+      "robots": "index, follow",
+      "schema_type": "WebPage",
+      "in_sitemap": true,
+      "changefreq": "monthly",
+      "priority": "0.6",
+      "breadcrumb": [
+        {"name": "Home", "url": "https://ecocaregh.com/"},
+        {"name": "Projects", "url": "https://ecocaregh.com/projects"},
+        {"name": "Commercial Case Study", "url": "https://ecocaregh.com/projects/commercial-case-study"}
+      ]
+    },
+    "privacy-policy.html": {
+      "path": "privacy-policy",
+      "canonical_url": "https://ecocaregh.com/privacy-policy",
+      "title": "Privacy Policy | EcoCare Cleaning Services Limited",
+      "description": "Privacy policy and client data handling principles of EcoCare Cleaning Services Limited under Ghana's Data Protection Act, 2012 (Act 843).",
+      "h1": "Privacy Policy & Data Handling",
+      "robots": "index, follow",
+      "schema_type": "WebPage",
+      "in_sitemap": true,
+      "changefreq": "yearly",
+      "priority": "0.3",
+      "breadcrumb": [
+        {"name": "Home", "url": "https://ecocaregh.com/"},
+        {"name": "Privacy Policy", "url": "https://ecocaregh.com/privacy-policy"}
+      ]
+    },
+    "terms-condition.html": {
+      "path": "terms",
+      "canonical_url": "https://ecocaregh.com/terms",
+      "title": "Terms & Conditions | EcoCare Cleaning Services Limited",
+      "description": "Operational service agreements, booking policies, and service terms for EcoCare Cleaning Services Limited in Accra, Ghana.",
+      "h1": "Terms & Conditions of Service",
+      "robots": "index, follow",
+      "schema_type": "WebPage",
+      "in_sitemap": true,
+      "changefreq": "yearly",
+      "priority": "0.3",
+      "breadcrumb": [
+        {"name": "Home", "url": "https://ecocaregh.com/"},
+        {"name": "Terms of Service", "url": "https://ecocaregh.com/terms"}
+      ]
+    },
+    "coming-soon.html": {
+      "path": "coming-soon",
+      "canonical_url": "https://ecocaregh.com/",
+      "title": "Coming Soon | EcoCare Cleaning Services Limited",
+      "description": "A better EcoCare website is coming soon. Professional cleaning, housekeeping, pest control, and laundry services across Greater Accra, Ghana.",
+      "h1": "A Better EcoCare Website Is Coming Soon",
+      "robots": "noindex, follow",
+      "schema_type": "WebPage",
+      "in_sitemap": false,
+      "changefreq": "yearly",
+      "priority": "0.1",
+      "breadcrumb": []
+    },
+    "404.html": {
+      "path": "404",
+      "canonical_url": "https://ecocaregh.com/404",
+      "title": "Page Not Found (404) | EcoCare Cleaning Services Limited",
+      "description": "The page you are looking for does not exist. Return to EcoCare Cleaning Services Limited homepage or browse our cleaning services.",
+      "h1": "Oops! Page Not Found",
+      "robots": "noindex, nofollow",
+      "schema_type": "WebPage",
+      "in_sitemap": false,
+      "changefreq": "yearly",
+      "priority": "0.1",
+      "breadcrumb": []
+    }
+  }
+}

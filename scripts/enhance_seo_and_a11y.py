@@ -1,247 +1,289 @@
 #!/usr/bin/env python3
 """
-EcoCare Cleaning Services Limited — SEO, Accessibility (a11y) & Metadata Enhancer
-1. Updates <html lang="en"> across all HTML files.
-2. Injects OpenGraph & Twitter Cards into <head> for WhatsApp/social sharing previews.
-3. Injects Schema.org JSON-LD LocalBusiness structured data on index.html.
-4. Adds accessible aria-labels to unlabelled form controls.
-5. Generates sitemap.xml and updates robots.txt with active Sitemap directive.
+EcoCare Cleaning Services Limited — Single-Source-of-Truth SEO & Accessibility Engine
+Refactored to be 100% idempotent, reading metadata and schema specifications strictly from data/seo-pages.json.
+Enforces:
+  1. lang="en-GH" across all HTML pages.
+  2. Non-duplicated OpenGraph & Twitter metadata with absolute URLs.
+  3. Structured Data JSON-LD (LocalBusiness, WebSite, Service, FAQPage, BreadcrumbList).
+  4. Form control accessibility (aria-label).
+  5. State B Canonical sitemap.xml and robots.txt generation.
 """
 
-import glob
+import json
 import os
 import re
+import sys
+from pathlib import Path
 
-CANONICAL_PAGES = {
-    "index.html": {
-        "title": "EcoCare Cleaning Services Limited | Professional Cleaning & Fumigation in Accra, Ghana",
-        "description": "Professional residential & commercial janitorial cleaning, doorstep laundry, EcoFumes fumigation, carpet extraction, and upholstery care in Accra, Ghana.",
-        "path": "",
-        "priority": "1.0",
-        "changefreq": "daily"
-    },
-    "about1.html": {
-        "title": "About Us | EcoCare Cleaning Services Limited Ghana",
-        "description": "Discover EcoCare's journey since 2014, our sustainable cleaning mission, and leadership by CEO Eric Nana Acquah in Achimota Mile 7, Accra.",
-        "path": "about",
-        "priority": "0.8",
-        "changefreq": "monthly"
-    },
-    "service1.html": {
-        "title": "Our Cleaning & Fumigation Services Directory | EcoCare Ghana",
-        "description": "Explore all 12 specialized cleaning, laundry, carpet extraction, furniture care, and fumigation services across Greater Accra.",
-        "path": "services",
-        "priority": "0.9",
-        "changefreq": "weekly"
-    },
-    "single-service1.html": {
-        "title": "EcoClean Janitorial & Deep Cleaning Services | EcoCare Ghana",
-        "description": "Comprehensive residential cleaning, commercial corporate janitorial, and post-construction scrubbing across Greater Accra.",
-        "path": "cleaning",
-        "priority": "0.85",
-        "changefreq": "weekly"
-    },
-    "single-service2.html": {
-        "title": "Eco-Laundry & Dry Cleaning with Doorstep Delivery | EcoCare Ghana",
-        "description": "Scheduled laundry collection, gentle washing, professional ironing, and delicate dry cleaning delivered to your door in Accra.",
-        "path": "laundry",
-        "priority": "0.85",
-        "changefreq": "weekly"
-    },
-    "pest-control.html": {
-        "title": "EcoFumes Pest Control & Fumigation Services | EcoCare Ghana",
-        "description": "Targeted eradication for termites, cockroaches, rodents, and bedbugs with mandatory 2-4 hour vacate safety protocols in Accra.",
-        "path": "pest-control",
-        "priority": "0.85",
-        "changefreq": "weekly"
-    },
-    "carpet-cleaning.html": {
-        "title": "Carpet Deep Cleaning & Steam Extraction Services | EcoCare Ghana",
-        "description": "Five-stage hot water carpet extraction, heavy stain lifting, and commercial low-moisture cleaning in Accra.",
-        "path": "carpet-cleaning",
-        "priority": "0.85",
-        "changefreq": "weekly"
-    },
-    "upholstery-cleaning.html": {
-        "title": "Upholstery & Furniture Cleaning Services | EcoCare Ghana",
-        "description": "Fabric couch deep extraction, delicate leather conditioning, and mattress allergen removal across Greater Accra.",
-        "path": "upholstery-cleaning",
-        "priority": "0.85",
-        "changefreq": "weekly"
-    },
-    "pricing-table.html": {
-        "title": "Affordable Cleaning Plans & Pricing | EcoCare Ghana",
-        "description": "Transparent pricing scoping in Ghanaian Cedis (GHS) for residential, deep move-in, and corporate facility care.",
-        "path": "packages",
-        "priority": "0.8",
-        "changefreq": "monthly"
-    },
-    "calculate-form.html": {
-        "title": "Request a Free Estimate & Booking | EcoCare Ghana",
-        "description": "Interactive estimate calculator and booking request for residential, corporate, laundry, and fumigation services in Accra.",
-        "path": "request-quote",
-        "priority": "0.85",
-        "changefreq": "monthly"
-    },
-    "faq.html": {
-        "title": "Frequently Asked Questions | EcoCare Ghana",
-        "description": "Operational answers regarding coverage areas in Greater Accra, pricing in GHS, drying times, and fumigation preparation.",
-        "path": "faq",
-        "priority": "0.7",
-        "changefreq": "monthly"
-    },
-    "contact.html": {
-        "title": "Contact Us | EcoCare Cleaning Services Limited",
-        "description": "Connect with our Achimota Mile 7 dispatch office. Phone: +233 24 901 4253 / +233 24 380 7100. Email: ecocaregh1on1@gmail.com.",
-        "path": "contact",
-        "priority": "0.8",
-        "changefreq": "monthly"
-    },
-    "project1.html": {
-        "title": "Our Work & Service Showcase | EcoCare Ghana",
-        "description": "Explore field execution highlights across corporate janitorial, carpet restoration, and residential move-in projects in Accra.",
-        "path": "projects",
-        "priority": "0.7",
-        "changefreq": "monthly"
-    },
-    "single-project1.html": {
-        "title": "Commercial Facility Deep Cleaning Case Study | EcoCare Ghana",
-        "description": "Case study: Multi-story corporate workspace deep cleaning, carpet steam extraction, and restroom sanitization in Accra.",
-        "path": "projects/commercial-case-study",
-        "priority": "0.6",
-        "changefreq": "monthly"
-    },
-    "coming-soon.html": {
-        "title": "Coming Soon | EcoCare Cleaning Services Limited",
-        "description": "EcoCare Cleaning Services Limited upcoming service developments in Accra, Ghana.",
-        "path": "coming-soon",
-        "priority": "0.3",
-        "changefreq": "yearly"
-    },
-    "404.html": {
-        "title": "Page Not Found (404) | EcoCare Cleaning Services Limited",
-        "description": "The page you are looking for does not exist. Return to EcoCare homepage.",
-        "path": "404",
-        "priority": "0.1",
-        "changefreq": "yearly"
-    },
-    "privacy-policy.html": {
-        "title": "Privacy Policy | EcoCare Cleaning Services Limited",
-        "description": "Privacy policy and client data handling principles under Ghana's Data Protection Act, 2012 (Act 843).",
-        "path": "privacy-policy",
-        "priority": "0.3",
-        "changefreq": "yearly"
-    },
-    "terms-condition.html": {
-        "title": "Terms & Conditions | EcoCare Cleaning Services Limited",
-        "description": "Operational service agreements and booking terms for EcoCare Cleaning Services Limited in Accra, Ghana.",
-        "path": "terms",
-        "priority": "0.3",
-        "changefreq": "yearly"
-    }
-}
+ROOT_DIR = Path(__file__).resolve().parent.parent
+MANIFEST_PATH = ROOT_DIR / "data" / "seo-pages.json"
 
-BASE_URL = "https://ecocaregh.com"
+def load_manifest():
+    with open(MANIFEST_PATH, "r", encoding="utf-8") as f:
+        return json.load(f)
 
-JSON_LD_SCHEMA = """    <!-- Schema.org JSON-LD Structured Data: LocalBusiness & CleaningService -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": ["LocalBusiness", "CleaningService"],
-      "@id": "https://ecocaregh.com/#business",
-      "name": "EcoCare Cleaning Services Limited",
-      "legalName": "EcoCare Cleaning Services Limited",
-      "url": "https://ecocaregh.com/",
-      "logo": "https://ecocaregh.com/img/large-logo.png",
-      "image": "https://ecocaregh.com/img/large-logo.png",
-      "description": "Premier eco-friendly cleaning, doorstep laundry, pest control & fumigation, carpet extraction, and upholstery care in Greater Accra, Ghana.",
-      "telephone": ["+233249014253", "+233243807100"],
-      "email": "ecocaregh1on1@gmail.com",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "Achimota Mile 7",
-        "addressLocality": "Accra",
-        "addressRegion": "Greater Accra",
-        "addressCountry": "GH"
-      },
-      "geo": {
-        "@type": "GeoCoordinates",
-        "latitude": 5.627819,
-        "longitude": -0.244110
-      },
-      "openingHoursSpecification": [
-        {
-          "@type": "OpeningHoursSpecification",
-          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
-          "opens": "07:00",
-          "closes": "18:00"
+def build_schema_json_ld(page_key, page_meta, manifest):
+    base_url = manifest["base_url"]
+    org_id = f"{base_url}/#organization"
+    schema_type = page_meta.get("schema_type", "WebPage")
+    graph = []
+
+    # Homepage: LocalBusiness & WebSite
+    if page_key == "index.html":
+        company = manifest["company_contact"]
+        local_business = {
+            "@type": ["LocalBusiness", "CleaningService"],
+            "@id": org_id,
+            "name": manifest["site_name"],
+            "legalName": manifest["legal_name"],
+            "url": f"{base_url}/",
+            "logo": manifest["default_og_image"],
+            "image": manifest["default_og_image"],
+            "description": page_meta["description"],
+            "telephone": [company["phone_primary"], company["phone_secondary"]],
+            "email": company["email"],
+            "address": {
+                "@type": "PostalAddress",
+                "streetAddress": company["address_street"],
+                "addressLocality": company["address_locality"],
+                "addressRegion": company["address_region"],
+                "addressCountry": company["address_country"]
+            },
+            "geo": {
+                "@type": "GeoCoordinates",
+                "latitude": company["geo_lat"],
+                "longitude": company["geo_lng"]
+            },
+            "openingHoursSpecification": [
+                {
+                    "@type": "OpeningHoursSpecification",
+                    "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+                    "opens": "07:00",
+                    "closes": "18:00"
+                }
+            ],
+            "priceRange": "GHS",
+            "areaServed": {
+                "@type": "AdministrativeArea",
+                "name": "Greater Accra Region, Ghana"
+            },
+            "founder": {
+                "@type": "Person",
+                "name": "Eric Nana Acquah",
+                "jobTitle": "Chief Executive Officer"
+            },
+            "foundingDate": "2014-09-19",
+            "hasOfferCatalog": {
+                "@type": "OfferCatalog",
+                "name": "EcoCare Professional Services",
+                "itemListElement": [
+                    {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "EcoClean Residential & Commercial Janitorial", "url": f"{base_url}/cleaning"}},
+                    {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Eco-Laundry Doorstep Wash, Iron & Dry Cleaning", "url": f"{base_url}/laundry"}},
+                    {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "EcoFumes Regulated Pest Control & Fumigation", "url": f"{base_url}/pest-control"}},
+                    {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Carpet Deep Steam Extraction & Stain Treatment", "url": f"{base_url}/carpet-cleaning"}},
+                    {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Upholstery & Leather Furniture Deep Sanitization", "url": f"{base_url}/upholstery-cleaning"}}
+                ]
+            },
+            "sameAs": manifest["social_links"]
         }
-      ],
-      "priceRange": "GHS",
-      "areaServed": {
-        "@type": "AdministrativeArea",
-        "name": "Greater Accra Region, Ghana"
-      },
-      "hasOfferCatalog": {
-        "@type": "OfferCatalog",
-        "name": "EcoCare Professional Services",
-        "itemListElement": [
-          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "EcoClean Residential & Commercial Janitorial"}},
-          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Eco-Laundry Doorstep Wash, Iron & Dry Cleaning"}},
-          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "EcoFumes Regulated Pest Control & Fumigation"}},
-          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Carpet Deep Steam Extraction & Stain Treatment"}},
-          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Upholstery & Leather Furniture Deep Sanitization"}}
-        ]
-      },
-      "sameAs": [
-        "https://www.facebook.com/profile.php?id=100006412849415",
-        "https://www.tiktok.com/@ecocarecompanylimited",
-        "https://www.youtube.com/channel/UCdJfEIsRCxYaOnnmhbs2kcA"
-      ]
+        website = {
+            "@type": "WebSite",
+            "@id": f"{base_url}/#website",
+            "url": f"{base_url}/",
+            "name": manifest["site_name"],
+            "publisher": {"@id": org_id},
+            "inLanguage": manifest["default_lang"]
+        }
+        graph.extend([local_business, website])
+
+    # Service Detail Pages
+    elif schema_type == "Service":
+        service_node = {
+            "@type": "Service",
+            "@id": f"{page_meta['canonical_url']}#service",
+            "name": page_meta["title"].split(" | ")[0],
+            "serviceType": page_meta.get("service_type", "Professional Cleaning"),
+            "provider": {"@id": org_id},
+            "description": page_meta["description"],
+            "areaServed": {
+                "@type": "AdministrativeArea",
+                "name": "Greater Accra Region, Ghana"
+            },
+            "url": page_meta["canonical_url"]
+        }
+        graph.append(service_node)
+
+    # FAQ Page
+    elif schema_type == "FAQPage":
+        faq_node = {
+            "@type": "FAQPage",
+            "@id": f"{page_meta['canonical_url']}#faq",
+            "mainEntity": [
+                {
+                    "@type": "Question",
+                    "name": "What areas in Accra does EcoCare cover?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "EcoCare operates across Greater Accra, including Achimota, East Legon, Cantonments, Airport Residential Area, Dzorwulu, Osu, Spintex, Ridge, Labone, and Tema."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "Does EcoCare provide all cleaning equipment and detergents?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Yes, our uniformed cleaning crews arrive fully equipped with professional industrial vacuum extractors, floor scrubbing machines, microfiber materials, and eco-conscious cleaning agents."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "How does EcoCare calculate service estimates?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "Estimates are scoped transparently in Ghanaian Cedis (GHS) based on property size, floor count, surface conditions, and required equipment. Custom estimates can be calculated via our online quote tool."
+                    }
+                },
+                {
+                    "@type": "Question",
+                    "name": "What safety precautions are taken for fumigation and pest control?",
+                    "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": "EcoFumes treatments strictly adhere to manufacturer product safety labels and certified operator directives. Technicians provide clear instructions on property preparation and room re-entry."
+                    }
+                }
+            ]
+        }
+        graph.append(faq_node)
+
+    # About Page
+    elif schema_type == "AboutPage":
+        about_node = {
+            "@type": "AboutPage",
+            "@id": f"{page_meta['canonical_url']}#about",
+            "url": page_meta["canonical_url"],
+            "name": page_meta["title"],
+            "mainEntity": {"@id": org_id}
+        }
+        graph.append(about_node)
+
+    # Contact Page
+    elif schema_type == "ContactPage":
+        contact_node = {
+            "@type": "ContactPage",
+            "@id": f"{page_meta['canonical_url']}#contact",
+            "url": page_meta["canonical_url"],
+            "name": page_meta["title"],
+            "mainEntity": {"@id": org_id}
+        }
+        graph.append(contact_node)
+
+    # Add BreadcrumbList if breadcrumbs defined
+    if page_meta.get("breadcrumb"):
+        items = []
+        for idx, bc in enumerate(page_meta["breadcrumb"], start=1):
+            items.append({
+                "@type": "ListItem",
+                "position": idx,
+                "name": bc["name"],
+                "item": bc["url"]
+            })
+        graph.append({
+            "@type": "BreadcrumbList",
+            "@id": f"{page_meta['canonical_url']}#breadcrumb",
+            "itemListElement": items
+        })
+
+    if not graph:
+        return ""
+
+    schema_obj = {
+        "@context": "https://schema.org",
+        "@graph": graph
     }
+    json_str = json.dumps(schema_obj, indent=2, ensure_ascii=False)
+    return f"""    <!-- Schema.org JSON-LD Structured Data -->
+    <script type="application/ld+json">
+{json_str}
     </script>"""
 
+def sanitize_and_enhance_html():
+    manifest = load_manifest()
+    pages = manifest["pages"]
+    base_url = manifest["base_url"]
+    site_name = manifest["site_name"]
+    lang = manifest["default_lang"]
+    default_img = manifest["default_og_image"]
 
-def fix_html_lang_and_metadata():
-    print("Enhancing HTML lang and OpenGraph/Twitter social meta tags...")
-    all_html_files = glob.glob("*.html")
+    all_html_files = list(ROOT_DIR.glob("*.html"))
+    enhanced_count = 0
 
-    for fpath in all_html_files:
-        with open(fpath, "r", encoding="utf-8") as f:
+    for file_path in all_html_files:
+        f_name = file_path.name
+        with open(file_path, "r", encoding="utf-8") as f:
             content = f.read()
 
-        # 1. Fix lang="en"
-        content = re.sub(r'<html\s+class="([^"]*)"\s+lang="[^"]*"', r'<html class="\1" lang="en"', content)
-        content = re.sub(r'<html\s+lang="[^"]*"', r'<html lang="en"', content)
+        # 1. Enforce lang="en-GH"
+        content = re.sub(r'<html\s+class="([^"]*)"\s+lang="[^"]*"', rf'<html class="\1" lang="{lang}"', content)
+        content = re.sub(r'<html\s+lang="[^"]*"', rf'<html lang="{lang}"', content)
 
-        # 2. Ingest OpenGraph & Twitter tags for canonical pages
-        if fpath in CANONICAL_PAGES:
-            meta = CANONICAL_PAGES[fpath]
-            page_url = f"{BASE_URL}/{meta['path']}" if meta['path'] else f"{BASE_URL}/"
+        # 2. Canonical pages enhancement
+        if f_name in pages:
+            meta = pages[f_name]
+            page_url = meta["canonical_url"]
+            title = meta["title"]
+            desc = meta["description"]
+            robots_val = meta.get("robots", "index, follow")
 
-            og_block = f"""    <!-- Canonical & Social Metadata (OpenGraph & Twitter Card) -->
+            # Clean out any old/previous metadata blocks (ensuring 100% idempotency)
+            content = re.sub(r'\s*<!--\s*Canonical & Social Metadata.*?-->\s*(<link rel="canonical"[^>]*>)?(\s*<meta property="og:[^>]*>|\s*<meta name="twitter:[^>]*>)*', '', content, flags=re.DOTALL)
+            content = re.sub(r'\s*<!--\s*Schema\.org JSON-LD Structured Data.*?-->\s*<script type="application/ld\+json">.*?</script>', '', content, flags=re.DOTALL)
+            content = re.sub(r'\s*<link rel="canonical"[^>]*>', '', content)
+            content = re.sub(r'\s*<meta property="og:[^>]*>', '', content)
+            content = re.sub(r'\s*<meta name="twitter:[^>]*>', '', content)
+            content = re.sub(r'\s*<meta name="robots"[^>]*>', '', content)
+
+            # Update or insert <title>
+            if "<title>" in content:
+                content = re.sub(r'<title>.*?</title>', f'<title>{title}</title>', content, count=1)
+            else:
+                content = content.replace("<head>", f"<head>\n    <title>{title}</title>", 1)
+
+            # Update or insert <meta name="description">
+            if '<meta name="description"' in content:
+                content = re.sub(r'<meta\s+name="description"\s+content="[^"]*"[^>]*>', f'<meta name="description" content="{desc}">', content, count=1)
+            else:
+                content = content.replace("</title>", f'</title>\n    <meta name="description" content="{desc}">', 1)
+
+            # Assemble clean Canonical & Social Block
+            meta_block = f"""    <meta name="robots" content="{robots_val}">
+    <!-- Canonical & Social Metadata (OpenGraph & Twitter Card) -->
     <link rel="canonical" href="{page_url}">
     <meta property="og:type" content="website">
-    <meta property="og:title" content="{meta['title']}">
-    <meta property="og:description" content="{meta['description']}">
+    <meta property="og:title" content="{title}">
+    <meta property="og:description" content="{desc}">
     <meta property="og:url" content="{page_url}">
-    <meta property="og:site_name" content="EcoCare Cleaning Services Limited">
-    <meta property="og:image" content="{BASE_URL}/img/large-logo.png">
-    <meta property="og:locale" content="en_GH">
+    <meta property="og:site_name" content="{site_name}">
+    <meta property="og:image" content="{default_img}">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="{site_name} Branding">
+    <meta property="og:locale" content="{lang}">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="{meta['title']}">
-    <meta name="twitter:description" content="{meta['description']}">
-    <meta name="twitter:image" content="{BASE_URL}/img/large-logo.png">"""
+    <meta name="twitter:title" content="{title}">
+    <meta name="twitter:description" content="{desc}">
+    <meta name="twitter:image" content="{default_img}">
+    <meta name="twitter:image:alt" content="{site_name} Branding">"""
 
-            # Remove existing og block if any, then insert right before </head>
-            content = re.sub(r'\s*<!-- Canonical & Social Metadata.*?-->\s*(<link rel="canonical".*?<meta name="twitter:image"[^>]*>)?', '', content, flags=re.DOTALL)
-            content = content.replace("</head>", f"{og_block}\n</head>")
+            # Build Schema.org JSON-LD
+            schema_block = build_schema_json_ld(f_name, meta, manifest)
+            full_head_addition = meta_block
+            if schema_block:
+                full_head_addition += f"\n{schema_block}"
 
-            # 3. Add JSON-LD to index.html
-            if fpath == "index.html" and "application/ld+json" not in content:
-                content = content.replace("</head>", f"{JSON_LD_SCHEMA}\n</head>")
+            content = content.replace("</head>", f"{full_head_addition}\n</head>")
 
-        # 4. Form accessibility: ensure inputs have aria-labels if missing
+        # 3. Form Accessibility (aria-label)
         def add_aria_label(tag_match, label):
             tag = tag_match.group(0)
             if 'aria-label=' in tag:
@@ -256,50 +298,49 @@ def fix_html_lang_and_metadata():
         content = re.sub(r'<select[^>]+name="service"[^>]*>', lambda m: add_aria_label(m, "Select Cleaning Service"), content)
         content = re.sub(r'<select[^>]+name="property_type"[^>]*>', lambda m: add_aria_label(m, "Property Type"), content)
 
-        with open(fpath, "w", encoding="utf-8") as f:
+        with open(file_path, "w", encoding="utf-8") as f:
             f.write(content)
+        enhanced_count += 1
 
-    print(f"✓ Enhanced {len(all_html_files)} HTML files with lang='en', social metadata, and accessible aria-labels.")
+    print(f"✓ Processed and verified {enhanced_count} HTML files with manifest-driven SEO, lang='{lang}', and schema.")
 
+def generate_full_site_sitemap_and_robots():
+    manifest = load_manifest()
+    pages = manifest["pages"]
+    base_url = manifest["base_url"]
 
-def generate_sitemap():
-    print("Generating sitemap.xml...")
-    xml_entries = []
-
-    for fpath, meta in CANONICAL_PAGES.items():
-        if fpath in ["coming-soon.html", "404.html"]:
-            continue
-        page_url = f"{BASE_URL}/{meta['path']}" if meta['path'] else f"{BASE_URL}/"
-        xml_entries.append(f"""  <url>
-    <loc>{page_url}</loc>
+    sitemap_entries = []
+    for f_name, meta in pages.items():
+        if meta.get("in_sitemap", False):
+            sitemap_entries.append(f"""  <url>
+    <loc>{meta['canonical_url']}</loc>
     <lastmod>2026-11-09</lastmod>
-    <changefreq>{meta['changefreq']}</changefreq>
-    <priority>{meta['priority']}</priority>
+    <changefreq>{meta.get('changefreq', 'weekly')}</changefreq>
+    <priority>{meta.get('priority', '0.8')}</priority>
   </url>""")
 
     sitemap_content = """<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-""" + "\n".join(xml_entries) + "\n</urlset>\n"
+""" + "\n".join(sitemap_entries) + "\n</urlset>\n"
 
-    with open("sitemap.xml", "w", encoding="utf-8") as f:
+    sitemap_file = ROOT_DIR / "sitemap.xml"
+    with open(sitemap_file, "w", encoding="utf-8") as f:
         f.write(sitemap_content)
-    print(f"✓ Created sitemap.xml with {len(xml_entries)} verified public routes.")
+    print(f"✓ Generated canonical sitemap.xml with {len(sitemap_entries)} verified indexable routes.")
 
-    # Update robots.txt
-    with open("robots.txt", "r", encoding="utf-8") as f:
-        rtxt = f.read()
+    # Update root robots.txt
+    robots_file = ROOT_DIR / "robots.txt"
+    robots_content = f"""User-agent: *
+Allow: /
 
-    rtxt = rtxt.replace("# Sitemap: https://ecocaregh.com/sitemap.xml", "Sitemap: https://ecocaregh.com/sitemap.xml")
-    if "Sitemap: https://ecocaregh.com/sitemap.xml" not in rtxt:
-        rtxt += "\nSitemap: https://ecocaregh.com/sitemap.xml\n"
-
-    with open("robots.txt", "w", encoding="utf-8") as f:
-        f.write(rtxt)
-    print("✓ Updated robots.txt with active Sitemap directive.")
-
+# Canonical Sitemap
+Sitemap: {base_url}/sitemap.xml
+"""
+    with open(robots_file, "w", encoding="utf-8") as f:
+        f.write(robots_content)
+    print(f"✓ Generated root robots.txt pointing to {base_url}/sitemap.xml.")
 
 if __name__ == "__main__":
-    fix_html_lang_and_metadata()
-    generate_sitemap()
-    print("All SEO & accessibility enhancements applied successfully!")
-
+    sanitize_and_enhance_html()
+    generate_full_site_sitemap_and_robots()
+    print("EcoCare SEO & Accessibility optimization complete!")

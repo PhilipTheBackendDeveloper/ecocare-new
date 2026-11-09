@@ -1,21 +1,5 @@
 User-agent: *
 Allow: /
 
-# Deprecated demo template pages — not public EcoCare content
-Disallow: /index2.html
-Disallow: /index3.html
-Disallow: /index4.html
-Disallow: /about2.html
-Disallow: /service2.html
-Disallow: /shop.html
-Disallow: /single-product.html
-Disallow: /blog1.html
-Disallow: /blog2.html
-Disallow: /single-blog1.html
-Disallow: /team1.html
-Disallow: /team2.html
-Disallow: /single-team.html
-
-# Sitemap (update with live domain after launch)
+# Canonical Sitemap
 Sitemap: https://ecocaregh.com/sitemap.xml
-
