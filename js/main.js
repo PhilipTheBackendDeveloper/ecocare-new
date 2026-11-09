@@ -55,65 +55,100 @@
     });
 
     /*-------------------------------------
-    Page Preloader (Apple-Level Motion & Non-Blocking Dismissal)
+    Page Preloader (Bespoke Liquid-Reveal & Hero Video Synchronization)
     -------------------------------------*/
     var $preloader = $("#preloader");
     if ($preloader.length) {
-        // Auto-inject brand elements if page preloader container is empty
+        // Auto-inject bespoke liquid elements if container is empty
         if (!$preloader.children().length) {
+            $preloader.attr("role", "status").attr("aria-label", "Loading EcoCare Cleaning Services");
             $preloader.html(
+                '<div class="liquid-droplet-wrap" aria-hidden="true">' +
+                '  <span class="liquid-droplet"></span>' +
+                '  <span class="liquid-ripple ripple-1"></span>' +
+                '  <span class="liquid-ripple ripple-2"></span>' +
+                '</div>' +
                 '<div class="preloader-inner">' +
                 '  <div class="preloader-logo-wrap">' +
-                '    <img src="img/logo-preloader.png" alt="EcoCare Cleaning Services Limited" class="preloader-logo" width="180" height="82">' +
-                '    <div class="preloader-shimmer"></div>' +
+                '    <img src="img/logo-preloader.png" alt="EcoCare Cleaning Services Limited" class="preloader-logo" width="205" height="94">' +
+                '    <div class="preloader-shimmer" aria-hidden="true"></div>' +
                 '  </div>' +
-                '  <div class="preloader-bar">' +
+                '  <div class="preloader-bar" aria-hidden="true">' +
                 '    <div class="preloader-progress"></div>' +
                 '  </div>' +
-                '  <div class="preloader-tagline">Environmental &amp; Facility Care</div>' +
                 '</div>'
             );
         }
 
         var preloaderStart = Date.now();
-        var targetRevealMs = 950; // ~1s Apple-level luxury reveal
-        var hardMaxTimeout = 1400; // failsafe ceiling: never block visitors
+        var minAnimationMs = 880;  // Allow emerald droplet, ripple & masked reveal to complete
+        var maxFailsafeMs = 1350;  // Reliable fallback: never block navigation under any circumstance
+        var isDismissed = false;
 
-        // Skip preloader immediately if returning visitor in same session and DOM is ready
+        // Skip preloader immediately if returning visitor in same session and page is ready
         var hasVisited = false;
         try {
-            hasVisited = Boolean(sessionStorage.getItem("ecocare_visited"));
+            hasVisited = Boolean(sessionStorage.getItem("ecocare_preloaded"));
         } catch (e) {}
 
         function dismissPreloader(isInstant) {
-            if ($preloader.hasClass("preloader-loaded")) return;
+            if (isDismissed) return;
+            isDismissed = true;
+
             if (isInstant) {
-                $preloader.addClass("preloader-loaded");
-                setTimeout(function () { $preloader.remove(); }, 100);
+                $preloader.addClass("preloader-dismissing");
+                setTimeout(function () { $preloader.remove(); }, 80);
                 return;
             }
+
             var elapsed = Date.now() - preloaderStart;
-            var delay = Math.max(0, targetRevealMs - elapsed);
+            var delay = Math.max(0, minAnimationMs - elapsed);
+
             setTimeout(function () {
-                $preloader.addClass("preloader-loaded");
-                try { sessionStorage.setItem("ecocare_visited", "1"); } catch (e) {}
+                // Liquid dissolve: logo scales down gently, background dissolves
+                $preloader.addClass("preloader-dismissing");
+                try { sessionStorage.setItem("ecocare_preloaded", "1"); } catch (e) {}
                 setTimeout(function () {
                     $preloader.remove();
-                }, 550);
+                }, 600);
             }, delay);
         }
 
         if (hasVisited && document.readyState === "complete") {
             dismissPreloader(true);
-        } else if (document.readyState === "complete") {
-            dismissPreloader(false);
         } else {
-            $(window).on("load", function () {
+            // Hero video synchronization (if on homepage)
+            var heroVid = document.getElementById("hero-bg-video");
+            if (heroVid) {
+                if (heroVid.readyState >= 3) {
+                    dismissPreloader(false);
+                } else {
+                    var onVideoReady = function () {
+                        heroVid.removeEventListener("canplay", onVideoReady);
+                        heroVid.removeEventListener("playing", onVideoReady);
+                        dismissPreloader(false);
+                    };
+                    heroVid.addEventListener("canplay", onVideoReady, { once: true });
+                    heroVid.addEventListener("playing", onVideoReady, { once: true });
+                    heroVid.addEventListener("error", function () {
+                        dismissPreloader(false);
+                    }, { once: true });
+                }
+            }
+
+            // Window load listener
+            if (document.readyState === "complete") {
                 dismissPreloader(false);
-            });
+            } else {
+                $(window).on("load", function () {
+                    dismissPreloader(false);
+                });
+            }
+
+            // Reliable failsafe: never block visitors if video or external asset lags
             setTimeout(function () {
                 dismissPreloader(false);
-            }, hardMaxTimeout);
+            }, maxFailsafeMs);
         }
     }
 
