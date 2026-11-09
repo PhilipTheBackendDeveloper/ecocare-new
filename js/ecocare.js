@@ -282,38 +282,14 @@
         });
       }
 
-      // Video scene switcher buttons
-      $(".switcher-buttons .btn").on("click", function (e) {
-        e.preventDefault();
-        var $btn = $(this);
-        if ($btn.hasClass("active")) return;
-
-        var nextSource = $btn.attr("data-video-src");
-        if (!nextSource) return;
-
-        $(".switcher-buttons .btn").removeClass("active");
-        $btn.addClass("active");
-
-        // Cinematic crossfade transition
-        var $video = $(heroVideo);
-        $video.css("opacity", "0.15");
-
-        setTimeout(function () {
-          heroVideo.src = nextSource;
-          heroVideo.load();
-          heroVideo.play().catch(function () {});
-          $video.css("opacity", "0.88");
-        }, 300);
-      });
-
-      // Smooth auto-cycling to next clip when current video finishes
+      // Smooth playlist auto-cycling between background video clips
+      var playlist = ["video-background.mp4", "video-background1.mp4"];
+      var currentIdx = 0;
       heroVideo.addEventListener("ended", function () {
-        var $activeBtn = $(".switcher-buttons .btn.active");
-        var $nextBtn = $activeBtn.next(".btn");
-        if (!$nextBtn.length) {
-          $nextBtn = $(".switcher-buttons .btn").first();
-        }
-        $nextBtn.trigger("click");
+        currentIdx = (currentIdx + 1) % playlist.length;
+        heroVideo.src = playlist[currentIdx];
+        heroVideo.load();
+        heroVideo.play().catch(function () {});
       });
     }
   });

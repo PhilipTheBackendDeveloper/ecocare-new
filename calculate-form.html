@@ -1,5 +1,5 @@
 <!doctype html>
-<html class="no-js" lang="">
+<html class="no-js" lang="en">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -32,6 +32,19 @@
     <link rel="stylesheet" href="css/ecocare.css">
     <!-- Modernize js -->
     <script src="js/modernizr-3.7.1.min.js"></script>
+    <!-- Canonical & Social Metadata (OpenGraph & Twitter Card) -->
+    <link rel="canonical" href="https://ecocaregh.com/request-quote">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Request a Free Estimate & Booking | EcoCare Ghana">
+    <meta property="og:description" content="Interactive estimate calculator and booking request for residential, corporate, laundry, and fumigation services in Accra.">
+    <meta property="og:url" content="https://ecocaregh.com/request-quote">
+    <meta property="og:site_name" content="EcoCare Cleaning Services Limited">
+    <meta property="og:image" content="https://ecocaregh.com/img/large-logo.png">
+    <meta property="og:locale" content="en_GH">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Request a Free Estimate & Booking | EcoCare Ghana">
+    <meta name="twitter:description" content="Interactive estimate calculator and booking request for residential, corporate, laundry, and fumigation services in Accra.">
+    <meta name="twitter:image" content="https://ecocaregh.com/img/large-logo.png">
 </head>
 
 <body class="sticky-header">
@@ -197,7 +210,7 @@
                                 </div>
                                 <div class="row gutters-10">
                                     <div class="col-12 form-group">
-                                        <select class="select2" name="service" id="form-service">
+                                        <select class="select2" name="service" id="form-service" aria-label="Select Cleaning Service">
                                             <option value="residential">Residential Cleaning (EcoClean)</option>
                                             <option value="commercial">Commercial Janitorial (EcoClean)</option>
                                             <option value="laundry">Eco-Laundry &amp; Dry Cleaning</option>
@@ -208,7 +221,7 @@
                                         </select>
                                     </div>
                                     <div class="col-md-6 form-group">
-                                        <select class="select2" name="property_type" id="form-property">
+                                        <select class="select2" name="property_type" id="form-property" aria-label="Property Type">
                                             <option value="residential-house">Residential House / Compound</option>
                                             <option value="apartment">Apartment / Flat</option>
                                             <option value="office">Corporate Office</option>
@@ -252,7 +265,7 @@
                                         </select>
                                     </div>
                                     <div class="col-md-6 col-12 form-group">
-                                        <input type="text" placeholder="Area / Landmark in Accra" class="form-control" name="location" id="form-location" required>
+                                        <input type="text" placeholder="Area / Landmark in Accra" class="form-control" name="location" id="form-location" required aria-label="Location / Area in Accra">
                                         <div class="help-block with-errors"></div>
                                     </div>
                                     <div class="col-md-6 form-group datetime-picker">
@@ -264,19 +277,19 @@
                                         <input type="text" class="form-control rt-time" placeholder="Preferred Time" name="time" id="form-time" required/>
                                     </div>
                                     <div class="col-md-6 col-12 form-group">
-                                        <input type="text" placeholder="Your Name" class="form-control" name="name" id="form-name" required>
+                                        <input type="text" placeholder="Your Name" class="form-control" name="name" id="form-name" required aria-label="Full Name">
                                         <div class="help-block with-errors"></div>
                                     </div>
                                     <div class="col-md-6 col-12 form-group">
-                                        <input type="tel" placeholder="Phone Number (e.g. 024 901 4253)" class="form-control" name="phone" id="form-phone" required>
+                                        <input type="tel" placeholder="Phone Number (e.g. 024 901 4253)" class="form-control" name="phone" id="form-phone" required aria-label="Telephone Number">
                                         <div class="help-block with-errors"></div>
                                     </div>
                                     <div class="col-12 form-group">
-                                        <input type="email" placeholder="E-mail Address (optional)" class="form-control" name="email" id="form-email">
+                                        <input type="email" placeholder="E-mail Address (optional)" class="form-control" name="email" id="form-email" aria-label="Email Address">
                                         <div class="help-block with-errors"></div>
                                     </div>
                                     <div class="col-12 form-group mg-b-20">
-                                        <textarea placeholder="Specific Requirements / Address Details" class="textarea form-control" name="message" id="form-message" rows="3" required></textarea>
+                                        <textarea placeholder="Specific Requirements / Address Details" class="textarea form-control" name="message" id="form-message" rows="3" required aria-label="Inquiry Message or Service Requirements"></textarea>
                                         <div class="help-block with-errors"></div>
                                     </div>
                                     <div class="col-12 form-group">

@@ -17,5 +17,5 @@ Disallow: /team2.html
 Disallow: /single-team.html
 
 # Sitemap (update with live domain after launch)
-# Sitemap: https://ecocaregh.com/sitemap.xml
+Sitemap: https://ecocaregh.com/sitemap.xml
 
