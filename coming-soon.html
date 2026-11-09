@@ -38,17 +38,176 @@
     <meta name="twitter:description" content="A better EcoCare website is coming soon. Professional cleaning, janitorial, and environmental care in Accra, Ghana.">
     <meta name="twitter:image" content="https://ecocaregh.com/img/large-logo.png">
 
-    <!-- Scoped Coming Soon Styles & Responsive Proportions -->
+    <!-- Scoped Coming Soon Styles, Preloader & Responsive Proportions -->
     <style>
+        /*------------------------------------------------------------------
+          THE ECOCARE SIGNATURE REVEAL PRELOADER (Exact 2-Second Motion Identity)
+        ------------------------------------------------------------------*/
+        #preloader {
+            background-color: #faf9f6 !important;
+            background: radial-gradient(circle at 50% 50%, #ffffff 0%, #faf9f6 55%, #f4f1ea 100%) !important;
+            height: 100%;
+            left: 0;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 99999999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            transition: opacity 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+                        visibility 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+            will-change: opacity, visibility;
+            pointer-events: all;
+        }
+
+        #preloader.preloader-dissolving {
+            opacity: 0 !important;
+            visibility: hidden !important;
+            pointer-events: none !important;
+        }
+
+        #preloader.preloader-dissolving .signature-logo-frame {
+            transform: scale(0.95) !important;
+            opacity: 0 !important;
+            transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1),
+                        opacity 0.40s ease !important;
+        }
+
+        #preloader.preloader-dissolving .signature-stroke-svg {
+            opacity: 0 !important;
+            transition: opacity 0.25s ease !important;
+        }
+
+        .signature-stage {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            max-width: 340px;
+            min-height: 140px;
+            padding: 20px;
+            user-select: none;
+        }
+
+        .signature-logo-frame {
+            position: relative;
+            display: inline-block;
+            z-index: 2;
+            overflow: hidden;
+            padding: 6px 14px;
+            clip-path: inset(0 100% 0 0);
+            animation: signatureLogoReveal 0.75s cubic-bezier(0.22, 1, 0.36, 1) forwards 0.35s;
+            will-change: clip-path, transform, opacity;
+        }
+
+        .signature-logo {
+            display: block;
+            width: 230px;
+            height: auto;
+            max-height: 104px;
+            object-fit: contain;
+            filter: drop-shadow(0 4px 18px rgba(0, 136, 23, 0.12));
+        }
+
+        @keyframes signatureLogoReveal {
+            0% {
+                clip-path: inset(0 100% 0 0);
+                opacity: 0;
+                transform: scale(0.985);
+            }
+            15% {
+                opacity: 1;
+            }
+            100% {
+                clip-path: inset(0 0% 0 0);
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .signature-light-sweep {
+            position: absolute;
+            top: 0;
+            left: -130%;
+            width: 65%;
+            height: 100%;
+            background: linear-gradient(
+                110deg,
+                transparent 0%,
+                rgba(255, 255, 255, 0) 30%,
+                rgba(255, 255, 255, 0.65) 50%,
+                rgba(255, 255, 255, 0) 70%,
+                transparent 100%
+            );
+            transform: skewX(-20deg);
+            opacity: 0;
+            animation: delicateSweepGlide 0.65s cubic-bezier(0.4, 0, 0.2, 1) forwards 0.70s;
+            pointer-events: none;
+        }
+
+        @keyframes delicateSweepGlide {
+            0% { left: -130%; opacity: 0; }
+            25% { opacity: 1; }
+            75% { opacity: 1; }
+            100% { left: 210%; opacity: 0; }
+        }
+
+        .signature-stroke-svg {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 330px;
+            height: 90px;
+            z-index: 3;
+            pointer-events: none;
+            overflow: visible;
+        }
+
+        .signature-stroke-path {
+            stroke: #008817;
+            stroke-width: 2.2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            fill: none;
+            filter: drop-shadow(0 2px 6px rgba(0, 136, 23, 0.32));
+            stroke-dasharray: 100;
+            stroke-dashoffset: 100;
+            animation: signatureStrokeDraw 1.10s cubic-bezier(0.22, 1, 0.36, 1) forwards,
+                       signatureStrokeFade 0.30s ease forwards 1.05s;
+        }
+
+        @keyframes signatureStrokeDraw {
+            0% { stroke-dashoffset: 100; opacity: 1; }
+            100% { stroke-dashoffset: 0; opacity: 1; }
+        }
+
+        @keyframes signatureStrokeFade {
+            0% { opacity: 1; }
+            100% { opacity: 0; }
+        }
+
+        @media (max-width: 575px) {
+            .signature-stage { max-width: 270px; min-height: 120px; }
+            .signature-logo { width: 185px; max-height: 84px; }
+            .signature-stroke-svg { width: 270px; height: 72px; }
+        }
+
+        /*------------------------------------------------------------------
+          COMING SOON PAGE LAYOUT & MINIMALIST SLEEK PRESENTATION
+        ------------------------------------------------------------------*/
         .comingsoon-page {
             position: relative;
             min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 40px 15px;
+            padding: 40px 16px;
             overflow-x: hidden;
-            background-color: #f7fafc;
+            background-color: #f8fafc;
         }
         .comingsoon-page .comingsoon-bg {
             position: fixed;
@@ -73,94 +232,68 @@
             height: 100%;
             background: linear-gradient(
                 180deg,
-                rgba(247, 250, 252, 0.88) 0%,
-                rgba(255, 255, 255, 0.92) 50%,
-                rgba(247, 250, 252, 0.96) 100%
+                rgba(248, 250, 252, 0.88) 0%,
+                rgba(255, 255, 255, 0.93) 50%,
+                rgba(248, 250, 252, 0.97) 100%
             );
         }
         .comingsoon-page .comingsoon-content-wrap {
             position: relative;
             z-index: 2;
             width: 100%;
-            max-width: 900px;
+            max-width: 860px;
             margin: 0 auto;
+            animation: csFadeInUp 0.85s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
+
+        @keyframes csFadeInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(18px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
         .comingsoon-page .comingsoon-content {
             padding: 0;
             width: 100%;
             text-align: center;
         }
         .comingsoon-logo {
-            margin-bottom: 18px !important;
+            margin-bottom: 22px !important;
         }
         .comingsoon-logo img {
             max-width: 250px;
             height: auto;
-            filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.12));
+            filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.08));
             transition: transform 0.3s ease;
         }
         .comingsoon-logo img:hover {
             transform: scale(1.02);
         }
-        .comingsoon-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            background: rgba(0, 136, 23, 0.12);
-            border: 1px solid rgba(0, 136, 23, 0.40);
-            color: #0b6623;
-            font-size: 13px;
-            font-weight: 600;
-            letter-spacing: 0.5px;
-            text-transform: uppercase;
-            padding: 5px 16px;
-            border-radius: 20px;
-            margin-bottom: 16px;
-        }
         .comingsoon-content h1 {
-            font-size: clamp(26px, 5vw, 42px) !important;
-            line-height: 1.25 !important;
-            font-weight: 700 !important;
+            font-size: clamp(28px, 5.5vw, 44px) !important;
+            line-height: 1.22 !important;
+            font-weight: 800 !important;
             color: #14287b !important;
             margin-bottom: 14px !important;
-            letter-spacing: -0.3px;
+            letter-spacing: -0.5px;
+            font-family: 'Poppins', sans-serif;
         }
         .comingsoon-intro {
-            color: #334155;
+            color: #475569;
             font-size: 16px;
-            max-width: 640px;
-            margin: 0 auto 22px auto;
+            max-width: 580px;
+            margin: 0 auto 28px auto;
             line-height: 1.6;
             font-family: 'Roboto', sans-serif;
         }
-        .comingsoon-services {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 8px 12px;
-            margin: 0 auto 28px auto;
-            max-width: 700px;
-        }
-        .service-chip {
-            display: inline-flex;
-            align-items: center;
-            background: rgba(255, 255, 255, 0.95);
-            border: 1px solid rgba(20, 40, 123, 0.18);
-            color: #14287b;
-            font-size: 13px;
-            font-weight: 600;
-            padding: 5px 13px;
-            border-radius: 16px;
-            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
-        }
-        .service-chip i {
-            color: #008817;
-            margin-right: 6px;
-            font-size: 12px;
-        }
         /* Native Yellow Countdown Blocks with Responsive Proportions */
         .countdown-layout1 {
-            margin-bottom: 30px !important;
+            margin-bottom: 32px !important;
         }
         .countdown-layout1 .countdown {
             display: flex;
@@ -171,14 +304,19 @@
         .countdown-layout1 .countdown-section {
             width: 125px;
             height: 125px;
-            background: #fed700;
-            border-radius: 8px;
+            background: linear-gradient(145deg, #fed700 0%, #f6c800 100%);
+            border-radius: 12px;
             display: inline-flex;
             align-items: center;
             justify-content: center;
             position: relative;
             margin: 0 8px 16px 8px;
-            box-shadow: 0 6px 18px rgba(254, 215, 0, 0.35);
+            box-shadow: 0 6px 20px rgba(254, 215, 0, 0.32);
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+        .countdown-layout1 .countdown-section:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(254, 215, 0, 0.45);
         }
         .countdown-layout1 .countdown-section:after,
         .countdown-layout1 .countdown-section:before {
@@ -192,6 +330,7 @@
             padding: 0 !important;
             margin-top: -16px;
             font-family: 'Poppins', sans-serif;
+            letter-spacing: -1px;
         }
         .countdown-layout1 .countdown-section .countdown-unit {
             position: absolute;
@@ -199,17 +338,18 @@
             left: 0;
             right: 0;
             color: #3b3200;
-            font-size: 13px !important;
+            font-size: 12px !important;
             font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
+            letter-spacing: 0.8px;
+            font-family: 'Poppins', sans-serif;
         }
         .comingsoon-launch-status {
             background: #ecfdf5;
             border: 1.5px solid #10b981;
             color: #065f46;
-            padding: 14px 20px;
-            border-radius: 8px;
+            padding: 14px 22px;
+            border-radius: 10px;
             font-weight: 600;
             font-size: 15px;
             max-width: 600px;
@@ -227,7 +367,7 @@
             display: inline-block;
             margin-top: 10px;
         }
-        /* Action CTAs */
+        /* Action CTAs with High-Precision SVG Icons */
         .comingsoon-actions {
             display: flex;
             align-items: center;
@@ -237,49 +377,59 @@
             flex-wrap: wrap;
         }
         .comingsoon-btn-wa {
-            background-color: #25d366;
+            background: linear-gradient(135deg, #25d366 0%, #1ea952 100%);
             color: #ffffff !important;
             font-family: 'Poppins', sans-serif;
             font-weight: 700;
             font-size: 15px;
-            padding: 12px 24px;
-            border-radius: 6px;
+            padding: 13px 26px;
+            border-radius: 28px;
             display: inline-flex;
             align-items: center;
+            justify-content: center;
+            gap: 10px;
             text-decoration: none !important;
             transition: all 0.25s ease;
-            box-shadow: 0 4px 14px rgba(37, 211, 102, 0.35);
+            box-shadow: 0 4px 16px rgba(37, 211, 102, 0.35);
         }
         .comingsoon-btn-wa:hover {
-            background-color: #20ba59;
-            color: #ffffff !important;
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(37, 211, 102, 0.5);
+            box-shadow: 0 8px 24px rgba(37, 211, 102, 0.50);
+            color: #ffffff !important;
         }
         .comingsoon-btn-call {
-            background-color: #14287b;
+            background: linear-gradient(135deg, #14287b 0%, #0d1a52 100%);
             color: #ffffff !important;
             font-family: 'Poppins', sans-serif;
             font-weight: 600;
             font-size: 15px;
-            padding: 12px 24px;
-            border-radius: 6px;
+            padding: 13px 26px;
+            border-radius: 28px;
             display: inline-flex;
             align-items: center;
+            justify-content: center;
+            gap: 10px;
             text-decoration: none !important;
             transition: all 0.25s ease;
-            box-shadow: 0 4px 14px rgba(20, 40, 123, 0.25);
+            box-shadow: 0 4px 16px rgba(20, 40, 123, 0.25);
         }
         .comingsoon-btn-call:hover {
-            background-color: #0d1c59;
-            color: #ffffff !important;
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(20, 40, 123, 0.35);
+            box-shadow: 0 8px 24px rgba(20, 40, 123, 0.40);
+            color: #ffffff !important;
+        }
+        .btn-svg-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 20px;
+            height: 20px;
+            flex-shrink: 0;
         }
         /* Bottom Social & Contacts */
         .comingsoon-bottom {
             margin-top: 20px;
-            padding-top: 20px;
+            padding-top: 24px;
             border-top: 1px solid rgba(20, 40, 123, 0.12);
         }
         .comingsoon-social ul {
@@ -289,25 +439,33 @@
         }
         .comingsoon-social ul li {
             display: inline-block;
-            margin: 0 4px;
+            margin: 0 5px;
         }
         .comingsoon-social ul li a {
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            width: 40px;
-            height: 40px;
+            width: 44px;
+            height: 44px;
             border-radius: 50%;
             background-color: #14287b;
             color: #ffffff;
-            font-size: 15px;
-            transition: all 0.25s ease;
+            transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
             text-decoration: none !important;
+            box-shadow: 0 3px 10px rgba(20, 40, 123, 0.18);
         }
         .comingsoon-social ul li a:hover {
             background-color: #fed700;
             color: #111111;
-            transform: translateY(-2px);
+            transform: translateY(-3px) scale(1.06);
+            box-shadow: 0 6px 18px rgba(254, 215, 0, 0.40);
+        }
+        .social-svg {
+            display: inline-block;
+            width: 18px;
+            height: 18px;
+            fill: currentColor;
+            vertical-align: middle;
         }
         .comingsoon-copy-right p {
             color: #64748b;
@@ -330,16 +488,21 @@
         /* Responsive adjustments for Tablets & Phones */
         @media only screen and (max-width: 767px) {
             .comingsoon-page {
-                padding: 30px 12px;
+                padding: 30px 14px;
             }
             .comingsoon-logo img {
                 max-width: 200px;
             }
+            .comingsoon-intro {
+                font-size: 14.5px;
+                line-height: 22px;
+                margin-bottom: 22px;
+            }
             .countdown-layout1 .countdown-section {
-                width: 76px;
-                height: 82px;
-                margin: 0 4px 10px 4px;
-                border-radius: 6px;
+                width: 74px;
+                height: 80px;
+                margin: 0 4px 12px 4px;
+                border-radius: 10px;
             }
             .countdown-layout1 .countdown-section .countdown-number {
                 font-size: 28px !important;
@@ -359,11 +522,7 @@
                 width: 100%;
                 justify-content: center;
                 font-size: 14px;
-                padding: 11px 18px;
-            }
-            .service-chip {
-                font-size: 12px;
-                padding: 4px 10px;
+                padding: 12px 18px;
             }
         }
         @media only screen and (max-width: 360px) {
@@ -384,6 +543,20 @@
 </head>
 
 <body class="sticky-header">
+    <!-- Preloader Start Here: The EcoCare Signature Reveal -->
+    <div id="preloader" role="status" aria-label="EcoCare Cleaning Services Limited">
+        <div class="signature-stage">
+            <div class="signature-logo-frame">
+                <img src="img/logo-preloader.png" alt="EcoCare Cleaning Services Limited" class="signature-logo" width="230" height="105">
+                <div class="signature-light-sweep" aria-hidden="true"></div>
+            </div>
+            <svg class="signature-stroke-svg" viewBox="0 0 330 90" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <path class="signature-stroke-path" pathLength="100" d="M 8 60 C 75 62, 120 20, 182 25 C 240 30, 272 68, 322 50" />
+            </svg>
+        </div>
+    </div>
+    <!-- Preloader End Here -->
+
     <div id="wrapper" class="wrapper">
         <!-- Coming Soon Page Area Start Here -->
         <main class="comingsoon-page" role="main">
@@ -401,26 +574,12 @@
                             <img src="img/large-logo.png" alt="EcoCare Cleaning Services Limited" width="250" height="113">
                         </a>
                     </div>
-                    <!-- Sub-badge -->
-                    <div class="comingsoon-badge-wrap">
-                        <span class="comingsoon-badge">
-                            <i class="fas fa-leaf" aria-hidden="true"></i> Environmental &amp; Facility Hygiene
-                        </span>
-                    </div>
                     <!-- Main Title -->
                     <h1>A Better EcoCare Website Is Coming Soon</h1>
-                    <!-- Explanatory Copy -->
+                    <!-- Concise Explanatory Copy -->
                     <p class="comingsoon-intro">
-                        EcoCare Cleaning Services Limited is preparing the launch of our enhanced online booking platform. Our certified field crews in Achimota, Accra remain actively available for bookings across Greater Accra.
+                        Our enhanced website is launching soon. For immediate service bookings across Accra, reach our dispatch team below.
                     </p>
-                    <!-- 5 Service Family Chips -->
-                    <div class="comingsoon-services" aria-label="EcoCare Cleaning Services Catalog">
-                        <span class="service-chip"><i class="fas fa-check-circle" aria-hidden="true"></i> EcoClean (Residential &amp; Janitorial)</span>
-                        <span class="service-chip"><i class="fas fa-check-circle" aria-hidden="true"></i> Eco-Laundry (Garment &amp; Linen)</span>
-                        <span class="service-chip"><i class="fas fa-check-circle" aria-hidden="true"></i> EcoFumes (Fumigation &amp; Pest Control)</span>
-                        <span class="service-chip"><i class="fas fa-check-circle" aria-hidden="true"></i> Carpet Deep Cleaning</span>
-                        <span class="service-chip"><i class="fas fa-check-circle" aria-hidden="true"></i> Upholstery Restoration</span>
-                    </div>
                     <!-- Fixed 7-Day Launch Countdown -->
                     <div class="countdown-layout1">
                         <div class="countdown" id="launch-countdown" data-managed="true" data-deadline="2026-11-16T14:00:00Z" role="timer" aria-label="Website Launch Countdown">
@@ -432,25 +591,53 @@
                         </div>
                         <div id="countdown-status" class="comingsoon-launch-status" style="display: none;" role="status"></div>
                     </div>
-                    <!-- Direct Dispatch Action CTAs -->
+                    <!-- Direct Dispatch Action CTAs with Vector SVGs -->
                     <div class="comingsoon-actions">
-                        <a href="https://wa.me/233249014253?text=Hello%20EcoCare!%20I%20would%20like%20to%20inquire%20about%20your%20services." target="_blank" rel="noopener noreferrer" class="comingsoon-btn-wa">
-                            <i class="fab fa-whatsapp" aria-hidden="true"></i> Chat With Dispatch on WhatsApp
+                        <a href="https://wa.me/233249014253?text=Hello%20EcoCare!%20I%20would%20like%20to%20inquire%20about%20your%20services." target="_blank" rel="noopener noreferrer" class="comingsoon-btn-wa" aria-label="Chat with EcoCare dispatch on WhatsApp">
+                            <span class="btn-svg-icon" aria-hidden="true">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 9.27 20.92 6.78 19.05 4.91C17.18 3.03 14.69 2 12.04 2ZM12.05 3.67C14.25 3.67 16.31 4.53 17.87 6.09C19.42 7.65 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.15 12.04 20.15C10.56 20.15 9.11 19.76 7.85 19.01L7.55 18.83L4.43 19.65L5.26 16.61L5.06 16.29C4.24 14.99 3.8 13.47 3.8 11.91C3.81 7.37 7.5 3.67 12.05 3.67ZM9.03 7.63C8.86 7.63 8.58 7.69 8.35 7.94C8.11 8.2 7.45 8.82 7.45 10.08C7.45 11.34 8.37 12.56 8.5 12.73C8.63 12.9 10.3 15.48 12.87 16.59C13.48 16.85 13.96 17.01 14.33 17.13C14.95 17.32 15.51 17.3 15.96 17.23C16.46 17.15 17.5 16.6 17.72 15.98C17.94 15.35 17.94 14.82 17.87 14.71C17.81 14.59 17.63 14.53 17.3 14.36C16.97 14.19 15.34 13.39 15.03 13.28C14.73 13.17 14.51 13.11 14.29 13.44C14.07 13.78 13.43 14.53 13.24 14.75C13.04 14.98 12.85 15 12.52 14.84C12.19 14.67 11.13 14.32 9.87 13.2C8.88 12.32 8.22 11.23 8.02 10.9C7.83 10.56 8 10.38 8.17 10.22C8.32 10.07 8.5 9.83 8.67 9.64C8.84 9.44 8.9 9.3 9.01 9.08C9.12 8.86 9.07 8.66 8.98 8.5C8.9 8.33 8.24 6.7 7.96 6.04C7.7 5.4 7.42 5.49 7.22 5.48C7.03 5.48 6.81 5.48 6.59 5.48Z"/>
+                                </svg>
+                            </span>
+                            <span>Chat With Dispatch on WhatsApp</span>
                         </a>
-                        <a href="tel:+233249014253" class="comingsoon-btn-call">
-                            <i class="fas fa-phone" aria-hidden="true"></i> +233 24 901 4253
+                        <a href="tel:+233249014253" class="comingsoon-btn-call" aria-label="Call EcoCare direct line">
+                            <span class="btn-svg-icon" aria-hidden="true">
+                                <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M6.62 10.79C8.06 13.62 10.38 15.94 13.21 17.38L15.41 15.18C15.69 14.9 16.08 14.82 16.43 14.93C17.55 15.3 18.75 15.5 20 15.5C20.55 15.5 21 15.95 21 16.5V20C21 20.55 20.55 21 20 21C10.61 21 3 13.39 3 4C3 3.45 3.45 3 4 3H7.5C8.05 3 8.5 3.45 8.5 4C8.5 5.25 8.7 6.45 9.07 7.57C9.18 7.92 9.1 8.31 8.82 8.59L6.62 10.79Z"/>
+                                </svg>
+                            </span>
+                            <span>+233 24 901 4253</span>
                         </a>
                     </div>
-                    <!-- Footer & Contact Meta -->
+                    <!-- Footer & Contact Meta with Vector Social Icons -->
                     <footer class="comingsoon-bottom">
                         <div class="container">
                             <div class="row">
                                 <div class="col-12">
                                     <div class="comingsoon-social">
                                         <ul>
-                                            <li><a href="https://www.facebook.com/profile.php?id=100006412849415" target="_blank" rel="noopener noreferrer" aria-label="EcoCare on Facebook"><i class="fab fa-facebook-f" aria-hidden="true"></i></a></li>
-                                            <li><a href="https://www.tiktok.com/@ecocarecompanylimited" target="_blank" rel="noopener noreferrer" aria-label="EcoCare on TikTok"><i class="fab fa-tiktok" aria-hidden="true"></i></a></li>
-                                            <li><a href="https://www.youtube.com/channel/UCdJfEIsRCxYaOnnmhbs2kcA" target="_blank" rel="noopener noreferrer" aria-label="EcoCare on YouTube"><i class="fab fa-youtube" aria-hidden="true"></i></a></li>
+                                            <li>
+                                                <a href="https://www.facebook.com/profile.php?id=100006412849415" target="_blank" rel="noopener noreferrer" aria-label="EcoCare on Facebook">
+                                                    <svg class="social-svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                                        <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                                                    </svg>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="https://www.tiktok.com/@ecocarecompanylimited" target="_blank" rel="noopener noreferrer" aria-label="EcoCare on TikTok">
+                                                    <svg class="social-svg" width="17" height="17" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                                        <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64c.29 0 .58.04.86.12V9.42a6.33 6.33 0 0 0-.86-.06 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34-6.34V8.92a8.28 8.28 0 0 0 4.87 1.57V7.05a4.83 4.83 0 0 1-1.1-.36Z"/>
+                                                    </svg>
+                                                </a>
+                                            </li>
+                                            <li>
+                                                <a href="https://www.youtube.com/channel/UCdJfEIsRCxYaOnnmhbs2kcA" target="_blank" rel="noopener noreferrer" aria-label="EcoCare on YouTube">
+                                                    <svg class="social-svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                                        <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                                                    </svg>
+                                                </a>
+                                            </li>
                                         </ul>
                                     </div>
                                 </div>
@@ -479,7 +666,7 @@
     <script src="js/jquery-3.3.1.min.js"></script>
     <script src="js/popper.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
-    <!-- Robust 7-Day Fixed UTC Countdown Controller -->
+    <!-- Robust 7-Day Fixed UTC Countdown & Preloader Controller -->
     <script src="js/coming-soon-countdown.js"></script>
 </body>
 </html>

@@ -63,10 +63,11 @@ def test_html_and_asset_integrity():
     assert "ecocaregh1on1@gmail.com" in content, "Missing active monitoring email"
     assert "https://wa.me/233249014253" in content, "Missing WhatsApp dispatch CTA"
     assert "noindex, follow" in content, "Missing temporary noindex robots meta"
-    assert "EcoClean" in content and "Eco-Laundry" in content and "EcoFumes" in content, "Missing service family chips"
+    assert 'id="preloader"' in content, "Missing custom preloader"
+    assert "logo-preloader.png" in content, "Missing preloader logo asset reference"
     assert 'data-deadline="2026-11-16T14:00:00Z"' in content, "Missing or incorrect fixed UTC deadline attribute"
     assert '<a href="/"' in content, "Logo link must point to Coming Soon root /"
-    print("  ✓ PASS: Brand name, address, phone, email, WhatsApp, chips, and metadata verified.")
+    print("  ✓ PASS: Brand name, address, phone, email, WhatsApp, custom preloader, and metadata verified.")
 
     # Check that no unfinished pages are linked
     forbidden_links = ["index.html", "about1.html", "service1.html", "contact.html", "calculate-form.html"]
@@ -102,3 +103,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+

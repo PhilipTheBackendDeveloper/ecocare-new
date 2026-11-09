@@ -27,6 +27,7 @@ REQUIRED_ASSETS = [
     # Images & Branding
     ("img/favicon.png", "img/favicon.png"),
     ("img/large-logo.png", "img/large-logo.png"),
+    ("img/logo-preloader.png", "img/logo-preloader.png"),
     ("img/figure/coming-soon.jpg", "img/figure/coming-soon.jpg"),
     # Core JS
     ("js/jquery-3.3.1.min.js", "js/jquery-3.3.1.min.js"),
@@ -149,3 +150,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+

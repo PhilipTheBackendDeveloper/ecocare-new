@@ -174,3 +174,4 @@ When the EcoCare owner formally approves all remaining items in `docs/ecocare/CO
 
 ### Emergency Rollback:
 If you ever need to return to the Coming Soon page, simply change `publish = "."` back to `publish = "dist/coming-soon"` in `netlify.toml`, run `python3 scripts/build_coming_soon.py`, and push to `main`.
+

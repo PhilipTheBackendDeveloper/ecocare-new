@@ -116,10 +116,49 @@
     timerId = setInterval(render, 1000);
   }
 
+  function initPreloader() {
+    var preloader = document.getElementById("preloader");
+    if (!preloader) return;
+
+    var preloaderStart = Date.now();
+    var dissolveStartMs = 1550; // Dissolve begins at 1.55s
+    var isDissolving = false;
+
+    function triggerDissolve() {
+      if (isDissolving) return;
+      isDissolving = true;
+      var elapsed = Date.now() - preloaderStart;
+      var wait = Math.max(0, dissolveStartMs - elapsed);
+
+      setTimeout(function () {
+        preloader.classList.add("preloader-dissolving");
+        setTimeout(function () {
+          if (preloader.parentNode) {
+            preloader.parentNode.removeChild(preloader);
+          }
+        }, 450); // 1550ms + 450ms = 2000ms total
+      }, wait);
+    }
+
+    if (document.readyState === "complete") {
+      triggerDissolve();
+    } else {
+      window.addEventListener("load", triggerDissolve);
+      // Hard timeout fallback
+      setTimeout(triggerDissolve, 2500);
+    }
+  }
+
   // Safe DOM ready bootstrap
-  if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", initCountdown);
-  } else {
+  function bootstrap() {
+    initPreloader();
     initCountdown();
   }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", bootstrap);
+  } else {
+    bootstrap();
+  }
 })();
+
