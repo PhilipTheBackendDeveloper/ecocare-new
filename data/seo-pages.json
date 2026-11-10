@@ -178,19 +178,19 @@
     "car-interior-cleaning.html": {
       "path": "car-interior-cleaning",
       "canonical_url": "https://ecocaregh.com/car-interior-cleaning",
-      "title": "Mobile Car Interior Deep Cleaning Services | EcoCare Ghana",
-      "description": "Doorstep vehicle interior deep cleaning in Accra: fabric seat shampooing, leather seat conditioning, carpet stain extraction, and dashboard detailing.",
-      "h1": "Mobile Car Interior Deep Cleaning & Upholstery Care in Accra",
+      "title": "Mobile Car Detailing & Cleaning Services (Interior & Exterior) | EcoCare Ghana",
+      "description": "Mobile car detailing and cleaning in Accra: doorstep exterior wash, paint gloss detailing, fabric seat shampooing, leather conditioning, and carpet extraction.",
+      "h1": "Car Detailing & Cleaning Services",
       "robots": "index, follow",
       "schema_type": "Service",
-      "service_type": "Mobile Vehicle Interior Hygiene & Upholstery Extraction",
+      "service_type": "Mobile Automotive Detailing, Exterior Wash & Interior Extraction",
       "in_sitemap": true,
       "changefreq": "weekly",
       "priority": "0.85",
       "breadcrumb": [
         {"name": "Home", "url": "https://ecocaregh.com/"},
         {"name": "Services", "url": "https://ecocaregh.com/services"},
-        {"name": "Car Interior Cleaning", "url": "https://ecocaregh.com/car-interior-cleaning"}
+        {"name": "Car Detailing & Cleaning", "url": "https://ecocaregh.com/car-interior-cleaning"}
       ]
     },
     "professional-dusting.html": {

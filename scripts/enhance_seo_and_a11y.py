@@ -84,7 +84,7 @@ def build_schema_json_ld(page_key, page_meta, manifest):
                     {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Carpet Deep Steam Extraction & Stain Treatment", "url": f"{base_url}/carpet-cleaning"}},
                     {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Upholstery & Leather Furniture Deep Sanitization", "url": f"{base_url}/upholstery-cleaning"}},
                     {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Polytank & Water Storage Tank Hygienic Cleaning", "url": f"{base_url}/polytank-cleaning"}},
-                    {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Mobile Car Interior Deep Cleaning & Upholstery Care", "url": f"{base_url}/car-interior-cleaning"}},
+                    {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Mobile Car Detailing & Cleaning (Interior & Exterior)", "url": f"{base_url}/car-interior-cleaning"}},
                     {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Professional Electrostatic Microfiber Dusting Services", "url": f"{base_url}/professional-dusting"}}
                 ]
             },

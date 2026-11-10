@@ -16,6 +16,8 @@ https://www.ecocaregh.com/*   https://ecocaregh.com/:splat    301!
 /upholstery-cleaning        /upholstery-cleaning.html    200
 /polytank-cleaning          /polytank-cleaning.html      200
 /car-interior-cleaning      /car-interior-cleaning.html  200
+/car-detailing              /car-interior-cleaning.html  200
+/car-detailing-and-cleaning /car-interior-cleaning.html  200
 /professional-dusting       /professional-dusting.html   200
 /packages                   /pricing-table.html          200
 /request-quote              /calculate-form.html         200

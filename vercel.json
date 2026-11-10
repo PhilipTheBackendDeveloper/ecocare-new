@@ -20,6 +20,8 @@
     { "source": "/upholstery-cleaning", "destination": "/upholstery-cleaning.html" },
     { "source": "/polytank-cleaning", "destination": "/polytank-cleaning.html" },
     { "source": "/car-interior-cleaning", "destination": "/car-interior-cleaning.html" },
+    { "source": "/car-detailing", "destination": "/car-interior-cleaning.html" },
+    { "source": "/car-detailing-and-cleaning", "destination": "/car-interior-cleaning.html" },
     { "source": "/professional-dusting", "destination": "/professional-dusting.html" },
     { "source": "/packages", "destination": "/pricing-table.html" },
     { "source": "/projects", "destination": "/project1.html" },

@@ -120,12 +120,26 @@
 
 ---
 
+### RB-09 — Four Confirmed Services & Promotional Flyer Portfolio Reconciliation (READY ✅)
+
+- **Status:** Fully integrated, audited, and verified.
+- **Confirmed Services Portfolio:**
+  1. **Polytank & Water Tank Cleaning:** Dedicated canonical page (`polytank-cleaning.html`), navigation dropdown, footer, and quote forms. Operational scope explicitly bounded to physical sediment extraction, high-pressure scrubbing, and safe sanitizing rinses; uncertified laboratory water testing is clearly disclaimed unless commissioned as a separate accredited laboratory service.
+  2. **Car Detailing & Cleaning (Interior & Exterior):** Reconciled the previous interior-only limitation against Daddy's official promotional flyer. Updated `car-interior-cleaning.html`, homepage card 7, directory card 14, calculator, packages, and FAQs to accurately reflect mobile doorstep exterior foam wash, wheel/tire dressing, and interior seat/carpet extraction across Accra.
+  3. **Professional Dusting:** Dedicated canonical page (`professional-dusting.html`) detailing electrostatic microfiber capture for ceiling fans, AC grilles, high cornices, and Harmattan dust remediation.
+  4. **Sofa & Carpet Cleaning Solutions:** Integrated reciprocal modules and package guidance across `carpet-cleaning.html`, `upholstery-cleaning.html`, directory, and quotation forms.
+  5. **Bulky Linen Laundry:** Highlighted curtains, duvets, and bedspreads across `single-service2.html` and quote calculators.
+- **Visual Identity Preservation:** Preserved the authentic green EcoCare logo (`img/large-logo.png`, `img/logo-dark.png`) across the site; logged the flyer's gold-and-navy visual scheme as a client review decision.
+- **Automated Verification:** Verified across all canonical pages, responsive audits, and 19 sitemap routes.
+
+---
+
 ## Pre-Launch Verification Summary
 
 | Test Suite | Script | Total Checks | Result |
 |---|---|---|---|
-| Automated QA & Anti-Regression | `python3 scripts/qa_check.py` | 116 | **116 PASS / 0 FAIL** |
-| Form Backend & Spam Protection | `node scripts/test_form_backend.js` | 10 | **10 PASS / 0 FAIL** |
-| Multi-Screen Responsive & Routes | `python3 scripts/verify_responsive_and_routes.py` | 105 | **105 PASS / 0 FAIL** |
+| Automated QA & Anti-Regression | `python3 scripts/qa_check.py` | 131 | **131 PASS / 0 FAIL** |
+| Netlify Forms & Staging Security | `node scripts/test_netlify_forms.js` | 14 | **14 PASS / 0 FAIL** |
+| Multi-Screen Responsive & Routes | `python3 scripts/verify_responsive_and_routes.py` | 120 | **120 PASS / 0 FAIL** |
 | Standalone Coming Soon & Countdown | `python3 scripts/test_coming_soon.py` | 12 | **12 PASS / 0 FAIL** |
-| Responsive & Vercel Route Audit | `python3 scripts/verify_responsive_and_routes.py` | 105 | **105 PASS / 0 FAIL** |
+| Technical SEO & Quality Gates | `python3 scripts/test_seo_comprehensive.py` | 7 Gates | **7/7 GATES PASSED (100%)** |
