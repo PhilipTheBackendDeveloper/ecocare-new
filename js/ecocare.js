@@ -324,5 +324,27 @@
         heroVideo.play().catch(function () {});
       });
     }
+
+    // 7. Mobile Navigation Polish & Dedicated Quick-Action Drawer Bar
+    function enhanceMobileMenu() {
+      var meanNav = $('.mean-container .mean-nav');
+      if (meanNav.length && !meanNav.find('.mobile-nav-cta-card').length) {
+        var mobileCta = $(
+          '<div class="mobile-nav-cta-card">' +
+            '<a href="calculate-form.html" class="mobile-nav-book-btn"><i class="far fa-calendar-check mr-2"></i>Book Now</a>' +
+            '<a href="tel:+233249014253" class="mobile-nav-call-btn"><i class="fas fa-phone-alt mr-2"></i>Call Dispatch: +233 24 901 4253</a>' +
+          '</div>'
+        );
+        meanNav.find('> ul').append($('<li class="mobile-nav-cta-li" style="list-style:none;"></li>').append(mobileCta));
+      }
+    }
+    setTimeout(enhanceMobileMenu, 200);
+    setTimeout(enhanceMobileMenu, 800);
+    $(window).on('resize orientationchange', function () {
+      setTimeout(enhanceMobileMenu, 200);
+    });
+    $(document).on('click', '.meanmenu-reveal', function () {
+      setTimeout(enhanceMobileMenu, 50);
+    });
   });
 })(jQuery);
