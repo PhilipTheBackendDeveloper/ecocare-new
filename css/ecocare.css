@@ -1123,9 +1123,10 @@
     pointer-events: none !important;
   }
 
-  /* Wrapper starts below floating bar */
-  .mean-container #wrapper {
-    padding-top: calc(max(14px, env(safe-area-inset-top, 14px)) + 64px) !important;
+  /* Wrapper starts below floating bar — use body selector since meanmenu is sibling of #wrapper */
+  body.sticky-header #wrapper,
+  #wrapper {
+    padding-top: 0 !important;
   }
 }
 
@@ -1146,6 +1147,81 @@
   .col-lg-3.single-process .process-box-layout1:after {
     right: -32px;
     top: 5.5rem;
+  }
+}
+
+/* ==========================================================================
+   Mobile Header Topbar — Hidden on Mobile (prevents white strip)
+   ========================================================================== */
+@media only screen and (max-width: 991px) {
+  /* Hide the original dark-blue topbar on mobile — meanmenu replaces the whole header */
+  #header-topbar {
+    display: none !important;
+  }
+
+  /* Remove the sticky placeholder ghost height on mobile */
+  #rt-sticky-placeholder {
+    display: none !important;
+    height: 0 !important;
+  }
+
+  /* Hide the original desktop header nav bar — meanmenu replaces it completely.
+     The meanmenu plugin moves #header-menu content into .mean-container so we
+     suppress the original shell to eliminate the white gap below the pill. */
+  #header-menu {
+    display: none !important;
+  }
+
+  /* Also hide the wrapper helper .header-area if present */
+  .header .header-menu.menu-layout1 {
+    display: none !important;
+  }
+}
+
+/* ==========================================================================
+   EcoCare Process Section — Icon Size & Visibility Fix
+   ========================================================================== */
+
+/* Ensure the icon wrapper is centered properly inside the bubble */
+.process-box-layout1 .item-bg .item-icon {
+  position: absolute !important;
+  top: 50% !important;
+  left: 0 !important;
+  right: 0 !important;
+  transform: translateY(-50%) !important;
+  text-align: center !important;
+  line-height: 1 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  pointer-events: none !important;
+}
+
+/* The <i> icon element itself — big, blue, centered */
+.process-box-layout1 .item-bg .item-icon i {
+  font-size: 62px !important;
+  color: #3084f9 !important;
+  line-height: 1 !important;
+  display: block !important;
+  font-style: normal !important;
+}
+
+/* Both :before and :after pseudo-elements (different flaticons use different ones) */
+.process-box-layout1 .item-bg .item-icon i:before,
+.process-box-layout1 .item-bg .item-icon i:after {
+  font-size: 62px !important;
+  color: #3084f9 !important;
+  display: block !important;
+  margin: 0 !important;
+  line-height: 1 !important;
+}
+
+/* Mobile: slightly smaller but still prominent */
+@media only screen and (max-width: 767px) {
+  .process-box-layout1 .item-bg .item-icon i,
+  .process-box-layout1 .item-bg .item-icon i:before,
+  .process-box-layout1 .item-bg .item-icon i:after {
+    font-size: 48px !important;
   }
 }
 @media only screen and (max-width: 991px) {
