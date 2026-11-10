@@ -143,12 +143,15 @@
                                     <li>
                                         <a href="service1.html">Services</a>
                                         <ul class="dropdown-menu-col-1">
-                                            <li><a href="service1.html">All 12 Service Listings</a></li>
-                                            <li><a href="single-service1.html">EcoClean (Cleaning)</a></li>
-                                            <li><a href="single-service2.html">Eco-Laundry (Garments)</a></li>
-                                            <li><a href="pest-control.html">EcoFumes (Pest Control)</a></li>
+                                            <li><a href="service1.html">Services Directory</a></li>
+                                            <li><a href="single-service1.html">EcoClean Janitorial</a></li>
+                                            <li><a href="single-service2.html">Eco-Laundry Doorstep</a></li>
+                                            <li><a href="pest-control.html">EcoFumes Pest Control</a></li>
                                             <li><a href="carpet-cleaning.html">Carpet Deep Cleaning</a></li>
-                                            <li><a href="upholstery-cleaning.html">Upholstery &amp; Furniture</a></li>
+                                            <li><a href="upholstery-cleaning.html">Sofa &amp; Upholstery</a></li>
+                                            <li><a href="polytank-cleaning.html">Polytank Cleaning</a></li>
+                                            <li><a href="car-interior-cleaning.html">Car Detailing &amp; Cleaning</a></li>
+                                            <li><a href="professional-dusting.html">Professional Dusting</a></li>
                                         </ul>
                                     </li>
                                     <li>
@@ -235,7 +238,11 @@
                     <div class="col-xl-5 col-lg-6 col-12">
                         <div class="about-box-layout2">
                             <h3 class="item-title">Request An Estimate</h3>
-                            <form class="contact-form-box" id="contact-form">
+                            <form class="contact-form-box" id="quote-calculator-form" name="quote-calculator" method="POST" action="/calculate-form.html" data-netlify="true" data-netlify-honeypot="bot-field">
+                                <input type="hidden" name="form-name" value="quote-calculator">
+                                <p class="d-none" style="display:none !important;" aria-hidden="true">
+                                    <label>Don’t fill this out if you're human: <input name="bot-field" tabindex="-1" autocomplete="off"></label>
+                                </p>
                                 <div style="display:none !important;" aria-hidden="true">
                                     <input type="text" name="website_url" tabindex="-1" autocomplete="off" value="">
                                 </div>
@@ -244,10 +251,14 @@
                                         <select class="select2" name="service" id="form-service" aria-label="Select Cleaning Service">
                                             <option value="residential">Residential Cleaning (EcoClean)</option>
                                             <option value="commercial">Commercial Janitorial (EcoClean)</option>
-                                            <option value="laundry">Eco-Laundry &amp; Dry Cleaning</option>
+                                            <option value="laundry">Eco-Laundry: Curtains, Duvets, Bedspreads &amp; Garments</option>
                                             <option value="fumigation">EcoFumes Pest Control &amp; Fumigation</option>
                                             <option value="carpet">Carpet Deep Cleaning</option>
-                                            <option value="upholstery">Upholstery &amp; Furniture Cleaning</option>
+                                            <option value="upholstery">Sofa Cleaning &amp; Fabric Care</option>
+                                            <option value="sofa-carpet">Sofa &amp; Carpet Cleaning Solutions</option>
+                                            <option value="polytank">Polytank &amp; Water Tank Cleaning</option>
+                                            <option value="car-detailing">Car Detailing &amp; Cleaning (Interior &amp; Exterior)</option>
+                                            <option value="dusting">Professional Dusting &amp; Detailed Care</option>
                                             <option value="post-construction">Post-Construction Cleaning</option>
                                         </select>
                                     </div>
@@ -308,7 +319,7 @@
                                         <input type="text" class="form-control rt-time" placeholder="Preferred Time" name="time" id="form-time" required/>
                                     </div>
                                     <div class="col-md-6 col-12 form-group">
-                                        <input type="text" placeholder="Your Name" class="form-control" name="name" id="form-name" required aria-label="Full Name">
+                                        <input type="text" placeholder="Your Name" class="form-control" name="name" id="calc-customer-name" required aria-label="Full Name">
                                         <div class="help-block with-errors"></div>
                                     </div>
                                     <div class="col-md-6 col-12 form-group">
@@ -320,14 +331,14 @@
                                         <div class="help-block with-errors"></div>
                                     </div>
                                     <div class="col-12 form-group mg-b-20">
-                                        <textarea placeholder="Specific Requirements / Address Details" class="textarea form-control" name="message" id="form-message" rows="3" required aria-label="Inquiry Message or Service Requirements"></textarea>
+                                        <textarea placeholder="Specific Requirements / Address Details (e.g. tank capacity, vehicle model, carpet dimensions, or special requests)" class="textarea form-control" name="message" id="form-message" rows="3" required aria-label="Inquiry Message or Service Requirements"></textarea>
                                         <div class="help-block with-errors"></div>
                                     </div>
                                     <div class="col-12 form-group">
                                         <button type="submit" class="fw-btn-fill bg-accent text-primarytext">Request Free Estimate<i class="fas fa-angle-right"></i></button>
                                     </div>
                                 </div>
-                                <div class="form-response mt-3"></div>
+                                <div class="form-response mt-3" role="status" aria-live="polite"></div>
                             </form>
                             <div class="text-center mt-3">
                                 <small class="text-muted"><i class="fab fa-whatsapp text-success mr-1"></i> Prefer instant chat? WhatsApp us at <a href="https://wa.me/233249014253" class="text-primary font-weight-bold" target="_blank">+233 24 901 4253</a></small>
@@ -368,12 +379,15 @@
                                 </div>
                                 <div class="footer-menu-box">
                                     <ul class="footer-menu-list">
-                                        <li><a href="single-service1.html"><i class="fas fa-angle-right mr-2 text-warning"></i>EcoClean (Cleaning)</a></li>
-                                        <li><a href="single-service2.html"><i class="fas fa-angle-right mr-2 text-warning"></i>Eco-Laundry (Garments)</a></li>
-                                        <li><a href="pest-control.html"><i class="fas fa-angle-right mr-2 text-warning"></i>EcoFumes (Fumigation)</a></li>
+                                        <li><a href="single-service1.html"><i class="fas fa-angle-right mr-2 text-warning"></i>EcoClean Janitorial</a></li>
+                                        <li><a href="single-service2.html"><i class="fas fa-angle-right mr-2 text-warning"></i>Eco-Laundry Doorstep</a></li>
+                                        <li><a href="pest-control.html"><i class="fas fa-angle-right mr-2 text-warning"></i>EcoFumes Fumigation</a></li>
                                         <li><a href="carpet-cleaning.html"><i class="fas fa-angle-right mr-2 text-warning"></i>Carpet Deep Cleaning</a></li>
-                                        <li><a href="upholstery-cleaning.html"><i class="fas fa-angle-right mr-2 text-warning"></i>Upholstery &amp; Furniture</a></li>
-                                        <li><a href="service1.html"><i class="fas fa-angle-right mr-2 text-warning"></i>All 12 Service Listings</a></li>
+                                        <li><a href="upholstery-cleaning.html"><i class="fas fa-angle-right mr-2 text-warning"></i>Sofa &amp; Upholstery</a></li>
+                                        <li><a href="polytank-cleaning.html"><i class="fas fa-angle-right mr-2 text-warning"></i>Polytank Cleaning</a></li>
+                                        <li><a href="car-interior-cleaning.html"><i class="fas fa-angle-right mr-2 text-warning"></i>Car Detailing &amp; Cleaning</a></li>
+                                        <li><a href="professional-dusting.html"><i class="fas fa-angle-right mr-2 text-warning"></i>Professional Dusting</a></li>
+                                        <li><a href="service1.html"><i class="fas fa-angle-right mr-2 text-warning"></i>Services Directory</a></li>
                                     </ul>
                                 </div>
                             </div>

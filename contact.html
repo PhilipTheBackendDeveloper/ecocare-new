@@ -148,12 +148,15 @@
                                     <li>
                                         <a href="service1.html">Services</a>
                                         <ul class="dropdown-menu-col-1">
-                                            <li><a href="service1.html">All 12 Service Listings</a></li>
-                                            <li><a href="single-service1.html">EcoClean (Cleaning)</a></li>
-                                            <li><a href="single-service2.html">Eco-Laundry (Garments)</a></li>
-                                            <li><a href="pest-control.html">EcoFumes (Pest Control)</a></li>
+                                            <li><a href="service1.html">Services Directory</a></li>
+                                            <li><a href="single-service1.html">EcoClean Janitorial</a></li>
+                                            <li><a href="single-service2.html">Eco-Laundry Doorstep</a></li>
+                                            <li><a href="pest-control.html">EcoFumes Pest Control</a></li>
                                             <li><a href="carpet-cleaning.html">Carpet Deep Cleaning</a></li>
-                                            <li><a href="upholstery-cleaning.html">Upholstery &amp; Furniture</a></li>
+                                            <li><a href="upholstery-cleaning.html">Sofa &amp; Upholstery</a></li>
+                                            <li><a href="polytank-cleaning.html">Polytank Cleaning</a></li>
+                                            <li><a href="car-interior-cleaning.html">Car Detailing &amp; Cleaning</a></li>
+                                            <li><a href="professional-dusting.html">Professional Dusting</a></li>
                                         </ul>
                                     </li>
                                     <li>
@@ -264,7 +267,11 @@
                             <div class="heading-layout4">
                                 <h4>Send Us a Message</h4>
                             </div>
-                            <form class="contact-form-box" id="contact-form">
+                            <form class="contact-form-box" id="contact-form" name="contact" method="POST" action="/contact.html" data-netlify="true" data-netlify-honeypot="bot-field">
+                                <input type="hidden" name="form-name" value="contact">
+                                <p class="d-none" style="display:none !important;" aria-hidden="true">
+                                    <label>Don’t fill this out if you're human: <input name="bot-field" tabindex="-1" autocomplete="off"></label>
+                                </p>
                                 <div style="display:none !important;" aria-hidden="true">
                                     <input type="text" name="website_url" tabindex="-1" autocomplete="off" value="">
                                 </div>
@@ -299,7 +306,7 @@
                                         <button type="submit" class="fw-btn-fill bg-accent text-primarytext">Send Message</button>
                                     </div>
                                 </div>
-                                <div class="form-response mt-3"></div>
+                                <div class="form-response mt-3" role="status" aria-live="polite"></div>
                             </form>
                         </div>
                     </div>
@@ -337,12 +344,15 @@
                                 </div>
                                 <div class="footer-menu-box">
                                     <ul class="footer-menu-list">
-                                        <li><a href="single-service1.html"><i class="fas fa-angle-right mr-2 text-warning"></i>EcoClean (Cleaning)</a></li>
-                                        <li><a href="single-service2.html"><i class="fas fa-angle-right mr-2 text-warning"></i>Eco-Laundry (Garments)</a></li>
-                                        <li><a href="pest-control.html"><i class="fas fa-angle-right mr-2 text-warning"></i>EcoFumes (Fumigation)</a></li>
+                                        <li><a href="single-service1.html"><i class="fas fa-angle-right mr-2 text-warning"></i>EcoClean Janitorial</a></li>
+                                        <li><a href="single-service2.html"><i class="fas fa-angle-right mr-2 text-warning"></i>Eco-Laundry Doorstep</a></li>
+                                        <li><a href="pest-control.html"><i class="fas fa-angle-right mr-2 text-warning"></i>EcoFumes Fumigation</a></li>
                                         <li><a href="carpet-cleaning.html"><i class="fas fa-angle-right mr-2 text-warning"></i>Carpet Deep Cleaning</a></li>
-                                        <li><a href="upholstery-cleaning.html"><i class="fas fa-angle-right mr-2 text-warning"></i>Upholstery &amp; Furniture</a></li>
-                                        <li><a href="service1.html"><i class="fas fa-angle-right mr-2 text-warning"></i>All 12 Service Listings</a></li>
+                                        <li><a href="upholstery-cleaning.html"><i class="fas fa-angle-right mr-2 text-warning"></i>Sofa &amp; Upholstery</a></li>
+                                        <li><a href="polytank-cleaning.html"><i class="fas fa-angle-right mr-2 text-warning"></i>Polytank Cleaning</a></li>
+                                        <li><a href="car-interior-cleaning.html"><i class="fas fa-angle-right mr-2 text-warning"></i>Car Detailing &amp; Cleaning</a></li>
+                                        <li><a href="professional-dusting.html"><i class="fas fa-angle-right mr-2 text-warning"></i>Professional Dusting</a></li>
+                                        <li><a href="service1.html"><i class="fas fa-angle-right mr-2 text-warning"></i>Services Directory</a></li>
                                     </ul>
                                 </div>
                             </div>

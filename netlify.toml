@@ -1,15 +1,31 @@
 # EcoCare Cleaning Services Limited — Netlify Deployment Configuration
 # 
-# Current Target: Isolated 7-Day Coming Soon Landing Page
-# Publishes ONLY dist/coming-soon/ to the public domain https://ecocaregh.com
-# The full in-progress EcoCare website remains unexposed and preserved.
-# 
-# To switch to the full website upon client approval:
-#   Change 'publish = "dist/coming-soon"' to 'publish = "."' (or configure full build command).
+# Public Domain Target (Production 'main'):
+#   Strictly publishes dist/coming-soon/ to https://ecocaregh.com
+#   The live 7-Day Coming Soon landing page remains undisturbed.
+#
+# Staging Preview Target (Deploy Previews & Branch Deploys):
+#   Builds dist/staging/ via scripts/build_staging.py
+#   Serves the complete website with Netlify Forms, clean URLs, and X-Robots-Tag: noindex.
 
 [build]
   command = "python3 scripts/build_coming_soon.py"
   publish = "dist/coming-soon"
+
+# Production Context (Live Public Domain https://ecocaregh.com)
+[context.production]
+  command = "python3 scripts/build_coming_soon.py"
+  publish = "dist/coming-soon"
+
+# Deploy Previews (Pull Requests against main)
+[context.deploy-preview]
+  command = "python3 scripts/build_staging.py"
+  publish = "dist/staging"
+
+# Branch Deploys (e.g. feature branches, staging branch)
+[context.branch-deploy]
+  command = "python3 scripts/build_staging.py"
+  publish = "dist/staging"
 
 [[headers]]
   for = "/*"
@@ -18,4 +34,3 @@
     X-XSS-Protection = "1; mode=block"
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "strict-origin-when-cross-origin"
-

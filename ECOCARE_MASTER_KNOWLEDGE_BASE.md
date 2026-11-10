@@ -733,3 +733,21 @@ At EcoCare, we understand that your upholstered furniture plays a vital role in 
 
 For exhaustive traceability, `ECOCARE_CONTENT_DATA.json` contains `legacy_page_text_archive.texts_by_filename`, capturing visible text from each uploaded HTML page without repeated shared headers and footers. It includes homepage, directory, project, contact, policy and service copy. The original markup remains in the uploaded HTML, and referenced images are **not** included in the user's uploaded files.
 
+## 19. Official Owner Promotional Flyer (November 2026 Audit)
+
+**Source:** Official printed/digital promotional flyer supplied directly by EcoCare business leadership.
+
+### Confirmed Service Portfolio:
+1. **Polytank Cleaning:** Interior sediment flushing, biological buildup removal, and non-corrosive eco disinfection.
+2. **Laundry (Curtains, Duvets and Bedspreads):** Specialized bulky household textile washing, pressing, and handling alongside personal garments.
+3. **Sofa Cleaning and Fabric Care:** Couch, recliner, and living room seating deep extraction and fiber preservation.
+4. **Carpet Deep Cleaning:** Hot-water extraction, stain remediation, and high-traffic reviving.
+5. **Car Detailing and Cleaning (Interior & Exterior):** Full mobile automotive cleaning covering exterior hand wash, wheel/tire decontamination, and paint gloss detailing alongside interior seat shampooing, carpet extraction, and console sanitization.
+6. **Professional Dusting Cleaning:** Fine electrostatic particulate removal for ceilings, fans, light fixtures, vents, and Harmattan dust.
+
+### Key Governance Directives:
+- **Logo / Identity:** Retain the existing green EcoCare identity on the website. The flyer's navy-and-gold visual palette is logged as an open client branding query.
+- **Telephones:** Primary remains `+233 24 901 4253`; Secondary is `+233 24 380 7100`.
+- **Operational Reality:** Pickup/delivery and safety statements must avoid unconditional guarantees; quotes are confirmed on assessment.
+
+

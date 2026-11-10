@@ -14,6 +14,11 @@ https://www.ecocaregh.com/*   https://ecocaregh.com/:splat    301!
 /pest-control               /pest-control.html           200
 /carpet-cleaning            /carpet-cleaning.html        200
 /upholstery-cleaning        /upholstery-cleaning.html    200
+/polytank-cleaning          /polytank-cleaning.html      200
+/car-interior-cleaning      /car-interior-cleaning.html  200
+/car-detailing              /car-interior-cleaning.html  200
+/car-detailing-and-cleaning /car-interior-cleaning.html  200
+/professional-dusting       /professional-dusting.html   200
 /packages                   /pricing-table.html          200
 /request-quote              /calculate-form.html         200
 /faq                        /faq.html                    200
@@ -29,10 +34,19 @@ https://www.ecocaregh.com/*   https://ecocaregh.com/:splat    301!
 /service1.html              /services                    301
 /single-service1.html       /cleaning                    301
 /single-service2.html       /laundry                     301
+/pest-control.html          /pest-control                301
+/carpet-cleaning.html       /carpet-cleaning             301
+/upholstery-cleaning.html   /upholstery-cleaning         301
+/polytank-cleaning.html     /polytank-cleaning           301
+/car-interior-cleaning.html /car-interior-cleaning       301
+/professional-dusting.html  /professional-dusting        301
 /pricing-table.html         /packages                    301
 /calculate-form.html        /request-quote               301
 /project1.html              /projects                    301
 /single-project1.html       /projects/commercial-case-study 301
+/faq.html                   /faq                         301
+/contact.html               /contact                     301
+/privacy-policy.html        /privacy-policy              301
 /terms-condition.html       /terms                       301
 
 # 4. Deprecated Demo Template Redirects (Preserving Link Equity)

@@ -381,4 +381,31 @@ These names and reviews are a **source inventory only**; none have been independ
 
 The old EcoCare website is a substantial **content reference**: identity, five main service families, detailed sub-services, business vision, customer acquisition flow, contact details, testimonials and imagery. It is **not** a validated production specification or a trustworthy source for every marketing claim. In particular, form handlers, old template fragments, naming inconsistencies, legal copy, static availability and unapproved promotional assets should not be carried into the new build unchanged.
 
-**Next phase (when requested):** client discovery and scope confirmation, followed by a separately agreed new-website plan. Do not start implementation from this document alone.
+## 15. Official Owner Promotional Flyer Audit (November 2026)
+
+**Source:** Official EcoCare promotional flyer provided directly by Daddy (business owner).  
+**Status:** `[CLIENT-CONFIRMED]` for core service names and telephone contacts; `[CONFIRM]` for visual brand migration and unverified promotional claims.
+
+### 15.1. Confirmed Service Offerings
+The promotional flyer officially confirms the following specific service offerings:
+1. **Polytank Cleaning:** Storage water tank washing, sediment removal, and hygienic sanitation.
+2. **Laundry for Curtains, Duvets and Bedspreads:** Specialized residential linen care, bulky drapery and bedding wash/press alongside standard garment laundry.
+3. **Sofa Cleaning and Fabric Care:** Living room sofa sets, fabric suites, cushions, and upholstery preservation.
+4. **Carpet Deep Cleaning:** Heavy-traffic carpet and rug soil extraction.
+5. **Car Detailing and Cleaning (Both Interior and Exterior):** Full mobile automotive cleaning covering exterior hand wash/paint detailing AND interior seat shampooing/carpet extraction.
+6. **Professional Dusting Cleaning:** Previously confirmed by owner; fine particulate capture for ceilings, fans, vents, and seasonal Harmattan dust.
+
+### 15.2. Confirmed Contact Channels
+- **Primary Phone:** `+233 24 901 4253`
+- **Secondary Phone:** `+233 24 380 7100`
+- Both numbers are authentic EcoCare communication lines. Primary status remains with `+233 24 901 4253`.
+
+### 15.3. Visual Brand & Color Scheme Observation
+- The promotional flyer features a **gold-and-navy** visual palette.
+- The website currently uses the green leaf identity (`img/large-logo.png`, `img/logo-dark.png`).
+- **Owner Decision Required:** Preserve the green website logo and color accents until Daddy formally authorizes a rebrand to gold-and-navy.
+
+### 15.4. Unverified Claims vs. Factual Scope
+- **Pickup & Delivery:** Framed as available across Greater Accra, but operational turnaround and regional transit availability must be confirmed per booking rather than advertised as universal/unconditional.
+- **Product Safety:** Avoid absolute marketing superlatives ("100% chemical-free", "zero risk to all living things"). Use factual descriptions: "eco-conscious, fabric-safe, plant-derived detergents" and "regulated formulations applied according to safety protocols".
+- **Pricing:** No fixed rates or discounts published without explicit written confirmation from Daddy.
