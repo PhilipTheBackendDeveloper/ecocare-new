@@ -106,7 +106,7 @@ def test_canonical_html_metadata():
         if len(robots_matches) > 1:
             fail(f"Page {p_name} has duplicate robots tags: {robots_matches}")
 
-    pass_check(f"Verified 18 canonical HTML files for unique titles, lang='en-GH', canonicals, H1s, and OG metadata.")
+    pass_check(f"Verified {len(pages)} canonical HTML files for unique titles, lang='en-GH', canonicals, H1s, and OG metadata.")
 
 def test_structured_data_validation():
     print("\n--- 3. STRUCTURED DATA JSON-LD VALIDATION ---")
@@ -172,8 +172,8 @@ def test_sitemaps_and_robots():
         fail(f"XML parsing error in root sitemap.xml: {e}")
 
     locs = [elem.text for elem in root.findall("{http://www.sitemaps.org/schemas/sitemap/0.9}url/{http://www.sitemaps.org/schemas/sitemap/0.9}loc")]
-    if len(locs) != 16:
-        fail(f"Root sitemap should contain exactly 16 canonical indexable URLs, found {len(locs)}")
+    if len(locs) != 19:
+        fail(f"Root sitemap should contain exactly 19 canonical indexable URLs, found {len(locs)}")
     for url in locs:
         if not url.startswith("https://ecocaregh.com/"):
             fail(f"Invalid non-canonical URL in sitemap: {url}")

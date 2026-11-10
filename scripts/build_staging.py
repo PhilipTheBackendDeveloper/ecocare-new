@@ -30,6 +30,9 @@ CANONICAL_PAGES = [
     "pest-control.html",
     "carpet-cleaning.html",
     "upholstery-cleaning.html",
+    "polytank-cleaning.html",
+    "car-interior-cleaning.html",
+    "professional-dusting.html",
     "pricing-table.html",
     "calculate-form.html",
     "faq.html",
@@ -124,6 +127,9 @@ Disallow: /
 /pest-control                   /pest-control.html           200
 /carpet-cleaning                /carpet-cleaning.html        200
 /upholstery-cleaning            /upholstery-cleaning.html    200
+/polytank-cleaning              /polytank-cleaning.html      200
+/car-interior-cleaning          /car-interior-cleaning.html  200
+/professional-dusting           /professional-dusting.html   200
 /packages                       /pricing-table.html          200
 /request-quote                  /calculate-form.html         200
 /faq                            /faq.html                    200
@@ -138,6 +144,12 @@ Disallow: /
 /service1.html                  /services                    301
 /single-service1.html           /cleaning                    301
 /single-service2.html           /laundry                     301
+/pest-control.html              /pest-control                301
+/carpet-cleaning.html           /carpet-cleaning             301
+/upholstery-cleaning.html       /upholstery-cleaning         301
+/polytank-cleaning.html         /polytank-cleaning           301
+/car-interior-cleaning.html     /car-interior-cleaning       301
+/professional-dusting.html      /professional-dusting        301
 /pricing-table.html             /packages                    301
 /calculate-form.html            /request-quote               301
 /project1.html                  /projects                    301
@@ -245,3 +257,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+

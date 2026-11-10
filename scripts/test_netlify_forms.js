@@ -84,6 +84,9 @@ test("Sidebar quick inquiry widgets on service and FAQ pages configure Netlify c
     "pest-control.html",
     "carpet-cleaning.html",
     "upholstery-cleaning.html",
+    "polytank-cleaning.html",
+    "car-interior-cleaning.html",
+    "professional-dusting.html",
     "faq.html",
   ];
 

@@ -55,7 +55,7 @@
       "path": "services",
       "canonical_url": "https://ecocaregh.com/services",
       "title": "Our Cleaning & Fumigation Services Directory | EcoCare Ghana",
-      "description": "Explore all 12 specialized cleaning, laundry, carpet extraction, furniture care, and fumigation services across Greater Accra by EcoCare.",
+      "description": "Explore comprehensive cleaning, laundry, carpet extraction, sofa care, polytank hygiene, car interior cleaning, and dusting services across Greater Accra by EcoCare.",
       "h1": "Our Professional Cleaning & Hygiene Services",
       "robots": "index, follow",
       "schema_type": "CollectionPage",
@@ -142,9 +142,9 @@
     "upholstery-cleaning.html": {
       "path": "upholstery-cleaning",
       "canonical_url": "https://ecocaregh.com/upholstery-cleaning",
-      "title": "Upholstery & Furniture Cleaning Services | EcoCare Ghana",
-      "description": "Fabric couch deep extraction, delicate leather conditioning, and mattress allergen removal across Greater Accra by EcoCare.",
-      "h1": "Upholstery & Fine Furniture Restoration",
+      "title": "Sofa & Upholstery Cleaning Services | EcoCare Ghana",
+      "description": "Fabric sofa deep extraction, delicate leather conditioning, mattress allergen removal, and living room carpet packages across Greater Accra by EcoCare.",
+      "h1": "Sofa, Upholstery & Furniture Restoration",
       "robots": "index, follow",
       "schema_type": "Service",
       "service_type": "Upholstery, Sofa & Leather Restoration",
@@ -155,6 +155,60 @@
         {"name": "Home", "url": "https://ecocaregh.com/"},
         {"name": "Services", "url": "https://ecocaregh.com/services"},
         {"name": "Upholstery Cleaning", "url": "https://ecocaregh.com/upholstery-cleaning"}
+      ]
+    },
+    "polytank-cleaning.html": {
+      "path": "polytank-cleaning",
+      "canonical_url": "https://ecocaregh.com/polytank-cleaning",
+      "title": "Polytank & Water Tank Cleaning Services | EcoCare Ghana",
+      "description": "Professional domestic and commercial polytank cleaning, sediment flushing, algae removal, and hygienic water tank sanitization in Accra, Ghana.",
+      "h1": "Polytank & Water Storage Tank Cleaning in Accra",
+      "robots": "index, follow",
+      "schema_type": "Service",
+      "service_type": "Water Tank & Polytank Hygienic Sanitation",
+      "in_sitemap": true,
+      "changefreq": "weekly",
+      "priority": "0.85",
+      "breadcrumb": [
+        {"name": "Home", "url": "https://ecocaregh.com/"},
+        {"name": "Services", "url": "https://ecocaregh.com/services"},
+        {"name": "Polytank Cleaning", "url": "https://ecocaregh.com/polytank-cleaning"}
+      ]
+    },
+    "car-interior-cleaning.html": {
+      "path": "car-interior-cleaning",
+      "canonical_url": "https://ecocaregh.com/car-interior-cleaning",
+      "title": "Mobile Car Interior Deep Cleaning Services | EcoCare Ghana",
+      "description": "Doorstep vehicle interior deep cleaning in Accra: fabric seat shampooing, leather seat conditioning, carpet stain extraction, and dashboard detailing.",
+      "h1": "Mobile Car Interior Deep Cleaning & Upholstery Care in Accra",
+      "robots": "index, follow",
+      "schema_type": "Service",
+      "service_type": "Mobile Vehicle Interior Hygiene & Upholstery Extraction",
+      "in_sitemap": true,
+      "changefreq": "weekly",
+      "priority": "0.85",
+      "breadcrumb": [
+        {"name": "Home", "url": "https://ecocaregh.com/"},
+        {"name": "Services", "url": "https://ecocaregh.com/services"},
+        {"name": "Car Interior Cleaning", "url": "https://ecocaregh.com/car-interior-cleaning"}
+      ]
+    },
+    "professional-dusting.html": {
+      "path": "professional-dusting",
+      "canonical_url": "https://ecocaregh.com/professional-dusting",
+      "title": "Professional Dusting & Detailed Care Services | EcoCare Ghana",
+      "description": "High-precision detailed dusting in Accra: electrostatic microfiber cleaning for ceiling fans, AC vents, high ledges, and Harmattan haze mitigation.",
+      "h1": "Professional Dusting & Detailed Dust Removal in Accra",
+      "robots": "index, follow",
+      "schema_type": "Service",
+      "service_type": "Electrostatic Microfiber Dusting & Particulate Capture",
+      "in_sitemap": true,
+      "changefreq": "weekly",
+      "priority": "0.85",
+      "breadcrumb": [
+        {"name": "Home", "url": "https://ecocaregh.com/"},
+        {"name": "Services", "url": "https://ecocaregh.com/services"},
+        {"name": "Professional Dusting", "url": "https://ecocaregh.com/professional-dusting"}
       ]
     },
     "pricing-table.html": {

@@ -46,6 +46,16 @@
           "pest-control": "fumigation",
           "carpet": "carpet",
           "upholstery": "upholstery",
+          "sofa-carpet": "sofa-carpet",
+          "sofa": "sofa-carpet",
+          "polytank": "polytank",
+          "water-tank": "polytank",
+          "tank": "polytank",
+          "car-interior": "car-interior",
+          "car": "car-interior",
+          "vehicle": "car-interior",
+          "dusting": "dusting",
+          "dust": "dusting",
           "deep-clean": "post-construction",
           "post-construction": "post-construction"
         };
