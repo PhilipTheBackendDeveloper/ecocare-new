@@ -324,5 +324,27 @@
         heroVideo.play().catch(function () {});
       });
     }
+
+    // 7. EcoCare Mobile Navigation Drawer Controller (Full-Screen & Body Lock)
+    $(document).on("click", ".meanmenu-reveal", function () {
+      setTimeout(function () {
+        var isOpen = $(".meanmenu-reveal").hasClass("meanclose");
+        if (isOpen) {
+          $("body").addClass("mobile-menu-open");
+          $("html").addClass("mobile-menu-open");
+        } else {
+          $("body").removeClass("mobile-menu-open");
+          $("html").removeClass("mobile-menu-open");
+        }
+      }, 40);
+    });
+
+    $(document).on("click", ".mean-nav a:not(.mean-expand)", function () {
+      $("body").removeClass("mobile-menu-open");
+      $("html").removeClass("mobile-menu-open");
+      if ($(".meanmenu-reveal").hasClass("meanclose")) {
+        $(".meanmenu-reveal").trigger("click");
+      }
+    });
   });
 })(jQuery);

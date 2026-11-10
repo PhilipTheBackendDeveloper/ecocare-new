@@ -225,7 +225,11 @@
     --------------------------------------*/
     if ($.fn.meanmenu) {
         $('nav#dropdown').meanmenu({
-            siteLogo: "<div class='mobile-menu-nav-back'><a class='logo-mobile' href='index.html'><img src='img/mobile-logo.png' alt='logo' class='img-fluid'/></a></div>"
+            siteLogo: "<div class='mobile-menu-nav-back'><a class='logo-mobile' href='index.html'><img src='img/mobile-logo.png' alt='logo' class='img-fluid'/></a></div>",
+            meanMenuClose: "<span class='mean-close-icon'>&#10005;</span>",
+            meanMenuOpen: "<span></span><span></span><span></span>",
+            meanRevealPosition: "right",
+            meanScreenWidth: "991"
         });
     }
 
