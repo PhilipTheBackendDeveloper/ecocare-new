@@ -571,3 +571,779 @@
 .fa-tiktok::before {
   content: "" !important;
 }
+
+/* ==========================================================================
+   EcoCare Desktop & Mobile Navigation Suite
+   - Desktop At Rest: Straight, seamless full-width header bar
+   - Desktop Scrolled (.rt-sticky): Sleek floating curved liquid glass capsule
+   - Mobile: Floating pill bar at top (far-left logo, far-right toggle)
+   - Mobile Open: Full-screen pure white canvas, zero phantom boxes, no overlap
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. Desktop Navigation (min-width: 992px)
+   -------------------------------------------------------------------------- */
+@media (min-width: 992px) {
+  /* At Rest: Clean, straight full-width bar (No curved pill, no side margins) */
+  .header-menu.menu-layout1:not(.rt-sticky) {
+    margin: 0 !important;
+    max-width: 100% !important;
+    width: 100% !important;
+    border-radius: 0 !important;
+    background: #ffffff !important;
+    border: none !important;
+    border-bottom: 1px solid #ebebeb !important;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03) !important;
+    padding: 0 !important;
+    position: relative !important;
+    transform: none !important;
+    left: auto !important;
+    top: auto !important;
+    transition: all 0.25s ease !important;
+  }
+
+  .header-menu.menu-layout1:not(.rt-sticky) .container {
+    max-width: 1240px !important;
+    width: 100% !important;
+    margin: 0 auto !important;
+  }
+
+  .header-menu.menu-layout1:not(.rt-sticky) .logo-area img {
+    max-height: 48px !important;
+    width: auto !important;
+  }
+
+  .header-menu.menu-layout1:not(.rt-sticky) nav.template-main-menu > ul > li > a {
+    padding: 34px 18px !important;
+    font-size: 15.5px !important;
+    font-weight: 700 !important;
+    color: #14287b !important;
+    position: relative !important;
+    transition: color 0.2s ease !important;
+  }
+
+  .header-menu.menu-layout1:not(.rt-sticky) nav.template-main-menu > ul > li:hover > a,
+  .header-menu.menu-layout1:not(.rt-sticky) nav.template-main-menu > ul > li.active > a {
+    color: #008817 !important;
+  }
+
+  .header-menu.menu-layout1:not(.rt-sticky) nav.template-main-menu > ul > li.active > a::after {
+    content: "" !important;
+    position: absolute !important;
+    bottom: 0 !important;
+    left: 18px !important;
+    right: 18px !important;
+    height: 3px !important;
+    background: #008817 !important;
+    border-radius: 3px 3px 0 0 !important;
+  }
+
+  /* Sticky On Scroll: Luxurious Floating Curved Liquid Glass Capsule */
+  @keyframes glassCapsuleSlideDown {
+    0% {
+      transform: translate(-50%, -100%);
+      opacity: 0.6;
+    }
+    100% {
+      transform: translate(-50%, 0);
+      opacity: 1;
+    }
+  }
+
+  .header-menu.menu-layout1.rt-sticky {
+    position: fixed !important;
+    top: 16px !important;
+    left: 50% !important;
+    right: auto !important;
+    transform: translateX(-50%) !important;
+    width: calc(100% - 64px) !important;
+    max-width: 1280px !important;
+    z-index: 9999 !important;
+    border-radius: 999px !important;
+    /* True Liquid Glass: Highly translucent + deep silky frosted blur */
+    background: rgba(255, 255, 255, 0.72) !important;
+    -webkit-backdrop-filter: blur(24px) saturate(190%) !important;
+    backdrop-filter: blur(24px) saturate(190%) !important;
+    border: 1px solid rgba(255, 255, 255, 0.85) !important;
+    box-shadow: 0 16px 42px -6px rgba(15, 23, 42, 0.14),
+                inset 0 1.5px 1px 0 rgba(255, 255, 255, 0.95),
+                inset 0 -1px 1px 0 rgba(0, 0, 0, 0.04) !important;
+    padding: 0 32px !important;
+    min-height: 72px !important;
+    display: flex !important;
+    align-items: center !important;
+    animation: glassCapsuleSlideDown 0.35s cubic-bezier(0.16, 1, 0.3, 1) both !important;
+  }
+
+  .header-menu.menu-layout1.rt-sticky .container {
+    max-width: 100% !important;
+    width: 100% !important;
+    padding: 0 !important;
+  }
+
+  .header-menu.menu-layout1.rt-sticky .logo-area img {
+    max-height: 44px !important;
+    width: auto !important;
+  }
+
+  .header-menu.menu-layout1.rt-sticky nav.template-main-menu > ul > li > a {
+    padding: 22px 18px !important;
+    font-size: 15.5px !important;
+    font-weight: 700 !important;
+    color: #14287b !important;
+    transition: color 0.2s ease !important;
+  }
+
+  .header-menu.menu-layout1.rt-sticky nav.template-main-menu > ul > li:hover > a,
+  .header-menu.menu-layout1.rt-sticky nav.template-main-menu > ul > li.active > a {
+    color: #008817 !important;
+  }
+
+  .header-menu.menu-layout1.rt-sticky nav.template-main-menu > ul > li.active > a::after {
+    display: none !important;
+  }
+
+  /* Desktop Dropdowns: Matching Liquid Glass */
+  .header-menu.menu-layout1 nav.template-main-menu > ul > li ul.dropdown-menu-col-1 {
+    background: rgba(255, 255, 255, 0.88) !important;
+    -webkit-backdrop-filter: blur(24px) saturate(190%) !important;
+    backdrop-filter: blur(24px) saturate(190%) !important;
+    border: 1px solid rgba(255, 255, 255, 0.9) !important;
+    border-radius: 20px !important;
+    box-shadow: 0 20px 45px -10px rgba(15, 23, 42, 0.16),
+                inset 0 1px 1px 0 rgba(255, 255, 255, 0.95) !important;
+    padding: 10px 8px !important;
+    min-width: 260px !important;
+    overflow: hidden;
+    transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  }
+
+  .header-menu.menu-layout1 nav.template-main-menu > ul > li ul.dropdown-menu-col-1 li {
+    position: relative;
+  }
+
+  .header-menu.menu-layout1 nav.template-main-menu > ul > li ul.dropdown-menu-col-1 li:after {
+    display: none !important;
+  }
+
+  .header-menu.menu-layout1 nav.template-main-menu > ul > li ul.dropdown-menu-col-1 li a {
+    font-size: 14.5px !important;
+    font-weight: 600 !important;
+    color: #14287b !important;
+    padding: 10px 16px !important;
+    border-radius: 12px !important;
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  }
+
+  .header-menu.menu-layout1 nav.template-main-menu > ul > li ul.dropdown-menu-col-1 li a:hover {
+    background: rgba(0, 136, 23, 0.08) !important;
+    color: #008817 !important;
+    transform: translateX(4px);
+    padding-left: 20px !important;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   2. Mobile Floating Pill Bar & Full-Screen Canvas Drawer (max-width: 991px)
+   -------------------------------------------------------------------------- */
+@media only screen and (max-width: 991px) {
+
+  /* ---- Base MeanMenu Overrides (kill navy defaults) ---- */
+  .mean-container {
+    float: none !important;
+    width: 100% !important;
+  }
+  .mean-container .mean-nav {
+    float: none !important;
+    background: #ffffff !important;
+  }
+  .mean-container .mean-nav ul li {
+    float: none !important;
+    background: transparent !important;
+  }
+  .mean-container .mean-nav ul li a {
+    float: none !important;
+    background: transparent !important;
+    color: #0b1c3f !important;
+  }
+  .mean-container .mean-nav ul li a.mean-expand {
+    background: #f1f5f9 !important;
+  }
+
+  /* ---- Body lock when menu open ---- */
+  html.mobile-menu-open,
+  body.mobile-menu-open {
+    overflow: hidden !important;
+    height: 100% !important;
+    width: 100% !important;
+  }
+
+  /* ======================================================
+     CLOSED STATE: Floating Glass Pill (logo left, ≡ right)
+     ====================================================== */
+  .mean-container .mean-bar {
+    position: fixed !important;
+    top: max(14px, env(safe-area-inset-top, 14px)) !important;
+    left: 14px !important;
+    right: 14px !important;
+    width: auto !important;
+    float: none !important;
+    z-index: 99999 !important;
+    /* At rest: very subtle frosted glass */
+    background: rgba(255, 255, 255, 0.72) !important;
+    -webkit-backdrop-filter: blur(20px) saturate(160%) brightness(1.08) !important;
+    backdrop-filter: blur(20px) saturate(160%) brightness(1.08) !important;
+    border-radius: 999px !important;
+    border: 1px solid rgba(255, 255, 255, 0.70) !important;
+    box-shadow: 0 4px 18px rgba(15, 23, 42, 0.07),
+                inset 0 1px 0 rgba(255, 255, 255, 0.90) !important;
+    padding: 0 10px 0 18px !important;
+    height: 60px !important;
+    min-height: 60px !important;
+    box-sizing: border-box !important;
+    display: flex !important;
+    align-items: center !important;
+    transition: background 0.35s ease,
+                box-shadow 0.35s ease,
+                border-color 0.35s ease,
+                top 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+                border-radius 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+                left 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+                right 0.35s cubic-bezier(0.16, 1, 0.3, 1) !important;
+  }
+
+  /* SCROLLED: Deeper liquid glass — richer blur, stronger shadow, slight tint */
+  .mean-container .mean-bar.is-scrolled {
+    background: rgba(255, 255, 255, 0.82) !important;
+    -webkit-backdrop-filter: blur(32px) saturate(200%) brightness(1.05) !important;
+    backdrop-filter: blur(32px) saturate(200%) brightness(1.05) !important;
+    border: 1px solid rgba(255, 255, 255, 0.90) !important;
+    box-shadow: 0 10px 40px rgba(15, 23, 42, 0.14),
+                0 2px 8px rgba(15, 23, 42, 0.06),
+                inset 0 1px 0 rgba(255, 255, 255, 1.00) !important;
+  }
+
+  /* ======================================================
+     OPEN STATE: Mean-bar becomes full-width header strip
+     ====================================================== */
+  body.mobile-menu-open .mean-container .mean-bar,
+  .mean-container:has(a.meanmenu-reveal.meanclose) .mean-bar {
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    width: 100vw !important;
+    min-width: 100vw !important;
+    border-radius: 0 !important;
+    background: #ffffff !important;
+    -webkit-backdrop-filter: none !important;
+    backdrop-filter: none !important;
+    border: none !important;
+    border-bottom: 1.5px solid #f1f5f9 !important;
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.07) !important;
+    padding: 0 20px !important;
+    height: max(76px, calc(env(safe-area-inset-top, 0px) + 76px)) !important;
+    padding-top: env(safe-area-inset-top, 0px) !important;
+  }
+
+  /* When open, logo becomes a bit larger and more prominent */
+  body.mobile-menu-open .mean-container .mean-bar .logo-mobile img,
+  .mean-container:has(a.meanmenu-reveal.meanclose) .mean-bar .logo-mobile img {
+    max-height: 54px !important;
+    width: auto !important;
+  }
+  .mean-container .mean-bar .mobile-menu-nav-back {
+    position: absolute !important;
+    left: 18px !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    background: transparent !important;
+    border: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    display: flex !important;
+    align-items: center !important;
+    z-index: 2 !important;
+    text-decoration: none !important;
+  }
+
+  .mean-container .mean-bar .mobile-menu-nav-back:before {
+    display: none !important;
+  }
+
+  .mean-container .mean-bar .logo-mobile {
+    display: flex !important;
+    align-items: center !important;
+    text-decoration: none !important;
+  }
+
+  /* Closed state: compact logo in pill */
+  .mean-container .mean-bar .logo-mobile img {
+    max-height: 38px !important;
+    width: auto !important;
+    display: block !important;
+    transition: all 0.3s ease !important;
+  }
+
+  /* Open state: larger, more prominent logo in the header strip */
+  body.mobile-menu-open .mean-container .mean-bar .logo-mobile img,
+  .mean-container:has(a.meanmenu-reveal.meanclose) .mean-bar .logo-mobile img {
+    max-height: 52px !important;
+    width: auto !important;
+  }
+
+  /* ---- Hamburger / Close Button (always far right) ---- */
+  .mean-container a.meanmenu-reveal {
+    position: absolute !important;
+    right: 12px !important;
+    left: auto !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    float: none !important;
+    width: 44px !important;
+    height: 44px !important;
+    border-radius: 50% !important;
+    background: #f1f5f9 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 4px !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    cursor: pointer !important;
+    text-indent: 0 !important;
+    border: 1px solid rgba(0, 0, 0, 0.06) !important;
+    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    text-decoration: none !important;
+    z-index: 100000 !important;
+    box-sizing: border-box !important;
+  }
+
+  .mean-container a.meanmenu-reveal:hover {
+    background: #e2e8f0 !important;
+    transform: translateY(-50%) scale(1.05) !important;
+  }
+
+  /* Three bar lines */
+  .mean-container a.meanmenu-reveal span {
+    display: block !important;
+    background: #14287b !important;
+    height: 2.5px !important;
+    width: 20px !important;
+    border-radius: 3px !important;
+    margin: 0 !important;
+    transition: all 0.25s ease !important;
+  }
+
+  /* ✕ Close state */
+  .mean-container a.meanmenu-reveal.meanclose {
+    background: #f1f5f9 !important;
+    color: #0b1c3f !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+  }
+
+  .mean-container a.meanmenu-reveal.meanclose span {
+    display: none !important;
+  }
+
+  .mean-container a.meanmenu-reveal.meanclose .mean-close-icon {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-size: 20px !important;
+    font-weight: 500 !important;
+    color: #0b1c3f !important;
+    line-height: 1 !important;
+    width: 100% !important;
+    height: 100% !important;
+  }
+
+  /* ======================================================
+     FULL-SCREEN DRAWER (open state)
+     ====================================================== */
+
+  /* Hidden when closed */
+  .mean-container a.meanmenu-reveal:not(.meanclose) ~ .mean-nav,
+  body:not(.mobile-menu-open) .mean-container .mean-nav {
+    display: none !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+  }
+
+  /* Full-screen white canvas when open */
+  .mean-container a.meanmenu-reveal.meanclose ~ .mean-nav,
+  body.mobile-menu-open .mean-container .mean-nav {
+    display: block !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    width: 100vw !important;
+    min-width: 100vw !important;
+    height: 100vh !important;
+    height: 100dvh !important;
+    background: #ffffff !important;
+    z-index: 99988 !important;
+    overflow-y: auto !important;
+    -webkit-overflow-scrolling: touch !important;
+    /* Clears the full-width header strip (76px) + safe area + breathing room */
+    padding-top: calc(max(env(safe-area-inset-top, 0px), 0px) + 94px) !important;
+    padding-left: 28px !important;
+    padding-right: 28px !important;
+    padding-bottom: max(40px, env(safe-area-inset-bottom, 40px)) !important;
+    box-sizing: border-box !important;
+    margin: 0 !important;
+    float: none !important;
+    border: none !important;
+    box-shadow: none !important;
+  }
+
+  /* ---- Nav list ---- */
+  .mean-container .mean-nav > ul {
+    display: block !important;
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    width: 100% !important;
+    list-style: none !important;
+  }
+
+  /* Greeting label above nav items */
+  .mean-container .mean-nav > ul::before {
+    content: "Navigation" !important;
+    display: block !important;
+    font-size: 11px !important;
+    font-weight: 700 !important;
+    letter-spacing: 1.8px !important;
+    text-transform: uppercase !important;
+    color: #008817 !important;
+    padding-bottom: 10px !important;
+    margin-bottom: 4px !important;
+    border-bottom: 2px solid #f1f5f9 !important;
+  }
+
+  /* Each nav row */
+  .mean-container .mean-nav > ul > li {
+    position: relative !important;
+    border-top: none !important;
+    border-bottom: 1px solid #f1f5f9 !important;
+    background: transparent !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 100% !important;
+    float: none !important;
+  }
+
+  /* Nav link text */
+  .mean-container .mean-nav > ul > li > a {
+    font-size: 20px !important;
+    font-weight: 700 !important;
+    color: #0b1c3f !important;
+    letter-spacing: -0.3px !important;
+    text-transform: capitalize !important;
+    background: transparent !important;
+    padding: 18px 48px 18px 0 !important;
+    display: block !important;
+    width: 100% !important;
+    float: none !important;
+    transition: color 0.2s ease !important;
+    border: none !important;
+    text-decoration: none !important;
+    box-sizing: border-box !important;
+  }
+
+  .mean-container .mean-nav > ul > li > a:hover {
+    color: #008817 !important;
+    background: transparent !important;
+  }
+
+  /* Active page link */
+  .mean-container .mean-nav > ul > li.active > a {
+    color: #008817 !important;
+    font-weight: 800 !important;
+    background: transparent !important;
+  }
+
+  /* Chevron arrow (right side) for plain links */
+  .mean-container .mean-nav > ul > li:not(.mobile-menu-cta-wrap) > a::after {
+    content: "\f054" !important;
+    font-family: "Font Awesome 5 Free" !important;
+    font-weight: 900 !important;
+    font-size: 12px !important;
+    color: #cbd5e1 !important;
+    position: absolute !important;
+    right: 4px !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+  }
+
+  /* Suppress chevron on items that have expand button */
+  .mean-container .mean-nav > ul > li:has(ul) > a::after,
+  .mean-container .mean-nav > ul > li:has(.mean-expand) > a::after,
+  .mean-container .mean-nav > ul > li.menu-item-has-children > a::after,
+  .mean-container .mean-nav > ul > li:nth-child(3) > a::after {
+    display: none !important;
+    content: none !important;
+  }
+
+  /* +/- Expand button (Services submenu) */
+  .mean-container .mean-nav > ul > li a.mean-expand {
+    position: absolute !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    right: 0 !important;
+    width: 38px !important;
+    height: 38px !important;
+    line-height: 38px !important;
+    text-align: center !important;
+    background: #f1f5f9 !important;
+    border-radius: 50% !important;
+    font-size: 18px !important;
+    font-weight: 700 !important;
+    color: #14287b !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    z-index: 2 !important;
+    border: 1px solid rgba(0, 0, 0, 0.04) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    transition: all 0.2s ease !important;
+    float: none !important;
+    width: 38px !important;
+  }
+
+  .mean-container .mean-nav > ul > li a.mean-expand:hover {
+    background: #e2e8f0 !important;
+    color: #008817 !important;
+  }
+
+  .mean-container .mean-nav > ul > li a.mean-expand.mean-clicked {
+    background: #14287b !important;
+    color: #ffffff !important;
+  }
+
+  /* Submenu items */
+  .mean-container .mean-nav > ul > li ul {
+    padding: 4px 0 12px 16px !important;
+    background: transparent !important;
+    border: none !important;
+    float: none !important;
+    width: 100% !important;
+  }
+
+  .mean-container .mean-nav > ul > li ul li {
+    border-bottom: 1px dashed #f1f5f9 !important;
+    border-top: none !important;
+    background: transparent !important;
+    float: none !important;
+    width: 100% !important;
+  }
+
+  .mean-container .mean-nav > ul > li ul li:last-child {
+    border-bottom: none !important;
+  }
+
+  .mean-container .mean-nav > ul > li ul li a {
+    font-size: 15px !important;
+    font-weight: 500 !important;
+    color: #475569 !important;
+    padding: 11px 0 !important;
+    text-transform: capitalize !important;
+    background: transparent !important;
+    border: none !important;
+    display: block !important;
+    width: 100% !important;
+    float: none !important;
+    transition: all 0.2s ease !important;
+    text-decoration: none !important;
+  }
+
+  .mean-container .mean-nav > ul > li ul li a::after {
+    display: none !important;
+    content: none !important;
+  }
+
+  .mean-container .mean-nav > ul > li ul li a:hover {
+    color: #008817 !important;
+    padding-left: 8px !important;
+  }
+
+  /* ---- Bottom CTA "Book Now" pill ---- */
+  .mean-container .mean-nav > ul > li.mobile-menu-cta-wrap {
+    border-bottom: none !important;
+    margin-top: 32px !important;
+    padding: 0 !important;
+    text-align: center !important;
+    float: none !important;
+    width: 100% !important;
+    background: transparent !important;
+  }
+
+  .mean-container .mean-nav > ul > li.mobile-menu-cta-wrap a.mobile-menu-book-btn {
+    background: #14287b !important;
+    color: #ffffff !important;
+    font-size: 17px !important;
+    font-weight: 700 !important;
+    text-align: center !important;
+    border-radius: 999px !important;
+    padding: 17px 32px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 10px !important;
+    text-decoration: none !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    box-shadow: 0 10px 28px rgba(20, 40, 123, 0.28) !important;
+    transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease !important;
+  }
+
+  .mean-container .mean-nav > ul > li.mobile-menu-cta-wrap a.mobile-menu-book-btn::after {
+    display: none !important;
+    content: none !important;
+  }
+
+  .mean-container .mean-nav > ul > li.mobile-menu-cta-wrap a.mobile-menu-book-btn:hover {
+    background: #008817 !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 14px 32px rgba(0, 136, 23, 0.25) !important;
+  }
+
+  .mean-container .mean-nav > ul > li.mobile-menu-cta-wrap .mobile-menu-copyright {
+    font-size: 12.5px !important;
+    color: #94a3b8 !important;
+    margin-top: 18px !important;
+    text-align: center !important;
+  }
+
+  /* ---- Utilities ---- */
+  .scrollup {
+    z-index: 99 !important;
+  }
+
+  body.mobile-menu-open .scrollup,
+  html.mobile-menu-open .scrollup {
+    display: none !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+  }
+
+  /* Zero out any JS-set wrapper padding */
+  body.sticky-header #wrapper,
+  #wrapper {
+    padding-top: 0 !important;
+  }
+}
+
+/* Reduced Motion Safety */
+@media (prefers-reduced-motion: reduce) {
+  .header-menu.menu-layout1.rt-sticky {
+    animation: none !important;
+  }
+}
+
+/* ==========================================================================
+   EcoCare Native Clenix Process Layout (4-Column Refinement)
+   ========================================================================== */
+@media only screen and (min-width: 992px) {
+  .col-lg-3.single-process .process-box-layout1 {
+    padding: 0 1rem;
+  }
+  .col-lg-3.single-process .process-box-layout1:after {
+    right: -32px;
+    top: 5.5rem;
+  }
+}
+
+/* ==========================================================================
+   Mobile Header Topbar — Hidden on Mobile (prevents white strip)
+   ========================================================================== */
+@media only screen and (max-width: 991px) {
+  /* Hide the original dark-blue topbar on mobile — meanmenu replaces the whole header */
+  #header-topbar {
+    display: none !important;
+  }
+
+  /* Remove the sticky placeholder ghost height on mobile */
+  #rt-sticky-placeholder {
+    display: none !important;
+    height: 0 !important;
+  }
+
+  /* Hide the original desktop header nav bar — meanmenu replaces it completely.
+     The meanmenu plugin moves #header-menu content into .mean-container so we
+     suppress the original shell to eliminate the white gap below the pill. */
+  #header-menu {
+    display: none !important;
+  }
+
+  /* Also hide the wrapper helper .header-area if present */
+  .header .header-menu.menu-layout1 {
+    display: none !important;
+  }
+}
+
+/* ==========================================================================
+   EcoCare Process Section — Icon Size & Visibility Fix
+   ========================================================================== */
+
+/* Ensure the icon wrapper is centered properly inside the bubble */
+.process-box-layout1 .item-bg .item-icon {
+  position: absolute !important;
+  top: 50% !important;
+  left: 0 !important;
+  right: 0 !important;
+  transform: translateY(-50%) !important;
+  text-align: center !important;
+  line-height: 1 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  pointer-events: none !important;
+}
+
+/* The <i> icon element itself — big, blue, centered */
+.process-box-layout1 .item-bg .item-icon i {
+  font-size: 62px !important;
+  color: #3084f9 !important;
+  line-height: 1 !important;
+  display: block !important;
+  font-style: normal !important;
+}
+
+/* Both :before and :after pseudo-elements (different flaticons use different ones) */
+.process-box-layout1 .item-bg .item-icon i:before,
+.process-box-layout1 .item-bg .item-icon i:after {
+  font-size: 62px !important;
+  color: #3084f9 !important;
+  display: block !important;
+  margin: 0 !important;
+  line-height: 1 !important;
+}
+
+/* Mobile: slightly smaller but still prominent */
+@media only screen and (max-width: 767px) {
+  .process-box-layout1 .item-bg .item-icon i,
+  .process-box-layout1 .item-bg .item-icon i:before,
+  .process-box-layout1 .item-bg .item-icon i:after {
+    font-size: 48px !important;
+  }
+}
+@media only screen and (max-width: 991px) {
+  .single-process .process-box-layout1 {
+    padding: 0 15px;
+    margin-bottom: 2.5rem;
+  }
+}
+
+
+
