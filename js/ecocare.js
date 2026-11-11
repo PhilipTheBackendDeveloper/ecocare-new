@@ -346,5 +346,59 @@
         $(".meanmenu-reveal").trigger("click");
       }
     });
+
+    // 8. Mobile Liquid Glass Scroll Enhancement
+    // Adds .is-scrolled to .mean-bar when user scrolls past 10px on mobile,
+    // triggering deeper glass blur, shadow and a subtle tint on the pill.
+    (function () {
+      var meanBar = null;
+      var rafPending = false;
+
+      function updateScrollGlass() {
+        rafPending = false;
+        if (!meanBar) {
+          meanBar = document.querySelector(".mean-container .mean-bar");
+        }
+        if (!meanBar) return;
+        var scrollY = window.pageYOffset || document.documentElement.scrollTop;
+        if (scrollY > 10) {
+          meanBar.classList.add("is-scrolled");
+        } else {
+          meanBar.classList.remove("is-scrolled");
+        }
+      }
+
+      function onScroll() {
+        if (!rafPending) {
+          rafPending = true;
+          window.requestAnimationFrame(updateScrollGlass);
+        }
+      }
+
+      // Only activate on mobile widths
+      function attachScrollGlass() {
+        if (window.innerWidth <= 991) {
+          window.addEventListener("scroll", onScroll, { passive: true });
+          updateScrollGlass(); // run once on load
+        }
+      }
+
+      // Re-evaluate on resize
+      window.addEventListener("resize", function () {
+        if (window.innerWidth > 991) {
+          window.removeEventListener("scroll", onScroll);
+          if (meanBar) meanBar.classList.remove("is-scrolled");
+        } else {
+          window.addEventListener("scroll", onScroll, { passive: true });
+        }
+      });
+
+      if (document.readyState === "loading") {
+        document.addEventListener("DOMContentLoaded", attachScrollGlass);
+      } else {
+        attachScrollGlass();
+      }
+    })();
+
   });
 })(jQuery);

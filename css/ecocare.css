@@ -747,14 +747,40 @@
    2. Mobile Floating Pill Bar & Full-Screen Canvas Drawer (max-width: 991px)
    -------------------------------------------------------------------------- */
 @media only screen and (max-width: 991px) {
-  /* Prevent background scrolling when mobile menu overlay is active */
+
+  /* ---- Base MeanMenu Overrides (kill navy defaults) ---- */
+  .mean-container {
+    float: none !important;
+    width: 100% !important;
+  }
+  .mean-container .mean-nav {
+    float: none !important;
+    background: #ffffff !important;
+  }
+  .mean-container .mean-nav ul li {
+    float: none !important;
+    background: transparent !important;
+  }
+  .mean-container .mean-nav ul li a {
+    float: none !important;
+    background: transparent !important;
+    color: #0b1c3f !important;
+  }
+  .mean-container .mean-nav ul li a.mean-expand {
+    background: #f1f5f9 !important;
+  }
+
+  /* ---- Body lock when menu open ---- */
   html.mobile-menu-open,
   body.mobile-menu-open {
     overflow: hidden !important;
     height: 100% !important;
+    width: 100% !important;
   }
 
-  /* Floating Mobile Top Bar (Pill shape, clears Dynamic Island & status bar) */
+  /* ======================================================
+     CLOSED STATE: Floating Glass Pill (logo left, ≡ right)
+     ====================================================== */
   .mean-container .mean-bar {
     position: fixed !important;
     top: max(14px, env(safe-area-inset-top, 14px)) !important;
@@ -763,28 +789,68 @@
     width: auto !important;
     float: none !important;
     z-index: 99999 !important;
-    background: rgba(255, 255, 255, 0.95) !important;
-    -webkit-backdrop-filter: blur(24px) saturate(180%) !important;
-    backdrop-filter: blur(24px) saturate(180%) !important;
+    /* At rest: very subtle frosted glass */
+    background: rgba(255, 255, 255, 0.72) !important;
+    -webkit-backdrop-filter: blur(20px) saturate(160%) brightness(1.08) !important;
+    backdrop-filter: blur(20px) saturate(160%) brightness(1.08) !important;
     border-radius: 999px !important;
-    border: 1px solid rgba(255, 255, 255, 0.85) !important;
-    box-shadow: 0 8px 30px rgba(15, 23, 42, 0.08),
-                inset 0 1px 1px 0 rgba(255, 255, 255, 0.95) !important;
-    padding: 0 16px !important;
-    height: 58px !important;
-    min-height: 58px !important;
+    border: 1px solid rgba(255, 255, 255, 0.70) !important;
+    box-shadow: 0 4px 18px rgba(15, 23, 42, 0.07),
+                inset 0 1px 0 rgba(255, 255, 255, 0.90) !important;
+    padding: 0 10px 0 18px !important;
+    height: 60px !important;
+    min-height: 60px !important;
     box-sizing: border-box !important;
+    display: flex !important;
+    align-items: center !important;
+    transition: background 0.35s ease,
+                box-shadow 0.35s ease,
+                border-color 0.35s ease,
+                top 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+                border-radius 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+                left 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+                right 0.35s cubic-bezier(0.16, 1, 0.3, 1) !important;
   }
 
-  /* Open State: Top bar matches the pure white drawer */
+  /* SCROLLED: Deeper liquid glass — richer blur, stronger shadow, slight tint */
+  .mean-container .mean-bar.is-scrolled {
+    background: rgba(255, 255, 255, 0.82) !important;
+    -webkit-backdrop-filter: blur(32px) saturate(200%) brightness(1.05) !important;
+    backdrop-filter: blur(32px) saturate(200%) brightness(1.05) !important;
+    border: 1px solid rgba(255, 255, 255, 0.90) !important;
+    box-shadow: 0 10px 40px rgba(15, 23, 42, 0.14),
+                0 2px 8px rgba(15, 23, 42, 0.06),
+                inset 0 1px 0 rgba(255, 255, 255, 1.00) !important;
+  }
+
+  /* ======================================================
+     OPEN STATE: Mean-bar becomes full-width header strip
+     ====================================================== */
   body.mobile-menu-open .mean-container .mean-bar,
   .mean-container:has(a.meanmenu-reveal.meanclose) .mean-bar {
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    width: 100vw !important;
+    min-width: 100vw !important;
+    border-radius: 0 !important;
     background: #ffffff !important;
-    border: 1px solid rgba(0, 0, 0, 0.05) !important;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05) !important;
+    -webkit-backdrop-filter: none !important;
+    backdrop-filter: none !important;
+    border: none !important;
+    border-bottom: 1.5px solid #f1f5f9 !important;
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.07) !important;
+    padding: 0 20px !important;
+    height: max(76px, calc(env(safe-area-inset-top, 0px) + 76px)) !important;
+    padding-top: env(safe-area-inset-top, 0px) !important;
   }
 
-  /* Logo strictly anchored on the FAR LEFT */
+  /* When open, logo becomes a bit larger and more prominent */
+  body.mobile-menu-open .mean-container .mean-bar .logo-mobile img,
+  .mean-container:has(a.meanmenu-reveal.meanclose) .mean-bar .logo-mobile img {
+    max-height: 54px !important;
+    width: auto !important;
+  }
   .mean-container .mean-bar .mobile-menu-nav-back {
     position: absolute !important;
     left: 18px !important;
@@ -794,10 +860,10 @@
     border: none !important;
     padding: 0 !important;
     margin: 0 !important;
-    height: 38px !important;
     display: flex !important;
     align-items: center !important;
     z-index: 2 !important;
+    text-decoration: none !important;
   }
 
   .mean-container .mean-bar .mobile-menu-nav-back:before {
@@ -807,15 +873,25 @@
   .mean-container .mean-bar .logo-mobile {
     display: flex !important;
     align-items: center !important;
+    text-decoration: none !important;
   }
 
+  /* Closed state: compact logo in pill */
   .mean-container .mean-bar .logo-mobile img {
-    max-height: 36px !important;
+    max-height: 38px !important;
     width: auto !important;
     display: block !important;
+    transition: all 0.3s ease !important;
   }
 
-  /* Hamburger & Close Toggle Button strictly anchored on the FAR RIGHT */
+  /* Open state: larger, more prominent logo in the header strip */
+  body.mobile-menu-open .mean-container .mean-bar .logo-mobile img,
+  .mean-container:has(a.meanmenu-reveal.meanclose) .mean-bar .logo-mobile img {
+    max-height: 52px !important;
+    width: auto !important;
+  }
+
+  /* ---- Hamburger / Close Button (always far right) ---- */
   .mean-container a.meanmenu-reveal {
     position: absolute !important;
     right: 12px !important;
@@ -823,49 +899,49 @@
     top: 50% !important;
     transform: translateY(-50%) !important;
     float: none !important;
-    width: 42px !important;
-    height: 42px !important;
+    width: 44px !important;
+    height: 44px !important;
     border-radius: 50% !important;
     background: #f1f5f9 !important;
     display: flex !important;
     flex-direction: column !important;
     align-items: center !important;
     justify-content: center !important;
-    gap: 3.5px !important;
+    gap: 4px !important;
     padding: 0 !important;
     margin: 0 !important;
     cursor: pointer !important;
     text-indent: 0 !important;
-    border: 1px solid rgba(0, 0, 0, 0.04) !important;
+    border: 1px solid rgba(0, 0, 0, 0.06) !important;
     transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
     text-decoration: none !important;
-    z-index: 3 !important;
+    z-index: 100000 !important;
     box-sizing: border-box !important;
   }
 
   .mean-container a.meanmenu-reveal:hover {
     background: #e2e8f0 !important;
+    transform: translateY(-50%) scale(1.05) !important;
   }
 
-  /* Three horizontal lines (Closed hamburger) */
+  /* Three bar lines */
   .mean-container a.meanmenu-reveal span {
     display: block !important;
     background: #14287b !important;
-    height: 2px !important;
-    width: 18px !important;
-    border-radius: 2px !important;
+    height: 2.5px !important;
+    width: 20px !important;
+    border-radius: 3px !important;
     margin: 0 !important;
     transition: all 0.25s ease !important;
   }
 
-  /* When Open: Clean Circular Close Button with '✕' */
+  /* ✕ Close state */
   .mean-container a.meanmenu-reveal.meanclose {
     background: #f1f5f9 !important;
     color: #0b1c3f !important;
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
-    line-height: 42px !important;
   }
 
   .mean-container a.meanmenu-reveal.meanclose span {
@@ -876,7 +952,7 @@
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
-    font-size: 19px !important;
+    font-size: 20px !important;
     font-weight: 500 !important;
     color: #0b1c3f !important;
     line-height: 1 !important;
@@ -884,31 +960,42 @@
     height: 100% !important;
   }
 
-  /* Closed State: .mean-nav is COMPLETELY HIDDEN (zero phantom boxes or stray cards) */
-  .mean-container a.meanmenu-reveal:not(.meanclose) ~ .mean-nav {
-    display: none !important;
-  }
+  /* ======================================================
+     FULL-SCREEN DRAWER (open state)
+     ====================================================== */
+
+  /* Hidden when closed */
+  .mean-container a.meanmenu-reveal:not(.meanclose) ~ .mean-nav,
   body:not(.mobile-menu-open) .mean-container .mean-nav {
     display: none !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
   }
 
-  /* Open State: Full-Screen Pure White Drawer Canvas */
+  /* Full-screen white canvas when open */
   .mean-container a.meanmenu-reveal.meanclose ~ .mean-nav,
   body.mobile-menu-open .mean-container .mean-nav {
     display: block !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
     position: fixed !important;
     top: 0 !important;
     left: 0 !important;
     right: 0 !important;
     bottom: 0 !important;
     width: 100vw !important;
+    min-width: 100vw !important;
     height: 100vh !important;
     height: 100dvh !important;
     background: #ffffff !important;
-    z-index: 99990 !important;
+    z-index: 99988 !important;
     overflow-y: auto !important;
     -webkit-overflow-scrolling: touch !important;
-    padding: calc(max(14px, env(safe-area-inset-top, 14px)) + 72px) 24px max(28px, env(safe-area-inset-bottom, 28px)) 24px !important;
+    /* Clears the full-width header strip (76px) + safe area + breathing room */
+    padding-top: calc(max(env(safe-area-inset-top, 0px), 0px) + 94px) !important;
+    padding-left: 28px !important;
+    padding-right: 28px !important;
+    padding-bottom: max(40px, env(safe-area-inset-bottom, 40px)) !important;
     box-sizing: border-box !important;
     margin: 0 !important;
     float: none !important;
@@ -916,7 +1003,7 @@
     box-shadow: none !important;
   }
 
-  /* Nav list inside full-screen canvas */
+  /* ---- Nav list ---- */
   .mean-container .mean-nav > ul {
     display: block !important;
     background: transparent !important;
@@ -925,11 +1012,24 @@
     padding: 0 !important;
     margin: 0 !important;
     width: 100% !important;
-    height: auto !important;
-    max-height: none !important;
+    list-style: none !important;
   }
 
-  /* Navigation link items: Title-case, bold navy, clean separators */
+  /* Greeting label above nav items */
+  .mean-container .mean-nav > ul::before {
+    content: "Navigation" !important;
+    display: block !important;
+    font-size: 11px !important;
+    font-weight: 700 !important;
+    letter-spacing: 1.8px !important;
+    text-transform: uppercase !important;
+    color: #008817 !important;
+    padding-bottom: 10px !important;
+    margin-bottom: 4px !important;
+    border-bottom: 2px solid #f1f5f9 !important;
+  }
+
+  /* Each nav row */
   .mean-container .mean-nav > ul > li {
     position: relative !important;
     border-top: none !important;
@@ -941,21 +1041,22 @@
     float: none !important;
   }
 
+  /* Nav link text */
   .mean-container .mean-nav > ul > li > a {
-    font-size: 19px !important;
+    font-size: 20px !important;
     font-weight: 700 !important;
     color: #0b1c3f !important;
-    letter-spacing: -0.2px !important;
+    letter-spacing: -0.3px !important;
     text-transform: capitalize !important;
     background: transparent !important;
-    padding: 17px 40px 17px 0 !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: space-between !important;
+    padding: 18px 48px 18px 0 !important;
+    display: block !important;
+    width: 100% !important;
+    float: none !important;
     transition: color 0.2s ease !important;
     border: none !important;
-    width: auto !important;
-    float: none !important;
+    text-decoration: none !important;
+    box-sizing: border-box !important;
   }
 
   .mean-container .mean-nav > ul > li > a:hover {
@@ -963,15 +1064,14 @@
     background: transparent !important;
   }
 
-  /* Active Link: Clean text highlight with NO background box */
-  .mean-container .mean-nav > ul > li.active,
+  /* Active page link */
   .mean-container .mean-nav > ul > li.active > a {
-    background: transparent !important;
     color: #008817 !important;
     font-weight: 800 !important;
+    background: transparent !important;
   }
 
-  /* Right chevron on direct links */
+  /* Chevron arrow (right side) for plain links */
   .mean-container .mean-nav > ul > li:not(.mobile-menu-cta-wrap) > a::after {
     content: "\f054" !important;
     font-family: "Font Awesome 5 Free" !important;
@@ -984,7 +1084,7 @@
     transform: translateY(-50%) !important;
   }
 
-  /* ZERO OVERLAP: Suppress chevron on Services and any item with a submenu or expand button */
+  /* Suppress chevron on items that have expand button */
   .mean-container .mean-nav > ul > li:has(ul) > a::after,
   .mean-container .mean-nav > ul > li:has(.mean-expand) > a::after,
   .mean-container .mean-nav > ul > li.menu-item-has-children > a::after,
@@ -993,19 +1093,19 @@
     content: none !important;
   }
 
-  /* Expand (+/-) Circular Button for Services */
+  /* +/- Expand button (Services submenu) */
   .mean-container .mean-nav > ul > li a.mean-expand {
     position: absolute !important;
     top: 50% !important;
     transform: translateY(-50%) !important;
     right: 0 !important;
-    width: 36px !important;
-    height: 36px !important;
-    line-height: 36px !important;
+    width: 38px !important;
+    height: 38px !important;
+    line-height: 38px !important;
     text-align: center !important;
     background: #f1f5f9 !important;
     border-radius: 50% !important;
-    font-size: 17px !important;
+    font-size: 18px !important;
     font-weight: 700 !important;
     color: #14287b !important;
     padding: 0 !important;
@@ -1016,6 +1116,8 @@
     align-items: center !important;
     justify-content: center !important;
     transition: all 0.2s ease !important;
+    float: none !important;
+    width: 38px !important;
   }
 
   .mean-container .mean-nav > ul > li a.mean-expand:hover {
@@ -1024,21 +1126,25 @@
   }
 
   .mean-container .mean-nav > ul > li a.mean-expand.mean-clicked {
-    background: #e2e8f0 !important;
-    color: #14287b !important;
+    background: #14287b !important;
+    color: #ffffff !important;
   }
 
-  /* Submenu dropdown items */
+  /* Submenu items */
   .mean-container .mean-nav > ul > li ul {
-    padding: 6px 0 12px 14px !important;
+    padding: 4px 0 12px 16px !important;
     background: transparent !important;
     border: none !important;
+    float: none !important;
+    width: 100% !important;
   }
 
   .mean-container .mean-nav > ul > li ul li {
     border-bottom: 1px dashed #f1f5f9 !important;
     border-top: none !important;
     background: transparent !important;
+    float: none !important;
+    width: 100% !important;
   }
 
   .mean-container .mean-nav > ul > li ul li:last-child {
@@ -1049,37 +1155,46 @@
     font-size: 15px !important;
     font-weight: 500 !important;
     color: #475569 !important;
-    padding: 10px 0 !important;
+    padding: 11px 0 !important;
     text-transform: capitalize !important;
     background: transparent !important;
     border: none !important;
     display: block !important;
+    width: 100% !important;
+    float: none !important;
     transition: all 0.2s ease !important;
+    text-decoration: none !important;
+  }
+
+  .mean-container .mean-nav > ul > li ul li a::after {
+    display: none !important;
+    content: none !important;
   }
 
   .mean-container .mean-nav > ul > li ul li a:hover {
     color: #008817 !important;
-    padding-left: 6px !important;
+    padding-left: 8px !important;
   }
 
-  /* Bottom CTA Pill ("Book Now →") & Copyright */
+  /* ---- Bottom CTA "Book Now" pill ---- */
   .mean-container .mean-nav > ul > li.mobile-menu-cta-wrap {
     border-bottom: none !important;
-    margin-top: 28px !important;
+    margin-top: 32px !important;
     padding: 0 !important;
     text-align: center !important;
     float: none !important;
     width: 100% !important;
+    background: transparent !important;
   }
 
   .mean-container .mean-nav > ul > li.mobile-menu-cta-wrap a.mobile-menu-book-btn {
     background: #14287b !important;
     color: #ffffff !important;
-    font-size: 16.5px !important;
+    font-size: 17px !important;
     font-weight: 700 !important;
     text-align: center !important;
     border-radius: 999px !important;
-    padding: 16px 28px !important;
+    padding: 17px 32px !important;
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
@@ -1087,8 +1202,8 @@
     text-decoration: none !important;
     width: 100% !important;
     box-sizing: border-box !important;
-    box-shadow: 0 10px 25px rgba(20, 40, 123, 0.25) !important;
-    transition: background 0.2s ease, transform 0.2s ease !important;
+    box-shadow: 0 10px 28px rgba(20, 40, 123, 0.28) !important;
+    transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease !important;
   }
 
   .mean-container .mean-nav > ul > li.mobile-menu-cta-wrap a.mobile-menu-book-btn::after {
@@ -1099,31 +1214,30 @@
   .mean-container .mean-nav > ul > li.mobile-menu-cta-wrap a.mobile-menu-book-btn:hover {
     background: #008817 !important;
     transform: translateY(-2px) !important;
+    box-shadow: 0 14px 32px rgba(0, 136, 23, 0.25) !important;
   }
 
   .mean-container .mean-nav > ul > li.mobile-menu-cta-wrap .mobile-menu-copyright {
-    font-size: 13px !important;
+    font-size: 12.5px !important;
     color: #94a3b8 !important;
-    margin-top: 16px !important;
+    margin-top: 18px !important;
     text-align: center !important;
   }
 
-  /* Back-to-Top Button: Must be beneath the mobile menu overlay */
+  /* ---- Utilities ---- */
   .scrollup {
     z-index: 99 !important;
   }
 
   body.mobile-menu-open .scrollup,
-  html.mobile-menu-open .scrollup,
-  .mean-container:has(a.meanmenu-reveal.meanclose) ~ .scrollup,
-  .mean-container:has(a.meanmenu-reveal.meanclose) .scrollup {
+  html.mobile-menu-open .scrollup {
     display: none !important;
     opacity: 0 !important;
     visibility: hidden !important;
     pointer-events: none !important;
   }
 
-  /* Wrapper starts below floating bar — use body selector since meanmenu is sibling of #wrapper */
+  /* Zero out any JS-set wrapper padding */
   body.sticky-header #wrapper,
   #wrapper {
     padding-top: 0 !important;
