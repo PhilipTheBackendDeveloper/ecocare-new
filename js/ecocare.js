@@ -267,26 +267,74 @@
         postData = "form-name=" + encodeURIComponent(formName) + "&" + postData;
       }
 
-      // Submit via AJAX POST to current path or root /
-      $.ajax({
-        url: form.attr("action") || "/",
-        type: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        data: postData,
-        timeout: 12000,
-        success: function (res, textStatus, xhr) {
-          // In Netlify, successful form submission returns 2xx HTTP status
-          showSuccess();
-        },
-        error: function (xhr, textStatus) {
-          // Never claim success on error
-          var errorMsg = "Could not deliver your request online due to a network connection issue.";
-          if (textStatus === "timeout") {
-            errorMsg = "The submission request timed out. Please check your internet connection.";
+      // Dual-Engine Submission: Netlify Forms + Vercel Serverless API Fallback
+      var isVercelHost = Boolean(window.location.hostname && window.location.hostname.indexOf("vercel.app") !== -1);
+      var apiEndpoint = isQuoteForm ? "/api/quote" : "/api/contact";
+
+      function submitToServerlessApi() {
+        $.ajax({
+          url: apiEndpoint,
+          type: "POST",
+          headers: { "Content-Type": "application/json" },
+          data: JSON.stringify(payload),
+          dataType: "json",
+          timeout: 10000,
+          success: function (res) {
+            showSuccess();
+          },
+          error: function (xhr, textStatus) {
+            var errorMsg = "Could not deliver your request online due to a network connection issue.";
+            if (textStatus === "timeout") {
+              errorMsg = "The submission request timed out. Please check your internet connection.";
+            } else if (xhr && xhr.responseJSON && xhr.responseJSON.error) {
+              errorMsg = xhr.responseJSON.error;
+            }
+            showFallbackError(errorMsg);
           }
-          showFallbackError(errorMsg);
-        }
-      });
+        });
+      }
+
+      function submitToNetlify(onFail) {
+        $.ajax({
+          url: form.attr("action") || "/",
+          type: "POST",
+          headers: { "Content-Type": "application/x-www-form-urlencoded" },
+          data: postData,
+          timeout: 12000,
+          success: function (res, textStatus, xhr) {
+            showSuccess();
+          },
+          error: function (xhr, textStatus) {
+            if (onFail) {
+              onFail(xhr, textStatus);
+            } else {
+              var errorMsg = "Could not deliver your request online due to a network connection issue.";
+              if (textStatus === "timeout") {
+                errorMsg = "The submission request timed out. Please check your internet connection.";
+              }
+              showFallbackError(errorMsg);
+            }
+          }
+        });
+      }
+
+      if (isVercelHost) {
+        // On Vercel preview environments, submit directly to serverless API
+        submitToServerlessApi();
+      } else {
+        // On Netlify / production / local environments, submit via Netlify Form with serverless fallback
+        submitToNetlify(function (xhr, textStatus) {
+          if (xhr.status === 403 || xhr.status === 404 || xhr.status === 405) {
+            submitToServerlessApi();
+          } else {
+            var errorMsg = "Could not deliver your request online due to a network connection issue.";
+            if (textStatus === "timeout") {
+              errorMsg = "The submission request timed out. Please check your internet connection.";
+            }
+            showFallbackError(errorMsg);
+          }
+        });
+      }
 
       return false;
     });

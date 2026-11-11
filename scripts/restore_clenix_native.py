@@ -199,7 +199,7 @@ def get_native_footer():
                                         <li><a href="index.html"><i class="fas fa-angle-right mr-2 text-warning"></i>Home</a></li>
                                         <li><a href="about1.html"><i class="fas fa-angle-right mr-2 text-warning"></i>About Us</a></li>
                                         <li><a href="pricing-table.html"><i class="fas fa-angle-right mr-2 text-warning"></i>Packages &amp; Estimates</a></li>
-                                        <li><a href="calculate-form.html"><i class="fas fa-angle-right mr-2 text-warning"></i>Request a Quote</a></li>
+                                        <li><a href="calculate-form.html"><i class="fas fa-angle-right mr-2 text-warning"></i>Book Now</a></li>
                                         <li><a href="project1.html"><i class="fas fa-angle-right mr-2 text-warning"></i>Projects Gallery</a></li>
                                         <li><a href="faq.html"><i class="fas fa-angle-right mr-2 text-warning"></i>FAQ</a></li>
                                         <li><a href="contact.html"><i class="fas fa-angle-right mr-2 text-warning"></i>Contact Us</a></li>
@@ -292,10 +292,10 @@ def build_index():
     # Caption 1
     html = html.replace(
         '<div class="slider-sub-text">The Best Cleaning Service Ever!</div>\n                                <h1 class="slider-big-text">Certified Company</h1>\n                                <div class="slider-paragraph">Our best-in-class WordPress solution, \n                                    with additional optimization to make running a WooCommerce online \n                                    store easy. Our prices are clear and straight forward so you can.</div>\n                                <div class="slider-btn-area">\n                                    <a href="#" class="item-btn-fill">Take Our Service\n                                        <i class="fas fa-angle-right"></i>\n                                    </a>\n                                </div>',
-        f'<div class="slider-sub-text">EcoCare Cleaning Services Limited</div>\n                                <h1 class="slider-big-text">Protect the Environment, Live Better, Prolong Life</h1>\n                                <div class="slider-paragraph">Accra\'s premier cleaning and hygiene company. Professional domestic housekeeping, corporate janitorial, EcoFumes fumigation, and Eco-Laundry across Greater Accra.</div>\n                                <div class="slider-btn-area">\n                                    <a href="service1.html" class="item-btn-fill">Our Services <i class="fas fa-angle-right"></i></a>\n                                    <a href="calculate-form.html" class="item-btn-fill" style="margin-left: 10px;">Request a Quote <i class="fas fa-calculator"></i></a>\n                                </div>'
+        f'<div class="slider-sub-text">EcoCare Cleaning Services Limited</div>\n                                <h1 class="slider-big-text">Protect the Environment, Live Better, Prolong Life</h1>\n                                <div class="slider-paragraph">Accra\'s premier cleaning and hygiene company. Professional domestic housekeeping, corporate janitorial, EcoFumes fumigation, and Eco-Laundry across Greater Accra.</div>\n                                <div class="slider-btn-area">\n                                    <a href="service1.html" class="item-btn-fill">Our Services <i class="fas fa-angle-right"></i></a>\n                                    <a href="calculate-form.html" class="item-btn-fill" style="margin-left: 10px;">Book Now <i class="fas fa-calculator"></i></a>\n                                </div>'
     )
     # Caption 2 & 3
-    caption_replace_2 = f'<div class="slider-sub-text">Accra, Ghana &bull; Established 2014</div>\n                                <h1 class="slider-big-text">You Got Dirt? We Got Clean.</h1>\n                                <div class="slider-paragraph">From routine office janitorial and high-traffic carpet steam extraction to specialized EcoFumes pest management. Quality, safety, and customer satisfaction guaranteed.</div>\n                                <div class="slider-btn-area">\n                                    <a href="service1.html" class="item-btn-fill">Our Services <i class="fas fa-angle-right"></i></a>\n                                    <a href="calculate-form.html" class="item-btn-fill" style="margin-left: 10px;">Request a Quote <i class="fas fa-calculator"></i></a>\n                                </div>'
+    caption_replace_2 = f'<div class="slider-sub-text">Accra, Ghana &bull; Established 2014</div>\n                                <h1 class="slider-big-text">You Got Dirt? We Got Clean.</h1>\n                                <div class="slider-paragraph">From routine office janitorial and high-traffic carpet steam extraction to specialized EcoFumes pest management. Quality, safety, and customer satisfaction guaranteed.</div>\n                                <div class="slider-btn-area">\n                                    <a href="service1.html" class="item-btn-fill">Our Services <i class="fas fa-angle-right"></i></a>\n                                    <a href="calculate-form.html" class="item-btn-fill" style="margin-left: 10px;">Book Now <i class="fas fa-calculator"></i></a>\n                                </div>'
     caption_replace_3 = f'<div class="slider-sub-text">Specialized Care &amp; Garment Services</div>\n                                <h1 class="slider-big-text">Eco-Laundry &amp; Fabric Restoration</h1>\n                                <div class="slider-paragraph">Expert wash, fold, steam ironing, and delicate dry cleaning care with scheduled doorstep pickup and delivery across Greater Accra.</div>\n                                <div class="slider-btn-area">\n                                    <a href="single-service2.html" class="item-btn-fill">Eco-Laundry Care <i class="fas fa-angle-right"></i></a>\n                                    <a href="calculate-form.html" class="item-btn-fill" style="margin-left: 10px;">Book Pickup <i class="fas fa-calculator"></i></a>\n                                </div>'
 
     html = re.sub(
@@ -669,7 +669,7 @@ def build_index():
                                         <div class="help-block with-errors"></div>
                                     </div>
                                     <div class="col-12 form-group">
-                                        <button type="submit" class="fw-btn-fill bg-accent text-primarytext">Request a Quote<i class="fas fa-angle-right"></i></button>
+                                        <button type="submit" class="fw-btn-fill bg-accent text-primarytext">Book Now<i class="fas fa-angle-right"></i></button>
                                     </div>
                                 </div>
                                 <div class="form-response"></div>
@@ -1300,10 +1300,10 @@ def build_about1():
         '<h2 class="item-title text-Primary">Dedicated to a <span>Cleaner, Safer</span> Environment</h2>',
         html
     )
-    html = html.replace('Book an Appointment', 'Request a Quote')
+    html = html.replace('Book an Appointment', 'Book Now')
     html = re.sub(
-        r'<a href="#" class="btn-fill-md bg-accent btn-slide-hover text-primarytext">Request a Quote<i class="fas fa-angle-right"></i></a>',
-        '<a href="calculate-form.html" class="btn-fill-md bg-accent btn-slide-hover text-primarytext">Request a Quote<i class="fas fa-angle-right"></i></a>',
+        r'<a href="#" class="btn-fill-md bg-accent btn-slide-hover text-primarytext">Book Now<i class="fas fa-angle-right"></i></a>',
+        '<a href="calculate-form.html" class="btn-fill-md bg-accent btn-slide-hover text-primarytext">Book Now<i class="fas fa-angle-right"></i></a>',
         html
     )
 

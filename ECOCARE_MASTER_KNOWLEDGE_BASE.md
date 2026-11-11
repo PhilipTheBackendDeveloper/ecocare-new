@@ -97,7 +97,7 @@ The About page also advertises `24/7 Supports`, which is **not the same as staff
 
 **User-facing draft heading `[PROPOSED]`:** Cleaning Services for Homes, Offices and Workspaces
 
-**User-facing draft summary `[PROPOSED]`:** EcoCare’s previous website describes general, deep, commercial and specialist cleaning for residential and business spaces. Contact the team to discuss your property and request a quote.
+**User-facing draft summary `[PROPOSED]`:** EcoCare’s previous website describes general, deep, commercial and specialist cleaning for residential and business spaces. Contact the team to discuss your property and Book Now.
 
 **Service types or capabilities named in the old materials:**
 - Residential / house cleaning
@@ -308,7 +308,7 @@ Notice category inconsistencies, mislinked details and a typo in “Mable”. Pr
 - **Eyebrow:** EcoCare Cleaning Services
 - **Headline:** Cleaning, Laundry & Pest Control for Homes and Businesses
 - **Description:** Explore EcoCare’s cleaning, garment-care and pest-management services, and get in touch to discuss your property or requirements.
-- **Primary Cta:** Request a Quote
+- **Primary Cta:** Book Now
 - **Secondary Cta:** Explore Services
 - **Status:** PROPOSED_COPY_FROM_HISTORICAL_OFFERINGS_NOT_APPROVED
 
@@ -353,11 +353,11 @@ Notice category inconsistencies, mislinked details and a typo in “Mable”. Pr
 
 ### Candidate service-card teasers `[PROPOSED]`
 
-- **Cleaning Services:** EcoCare’s previous website describes general, deep, commercial and specialist cleaning for residential and business spaces. Contact the team to discuss your property and request a quote. — **CTA:** Request a Quote.
-- **Laundry Services:** From washing and ironing to dry-cleaning enquiries, EcoCare’s laundry service is presented as a convenient way to care for clothing. Ask the team about accepted items, pickup availability and turnaround times. — **CTA:** Request a Quote.
-- **Fumigation and Pest Control:** EcoCare’s previous website describes pest-control services for common household and commercial pest concerns. Request an assessment to discuss the pest type, property and appropriate treatment options. — **CTA:** Request a Quote.
-- **Carpet Cleaning:** EcoCare’s carpet-cleaning content covers deep cleaning, stain attention and treatments selected according to carpet condition. Contact the team for a site-specific assessment and quote. — **CTA:** Request a Quote.
-- **Upholstery Cleaning:** EcoCare’s previous website describes upholstery cleaning for furniture in homes and workplaces. Cleaning methods should be selected for each fabric or material; request an assessment before booking. — **CTA:** Request a Quote.
+- **Cleaning Services:** EcoCare’s previous website describes general, deep, commercial and specialist cleaning for residential and business spaces. Contact the team to discuss your property and Book Now. — **CTA:** Book Now.
+- **Laundry Services:** From washing and ironing to dry-cleaning enquiries, EcoCare’s laundry service is presented as a convenient way to care for clothing. Ask the team about accepted items, pickup availability and turnaround times. — **CTA:** Book Now.
+- **Fumigation and Pest Control:** EcoCare’s previous website describes pest-control services for common household and commercial pest concerns. Request an assessment to discuss the pest type, property and appropriate treatment options. — **CTA:** Book Now.
+- **Carpet Cleaning:** EcoCare’s carpet-cleaning content covers deep cleaning, stain attention and treatments selected according to carpet condition. Contact the team for a site-specific assessment and quote. — **CTA:** Book Now.
+- **Upholstery Cleaning:** EcoCare’s previous website describes upholstery cleaning for furniture in homes and workplaces. Cleaning methods should be selected for each fabric or material; request an assessment before booking. — **CTA:** Book Now.
 
 ### Suggested quote form copy `[PROPOSED]`
 
@@ -529,10 +529,10 @@ No pricing, guaranteed booking or promised response SLA should appear absent agr
 
 ### Candidate metadata (PROPOSED, not approved)
 
-- `/` — **Title:** EcoCare Cleaning, Laundry & Pest Control | Accra — **Description:** Explore cleaning, laundry, carpet, upholstery and pest-control services from EcoCare in Accra. Contact the team to request a quote.
+- `/` — **Title:** EcoCare Cleaning, Laundry & Pest Control | Accra — **Description:** Explore cleaning, laundry, carpet, upholstery and pest-control services from EcoCare in Accra. Contact the team to Book Now.
 - `/about` — **Title:** About EcoCare Cleaning Services | Accra — **Description:** Learn about EcoCare’s service areas, business background and approach to cleaning and care. Contact the team for current information.
 - `/services` — **Title:** EcoCare Services | Cleaning, Laundry & Pest Control — **Description:** Browse EcoCare’s cleaning, laundry, carpet, upholstery and pest-control service categories and request information.
-- `/services/cleaning` — **Title:** Cleaning Services in Accra | EcoCare — **Description:** Explore residential, office, commercial and specialist cleaning services and request a quote from EcoCare.
+- `/services/cleaning` — **Title:** Cleaning Services in Accra | EcoCare — **Description:** Explore residential, office, commercial and specialist cleaning services and Book Now from EcoCare.
 - `/services/laundry` — **Title:** Laundry Services in Achimota | EcoCare — **Description:** Explore washing, ironing and garment-care options from EcoCare. Confirm availability and pickup options with the team.
 - `/services/pest-control` — **Title:** Pest Control Services in Accra | EcoCare — **Description:** Discuss household or commercial pest concerns and request an assessment from EcoCare.
 - `/services/carpet-cleaning` — **Title:** Carpet Cleaning in Accra | EcoCare — **Description:** Learn about EcoCare’s carpet-cleaning enquiries, stain treatment and property assessment options.
@@ -601,7 +601,7 @@ Proposed paths are **not known ThemeForest file names**. Adapt them to the actua
 - Which business metrics can be supported by records?
 
 **Operations**
-- Should online forms request a quote or constitute a confirmed appointment?
+- Should online forms Book Now or constitute a confirmed appointment?
 - Where should form submissions be saved and sent?
 - Who responds and within what actual time?
 - Should customers upload photos, and what retention policy applies?

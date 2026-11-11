@@ -303,7 +303,7 @@
         "Arrange service and inspect results (proposed workflow; not verified operations)"
       ],
       "draft_headline": "Cleaning Services for Homes, Offices and Workspaces",
-      "draft_summary": "EcoCare’s previous website describes general, deep, commercial and specialist cleaning for residential and business spaces. Contact the team to discuss your property and request a quote.",
+      "draft_summary": "EcoCare’s previous website describes general, deep, commercial and specialist cleaning for residential and business spaces. Contact the team to discuss your property and Book Now.",
       "source": "uploaded HTML / https://github.com/PhilipTheBackendDeveloper/ecocare-website/blob/main/cleaning-details.html",
       "published_reviews": [
         {
@@ -887,7 +887,7 @@
       "eyebrow": "EcoCare Cleaning Services",
       "headline": "Cleaning, Laundry & Pest Control for Homes and Businesses",
       "description": "Explore EcoCare’s cleaning, garment-care and pest-management services, and get in touch to discuss your property or requirements.",
-      "primary_cta": "Request a Quote",
+      "primary_cta": "Book Now",
       "secondary_cta": "Explore Services",
       "status": "PROPOSED_COPY_FROM_HISTORICAL_OFFERINGS_NOT_APPROVED"
     },
@@ -2581,7 +2581,7 @@
       "Which business metrics can be supported by records?"
     ],
     "operations": [
-      "Should online forms request a quote or constitute a confirmed appointment?",
+      "Should online forms Book Now or constitute a confirmed appointment?",
       "Where should form submissions be saved and sent?",
       "Who responds and within what actual time?",
       "Should customers upload photos, and what retention policy applies?"

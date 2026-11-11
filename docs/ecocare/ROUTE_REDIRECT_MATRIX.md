@@ -24,7 +24,7 @@ These are the official public-facing routes for the EcoCare website:
 | `/projects` | `project1.html` | Completed Work & Service Gallery \| EcoCare | Projects Gallery |
 | `/faq` | `faq.html` | Frequently Asked Questions \| EcoCare Cleaning Services | FAQ |
 | `/contact` | `contact.html` | Contact EcoCare \| Achimota Mile 7, Accra, Ghana | Contact Us |
-| `/request-quote`| `calculate-form.html`| Request a Service Quote & Booking Inquiry \| EcoCare | Request a Quote |
+| `/request-quote`| `calculate-form.html`| Request a Service Quote & Booking Inquiry \| EcoCare | Book Now |
 | `/privacy-policy`| `privacy-policy.html`| Privacy Policy (Draft - Pending Legal Review) | Footer Legal |
 | `/terms` | `terms-condition.html`| Terms & Conditions (Draft - Pending Legal Review) | Footer Legal |
 | `/coming-soon` | `coming-soon.html` | EcoCare Cleaning Services Limited \| Launching Soon | Utility / Maintenance |

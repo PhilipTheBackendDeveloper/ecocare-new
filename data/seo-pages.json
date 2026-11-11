@@ -47,8 +47,14 @@
       "changefreq": "monthly",
       "priority": "0.8",
       "breadcrumb": [
-        {"name": "Home", "url": "https://ecocaregh.com/"},
-        {"name": "About Us", "url": "https://ecocaregh.com/about"}
+        {
+          "name": "Home",
+          "url": "https://ecocaregh.com/"
+        },
+        {
+          "name": "About Us",
+          "url": "https://ecocaregh.com/about"
+        }
       ]
     },
     "service1.html": {
@@ -63,8 +69,14 @@
       "changefreq": "weekly",
       "priority": "0.9",
       "breadcrumb": [
-        {"name": "Home", "url": "https://ecocaregh.com/"},
-        {"name": "Services", "url": "https://ecocaregh.com/services"}
+        {
+          "name": "Home",
+          "url": "https://ecocaregh.com/"
+        },
+        {
+          "name": "Services",
+          "url": "https://ecocaregh.com/services"
+        }
       ]
     },
     "single-service1.html": {
@@ -80,9 +92,18 @@
       "changefreq": "weekly",
       "priority": "0.85",
       "breadcrumb": [
-        {"name": "Home", "url": "https://ecocaregh.com/"},
-        {"name": "Services", "url": "https://ecocaregh.com/services"},
-        {"name": "EcoClean", "url": "https://ecocaregh.com/cleaning"}
+        {
+          "name": "Home",
+          "url": "https://ecocaregh.com/"
+        },
+        {
+          "name": "Services",
+          "url": "https://ecocaregh.com/services"
+        },
+        {
+          "name": "EcoClean",
+          "url": "https://ecocaregh.com/cleaning"
+        }
       ]
     },
     "single-service2.html": {
@@ -98,9 +119,18 @@
       "changefreq": "weekly",
       "priority": "0.85",
       "breadcrumb": [
-        {"name": "Home", "url": "https://ecocaregh.com/"},
-        {"name": "Services", "url": "https://ecocaregh.com/services"},
-        {"name": "Eco-Laundry", "url": "https://ecocaregh.com/laundry"}
+        {
+          "name": "Home",
+          "url": "https://ecocaregh.com/"
+        },
+        {
+          "name": "Services",
+          "url": "https://ecocaregh.com/services"
+        },
+        {
+          "name": "Eco-Laundry",
+          "url": "https://ecocaregh.com/laundry"
+        }
       ]
     },
     "pest-control.html": {
@@ -116,9 +146,18 @@
       "changefreq": "weekly",
       "priority": "0.85",
       "breadcrumb": [
-        {"name": "Home", "url": "https://ecocaregh.com/"},
-        {"name": "Services", "url": "https://ecocaregh.com/services"},
-        {"name": "EcoFumes Pest Control", "url": "https://ecocaregh.com/pest-control"}
+        {
+          "name": "Home",
+          "url": "https://ecocaregh.com/"
+        },
+        {
+          "name": "Services",
+          "url": "https://ecocaregh.com/services"
+        },
+        {
+          "name": "EcoFumes Pest Control",
+          "url": "https://ecocaregh.com/pest-control"
+        }
       ]
     },
     "carpet-cleaning.html": {
@@ -134,9 +173,18 @@
       "changefreq": "weekly",
       "priority": "0.85",
       "breadcrumb": [
-        {"name": "Home", "url": "https://ecocaregh.com/"},
-        {"name": "Services", "url": "https://ecocaregh.com/services"},
-        {"name": "Carpet Cleaning", "url": "https://ecocaregh.com/carpet-cleaning"}
+        {
+          "name": "Home",
+          "url": "https://ecocaregh.com/"
+        },
+        {
+          "name": "Services",
+          "url": "https://ecocaregh.com/services"
+        },
+        {
+          "name": "Carpet Cleaning",
+          "url": "https://ecocaregh.com/carpet-cleaning"
+        }
       ]
     },
     "upholstery-cleaning.html": {
@@ -152,9 +200,18 @@
       "changefreq": "weekly",
       "priority": "0.85",
       "breadcrumb": [
-        {"name": "Home", "url": "https://ecocaregh.com/"},
-        {"name": "Services", "url": "https://ecocaregh.com/services"},
-        {"name": "Upholstery Cleaning", "url": "https://ecocaregh.com/upholstery-cleaning"}
+        {
+          "name": "Home",
+          "url": "https://ecocaregh.com/"
+        },
+        {
+          "name": "Services",
+          "url": "https://ecocaregh.com/services"
+        },
+        {
+          "name": "Upholstery Cleaning",
+          "url": "https://ecocaregh.com/upholstery-cleaning"
+        }
       ]
     },
     "polytank-cleaning.html": {
@@ -170,9 +227,18 @@
       "changefreq": "weekly",
       "priority": "0.85",
       "breadcrumb": [
-        {"name": "Home", "url": "https://ecocaregh.com/"},
-        {"name": "Services", "url": "https://ecocaregh.com/services"},
-        {"name": "Polytank Cleaning", "url": "https://ecocaregh.com/polytank-cleaning"}
+        {
+          "name": "Home",
+          "url": "https://ecocaregh.com/"
+        },
+        {
+          "name": "Services",
+          "url": "https://ecocaregh.com/services"
+        },
+        {
+          "name": "Polytank Cleaning",
+          "url": "https://ecocaregh.com/polytank-cleaning"
+        }
       ]
     },
     "car-interior-cleaning.html": {
@@ -188,9 +254,18 @@
       "changefreq": "weekly",
       "priority": "0.85",
       "breadcrumb": [
-        {"name": "Home", "url": "https://ecocaregh.com/"},
-        {"name": "Services", "url": "https://ecocaregh.com/services"},
-        {"name": "Car Detailing & Cleaning", "url": "https://ecocaregh.com/car-interior-cleaning"}
+        {
+          "name": "Home",
+          "url": "https://ecocaregh.com/"
+        },
+        {
+          "name": "Services",
+          "url": "https://ecocaregh.com/services"
+        },
+        {
+          "name": "Car Detailing & Cleaning",
+          "url": "https://ecocaregh.com/car-interior-cleaning"
+        }
       ]
     },
     "professional-dusting.html": {
@@ -206,9 +281,18 @@
       "changefreq": "weekly",
       "priority": "0.85",
       "breadcrumb": [
-        {"name": "Home", "url": "https://ecocaregh.com/"},
-        {"name": "Services", "url": "https://ecocaregh.com/services"},
-        {"name": "Professional Dusting", "url": "https://ecocaregh.com/professional-dusting"}
+        {
+          "name": "Home",
+          "url": "https://ecocaregh.com/"
+        },
+        {
+          "name": "Services",
+          "url": "https://ecocaregh.com/services"
+        },
+        {
+          "name": "Professional Dusting",
+          "url": "https://ecocaregh.com/professional-dusting"
+        }
       ]
     },
     "pricing-table.html": {
@@ -223,8 +307,14 @@
       "changefreq": "monthly",
       "priority": "0.8",
       "breadcrumb": [
-        {"name": "Home", "url": "https://ecocaregh.com/"},
-        {"name": "Packages", "url": "https://ecocaregh.com/packages"}
+        {
+          "name": "Home",
+          "url": "https://ecocaregh.com/"
+        },
+        {
+          "name": "Packages",
+          "url": "https://ecocaregh.com/packages"
+        }
       ]
     },
     "calculate-form.html": {
@@ -239,8 +329,14 @@
       "changefreq": "monthly",
       "priority": "0.85",
       "breadcrumb": [
-        {"name": "Home", "url": "https://ecocaregh.com/"},
-        {"name": "Request a Quote", "url": "https://ecocaregh.com/request-quote"}
+        {
+          "name": "Home",
+          "url": "https://ecocaregh.com/"
+        },
+        {
+          "name": "Book Now",
+          "url": "https://ecocaregh.com/request-quote"
+        }
       ]
     },
     "faq.html": {
@@ -255,8 +351,14 @@
       "changefreq": "monthly",
       "priority": "0.7",
       "breadcrumb": [
-        {"name": "Home", "url": "https://ecocaregh.com/"},
-        {"name": "FAQ", "url": "https://ecocaregh.com/faq"}
+        {
+          "name": "Home",
+          "url": "https://ecocaregh.com/"
+        },
+        {
+          "name": "FAQ",
+          "url": "https://ecocaregh.com/faq"
+        }
       ]
     },
     "contact.html": {
@@ -271,8 +373,14 @@
       "changefreq": "monthly",
       "priority": "0.8",
       "breadcrumb": [
-        {"name": "Home", "url": "https://ecocaregh.com/"},
-        {"name": "Contact Us", "url": "https://ecocaregh.com/contact"}
+        {
+          "name": "Home",
+          "url": "https://ecocaregh.com/"
+        },
+        {
+          "name": "Contact Us",
+          "url": "https://ecocaregh.com/contact"
+        }
       ]
     },
     "project1.html": {
@@ -287,8 +395,14 @@
       "changefreq": "monthly",
       "priority": "0.7",
       "breadcrumb": [
-        {"name": "Home", "url": "https://ecocaregh.com/"},
-        {"name": "Projects", "url": "https://ecocaregh.com/projects"}
+        {
+          "name": "Home",
+          "url": "https://ecocaregh.com/"
+        },
+        {
+          "name": "Projects",
+          "url": "https://ecocaregh.com/projects"
+        }
       ]
     },
     "single-project1.html": {
@@ -303,9 +417,18 @@
       "changefreq": "monthly",
       "priority": "0.6",
       "breadcrumb": [
-        {"name": "Home", "url": "https://ecocaregh.com/"},
-        {"name": "Projects", "url": "https://ecocaregh.com/projects"},
-        {"name": "Commercial Case Study", "url": "https://ecocaregh.com/projects/commercial-case-study"}
+        {
+          "name": "Home",
+          "url": "https://ecocaregh.com/"
+        },
+        {
+          "name": "Projects",
+          "url": "https://ecocaregh.com/projects"
+        },
+        {
+          "name": "Commercial Case Study",
+          "url": "https://ecocaregh.com/projects/commercial-case-study"
+        }
       ]
     },
     "privacy-policy.html": {
@@ -320,8 +443,14 @@
       "changefreq": "yearly",
       "priority": "0.3",
       "breadcrumb": [
-        {"name": "Home", "url": "https://ecocaregh.com/"},
-        {"name": "Privacy Policy", "url": "https://ecocaregh.com/privacy-policy"}
+        {
+          "name": "Home",
+          "url": "https://ecocaregh.com/"
+        },
+        {
+          "name": "Privacy Policy",
+          "url": "https://ecocaregh.com/privacy-policy"
+        }
       ]
     },
     "terms-condition.html": {
@@ -336,8 +465,14 @@
       "changefreq": "yearly",
       "priority": "0.3",
       "breadcrumb": [
-        {"name": "Home", "url": "https://ecocaregh.com/"},
-        {"name": "Terms of Service", "url": "https://ecocaregh.com/terms"}
+        {
+          "name": "Home",
+          "url": "https://ecocaregh.com/"
+        },
+        {
+          "name": "Terms of Service",
+          "url": "https://ecocaregh.com/terms"
+        }
       ]
     },
     "coming-soon.html": {
@@ -368,4 +503,3 @@
     }
   }
 }
-
