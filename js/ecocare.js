@@ -326,25 +326,70 @@
     }
 
     // 7. EcoCare Mobile Navigation Drawer Controller (Full-Screen & Body Lock)
-    $(document).on("click", ".meanmenu-reveal", function () {
-      setTimeout(function () {
-        var isOpen = $(".meanmenu-reveal").hasClass("meanclose");
+    var drawerOpen = false;
+    var drawerReveal = null;
+    var drawerNav = null;
+    var navigatingFromDrawer = false;
+
+    function syncMobileDrawer() {
+      var reveal = document.querySelector(".mean-container .meanmenu-reveal");
+      var nav = reveal && reveal.parentNode.querySelector(".mean-nav");
+      var isOpen = !!(window.innerWidth <= 991 && reveal && nav &&
+        reveal.classList.contains("meanclose"));
+      if (drawerOpen !== isOpen) {
+        $("html, body").toggleClass("mobile-menu-open", isOpen);
         if (isOpen) {
-          $("body").addClass("mobile-menu-open");
-          $("html").addClass("mobile-menu-open");
-        } else {
-          $("body").removeClass("mobile-menu-open");
-          $("html").removeClass("mobile-menu-open");
+          reveal.focus();
+        } else if (!navigatingFromDrawer) {
+          var focusTarget = reveal || drawerReveal;
+          if (focusTarget && focusTarget.isConnected && $(focusTarget).is(":visible")) {
+            focusTarget.focus();
+          }
         }
-      }, 40);
+      }
+      // Also clear stale locks when a rebuild removes the reveal control.
+      if (!isOpen) $("html, body").removeClass("mobile-menu-open");
+      drawerOpen = isOpen;
+      drawerReveal = reveal;
+      drawerNav = nav;
+      if (!isOpen) navigatingFromDrawer = false;
+    }
+
+    // MeanMenu rebuilds on resize; observe its controls rather than retaining old nodes.
+    new MutationObserver(syncMobileDrawer).observe(document.body, {
+      subtree: true, childList: true, attributes: true, attributeFilter: ["class"]
+    });
+    window.addEventListener("resize", syncMobileDrawer);
+    syncMobileDrawer();
+
+    $(document).on("keydown", function (event) {
+      if (!drawerOpen || !drawerReveal || !drawerNav) return;
+      if (event.key === "Escape") {
+        event.preventDefault();
+        $(drawerReveal).trigger("click");
+        syncMobileDrawer();
+        return;
+      }
+      if (event.key !== "Tab") return;
+      var focusable = $(drawerNav).find('a[href], button, input, select, textarea, [tabindex]')
+        .filter(":visible").filter(function () {
+          return !this.disabled && this.tabIndex >= 0;
+        }).get();
+      focusable.unshift(drawerReveal);
+      var current = focusable.indexOf(document.activeElement);
+      if (current < 0 || (!event.shiftKey && current === focusable.length - 1) ||
+          (event.shiftKey && current === 0)) {
+        event.preventDefault();
+        focusable[event.shiftKey ? focusable.length - 1 : 0].focus();
+      }
     });
 
     $(document).on("click", ".mean-nav a:not(.mean-expand)", function () {
-      $("body").removeClass("mobile-menu-open");
-      $("html").removeClass("mobile-menu-open");
-      if ($(".meanmenu-reveal").hasClass("meanclose")) {
-        $(".meanmenu-reveal").trigger("click");
+      navigatingFromDrawer = true;
+      if (drawerReveal && drawerReveal.classList.contains("meanclose")) {
+        $(drawerReveal).trigger("click");
       }
+      syncMobileDrawer();
     });
 
     // 8. Mobile Liquid Glass Scroll Enhancement
@@ -356,7 +401,7 @@
 
       function updateScrollGlass() {
         rafPending = false;
-        if (!meanBar) {
+        if (!meanBar || !meanBar.isConnected) {
           meanBar = document.querySelector(".mean-container .mean-bar");
         }
         if (!meanBar) return;
@@ -383,6 +428,10 @@
         }
       }
 
+      new MutationObserver(function () {
+        if (window.innerWidth <= 991) onScroll();
+      }).observe(document.body, { childList: true, subtree: true });
+
       // Re-evaluate on resize
       window.addEventListener("resize", function () {
         if (window.innerWidth > 991) {
@@ -390,6 +439,7 @@
           if (meanBar) meanBar.classList.remove("is-scrolled");
         } else {
           window.addEventListener("scroll", onScroll, { passive: true });
+          updateScrollGlass();
         }
       });
 
