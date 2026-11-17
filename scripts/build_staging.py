@@ -33,7 +33,6 @@ CANONICAL_PAGES = [
     "polytank-cleaning.html",
     "car-interior-cleaning.html",
     "professional-dusting.html",
-    "pricing-table.html",
     "calculate-form.html",
     "faq.html",
     "contact.html",
@@ -45,6 +44,7 @@ CANONICAL_PAGES = [
 ]
 
 DEMO_PAGES_TO_EXCLUDE = [
+    "pricing-table.html",
     "index2.html", "index3.html", "index4.html",
     "about2.html", "service2.html",
     "blog1.html", "blog2.html", "single-blog1.html",
@@ -130,7 +130,6 @@ Disallow: /
 /polytank-cleaning              /polytank-cleaning.html      200
 /car-interior-cleaning          /car-interior-cleaning.html  200
 /professional-dusting           /professional-dusting.html   200
-/packages                       /pricing-table.html          200
 /request-quote                  /calculate-form.html         200
 /faq                            /faq.html                    200
 /contact                        /contact.html                200
@@ -150,7 +149,8 @@ Disallow: /
 /polytank-cleaning.html         /polytank-cleaning           301
 /car-interior-cleaning.html     /car-interior-cleaning       301
 /professional-dusting.html      /professional-dusting        301
-/pricing-table.html             /packages                    301
+/packages                       /services                    301
+/pricing-table.html             /services                    301
 /calculate-form.html            /request-quote               301
 /project1.html                  /projects                    301
 /single-project1.html           /projects/commercial-case-study 301

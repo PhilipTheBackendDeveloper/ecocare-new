@@ -30,7 +30,6 @@ CANONICAL_PAGES = [
     "polytank-cleaning.html",
     "car-interior-cleaning.html",
     "professional-dusting.html",
-    "pricing-table.html",
     "calculate-form.html",
     "faq.html",
     "contact.html",
@@ -43,6 +42,7 @@ CANONICAL_PAGES = [
 ]
 
 DEPRECATED_PAGES = [
+    "pricing-table.html",
     "index2.html", "index3.html", "index4.html",
     "about2.html", "service2.html",
     "blog1.html", "blog2.html", "single-blog1.html",

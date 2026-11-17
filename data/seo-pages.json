@@ -295,28 +295,6 @@
         }
       ]
     },
-    "pricing-table.html": {
-      "path": "packages",
-      "canonical_url": "https://ecocaregh.com/packages",
-      "title": "Affordable Cleaning Plans & Pricing Scoping | EcoCare Ghana",
-      "description": "Transparent pricing scoping in Ghanaian Cedis (GHS) for residential housekeeping, deep move-in scrubbing, and corporate facility contracts.",
-      "h1": "Service Plans & Transparent Scoping",
-      "robots": "index, follow",
-      "schema_type": "WebPage",
-      "in_sitemap": true,
-      "changefreq": "monthly",
-      "priority": "0.8",
-      "breadcrumb": [
-        {
-          "name": "Home",
-          "url": "https://ecocaregh.com/"
-        },
-        {
-          "name": "Packages",
-          "url": "https://ecocaregh.com/packages"
-        }
-      ]
-    },
     "calculate-form.html": {
       "path": "request-quote",
       "canonical_url": "https://ecocaregh.com/request-quote",

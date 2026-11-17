@@ -2,6 +2,8 @@
   "cleanUrls": true,
   "trailingSlash": false,
   "redirects": [
+    { "source": "/packages", "destination": "/services", "permanent": true },
+    { "source": "/pricing-table(.html)?", "destination": "/services", "permanent": true },
     { "source": "/index2(.html)?", "destination": "/", "permanent": true },
     { "source": "/index3(.html)?", "destination": "/", "permanent": true },
     { "source": "/index4(.html)?", "destination": "/", "permanent": true },
@@ -38,7 +40,6 @@
     { "source": "/car-detailing", "destination": "/car-interior-cleaning.html" },
     { "source": "/car-detailing-and-cleaning", "destination": "/car-interior-cleaning.html" },
     { "source": "/professional-dusting", "destination": "/professional-dusting.html" },
-    { "source": "/packages", "destination": "/pricing-table.html" },
     { "source": "/projects", "destination": "/project1.html" },
     { "source": "/faq", "destination": "/faq.html" },
     { "source": "/contact", "destination": "/contact.html" },

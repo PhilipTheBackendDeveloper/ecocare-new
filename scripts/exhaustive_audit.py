@@ -6,7 +6,7 @@ CANONICAL_PAGES = [
     'index.html', 'about1.html', 'service1.html', 'single-service1.html',
     'single-service2.html', 'pest-control.html', 'carpet-cleaning.html',
     'upholstery-cleaning.html', 'polytank-cleaning.html', 'car-interior-cleaning.html',
-    'professional-dusting.html', 'pricing-table.html', 'calculate-form.html',
+    'professional-dusting.html', 'calculate-form.html',
     'faq.html', 'contact.html', 'project1.html', 'single-project1.html',
     '404.html', 'privacy-policy.html', 'terms-condition.html', 'coming-soon.html'
 ]
