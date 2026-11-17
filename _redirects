@@ -50,19 +50,32 @@ https://www.ecocaregh.com/*   https://ecocaregh.com/:splat    301!
 /terms-condition.html       /terms                       301
 
 # 4. Deprecated Demo Template Redirects (Preserving Link Equity)
-/index2.html                /                            301
-/index3.html                /                            301
-/index4.html                /                            301
-/about2.html                /about                       301
-/service2.html              /services                    301
-/blog1.html                 /                            301
-/blog2.html                 /                            301
-/single-blog1.html          /                            301
-/shop.html                  /services                    301
-/single-product.html        /services                    301
-/team1.html                 /about                       301
-/team2.html                 /about                       301
-/single-team.html           /about                       301
+/index2.html                /                            301!
+/index2                     /                            301!
+/index3.html                /                            301!
+/index3                     /                            301!
+/index4.html                /                            301!
+/index4                     /                            301!
+/about2.html                /about                       301!
+/about2                     /about                       301!
+/service2.html              /services                    301!
+/service2                   /services                    301!
+/blog1.html                 /                            301!
+/blog1                      /                            301!
+/blog2.html                 /                            301!
+/blog2                      /                            301!
+/single-blog1.html          /                            301!
+/single-blog1               /                            301!
+/shop.html                  /services                    301!
+/shop                       /services                    301!
+/single-product.html        /services                    301!
+/single-product             /services                    301!
+/team1.html                 /about                       301!
+/team1                      /about                       301!
+/team2.html                 /about                       301!
+/team2                      /about                       301!
+/single-team.html           /about                       301!
+/single-team                /about                       301!
 
 # 5. Custom 404 Catch-All
 /*                          /404.html                    404

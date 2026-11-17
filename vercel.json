@@ -1,6 +1,21 @@
 {
   "cleanUrls": true,
   "trailingSlash": false,
+  "redirects": [
+    { "source": "/index2(.html)?", "destination": "/", "permanent": true },
+    { "source": "/index3(.html)?", "destination": "/", "permanent": true },
+    { "source": "/index4(.html)?", "destination": "/", "permanent": true },
+    { "source": "/about2(.html)?", "destination": "/about", "permanent": true },
+    { "source": "/service2(.html)?", "destination": "/services", "permanent": true },
+    { "source": "/blog1(.html)?", "destination": "/", "permanent": true },
+    { "source": "/blog2(.html)?", "destination": "/", "permanent": true },
+    { "source": "/single-blog1(.html)?", "destination": "/", "permanent": true },
+    { "source": "/shop(.html)?", "destination": "/services", "permanent": true },
+    { "source": "/single-product(.html)?", "destination": "/services", "permanent": true },
+    { "source": "/team1(.html)?", "destination": "/about", "permanent": true },
+    { "source": "/team2(.html)?", "destination": "/about", "permanent": true },
+    { "source": "/single-team(.html)?", "destination": "/about", "permanent": true }
+  ],
   "headers": [
     {
       "source": "/(.*)",
