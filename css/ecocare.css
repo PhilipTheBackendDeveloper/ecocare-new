@@ -1537,87 +1537,6 @@
   }
 }
 
-/* ==========================================================================
-   EcoCare 4-Step Operational Process — Clenix Card System
-   ========================================================================== */
-.process-card {
-  background: #ffffff !important;
-  border-radius: 16px !important;
-  padding: 32px 22px 28px !important;
-  border: 1px solid rgba(0, 0, 0, 0.05) !important;
-  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.05) !important;
-  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease !important;
-  display: flex !important;
-  flex-direction: column !important;
-  align-items: center !important;
-  text-align: center !important;
-  height: 100% !important;
-}
-
-.process-card:hover {
-  transform: translateY(-6px) !important;
-  box-shadow: 0 16px 36px rgba(20, 40, 123, 0.12) !important;
-}
-
-.process-card .step-pill-badge {
-  margin-bottom: 20px !important;
-}
-
-.process-card .step-pill-badge span {
-  background: #14287b !important;
-  color: #ffffff !important;
-  padding: 5px 16px !important;
-  border-radius: 20px !important;
-  font-size: 12px !important;
-  font-weight: 700 !important;
-  letter-spacing: 0.5px !important;
-  display: inline-block !important;
-  text-transform: uppercase !important;
-}
-
-.process-card .step-icon-circle {
-  width: 76px !important;
-  height: 76px !important;
-  border-radius: 50% !important;
-  background: #eef7f2 !important;
-  border: 1.5px solid #d4edda !important;
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  margin-bottom: 20px !important;
-  transition: background-color 0.3s ease, transform 0.3s ease !important;
-}
-
-.process-card:hover .step-icon-circle {
-  background: #008817 !important;
-  border-color: #008817 !important;
-  transform: scale(1.08) !important;
-}
-
-.process-card .step-icon-circle i {
-  font-size: 30px !important;
-  color: #008817 !important;
-  transition: color 0.3s ease !important;
-}
-
-.process-card:hover .step-icon-circle i {
-  color: #ffffff !important;
-}
-
-.process-card .item-title {
-  font-size: 18px !important;
-  font-weight: 700 !important;
-  color: #14287b !important;
-  margin-bottom: 12px !important;
-}
-
-.process-card p {
-  font-size: 13.5px !important;
-  color: #555555 !important;
-  line-height: 1.6 !important;
-  margin: 0 !important;
-}
-
 /* Scroll-up suppression during mobile navigation */
 body.mobile-menu-open #scrollUp,
 .mean-container:has(a.meanmenu-reveal.meanclose) ~ #scrollUp {
@@ -1625,63 +1544,26 @@ body.mobile-menu-open #scrollUp,
 }
 
 /* ==========================================================================
-   EcoCare Dedicated Leadership & Team Cards
-   - Professional rectangular card layout matching authentic brand direction
-   - Suppresses Clenix circular bubble cutouts and artificial blue circle discs
-   - High-fidelity portrait heights with dedicated focal points
-   - Integrated telephone contact links and polished social interaction badges
+   EcoCare Leadership & Team — Template Image Fitting
+   - Preserves Clenix native circular bubble layout, blue disc & bubble graphics
+   - Normalizes non-square authentic photos to crisp, perfectly round 250px circles
+   - Calibrates vertical focal points to keep faces, smock, and attire centered
    ========================================================================== */
-.team-box-layout1 .item-img:before,
-.team-box-layout1 .item-img:after {
-  display: none !important;
-  content: none !important;
-}
-
-.team-box-layout1 {
-  text-align: left !important;
-  margin-bottom: 30px !important;
-  padding: 0 !important;
-  background: #ffffff !important;
-  border-radius: 12px !important;
-  overflow: hidden !important;
-  border: 1px solid #eef2f6 !important;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05) !important;
-  display: flex !important;
-  flex-direction: column !important;
-  height: calc(100% - 30px) !important;
-  transition: transform 0.35s ease, box-shadow 0.35s ease !important;
-}
-
-.team-box-layout1:hover {
-  transform: translateY(-6px) !important;
-  box-shadow: 0 16px 36px rgba(20, 40, 123, 0.12) !important;
-}
-
 .team-box-layout1 .item-img {
-  width: 100% !important;
-  height: 350px !important;
-  min-height: 350px !important;
-  max-height: 350px !important;
+  width: 250px !important;
+  height: 250px !important;
+  margin: 0 auto 28px !important;
   position: relative !important;
-  overflow: hidden !important;
-  margin-bottom: 0 !important;
-  background-color: #f8fafc !important;
 }
 
 .team-box-layout1 .item-img img {
-  width: 100% !important;
-  height: 100% !important;
-  border-radius: 0 !important;
+  width: 250px !important;
+  height: 250px !important;
+  border-radius: 50% !important;
   object-fit: cover !important;
   display: block !important;
-  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1) !important;
 }
 
-.team-box-layout1:hover .item-img img {
-  transform: scale(1.03) !important;
-}
-
-/* Individual focal point alignments */
 .team-box-layout1 .item-img img.ceo-img {
   object-position: center 15% !important;
 }
@@ -1694,126 +1576,9 @@ body.mobile-menu-open #scrollUp,
   object-position: center center !important;
 }
 
-.team-box-layout1 .item-content {
-  padding: 22px 22px 24px !important;
-  flex: 1 1 auto !important;
-  display: flex !important;
-  flex-direction: column !important;
-  background: #ffffff !important;
-}
-
-.team-box-layout1 .item-content .item-title {
-  font-size: 20px !important;
-  font-weight: 700 !important;
-  color: #14287b !important;
-  margin-bottom: 6px !important;
-  line-height: 1.3 !important;
-}
-
-.team-box-layout1 .item-content .item-title a {
-  color: #14287b !important;
-  text-decoration: none !important;
-  transition: color 0.25s ease !important;
-}
-
-.team-box-layout1 .item-content .item-title a:hover {
-  color: #008817 !important;
-}
-
-.team-box-layout1 .item-content .item-phone {
-  display: inline-flex !important;
-  align-items: center !important;
-  gap: 8px !important;
-  font-size: 14px !important;
-  font-weight: 600 !important;
-  color: #008817 !important;
-  margin-bottom: 6px !important;
-  text-decoration: none !important;
-  transition: color 0.2s ease !important;
-}
-
-.team-box-layout1 .item-content .item-phone:hover {
-  color: #14287b !important;
-  text-decoration: underline !important;
-}
-
-.team-box-layout1 .item-content .item-phone i {
-  font-size: 13px !important;
-}
-
-.team-box-layout1 .item-content .item-subtitle {
-  font-size: 13.5px !important;
-  font-weight: 500 !important;
-  color: #64748b !important;
-  margin-bottom: 16px !important;
-  letter-spacing: 0.2px !important;
-  line-height: 1.4 !important;
-}
-
-.team-box-layout1 .item-content .item-social {
-  margin-top: auto !important;
-  padding-top: 14px !important;
-  border-top: 1px solid #f1f5f9 !important;
-}
-
-.team-box-layout1 .item-content .item-social ul {
-  display: flex !important;
-  align-items: center !important;
-  gap: 8px !important;
-  padding: 0 !important;
-  margin: 0 !important;
-  list-style: none !important;
-}
-
-.team-box-layout1 .item-content .item-social ul li {
-  display: inline-block !important;
-  margin: 0 !important;
-}
-
-.team-box-layout1 .item-content .item-social ul li a {
-  width: 36px !important;
-  height: 36px !important;
-  line-height: 36px !important;
-  background-color: #f8fafc !important;
-  border: 1px solid #e2e8f0 !important;
-  border-radius: 50% !important;
-  color: #14287b !important;
-  font-size: 14px !important;
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  transition: all 0.25s ease !important;
-  box-shadow: none !important;
-}
-
-.team-box-layout1 .item-content .item-social ul li a:hover {
-  background-color: #008817 !important;
-  border-color: #008817 !important;
-  color: #ffffff !important;
-  transform: translateY(-2px) !important;
-  box-shadow: 0 4px 10px rgba(0, 136, 23, 0.25) !important;
-}
-
-@media only screen and (max-width: 991px) {
-  .team-box-layout1 .item-img {
-    height: 320px !important;
-    min-height: 320px !important;
-    max-height: 320px !important;
-  }
-}
-
 @media only screen and (max-width: 767px) {
   .team-box-layout1 {
-    padding: 0 !important;
-    max-width: 400px !important;
-    margin-left: auto !important;
-    margin-right: auto !important;
-    margin-bottom: 30px !important;
-  }
-  .team-box-layout1 .item-img {
-    height: 300px !important;
-    min-height: 300px !important;
-    max-height: 300px !important;
+    padding: 0 2rem !important;
   }
 }
 
