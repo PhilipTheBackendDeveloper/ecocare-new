@@ -196,67 +196,184 @@
         '</div>'
       );
 
-      // Function to show verified success message with WhatsApp follow-up button
+      // Human-readable labels from form dropdowns
+      var serviceEl = form.find('select[name="service"] option:selected');
+      var serviceLabel = (serviceEl.length && serviceEl.val() ? serviceEl.text().trim() : "") || payload.service || payload.subject || "Cleaning Services";
+
+      var propertyEl = form.find('select[name="property_type"] option:selected');
+      var propertyLabel = (propertyEl.length && propertyEl.val() ? propertyEl.text().trim() : "") || payload.property_type || "";
+
+      var sizeEl = form.find('select[name="size_sqm"] option:selected, select[name="size"] option:selected');
+      var sizeLabel = (sizeEl.length && sizeEl.val() ? sizeEl.text().trim() : "") || payload.size_sqm || payload.size || "";
+
+      var roomsEl = form.find('select[name="rooms"] option:selected');
+      var roomsLabel = (roomsEl.length && roomsEl.val() ? roomsEl.text().trim() : "") || payload.rooms || "";
+
+      var bathroomsEl = form.find('select[name="bathrooms"] option:selected');
+      var bathroomsLabel = (bathroomsEl.length && bathroomsEl.val() ? bathroomsEl.text().trim() : "") || payload.bathrooms || "";
+
+      var frequencyEl = form.find('select[name="frequency"] option:selected');
+      var frequencyLabel = (frequencyEl.length && frequencyEl.val() ? frequencyEl.text().trim() : "") || payload.frequency || "";
+
+      var dateVal = (payload.date || payload.preferred_date || "").trim();
+      var timeVal = (payload.time || payload.preferred_time || "").trim();
+
+      // Build structured WhatsApp dispatch message with complete details
+      var waLines = [];
+      if (isQuoteForm) {
+        waLines.push("✨ *NEW ECOCARE BOOKING REQUEST* ✨");
+        waLines.push("--------------------------------");
+        waLines.push("👤 *Customer:* " + nameVal);
+        waLines.push("📞 *Phone:* " + phoneVal);
+        if (emailVal) waLines.push("✉️ *Email:* " + emailVal);
+        waLines.push("");
+        waLines.push("🧹 *Service:* " + serviceLabel);
+        if (propertyLabel) waLines.push("🏢 *Property:* " + propertyLabel);
+        if (sizeLabel) waLines.push("📐 *Size / Scope:* " + sizeLabel);
+        if (roomsLabel && roomsLabel.toLowerCase() !== "not applicable") waLines.push("🛏️ *Bedrooms:* " + roomsLabel);
+        if (bathroomsLabel && bathroomsLabel.toLowerCase() !== "not applicable") waLines.push("🚿 *Bathrooms:* " + bathroomsLabel);
+        if (frequencyLabel) waLines.push("🔄 *Frequency:* " + frequencyLabel);
+        if (locationVal) waLines.push("📍 *Location / Area:* " + locationVal);
+        if (dateVal) waLines.push("📅 *Preferred Date:* " + dateVal);
+        if (timeVal) waLines.push("⏰ *Preferred Time:* " + timeVal);
+        if (messageVal) {
+          waLines.push("");
+          waLines.push("📝 *Notes & Requirements:*");
+          waLines.push(messageVal);
+        }
+        waLines.push("--------------------------------");
+        waLines.push("_Sent from EcoCare Ghana Website_");
+      } else {
+        waLines.push("✨ *NEW ECOCARE INQUIRY* ✨");
+        waLines.push("--------------------------------");
+        waLines.push("👤 *Customer:* " + nameVal);
+        if (phoneVal) waLines.push("📞 *Phone:* " + phoneVal);
+        if (emailVal) waLines.push("✉️ *Email:* " + emailVal);
+        waLines.push("📋 *Subject:* " + (payload.subject || "General Inquiry"));
+        waLines.push("");
+        waLines.push("💬 *Message Details:*");
+        waLines.push(messageVal);
+        waLines.push("--------------------------------");
+        waLines.push("_Sent from EcoCare Ghana Website_");
+      }
+
+      var waMessageStr = waLines.join("\n");
+      var waEncoded = encodeURIComponent(waMessageStr);
+      var waUrl1 = "https://wa.me/233249014253?text=" + waEncoded;
+      var waUrl2 = "https://wa.me/233243807100?text=" + waEncoded;
+
+      // Direct WhatsApp Dispatch: Trigger directly on user submit event to avoid browser popup blocks
+      var openedWa = false;
+      try {
+        var waWin = window.open(waUrl1, "_blank");
+        if (waWin && !waWin.closed) {
+          openedWa = true;
+        }
+      } catch (err) {
+        openedWa = false;
+      }
+
+      // Function to show verified success message with dual WhatsApp & Phone follow-up buttons
       function showSuccess() {
         formEl.reset();
         submitBtn.prop("disabled", false).html(originalBtnHtml);
 
-        var serviceLabel = payload.service || payload.subject || "Cleaning Services";
-        var waText = encodeURIComponent(
-          "Hello EcoCare! I just submitted an inquiry on your website.\n" +
-          "Name: " + nameVal + "\n" +
-          "Contact: " + (phoneVal || emailVal) + "\n" +
-          "Service: " + serviceLabel + "\n" +
-          (locationVal ? "Location: " + locationVal + "\n" : "") +
-          "Details: " + messageVal
-        );
-        var waUrl = "https://wa.me/233249014253?text=" + waText;
         var safeName = $("<div>").text(nameVal).html();
-        var safeContact = $("<div>").text(phoneVal || emailVal).html();
+        var safePhone = phoneVal ? $("<div>").text(phoneVal).html() : "";
+        var safeEmail = emailVal ? $("<div>").text(emailVal).html() : "";
+        var safeService = $("<div>").text(serviceLabel).html();
+        var safeLocation = locationVal ? $("<div>").text(locationVal).html() : "";
+        var safeDate = dateVal ? $("<div>").text(dateVal + (timeVal ? " at " + timeVal : "")).html() : "";
+        var safeNotes = $("<div>").text(messageVal).html();
 
-        responseBox.html(
-          '<div class="alert alert-success" role="alert" style="background:#d4edda; border-color:#c3e6cb; color:#155724; border-radius:4px; padding:16px;">' +
-          '<h5 style="color:#155724; font-weight:700; margin-bottom:8px;"><i class="fas fa-check-circle mr-1"></i> Inquiry Received Successfully!</h5>' +
-          '<p style="margin-bottom:10px; font-size:14px; line-height:22px;">' +
-          'Thank you, <strong>' + safeName + '</strong>! Your inquiry has been delivered directly to EcoCare Cleaning Services Limited. Our dispatch desk in Achimota Mile 7 will review your scope and contact you at <strong>' + safeContact + '</strong> shortly.' +
-          '</p>' +
-          '<div class="mt-2 pt-2 border-top" style="border-color:#c3e6cb !important;">' +
-          '<a href="' + waUrl + '" target="_blank" rel="noopener noreferrer" class="btn btn-sm" style="background:#25d366; color:#fff; font-weight:600; padding:6px 14px; border-radius:4px; display:inline-block;">' +
-          '<i class="fab fa-whatsapp mr-1"></i> Connect With Dispatch on WhatsApp' +
-          '</a>' +
-          '<span class="ml-2 text-muted" style="font-size:12px;">(Optional instant chat)</span>' +
-          '</div>' +
-          '</div>'
-        );
+        var receiptHtml =
+          '<div class="ecocare-booking-receipt p-3 p-md-4 mt-3" style="background:#ffffff; border:1.5px solid #28a745; border-radius:10px; box-shadow:0 8px 24px rgba(0,0,0,0.08); text-align:left;">' +
+            '<div class="d-flex align-items-center mb-3 pb-2 border-bottom">' +
+              '<div style="width:40px; height:40px; border-radius:50%; background:#28a745; color:#fff; display:flex; align-items:center; justify-content:center; font-size:20px; margin-right:12px; flex-shrink:0;">' +
+                '<i class="fas fa-check"></i>' +
+              '</div>' +
+              '<div>' +
+                '<h5 class="mb-0 font-weight-bold" style="color:#155724; font-size:17px;">Booking &amp; Estimate Successfully Submitted!</h5>' +
+                '<p class="mb-0 text-muted" style="font-size:12.5px;">EcoCare Dispatch Desk &bull; Achimota Mile 7, Accra</p>' +
+              '</div>' +
+            '</div>' +
+
+            '<div class="alert alert-light border d-flex align-items-center p-2 mb-3" style="background:#f8fdf9; border-color:#c3e6cb !important; font-size:13px; color:#155724;">' +
+              '<i class="far fa-envelope-open mr-2 text-success fa-lg"></i>' +
+              '<span><strong>Email Notification Dispatched:</strong> A copy has been delivered to <strong>ecocaregh1on1@gmail.com</strong>.</span>' +
+            '</div>' +
+
+            '<div class="mb-3">' +
+              '<p class="mb-2 font-weight-bold" style="font-size:13.5px; color:#1e293b;">' +
+                (openedWa
+                  ? '<i class="fab fa-whatsapp text-success mr-1"></i> WhatsApp opened with your pre-filled booking details. If you need to reconnect or reach our second line:'
+                  : '<i class="fab fa-whatsapp text-success mr-1"></i> Connect directly on WhatsApp with your complete booking details pre-filled:') +
+              '</p>' +
+              '<div class="d-flex flex-wrap align-items-center">' +
+                '<a href="' + waUrl1 + '" target="_blank" rel="noopener noreferrer" class="btn btn-sm mr-2 mb-2 font-weight-bold text-white shadow-sm" style="background:#25d366; padding:8px 16px; border-radius:6px; font-size:13px; display:inline-flex; align-items:center;">' +
+                  '<i class="fab fa-whatsapp mr-1 fa-lg"></i> WhatsApp Line 1 (+233 24 901 4253)' +
+                '</a>' +
+                '<a href="' + waUrl2 + '" target="_blank" rel="noopener noreferrer" class="btn btn-sm mr-2 mb-2 font-weight-bold text-white shadow-sm" style="background:#128c7e; padding:8px 16px; border-radius:6px; font-size:13px; display:inline-flex; align-items:center;">' +
+                  '<i class="fab fa-whatsapp mr-1 fa-lg"></i> WhatsApp Line 2 (+233 24 380 7100)' +
+                '</a>' +
+              '</div>' +
+            '</div>' +
+
+            '<div class="mb-3 pb-2 border-bottom">' +
+              '<span class="text-muted d-block mb-2" style="font-size:12px; font-weight:600; text-transform:uppercase; letter-spacing:0.5px;">Or Call Dispatch Directly:</span>' +
+              '<div class="d-flex flex-wrap align-items-center">' +
+                '<a href="tel:+233249014253" class="btn btn-sm btn-outline-dark mr-2 mb-2 font-weight-bold" style="padding:6px 14px; font-size:12.5px; display:inline-flex; align-items:center;">' +
+                  '<i class="fas fa-phone-alt mr-1 text-success"></i> +233 24 901 4253' +
+                '</a>' +
+                '<a href="tel:+233243807100" class="btn btn-sm btn-outline-dark mr-2 mb-2 font-weight-bold" style="padding:6px 14px; font-size:12.5px; display:inline-flex; align-items:center;">' +
+                  '<i class="fas fa-phone-alt mr-1 text-success"></i> +233 24 380 7100' +
+                '</a>' +
+              '</div>' +
+            '</div>' +
+
+            '<div class="p-3" style="background:#f8fafc; border-radius:6px; font-size:12.5px; line-height:1.6; border:1px solid #e2e8f0;">' +
+              '<div class="font-weight-bold text-uppercase mb-2 text-secondary" style="font-size:11px; letter-spacing:0.5px;">Booking Details Summary</div>' +
+              '<div class="row">' +
+                '<div class="col-sm-6 mb-1"><strong>Customer:</strong> ' + safeName + '</div>' +
+                '<div class="col-sm-6 mb-1"><strong>Contact:</strong> ' + (safePhone || safeEmail) + '</div>' +
+                '<div class="col-sm-6 mb-1"><strong>Service:</strong> ' + safeService + '</div>' +
+                (safeLocation ? '<div class="col-sm-6 mb-1"><strong>Location:</strong> ' + safeLocation + '</div>' : '') +
+                (safeDate ? '<div class="col-sm-6 mb-1"><strong>Preferred Schedule:</strong> ' + safeDate + '</div>' : '') +
+                (propertyLabel ? '<div class="col-sm-6 mb-1"><strong>Property:</strong> ' + propertyLabel + '</div>' : '') +
+                (sizeLabel ? '<div class="col-sm-6 mb-1"><strong>Scope / Size:</strong> ' + sizeLabel + '</div>' : '') +
+              '</div>' +
+              (safeNotes ? '<div class="mt-2 pt-2 border-top text-muted" style="border-color:#e2e8f0 !important;"><strong>Notes:</strong> ' + safeNotes + '</div>' : '') +
+            '</div>' +
+          '</div>';
+
+        responseBox.html(receiptHtml);
       }
 
       // Function to handle failure / fallback without falsely claiming success
       function showFallbackError(errMsg) {
         submitBtn.prop("disabled", false).html(originalBtnHtml);
-        var serviceLabel = payload.service || payload.subject || "Cleaning Services";
-        var directWaText = encodeURIComponent(
-          "Hello EcoCare! My name is " + nameVal + ". I attempted to submit an inquiry (" + serviceLabel + ") via your website but encountered a connection issue.\n" +
-          "Phone: " + phoneVal + "\n" +
-          (locationVal ? "Location: " + locationVal + "\n" : "") +
-          "Details: " + messageVal
-        );
-        var directWa = "https://wa.me/233249014253?text=" + directWaText;
 
         responseBox.html(
-          '<div class="alert alert-warning" role="alert" style="border-radius:4px; padding:14px;">' +
-          '<p class="mb-2"><strong><i class="fas fa-exclamation-triangle mr-1"></i> Notice:</strong> ' + (errMsg || "We could not connect to the automated mail server.") + '</p>' +
-          '<p class="mb-2" style="font-size:13px;">Your request is important to us! Please connect directly with our dispatch team via:</p>' +
-          '<div class="d-flex flex-wrap align-items-center mt-2">' +
-          '<a href="' + directWa + '" target="_blank" rel="noopener noreferrer" class="btn btn-sm mr-2 mb-2" style="background:#25d366; color:#fff; font-weight:600;">' +
-          '<i class="fab fa-whatsapp mr-1"></i> Send on WhatsApp (+233 24 901 4253)' +
-          '</a>' +
-          '<a href="tel:+233249014253" class="btn btn-sm btn-dark mr-2 mb-2 font-weight-bold">' +
-          '<i class="fas fa-phone mr-1"></i> Call +233 24 901 4253' +
-          '</a>' +
-          '<a href="mailto:ecocaregh1on1@gmail.com?subject=EcoCare%20Website%20Inquiry" class="btn btn-sm btn-outline-secondary mb-2">' +
-          '<i class="far fa-envelope mr-1"></i> Email Dispatch' +
-          '</a>' +
-          '</div>' +
+          '<div class="alert alert-warning p-3 mt-3" role="alert" style="border-radius:8px; border:1.5px solid #ffc107; text-align:left;">' +
+            '<p class="mb-2 font-weight-bold" style="color:#856404;"><i class="fas fa-exclamation-triangle mr-1"></i> Notice: ' + (errMsg || "We could not connect to the automated mail server.") + '</p>' +
+            '<p class="mb-2" style="font-size:13px; color:#664d03;">Your booking details are ready! You can send them directly to EcoCare via WhatsApp or phone for immediate confirmation:</p>' +
+            '<div class="d-flex flex-wrap align-items-center mt-2">' +
+              '<a href="' + waUrl1 + '" target="_blank" rel="noopener noreferrer" class="btn btn-sm mr-2 mb-2 font-weight-bold text-white shadow-sm" style="background:#25d366; padding:8px 16px; border-radius:6px; font-size:13px; display:inline-flex; align-items:center;">' +
+                '<i class="fab fa-whatsapp mr-1 fa-lg"></i> Send on WhatsApp Line 1 (+233 24 901 4253)' +
+              '</a>' +
+              '<a href="' + waUrl2 + '" target="_blank" rel="noopener noreferrer" class="btn btn-sm mr-2 mb-2 font-weight-bold text-white shadow-sm" style="background:#128c7e; padding:8px 16px; border-radius:6px; font-size:13px; display:inline-flex; align-items:center;">' +
+                '<i class="fab fa-whatsapp mr-1 fa-lg"></i> Send on WhatsApp Line 2 (+233 24 380 7100)' +
+              '</a>' +
+              '<a href="tel:+233249014253" class="btn btn-sm btn-dark mr-2 mb-2 font-weight-bold" style="padding:8px 14px; font-size:13px; display:inline-flex; align-items:center;">' +
+                '<i class="fas fa-phone mr-1"></i> Call +233 24 901 4253' +
+              '</a>' +
+              '<a href="tel:+233243807100" class="btn btn-sm btn-outline-dark mr-2 mb-2 font-weight-bold" style="padding:8px 14px; font-size:13px; display:inline-flex; align-items:center;">' +
+                '<i class="fas fa-phone mr-1"></i> Call +233 24 380 7100' +
+              '</a>' +
+              '<a href="mailto:ecocaregh1on1@gmail.com?subject=EcoCare%20Booking%20Request" class="btn btn-sm btn-outline-secondary mb-2 font-weight-bold" style="padding:8px 14px; font-size:13px; display:inline-flex; align-items:center;">' +
+                '<i class="far fa-envelope mr-1"></i> Email: ecocaregh1on1@gmail.com' +
+              '</a>' +
+            '</div>' +
           '</div>'
         );
       }

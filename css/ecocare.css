@@ -1961,3 +1961,27 @@ body.mobile-menu-open #scrollUp,
   font-size: 13.5px;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
+
+/* EcoCare Booking Confirmation & WhatsApp Dispatch Receipt */
+.ecocare-booking-receipt {
+  animation: ecocareFadeSlideUp 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes ecocareFadeSlideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.ecocare-booking-receipt .btn {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.ecocare-booking-receipt .btn:hover {
+  transform: translateY(-2px);
+}

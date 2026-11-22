@@ -213,11 +213,20 @@ module.exports = async function handler(req, res) {
     // 7. Dispatch Email (if configured)
     const emailResult = await dispatchEmail(submissionRecord);
 
-    // 8. Generate Pre-filled WhatsApp Direct Follow-up Link
+    // 8. Generate Pre-filled WhatsApp Direct Follow-up Links (Lines 1 & 2)
     const waText = encodeURIComponent(
-      `Hello EcoCare! My name is ${name}. I just submitted an inquiry regarding "${subject}": ${message.slice(0, 150)}... My contact: ${phone || email}.`
+      `✨ *NEW ECOCARE INQUIRY* ✨\n` +
+      `--------------------------------\n` +
+      `👤 *Customer:* ${name}\n` +
+      `📞 *Phone:* ${phone || "Not provided"}\n` +
+      `✉️ *Email:* ${email || "Not provided"}\n` +
+      `📋 *Subject:* ${subject}\n\n` +
+      `💬 *Message:*\n${message}\n` +
+      `--------------------------------\n` +
+      `_Sent from EcoCare Ghana Website_`
     );
     const whatsappUrl = `https://wa.me/233249014253?text=${waText}`;
+    const whatsappUrl2 = `https://wa.me/233243807100?text=${waText}`;
 
     const maskedPhone = phone ? phone.replace(/\D/g, "").slice(0, 3) + "****" + phone.replace(/\D/g, "").slice(-2) : "N/A";
     const maskedEmail = email ? email.slice(0, 2) + "***" + email.slice(email.indexOf("@")) : "N/A";
@@ -234,6 +243,7 @@ module.exports = async function handler(req, res) {
         receivedAt,
         emailDispatched: emailResult.sent,
         whatsappUrl,
+        whatsappUrl2,
       },
     });
   } catch (err) {
