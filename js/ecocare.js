@@ -498,5 +498,109 @@
       }
     })();
 
+    // 12. EcoCare Universal Media Lightbox & Video Modal
+    (function () {
+      var modalBackdrop = $(
+        '<div id="ecocare-media-modal" class="ecocare-media-modal-backdrop" role="dialog" aria-modal="true" aria-hidden="true">' +
+        '  <div class="ecocare-media-modal-container">' +
+        '    <div class="ecocare-media-modal-header">' +
+        '      <h4 class="ecocare-media-modal-title"><i class="fas fa-play-circle text-primary"></i> <span>Media Preview</span></h4>' +
+        '      <button type="button" class="ecocare-media-modal-close" aria-label="Close modal">&times;</button>' +
+        '    </div>' +
+        '    <div class="ecocare-media-modal-body">' +
+        '      <video id="ecocare-modal-video" controls playsinline preload="auto" style="display:none;"></video>' +
+        '      <img id="ecocare-modal-img" src="" alt="Full view" style="display:none;">' +
+        '    </div>' +
+        '    <div class="ecocare-media-modal-footer">' +
+        '      <div id="ecocare-modal-caption">EcoCare Ghana Field Operations</div>' +
+        '    </div>' +
+        '  </div>' +
+        '</div>'
+      ).appendTo("body");
+
+      var modalVideo = modalBackdrop.find("#ecocare-modal-video");
+      var modalImg = modalBackdrop.find("#ecocare-modal-img");
+      var modalTitle = modalBackdrop.find(".ecocare-media-modal-title span");
+      var modalTitleIcon = modalBackdrop.find(".ecocare-media-modal-title i");
+      var modalCaption = modalBackdrop.find("#ecocare-modal-caption");
+
+      function openMediaModal(type, src, title, caption) {
+        modalTitle.text(title || "EcoCare Field Showcase");
+        modalCaption.text(caption || "Authentic field operations across Greater Accra.");
+
+        if (type === "video") {
+          modalTitleIcon.attr("class", "fas fa-play-circle text-danger");
+          modalImg.hide().attr("src", "");
+          modalVideo.show().attr("src", src);
+          var videoEl = modalVideo[0];
+          videoEl.currentTime = 0;
+          var playPromise = videoEl.play();
+          if (playPromise !== undefined) {
+            playPromise.catch(function () {});
+          }
+        } else {
+          modalTitleIcon.attr("class", "fas fa-image text-primary");
+          modalVideo.hide().attr("src", "");
+          var videoEl = modalVideo[0];
+          if (videoEl) videoEl.pause();
+          modalImg.show().attr("src", src).attr("alt", title || "EcoCare Project");
+        }
+
+        modalBackdrop.addClass("is-active").attr("aria-hidden", "false");
+        $("body").css("overflow", "hidden");
+      }
+
+      function closeMediaModal() {
+        modalBackdrop.removeClass("is-active").attr("aria-hidden", "true");
+        $("body").css("overflow", "");
+        var videoEl = modalVideo[0];
+        if (videoEl) {
+          videoEl.pause();
+          modalVideo.attr("src", "");
+        }
+        modalImg.attr("src", "");
+      }
+
+      $(document).on("click", ".ecocare-open-media", function (e) {
+        e.preventDefault();
+        var btn = $(this);
+        var type = btn.data("media-type") || "image";
+        var src = btn.data("media-src") || btn.attr("href");
+        var title = btn.data("media-title") || btn.attr("title");
+        var caption = btn.data("media-caption") || "";
+        openMediaModal(type, src, title, caption);
+      });
+
+      modalBackdrop.on("click", function (e) {
+        if ($(e.target).closest(".ecocare-media-modal-container").length === 0 || $(e.target).hasClass("ecocare-media-modal-close")) {
+          closeMediaModal();
+        }
+      });
+
+      $(document).on("keydown", function (e) {
+        if (e.key === "Escape" && modalBackdrop.hasClass("is-active")) {
+          closeMediaModal();
+        }
+      });
+
+      // Video switcher on single-project1.html
+      $(document).on("click", ".project-video-thumb-btn", function () {
+        var btn = $(this);
+        var src = btn.data("video-src");
+        var poster = btn.data("video-poster");
+        var title = btn.data("video-title");
+        var player = $("#case-study-featured-video");
+        if (player.length && src) {
+          $(".project-video-thumb-btn").removeClass("active");
+          btn.addClass("active");
+          player.attr("poster", poster || "");
+          player.attr("src", src);
+          if (title) $("#case-study-video-title").text(title);
+          player[0].currentTime = 0;
+          player[0].play().catch(function () {});
+        }
+      });
+    })();
+
   });
 })(jQuery);
