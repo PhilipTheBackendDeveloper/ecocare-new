@@ -7,6 +7,7 @@ http://www.ecocaregh.com/*    https://ecocaregh.com/:splat    301!
 https://www.ecocaregh.com/*   https://ecocaregh.com/:splat    301!
 
 # 2. Clean URL Rewrites (Internal 200 Mapping to HTML Sources)
+/favicon.ico                /img/favicon.png             200
 /about                      /about1.html                 200
 /services                   /service1.html               200
 /cleaning                   /single-service1.html        200

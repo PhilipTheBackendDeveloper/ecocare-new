@@ -120,6 +120,7 @@ Disallow: /
     redirects_content = """# EcoCare Cleaning Services Limited — Staging Clean URL Routing & Rewrites
 
 # Clean URL Rewrites (Internal 200 Mapping to HTML Sources)
+/favicon.ico                    /img/favicon.png             200
 /about                          /about1.html                 200
 /services                       /service1.html               200
 /cleaning                       /single-service1.html        200

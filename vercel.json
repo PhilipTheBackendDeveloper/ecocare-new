@@ -24,10 +24,23 @@
       "headers": [
         { "key": "X-Robots-Tag", "value": "noindex, nofollow" }
       ]
+    },
+    {
+      "source": "/(img|font|webfonts)/(.*)",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=2592000, immutable" }
+      ]
+    },
+    {
+      "source": "/(css|js)/(.*)",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=604800" }
+      ]
     }
   ],
   "rewrites": [
     { "source": "/", "destination": "/index.html" },
+    { "source": "/favicon.ico", "destination": "/img/favicon.png" },
     { "source": "/about", "destination": "/about1.html" },
     { "source": "/services", "destination": "/service1.html" },
     { "source": "/cleaning", "destination": "/single-service1.html" },
