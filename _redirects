@@ -7,6 +7,7 @@ http://www.ecocaregh.com/*    https://ecocaregh.com/:splat    301!
 https://www.ecocaregh.com/*   https://ecocaregh.com/:splat    301!
 
 # 2. Clean URL Rewrites (Internal 200 Mapping to HTML Sources)
+/favicon.ico                /img/favicon.png             200
 /about                      /about1.html                 200
 /services                   /service1.html               200
 /cleaning                   /single-service1.html        200
@@ -19,7 +20,6 @@ https://www.ecocaregh.com/*   https://ecocaregh.com/:splat    301!
 /car-detailing              /car-interior-cleaning.html  200
 /car-detailing-and-cleaning /car-interior-cleaning.html  200
 /professional-dusting       /professional-dusting.html   200
-/packages                   /pricing-table.html          200
 /request-quote              /calculate-form.html         200
 /faq                        /faq.html                    200
 /contact                    /contact.html                200
@@ -40,7 +40,6 @@ https://www.ecocaregh.com/*   https://ecocaregh.com/:splat    301!
 /polytank-cleaning.html     /polytank-cleaning           301
 /car-interior-cleaning.html /car-interior-cleaning       301
 /professional-dusting.html  /professional-dusting        301
-/pricing-table.html         /packages                    301
 /calculate-form.html        /request-quote               301
 /project1.html              /projects                    301
 /single-project1.html       /projects/commercial-case-study 301
@@ -50,19 +49,35 @@ https://www.ecocaregh.com/*   https://ecocaregh.com/:splat    301!
 /terms-condition.html       /terms                       301
 
 # 4. Deprecated Demo Template Redirects (Preserving Link Equity)
-/index2.html                /                            301
-/index3.html                /                            301
-/index4.html                /                            301
-/about2.html                /about                       301
-/service2.html              /services                    301
-/blog1.html                 /                            301
-/blog2.html                 /                            301
-/single-blog1.html          /                            301
-/shop.html                  /services                    301
-/single-product.html        /services                    301
-/team1.html                 /about                       301
-/team2.html                 /about                       301
-/single-team.html           /about                       301
+/packages                   /services                    301!
+/pricing-table.html         /services                    301!
+/pricing-table              /services                    301!
+/index2.html                /                            301!
+/index2                     /                            301!
+/index3.html                /                            301!
+/index3                     /                            301!
+/index4.html                /                            301!
+/index4                     /                            301!
+/about2.html                /about                       301!
+/about2                     /about                       301!
+/service2.html              /services                    301!
+/service2                   /services                    301!
+/blog1.html                 /                            301!
+/blog1                      /                            301!
+/blog2.html                 /                            301!
+/blog2                      /                            301!
+/single-blog1.html          /                            301!
+/single-blog1               /                            301!
+/shop.html                  /services                    301!
+/shop                       /services                    301!
+/single-product.html        /services                    301!
+/single-product             /services                    301!
+/team1.html                 /about                       301!
+/team1                      /about                       301!
+/team2.html                 /about                       301!
+/team2                      /about                       301!
+/single-team.html           /about                       301!
+/single-team                /about                       301!
 
 # 5. Custom 404 Catch-All
 /*                          /404.html                    404

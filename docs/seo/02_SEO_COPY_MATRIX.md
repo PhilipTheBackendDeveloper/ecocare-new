@@ -26,7 +26,7 @@
 - **Meta Description:** `Professional residential housekeeping, corporate janitorial cleaning, doorstep laundry, EcoFumes fumigation, carpet extraction, and upholstery care in Accra, Ghana.`
 - **Primary `<h1>`:** `Protect the Environment, Live Better, Prolong Life`
 - **Key Content Sections:**
-  1. Ambient Video Hero with Dual CTAs (*Our Services* & *Request a Quote*).
+  1. Ambient Video Hero with Dual CTAs (*Our Services* & *Book Now*).
   2. About EcoCare: Corporate heritage since September 2014, registered under Ghanaian Companies Code.
   3. Five Core Service Families (EcoClean, Eco-Laundry, EcoFumes, Carpet, Upholstery).
   4. Operational Features: Uniformed vetted crews, eco-conscious products, custom schedules, Achimota customer desk.

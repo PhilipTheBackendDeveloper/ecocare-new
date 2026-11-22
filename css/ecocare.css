@@ -174,7 +174,7 @@
   display: inline-flex;
   align-items: center;
   text-decoration: none !important;
-  transition: all 0.25s ease;
+  transition: background-color 0.25s ease, color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
   box-shadow: 0 4px 14px rgba(254, 215, 0, 0.35);
 }
 
@@ -197,7 +197,7 @@
   display: inline-flex;
   align-items: center;
   text-decoration: none !important;
-  transition: all 0.25s ease;
+  transition: background-color 0.25s ease, color 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
   backdrop-filter: blur(4px);
 }
 
@@ -599,7 +599,7 @@
     transform: none !important;
     left: auto !important;
     top: auto !important;
-    transition: all 0.25s ease !important;
+    transition: background-color 0.25s ease, border-color 0.25s ease, border-radius 0.25s ease, box-shadow 0.25s ease !important;
   }
 
   .header-menu.menu-layout1:not(.rt-sticky) .container {
@@ -715,7 +715,7 @@
     padding: 10px 8px !important;
     min-width: 260px !important;
     overflow: hidden;
-    transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    transition: opacity 0.28s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.28s cubic-bezier(0.16, 1, 0.3, 1), transform 0.28s cubic-bezier(0.16, 1, 0.3, 1) !important;
   }
 
   .header-menu.menu-layout1 nav.template-main-menu > ul > li ul.dropdown-menu-col-1 li {
@@ -732,14 +732,13 @@
     color: #14287b !important;
     padding: 10px 16px !important;
     border-radius: 12px !important;
-    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    transition: background-color 0.2s cubic-bezier(0.16, 1, 0.3, 1), color 0.2s cubic-bezier(0.16, 1, 0.3, 1), transform 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important;
   }
 
   .header-menu.menu-layout1 nav.template-main-menu > ul > li ul.dropdown-menu-col-1 li a:hover {
     background: rgba(0, 136, 23, 0.08) !important;
     color: #008817 !important;
     transform: translateX(4px);
-    padding-left: 20px !important;
   }
 }
 
@@ -881,13 +880,15 @@
     max-height: 38px !important;
     width: auto !important;
     display: block !important;
-    transition: all 0.3s ease !important;
+    transition: transform 0.3s ease !important;
   }
 
   /* Open state: larger, more prominent logo in the header strip */
   body.mobile-menu-open .mean-container .mean-bar .logo-mobile img,
   .mean-container:has(a.meanmenu-reveal.meanclose) .mean-bar .logo-mobile img {
-    max-height: 52px !important;
+    max-height: 38px !important;
+    transform: scale(1.368);
+    transform-origin: left center;
     width: auto !important;
   }
 
@@ -913,7 +914,7 @@
     cursor: pointer !important;
     text-indent: 0 !important;
     border: 1px solid rgba(0, 0, 0, 0.06) !important;
-    transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    transition: background-color 0.25s cubic-bezier(0.16, 1, 0.3, 1), transform 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
     text-decoration: none !important;
     z-index: 100000 !important;
     box-sizing: border-box !important;
@@ -932,7 +933,7 @@
     width: 20px !important;
     border-radius: 3px !important;
     margin: 0 !important;
-    transition: all 0.25s ease !important;
+    transition: background-color 0.25s ease, transform 0.25s ease !important;
   }
 
   /* ✕ Close state */
@@ -952,6 +953,7 @@
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
+    background: transparent !important;
     font-size: 20px !important;
     font-weight: 500 !important;
     color: #0b1c3f !important;
@@ -988,7 +990,7 @@
     height: 100vh !important;
     height: 100dvh !important;
     background: #ffffff !important;
-    z-index: 99988 !important;
+    z-index: 1 !important;
     overflow-y: auto !important;
     -webkit-overflow-scrolling: touch !important;
     /* Clears the full-width header strip (76px) + safe area + breathing room */
@@ -1093,11 +1095,25 @@
     content: none !important;
   }
 
+  .mean-container .mean-nav > ul > li:has(> a.mean-expand) {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) 38px;
+  }
+  .mean-container .mean-nav > ul > li:has(> a.mean-expand) > a:not(.mean-expand) {
+    grid-area: 1 / 1 / 2 / 3;
+  }
+  .mean-container .mean-nav > ul > li:has(> a.mean-expand) > ul {
+    grid-column: 1 / -1;
+    grid-row: 2;
+  }
+
   /* +/- Expand button (Services submenu) */
   .mean-container .mean-nav > ul > li a.mean-expand {
-    position: absolute !important;
-    top: 50% !important;
-    transform: translateY(-50%) !important;
+    position: relative !important;
+    grid-area: 1 / 2;
+    align-self: center;
+    top: auto !important;
+    transform: none !important;
     right: 0 !important;
     width: 38px !important;
     height: 38px !important;
@@ -1115,7 +1131,7 @@
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
-    transition: all 0.2s ease !important;
+    transition: background-color 0.2s ease, color 0.2s ease !important;
     float: none !important;
     width: 38px !important;
   }
@@ -1162,7 +1178,7 @@
     display: block !important;
     width: 100% !important;
     float: none !important;
-    transition: all 0.2s ease !important;
+    transition: color 0.2s ease, transform 0.2s ease !important;
     text-decoration: none !important;
   }
 
@@ -1173,7 +1189,7 @@
 
   .mean-container .mean-nav > ul > li ul li a:hover {
     color: #008817 !important;
-    padding-left: 8px !important;
+    transform: translateX(8px);
   }
 
   /* ---- Bottom CTA "Book Now" pill ---- */
@@ -1293,57 +1309,679 @@
 }
 
 /* ==========================================================================
-   EcoCare Process Section — Icon Size & Visibility Fix
+   EcoCare Service Card & Image Uniformity Engine
+   Ensures consistent aspect ratio, focal points, zero distortion, and aligned cards
    ========================================================================== */
 
-/* Ensure the icon wrapper is centered properly inside the bubble */
-.process-box-layout1 .item-bg .item-icon {
-  position: absolute !important;
-  top: 50% !important;
-  left: 0 !important;
-  right: 0 !important;
-  transform: translateY(-50%) !important;
-  text-align: center !important;
-  line-height: 1 !important;
+/* 1. Homepage Service Cards (service-box-layout1) */
+.service-box-layout1 {
+  display: flex !important;
+  flex-direction: column !important;
+  height: calc(100% - 30px) !important;
+  background: #ffffff !important;
+  border-radius: 8px !important;
+  overflow: hidden !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05) !important;
+  transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+}
+
+.service-box-layout1:hover {
+  transform: translateY(-6px) !important;
+  box-shadow: 0 14px 34px rgba(20, 40, 123, 0.12) !important;
+}
+
+.service-box-layout1 .item-img {
+  position: relative !important;
+  width: 100% !important;
+  height: 250px !important;
+  min-height: 250px !important;
+  max-height: 250px !important;
+  overflow: hidden !important;
+  background-color: #f1f5f9 !important;
+}
+
+.service-box-layout1 .item-img img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: center !important;
+  display: block !important;
+  border-radius: 8px 8px 0 0 !important;
+  transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1) !important;
+}
+
+.service-box-layout1:hover .item-img img {
+  transform: scale(1.06) !important;
+}
+
+.service-box-layout1 .item-middle-content {
+  position: relative !important;
+  z-index: 2 !important;
+}
+
+.service-box-layout1 .item-content {
+  flex: 1 1 auto !important;
+  display: flex !important;
+  flex-direction: column !important;
+  padding: 40px 24px 28px !important;
+  background: #ffffff !important;
+}
+
+.service-box-layout1 .item-content .item-title {
+  min-height: 56px !important;
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
-  pointer-events: none !important;
+  margin-bottom: 16px !important;
 }
 
-/* The <i> icon element itself — big, blue, centered */
-.process-box-layout1 .item-bg .item-icon i {
-  font-size: 62px !important;
-  color: #3084f9 !important;
-  line-height: 1 !important;
-  display: block !important;
-  font-style: normal !important;
+.service-box-layout1 .item-content .serivce-list {
+  flex: 1 1 auto !important;
+  margin-bottom: 20px !important;
 }
 
-/* Both :before and :after pseudo-elements (different flaticons use different ones) */
-.process-box-layout1 .item-bg .item-icon i:before,
-.process-box-layout1 .item-bg .item-icon i:after {
-  font-size: 62px !important;
-  color: #3084f9 !important;
-  display: block !important;
+.service-box-layout1 .item-content .serivce-list ul {
+  width: 100% !important;
+  padding: 0 !important;
   margin: 0 !important;
-  line-height: 1 !important;
+  list-style: none !important;
 }
 
-/* Mobile: slightly smaller but still prominent */
+.service-box-layout1 .item-content .serivce-list ul li {
+  font-size: 14px !important;
+  color: #4b5563 !important;
+  padding: 4px 0 4px 22px !important;
+  position: relative !important;
+  text-align: left !important;
+}
+
+/* 2. Service Directory Cards (service-box-layout2) */
+.service-box-layout2 {
+  position: relative !important;
+  width: 100% !important;
+  height: 380px !important;
+  min-height: 380px !important;
+  max-height: 380px !important;
+  overflow: hidden !important;
+  border-radius: 8px !important;
+  margin-bottom: 30px !important;
+  background-color: #f1f5f9 !important;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.06) !important;
+  transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+}
+
+.service-box-layout2:hover {
+  transform: translateY(-4px) !important;
+  box-shadow: 0 12px 30px rgba(20, 40, 123, 0.14) !important;
+}
+
+.service-box-layout2 .item-img {
+  width: 100% !important;
+  height: 100% !important;
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  overflow: hidden !important;
+}
+
+.service-box-layout2 .item-img img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: center !important;
+  display: block !important;
+  transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1) !important;
+}
+
+.service-box-layout2:hover .item-img img {
+  transform: scale(1.08) !important;
+}
+
+.service-box-layout2 .item-content {
+  position: absolute !important;
+  bottom: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  background: linear-gradient(180deg, rgba(255,255,255,0.92) 0%, #ffffff 100%) !important;
+  border-radius: 0 0 8px 8px !important;
+  padding: 45px 20px 20px !important;
+  transform: translateY(calc(100% - 95px)) !important;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.3s ease !important;
+  z-index: 3 !important;
+}
+
+.service-box-layout2:hover .item-content {
+  transform: translateY(0) !important;
+  background: rgba(255, 255, 255, 0.97) !important;
+  padding: 55px 22px 25px !important;
+}
+
+.service-box-layout2 .item-content .item-icon {
+  position: absolute !important;
+  top: -36px !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+}
+
+.service-box-layout2 .item-content .item-icon .icon-bg {
+  width: 72px !important;
+  height: 72px !important;
+  line-height: 72px !important;
+  border-radius: 50% !important;
+  background-color: #14287b !important;
+  box-shadow: 0 4px 14px rgba(20, 40, 123, 0.25) !important;
+  transition: background-color 0.3s ease !important;
+}
+
+.service-box-layout2:hover .item-content .item-icon .icon-bg {
+  background-color: #008817 !important;
+}
+
+/* 3. Service Detail Hero & Feature Images */
+.single-service-box-layout1 .main-img {
+  width: 100% !important;
+  height: 420px !important;
+  max-height: 420px !important;
+  overflow: hidden !important;
+  border-radius: 8px !important;
+  margin-bottom: 32px !important;
+  background-color: #f1f5f9 !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06) !important;
+}
+
+.single-service-box-layout1 .main-img img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: center !important;
+  display: block !important;
+}
+
+.single-service-box-layout1 .service-content .service-more-content .item-img {
+  width: 100% !important;
+  height: 280px !important;
+  max-height: 280px !important;
+  overflow: hidden !important;
+  border-radius: 8px !important;
+  margin-bottom: 24px !important;
+  background-color: #f1f5f9 !important;
+}
+
+.single-service-box-layout1 .service-content .service-more-content .item-img img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: center !important;
+  display: block !important;
+}
+
+/* Responsive Image Breakpoints */
+@media (max-width: 767px) {
+  .service-box-layout1 .item-img {
+    height: 220px !important;
+    min-height: 220px !important;
+    max-height: 220px !important;
+  }
+  .service-box-layout2 {
+    height: 360px !important;
+    min-height: 360px !important;
+    max-height: 360px !important;
+  }
+  .single-service-box-layout1 .main-img {
+    height: 260px !important;
+    max-height: 260px !important;
+  }
+  .single-service-box-layout1 .service-content .service-more-content .item-img {
+    height: 200px !important;
+    max-height: 200px !important;
+  }
+}
+
+/* Scroll-up suppression during mobile navigation */
+body.mobile-menu-open #scrollUp,
+.mean-container:has(a.meanmenu-reveal.meanclose) ~ #scrollUp {
+  display: none !important;
+}
+
+/* ==========================================================================
+   EcoCare Leadership & Team — Template Image Fitting
+   - Preserves Clenix native circular bubble layout, blue disc & bubble graphics
+   - Normalizes non-square authentic photos to crisp, perfectly round 250px circles
+   - Calibrates vertical focal points to keep faces, smock, and attire centered
+   ========================================================================== */
+.team-box-layout1 .item-img {
+  width: 250px !important;
+  height: 250px !important;
+  margin: 0 auto 28px !important;
+  position: relative !important;
+}
+
+.team-box-layout1 .item-img img {
+  width: 250px !important;
+  height: 250px !important;
+  border-radius: 50% !important;
+  object-fit: cover !important;
+  display: block !important;
+}
+
+.team-box-layout1 .item-img img.ceo-img {
+  object-position: center 15% !important;
+}
+
+.team-box-layout1 .item-img img.accountant-img {
+  object-position: center 12% !important;
+}
+
+.team-box-layout1 .item-img img.team-img {
+  object-position: center center !important;
+}
+
 @media only screen and (max-width: 767px) {
-  .process-box-layout1 .item-bg .item-icon i,
-  .process-box-layout1 .item-bg .item-icon i:before,
-  .process-box-layout1 .item-bg .item-icon i:after {
-    font-size: 48px !important;
-  }
-}
-@media only screen and (max-width: 991px) {
-  .single-process .process-box-layout1 {
-    padding: 0 15px;
-    margin-bottom: 2.5rem;
+  .team-box-layout1 {
+    padding: 0 2rem !important;
   }
 }
 
 
 
+
+
+/* ==========================================================================
+   EcoCare Project Showcase & Portfolio Styling
+   ========================================================================== */
+.project-box-layout1 {
+  background: #ffffff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.07);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  margin-bottom: 30px;
+  height: calc(100% - 30px);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.project-box-layout1:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 28px rgba(20, 40, 123, 0.15);
+}
+
+.project-box-layout1 .item-img {
+  height: 250px;
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 0;
+  background-color: #0b1528;
+}
+
+.project-box-layout1 .item-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.5s ease;
+  display: block;
+}
+
+.project-box-layout1:hover .item-img img {
+  transform: scale(1.06);
+}
+
+.project-media-badges {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  z-index: 3;
+  display: flex;
+  gap: 6px;
+  pointer-events: none;
+}
+
+.project-badge {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 4px 10px;
+  border-radius: 20px;
+  color: #ffffff;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+}
+
+.project-badge-video {
+  background: rgba(220, 38, 38, 0.88);
+}
+
+.project-badge-photo {
+  background: rgba(20, 40, 123, 0.82);
+}
+
+.project-box-layout1 .item-img .hover-icon-wrap {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  transform: translateY(-50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  z-index: 4;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+}
+
+.project-box-layout1:hover .item-img .hover-icon-wrap {
+  opacity: 1;
+  visibility: visible;
+}
+
+.project-box-layout1 .item-img .hover-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: #ffffff;
+  color: #14287b;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.project-box-layout1 .item-img .hover-icon:hover {
+  background: #287ff9;
+  color: #ffffff;
+  transform: scale(1.1);
+}
+
+.project-box-layout1 .item-content {
+  padding: 22px 20px 18px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.project-box-layout1 .item-content .item-title {
+  font-size: 19px;
+  font-weight: 700;
+  margin-bottom: 8px;
+  line-height: 1.35;
+}
+
+.project-box-layout1 .item-content .item-title a {
+  color: #14287b;
+  transition: color 0.2s ease;
+}
+
+.project-box-layout1 .item-content .item-title a:hover {
+  color: #287ff9;
+}
+
+.project-item-desc {
+  font-size: 14px;
+  line-height: 1.55;
+  color: #64748b;
+  margin-bottom: 14px;
+  flex-grow: 1;
+}
+
+.project-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid #f1f5f9;
+  padding-top: 12px;
+}
+
+.project-card-footer .item-tag a {
+  font-size: 12.5px;
+  color: #64748b;
+  font-weight: 500;
+}
+
+.project-card-footer .item-tag a:hover {
+  color: #14287b;
+}
+
+.project-read-more {
+  font-size: 13px;
+  font-weight: 600;
+  color: #287ff9;
+  display: inline-flex;
+  align-items: center;
+  transition: transform 0.2s ease;
+}
+
+.project-read-more:hover {
+  transform: translateX(3px);
+  color: #14287b;
+}
+
+/* Single Project Carousel & Video Box */
+.single-project-box-layout1 .single-project-slider .slide-item img {
+  border-radius: 8px;
+  width: 100%;
+  height: 480px;
+  object-fit: cover;
+  object-position: center;
+}
+
+@media only screen and (max-width: 767px) {
+  .single-project-box-layout1 .single-project-slider .slide-item img {
+    height: 280px;
+  }
+}
+
+.project-video-showcase {
+  background: #0f172a;
+  border-radius: 12px;
+  padding: 24px;
+  margin: 35px 0;
+  color: #ffffff;
+}
+
+.project-video-showcase .video-title-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.project-video-showcase .video-heading {
+  font-size: 20px;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0;
+}
+
+.project-video-showcase .video-player-frame {
+  width: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #000000;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+}
+
+.project-video-showcase video {
+  width: 100%;
+  max-height: 480px;
+  display: block;
+}
+
+.project-video-switcher {
+  display: flex;
+  gap: 10px;
+  margin-top: 16px;
+  overflow-x: auto;
+  padding-bottom: 6px;
+}
+
+.project-video-thumb-btn {
+  background: #1e293b;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 6px;
+  color: #cbd5e1;
+  padding: 8px 14px;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.2s ease;
+}
+
+.project-video-thumb-btn:hover,
+.project-video-thumb-btn.active {
+  background: #287ff9;
+  border-color: #287ff9;
+  color: #ffffff;
+}
+
+/* EcoCare Media Lightbox / Modal */
+.ecocare-media-modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(10, 20, 40, 0.92);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 99999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  padding: 20px;
+}
+
+.ecocare-media-modal-backdrop.is-active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.ecocare-media-modal-container {
+  background: #0f172a;
+  border-radius: 12px;
+  overflow: hidden;
+  max-width: 900px;
+  width: 100%;
+  max-height: 92vh;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.6);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  transform: scale(0.95);
+  transition: transform 0.3s ease;
+}
+
+.ecocare-media-modal-backdrop.is-active .ecocare-media-modal-container {
+  transform: scale(1);
+}
+
+.ecocare-media-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 20px;
+  background: #1e293b;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.ecocare-media-modal-title {
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.ecocare-media-modal-close {
+  background: transparent;
+  border: none;
+  color: #94a3b8;
+  font-size: 24px;
+  cursor: pointer;
+  padding: 0 6px;
+  line-height: 1;
+  transition: color 0.2s ease;
+}
+
+.ecocare-media-modal-close:hover {
+  color: #ffffff;
+}
+
+.ecocare-media-modal-body {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #020617;
+  max-height: calc(92vh - 120px);
+  overflow: hidden;
+}
+
+.ecocare-media-modal-body video {
+  width: 100%;
+  max-height: calc(92vh - 120px);
+  object-fit: contain;
+  background: #000000;
+  outline: none;
+}
+
+.ecocare-media-modal-body img {
+  width: auto;
+  max-width: 100%;
+  max-height: calc(92vh - 120px);
+  object-fit: contain;
+}
+
+.ecocare-media-modal-footer {
+  padding: 12px 20px;
+  background: #1e293b;
+  color: #94a3b8;
+  font-size: 13.5px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* EcoCare Booking Confirmation & WhatsApp Dispatch Receipt */
+.ecocare-booking-receipt {
+  animation: ecocareFadeSlideUp 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes ecocareFadeSlideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.ecocare-booking-receipt .btn {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.ecocare-booking-receipt .btn:hover {
+  transform: translateY(-2px);
+}

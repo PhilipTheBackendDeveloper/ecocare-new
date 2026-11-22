@@ -172,8 +172,8 @@ def test_sitemaps_and_robots():
         fail(f"XML parsing error in root sitemap.xml: {e}")
 
     locs = [elem.text for elem in root.findall("{http://www.sitemaps.org/schemas/sitemap/0.9}url/{http://www.sitemaps.org/schemas/sitemap/0.9}loc")]
-    if len(locs) != 19:
-        fail(f"Root sitemap should contain exactly 19 canonical indexable URLs, found {len(locs)}")
+    if len(locs) != 18:
+        fail(f"Root sitemap should contain exactly 18 canonical indexable URLs, found {len(locs)}")
     for url in locs:
         if not url.startswith("https://ecocaregh.com/"):
             fail(f"Invalid non-canonical URL in sitemap: {url}")

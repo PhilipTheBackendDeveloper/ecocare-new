@@ -223,11 +223,28 @@ module.exports = async function handler(req, res) {
 
     const emailResult = await dispatchEmail(submissionRecord);
 
-    // Pre-filled WhatsApp link for instant estimate discussion
+    // Pre-filled WhatsApp links for instant estimate discussion (Lines 1 & 2)
     const waText = encodeURIComponent(
-      `Hello EcoCare! My name is ${name}. I just requested an estimate on your website for ${service} at ${location}. Property details: ${propertyType}, ${size}. Preferred date: ${preferredDate || "Flexible"}. Notes: ${notes.slice(0, 120)}... Contact: ${phone}.`
+      `✨ *NEW ECOCARE BOOKING REQUEST* ✨\n` +
+      `--------------------------------\n` +
+      `👤 *Customer:* ${name}\n` +
+      `📞 *Phone:* ${phone}\n` +
+      `✉️ *Email:* ${email || "Not provided"}\n\n` +
+      `🧹 *Service:* ${service}\n` +
+      `🏢 *Property:* ${propertyType}\n` +
+      `📐 *Size / Scope:* ${size}\n` +
+      `🛏️ *Bedrooms:* ${rooms}\n` +
+      `🚿 *Bathrooms:* ${bathrooms}\n` +
+      `🔄 *Frequency:* ${frequency}\n` +
+      `📍 *Location:* ${location}\n` +
+      `📅 *Preferred Date:* ${preferredDate || "Flexible"}\n` +
+      `⏰ *Preferred Time:* ${preferredTime || "Flexible"}\n\n` +
+      `📝 *Notes & Requirements:*\n${notes}\n` +
+      `--------------------------------\n` +
+      `_Sent from EcoCare Ghana Website_`
     );
     const whatsappUrl = `https://wa.me/233249014253?text=${waText}`;
+    const whatsappUrl2 = `https://wa.me/233243807100?text=${waText}`;
 
     const maskedPhone = phone ? phone.replace(/\D/g, "").slice(0, 3) + "****" + phone.replace(/\D/g, "").slice(-2) : "N/A";
     const maskedEmail = email ? email.slice(0, 2) + "***" + email.slice(email.indexOf("@")) : "N/A";
@@ -245,6 +262,7 @@ module.exports = async function handler(req, res) {
         receivedAt,
         emailDispatched: emailResult.sent,
         whatsappUrl,
+        whatsappUrl2,
       },
     });
   } catch (err) {

@@ -1,16 +1,46 @@
 {
   "cleanUrls": true,
   "trailingSlash": false,
+  "redirects": [
+    { "source": "/packages", "destination": "/services", "permanent": true },
+    { "source": "/pricing-table(.html)?", "destination": "/services", "permanent": true },
+    { "source": "/index2(.html)?", "destination": "/", "permanent": true },
+    { "source": "/index3(.html)?", "destination": "/", "permanent": true },
+    { "source": "/index4(.html)?", "destination": "/", "permanent": true },
+    { "source": "/about2(.html)?", "destination": "/about", "permanent": true },
+    { "source": "/service2(.html)?", "destination": "/services", "permanent": true },
+    { "source": "/blog1(.html)?", "destination": "/", "permanent": true },
+    { "source": "/blog2(.html)?", "destination": "/", "permanent": true },
+    { "source": "/single-blog1(.html)?", "destination": "/", "permanent": true },
+    { "source": "/shop(.html)?", "destination": "/services", "permanent": true },
+    { "source": "/single-product(.html)?", "destination": "/services", "permanent": true },
+    { "source": "/team1(.html)?", "destination": "/about", "permanent": true },
+    { "source": "/team2(.html)?", "destination": "/about", "permanent": true },
+    { "source": "/single-team(.html)?", "destination": "/about", "permanent": true }
+  ],
   "headers": [
     {
       "source": "/(.*)",
       "headers": [
         { "key": "X-Robots-Tag", "value": "noindex, nofollow" }
       ]
+    },
+    {
+      "source": "/(img|font|webfonts)/(.*)",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=2592000, immutable" }
+      ]
+    },
+    {
+      "source": "/(css|js)/(.*)",
+      "headers": [
+        { "key": "Cache-Control", "value": "public, max-age=604800" }
+      ]
     }
   ],
   "rewrites": [
     { "source": "/", "destination": "/index.html" },
+    { "source": "/favicon.ico", "destination": "/img/favicon.png" },
     { "source": "/about", "destination": "/about1.html" },
     { "source": "/services", "destination": "/service1.html" },
     { "source": "/cleaning", "destination": "/single-service1.html" },
@@ -23,7 +53,6 @@
     { "source": "/car-detailing", "destination": "/car-interior-cleaning.html" },
     { "source": "/car-detailing-and-cleaning", "destination": "/car-interior-cleaning.html" },
     { "source": "/professional-dusting", "destination": "/professional-dusting.html" },
-    { "source": "/packages", "destination": "/pricing-table.html" },
     { "source": "/projects", "destination": "/project1.html" },
     { "source": "/faq", "destination": "/faq.html" },
     { "source": "/contact", "destination": "/contact.html" },

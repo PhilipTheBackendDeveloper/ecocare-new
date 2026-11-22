@@ -105,7 +105,8 @@ async function runTests() {
     assert.strictEqual(res.getStatusCode(), 200, "Status must be 200");
     const data = res.getData();
     assert.strictEqual(data.success, true);
-    assert.ok(data.data.whatsappUrl.includes("233249014253"), "WhatsApp URL must point to EcoCare number");
+    assert.ok(data.data.whatsappUrl.includes("233249014253"), "WhatsApp URL must point to EcoCare Line 1 (+233 24 901 4253)");
+    assert.ok(data.data.whatsappUrl2.includes("233243807100"), "WhatsApp URL 2 must point to EcoCare Line 2 (+233 24 380 7100)");
   });
 
   await asyncTest("Valid contact submission with local Ghana phone format (0243807100)", async () => {
@@ -122,6 +123,8 @@ async function runTests() {
     await contactHandler(req, res);
     assert.strictEqual(res.getStatusCode(), 200);
     assert.strictEqual(res.getData().success, true);
+    assert.ok(res.getData().data.whatsappUrl.includes("233249014253"), "Must support Line 1");
+    assert.ok(res.getData().data.whatsappUrl2.includes("233243807100"), "Must support Line 2");
   });
 
   await asyncTest("Spam Honeypot: Bot filling website_url must be caught and disarmed", async () => {
@@ -243,7 +246,10 @@ async function runTests() {
     const data = res.getData();
     assert.strictEqual(data.success, true);
     assert.strictEqual(data.data.service, "residential");
+    assert.ok(data.data.whatsappUrl.includes("233249014253"), "WhatsApp URL must point to Line 1 (+233 24 901 4253)");
+    assert.ok(data.data.whatsappUrl2.includes("233243807100"), "WhatsApp URL 2 must point to Line 2 (+233 24 380 7100)");
     assert.ok(data.data.whatsappUrl.includes("East%20Legon"), "WhatsApp URL must contain location");
+    assert.ok(data.data.whatsappUrl2.includes("East%20Legon"), "WhatsApp URL 2 must contain location");
   });
 
   await asyncTest("Quote validation error: Missing location in Accra must return 400", async () => {

@@ -319,7 +319,7 @@ These names and reviews are a **source inventory only**; none have been independ
 
 **Trust:** real staff/vehicle/equipment photos, approved client logo list, permission for testimonials, real before/after projects and permission to use images.
 
-**Operations:** whether booking should request a quote or reserve a slot, office assignment/approval process, customer confirmation and notification responsibilities.
+**Operations:** whether booking should Book Now or reserve a slot, office assignment/approval process, customer confirmation and notification responsibilities.
 
 **Marketing:** active 30% discount, brochure PDF (if real), desired contact CTA, real social profiles, existing analytics/Google Business Profile and search keywords.
 

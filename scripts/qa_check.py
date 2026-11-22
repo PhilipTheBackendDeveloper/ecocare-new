@@ -30,7 +30,6 @@ CANONICAL_PAGES = [
     "polytank-cleaning.html",
     "car-interior-cleaning.html",
     "professional-dusting.html",
-    "pricing-table.html",
     "calculate-form.html",
     "faq.html",
     "contact.html",
@@ -43,6 +42,7 @@ CANONICAL_PAGES = [
 ]
 
 DEPRECATED_PAGES = [
+    "pricing-table.html",
     "index2.html", "index3.html", "index4.html",
     "about2.html", "service2.html",
     "blog1.html", "blog2.html", "single-blog1.html",
@@ -197,16 +197,14 @@ def run_qa():
         for warn in fw:
             print(f"      [WARN]  {warn}")
 
-    print("\n--- DEPRECATED PAGES ---")
+    print("\n--- DEPRECATED PAGES (REMOVAL VERIFICATION) ---")
     for page in DEPRECATED_PAGES:
-        fi, fw, fp = check_file(page, is_deprecated=True)
-        total_issues += len(fi)
-        total_warnings += len(fw)
-        total_passes += len(fp)
-        status = "✓ PASS" if not fi else f"✗ FAIL ({len(fi)} issues)"
-        print(f"  {status}: {page}")
-        for issue in fi:
-            print(f"      [ISSUE] {issue}")
+        if not os.path.exists(page):
+            total_passes += 1
+            print(f"  ✓ PASS (Confirmed Removed): {page}")
+        else:
+            total_issues += 1
+            print(f"  ✗ FAIL (Unused page must be removed): {page}")
 
     print("\n" + "=" * 72)
     print(f"QA SUMMARY: {total_passes} checks passed | {total_warnings} warnings | {total_issues} issues")
