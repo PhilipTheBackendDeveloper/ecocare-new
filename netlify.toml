@@ -1,21 +1,21 @@
 # EcoCare Cleaning Services Limited — Netlify Deployment Configuration
 # 
 # Public Domain Target (Production 'main'):
-#   Strictly publishes dist/coming-soon/ to https://ecocaregh.com
-#   The live 7-Day Coming Soon landing page remains undisturbed.
+#   Builds the full canonical production website into dist/production/ via scripts/build_production.py
+#   Serves all 20 canonical pages with Netlify Forms, clean URLs, and production SEO (Allow: /).
 #
 # Staging Preview Target (Deploy Previews & Branch Deploys):
 #   Builds dist/staging/ via scripts/build_staging.py
 #   Serves the complete website with Netlify Forms, clean URLs, and X-Robots-Tag: noindex.
 
 [build]
-  command = "python3 scripts/build_coming_soon.py"
-  publish = "dist/coming-soon"
+  command = "python3 scripts/build_production.py"
+  publish = "dist/production"
 
 # Production Context (Live Public Domain https://ecocaregh.com)
 [context.production]
-  command = "python3 scripts/build_coming_soon.py"
-  publish = "dist/coming-soon"
+  command = "python3 scripts/build_production.py"
+  publish = "dist/production"
 
 # Deploy Previews (Pull Requests against main)
 [context.deploy-preview]

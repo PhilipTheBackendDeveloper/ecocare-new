@@ -260,10 +260,10 @@ test("Staging robots.txt enforces Disallow: /", () => {
   assert.match(robots, /Disallow:\s*\//, "Staging robots.txt must contain Disallow: /");
 });
 
-test("Root netlify.toml preserves production coming-soon target while routing deploy previews to staging", () => {
+test("Root netlify.toml deploys full canonical production website on main and staging on deploy previews", () => {
   const netlifyToml = fs.readFileSync(path.join(ROOT, "netlify.toml"), "utf8");
-  assert.match(netlifyToml, /\[build\][\s\S]*?publish\s*=\s*"dist\/coming-soon"/, "Default build must publish dist/coming-soon");
-  assert.match(netlifyToml, /\[context\.production\][\s\S]*?publish\s*=\s*"dist\/coming-soon"/, "Production context must publish dist/coming-soon");
+  assert.match(netlifyToml, /\[build\][\s\S]*?publish\s*=\s*"dist\/production"/, "Default build must publish dist/production");
+  assert.match(netlifyToml, /\[context\.production\][\s\S]*?publish\s*=\s*"dist\/production"/, "Production context must publish dist/production");
   assert.match(netlifyToml, /\[context\.deploy-preview\][\s\S]*?publish\s*=\s*"dist\/staging"/, "Deploy preview context must publish dist/staging");
   assert.match(netlifyToml, /\[context\.branch-deploy\][\s\S]*?publish\s*=\s*"dist\/staging"/, "Branch deploy context must publish dist/staging");
 });
