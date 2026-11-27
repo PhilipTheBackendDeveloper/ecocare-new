@@ -94,32 +94,21 @@ python3 scripts/build_staging.py && node scripts/test_form_backend.js && node sc
 
 ---
 
-## 4. Production Deployment: The "GO" Command
+## 4. Production Deployment Workflow
 
-The repository uses a safe, zero-downtime release gate:
-- **Current Live State (State A):** Netlify serves `dist/coming-soon/` (7-Day countdown).
-- **Staging / Previews (State B):** Netlify Deploy Previews and Vercel serve the full website.
+The repository is configured for automated Git-driven deployments (identical to Vercel):
+- **Live Production (`main` branch):** Netlify automatically executes `python3 scripts/build_production.py` and publishes `dist/production/`. All 20 canonical pages, Netlify forms, clean URLs, and production SEO (with `Allow: /` and sitemap) deploy live to `https://ecocaregh.com/` in under 45 seconds.
+- **Deploy Previews & Branch Deploys:** Netlify builds `dist/staging/` with `X-Robots-Tag: noindex, nofollow` to protect production SEO during testing.
+- **Vercel Preview Mirrors:** Vercel automatically deploys preview environments with serverless endpoints `/api/quote` and `/api/contact`.
 
-### How to Trigger the Production Go-Live:
-When ready to switch `https://ecocaregh.com/` from Coming Soon to the Full Website, edit `netlify.toml`:
-
-```toml
-[build]
-  command = "python3 scripts/build_staging.py"
-  publish = "dist/staging"
-
-[context.production]
-  command = "python3 scripts/build_staging.py"
-  publish = "dist/staging"
-```
-
-Commit and push:
+### To Deploy to Production:
+Simply merge `feat/ecocare-four-confirmed-services` into `main` and push to GitHub:
 ```bash
-git add netlify.toml
-git commit -m "feat(release): switch live site to full production website"
-git push origin feat/ecocare-four-confirmed-services
+git checkout main
+git merge feat/ecocare-four-confirmed-services
+git push origin main
 ```
-Netlify will automatically build `dist/staging` and publish the full 20-page production website in 30 seconds.
+Netlify will automatically detect the push to `main`, compile `dist/production/`, and go live immediately.
 
 ---
 
